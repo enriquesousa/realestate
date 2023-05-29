@@ -3,8 +3,10 @@
     <a href="#" class="sidebar-toggler">
         <i data-feather="menu"></i>
     </a>
+
     <div class="navbar-content">
 
+        {{-- search --}}
         <form class="search-form">
             <div class="input-group">
                 <div class="input-group-text">
@@ -263,9 +265,9 @@
 
                         {{-- Edit Profile --}}
                         <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
+                            <a href="{{ route('admin.change.password') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="edit"></i>
-                                <span>Edit Profile</span>
+                                <span>Cambiar Contraseña</span>
                             </a>
                         </li>
 
