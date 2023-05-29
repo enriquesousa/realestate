@@ -37,6 +37,7 @@ class AdminController extends Controller
 
     // Admin Profile Store
     public function AdminProfileStore(Request $request){
+
         $id = Auth::user()->id;
         $data = User::find($id);
 
@@ -48,6 +49,7 @@ class AdminController extends Controller
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
+            unlink(public_path('upload/admin_images/'.$data->photo)); // para borrar la imagen anterior
             $filename = date('YmdHi').$file->getClientOriginalName();
             $file->move(public_path('upload/admin_images'), $filename);
             $data['photo'] = $filename; //Guardar a Base de Datos
@@ -55,7 +57,12 @@ class AdminController extends Controller
 
         $data->save();
 
-        return redirect()->back();
+        $notification = array(
+            'message' => 'Perfil de Admin Actualizado Correctamente',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
 }
