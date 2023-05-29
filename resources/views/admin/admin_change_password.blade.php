@@ -63,7 +63,7 @@
 
                         <h6 class="card-title">Admin Cambiar Contraseña</h6>
 
-                        <form method="POST" action="{{ route('admin.profile.store') }}" class="forms-sample" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.update.password') }}" class="forms-sample" enctype="multipart/form-data">
                         @csrf
 
 
