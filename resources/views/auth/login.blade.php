@@ -74,27 +74,46 @@
                         {{-- tab-2 Regístrate --}}
                         <div class="tab" id="tab-2">
                             <div class="inner-box">
-                                <h4>Sign in</h4>
-                                <form action="signin.html" method="post" class="default-form">
+                                <h4>Registrarse</h4>
+
+                                <form action="{{ route('register') }}" method="POST" class="default-form">
+                                    @csrf
+
+                                    {{-- Nombre --}}
                                     <div class="form-group">
-                                        <label>User name</label>
-                                        <input type="text" name="name" required="">
+                                        <label>Nombre</label>
+                                        <input type="text" name="name" id="name" required="">
                                     </div>
+
+                                    {{-- Email --}}
                                     <div class="form-group">
-                                        <label>Email address</label>
-                                        <input type="email" name="email" required="">
+                                        <label>Correo Electrónico</label>
+                                        <input type="email" name="email" id="email" required="">
                                     </div>
+
+                                    {{-- Password --}}
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" name="name" required="">
+                                        <label>Contraseña</label>
+                                        <input type="password" name="password" id="password" required="">
                                     </div>
+
+                                    {{-- Confirm Password --}}
+                                    <div class="form-group">
+                                        <label>Confirma Contraseña</label>
+                                        <input type="password" name="password_confirmation" id="password_confirmation" required="">
+                                    </div>
+
+                                    {{-- botón regístrate --}}
                                     <div class="form-group message-btn">
-                                        <button type="submit" class="theme-btn btn-one">Sign in</button>
+                                        <button type="submit" class="theme-btn btn-one">Regístrate</button>
                                     </div>
+
                                 </form>
+
                                 <div class="othre-text">
                                     <p>Have not any account? <a href="signup.html">Register Now</a></p>
                                 </div>
+
                             </div>
                         </div>
 
