@@ -1,5 +1,4 @@
 @extends('frontend.frontend_dashboard')
-
 @section('main')
 
 <!-- banner-section -->
