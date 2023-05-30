@@ -5,11 +5,15 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\UserController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Home User Frontend All Route
+Route::get('/', [UserController::class, 'index']);
 
 // user
 Route::get('/dashboard', function () {

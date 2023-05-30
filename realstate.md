@@ -127,11 +127,16 @@ public function authenticate(): void
 Listo!
 Ya podemos ingresas con nombre, email o phone
 
-# S4 - Admin Panel Setup
+# S4 - Admin Panel Setup## 31. Take Backup And Restore in Localhost
+Para hacer Backup de todo el proyecto:
+Primero remover y limpiar cache de laravel asi:
+- php artisan config:cache
+- php artisan cache:clear
+- php artisan view:clear
+- php artisan optimize
 ## 17. Project Theme Overview
 Descargar los recursos (bootstrap backend theme) en:
 ~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files
-
 ## 18. Admin template Setup
 Copiar todo el folder de assets:
 /home/enrique/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Backend Theme/assets
@@ -406,7 +411,6 @@ y en todas las partes donde sea necesario!
 
 Volver a cargar la pagina y par alimpiar el cache correr:
 - php artisan optimize
-
 ## 24. Admin Profile & Image Update Part 1
 Agregar la ruta a resources/views/admin/body/header.blade.php:
 ```php
@@ -444,7 +448,6 @@ Para corregir esto correr:
 ```php artisan optimize```
 Para limpiar el cache!
 Listo!
-
 ## 25. Admin Profile & Image Update Part 2
 Customizar la forma izquierda de desplegar datos de perfil.
 En resources/views/admin/admin_profile_view.blade.php:
@@ -489,7 +492,6 @@ En resources/views/admin/admin_profile_view.blade.php:
     </div>
 </div>
 ```
-
 ## 26. Admin Profile & Image Update Part 3
 Vamos a trabajar en la forma de la derecha "UPDATE ADMIN PROFILE"
 En resources/views/admin/admin_profile_view.blade.php:
@@ -635,7 +637,6 @@ En resources/views/admin/admin_profile_view.blade.php:
 ```
 Usamos java script para poder actualizar la imagen de la photo, y su usamos JS tenemos que traernos
 Jquery, el cual lo copiamos de w3 schools.
-
 ## 27. Admin Profile & Image Update Part 4
 Agregar el mrtodo de post y la ruta a la forma en resources/views/admin/admin_profile_view.blade.php
 ```php
@@ -720,7 +721,6 @@ public function AdminProfileStore(Request $request){
 }
 ```
 Listo!
-
 ## 28. Adding Tostaer In For View Message
 Agregar toaster cdn en resources/views/admin/admin_dashboard.blade.php:
 ```php
@@ -881,7 +881,6 @@ resources/views/admin/admin_change_password.blade.php
 
 </form>
 ```
-
 ## 30. Admin Profile Change Password Part 2
 Cambios en:
 - resources/views/admin/admin_change_password.blade.php
@@ -889,6 +888,8 @@ Cambios en:
 - app/Http/Controllers/AdminController.php- 
 Para los detalles ver este commit en GitHub.
 
+admin
+udemy12345
 ## 31. Take Backup And Restore in Localhost
 Para hacer Backup de todo el proyecto:
 
@@ -929,22 +930,86 @@ DB_PASSWORD=sousa1234
 - php artisan serve
 Listo!
 
+# Sección 5 - Project Frontend Template Setup
+## 32. Frontend Template Setup Part 1
+Cargar un tema para el frontend para todo los usuarios.
+Copiar el Frontend theme de:
+~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Frontend
+
+Crear nuevo controlador
+```php
+php artisan make:controller UserController
+```
+
+Copiar los assets de: ~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Frontend/assets
+a: public/frontend/assets
+
+y copiar el index a:
+resources/views/frontend/frontend_dashboard.blade.php
+
+Update loas accesos a css js e images, en resources/views/frontend/frontend_dashboard.blade.php:
+usando: {{ asset('frontend/') }}
+```php
+...
+<!-- Stylesheets -->
+<link href="{{ asset('frontend/assets/css/font-awesome-all.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/flaticon.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/owl.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/animate.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/jquery-ui.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/nice-select.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/color/theme-color.css') }}" id="jssDefault" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/switcher-style.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('frontend/assets/css/responsive.css') }}" rel="stylesheet">
+...
+<!-- jequery plugins -->
+<script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/owl.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/wow.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/validation.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/appear.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/scrollbar.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/isotope.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/jQuery.style.switcher.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/jquery-ui.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/nav-tool.js') }}"></script> 
+```
+
+En routes/web.php
+```php
+// Home User Frontend All Route
+Route::get('/', [UserController::class, 'index']); 
+```
+
+Y en app/Http/Controllers/UserController.php:
+```php
+public function index(){
+    return view('frontend.frontend_dashboard');
+} 
+```
+Antes de probar, No olvidar correr:
+```php
+php artisan optimize 
+```
+No funciono!
+
+Ya funciono!
+me estaba faltando el asset:
+```php 
+<!-- main-js -->
+<script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+```
+
+También actualice todos las {{ asset('frontend/) }} para todas las images de la pagina, que son como 50!
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 
 
 
