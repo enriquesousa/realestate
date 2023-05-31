@@ -1,6 +1,9 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Funcionalidad con la imagen --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <!--Page Title-->
 <section class="page-title centred" style="background-image: url({{ asset('frontend/assets/images/background/page-title-5.jpg') }});">
     <div class="auto-container">
@@ -39,8 +42,11 @@
 
                         <div class="post-inner">
                             <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html">
-                                <img src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo) : url('upload/no_image.jpg') }}" alt=""></a></figure>
+                                <figure class="post-thumb">
+                                    <a href="blog-details.html">
+                                        <img src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo) : url('upload/no_image.jpg') }}" alt="">
+                                    </a>
+                                </figure>
                                 <h5><a href="blog-details.html">{{ $userData->name }}</a></h5>
                                 <p>{{ $userData->email }}</p>
                             </div>
@@ -71,7 +77,8 @@
 
                             <div class="lower-content">
 
-                                <form action="signin.html" method="post" class="default-form">
+                                <form method="POST" action="{{ route('user.profile.store') }}" class="default-form" enctype="multipart/form-data">
+                                @csrf
 
                                     {{-- Username --}}
                                     <div class="form-group">
@@ -103,10 +110,16 @@
                                         <input type="text" name="address" value="{{ $userData->address }}">
                                     </div>
 
-                                    {{-- Imagen --}}
+                                    {{-- Seleccionar Imagen --}}
                                     <div class="form-group">
                                         <label for="formFile" class="form-label">Default file input example</label>
-                                        <input class="form-control" name="photo" type="file" id="formFile">
+                                        <input class="form-control" name="photo" type="file" id="image">
+                                    </div>
+
+                                    {{-- Display Imagen --}}
+                                    <div class="form-group">
+                                        <label for="formFile" class="form-label"></label>
+                                        <img id="showImage" src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo) : url('upload/no_image.jpg') }}" alt="" style="width: 100px; height: 100px;">
                                     </div>
 
 
@@ -157,5 +170,20 @@
     </div>
 </section>
 <!-- subscribe-section end -->
+
+{{-- Funcionalidad con la imagen --}}
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        });
+    });
+
+</script>
 
 @endsection
