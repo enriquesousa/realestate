@@ -42,7 +42,12 @@ class UserController extends Controller
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
-            unlink(public_path('upload/user_images/' . $data->photo)); // para borrar la imagen anterior
+
+            // dd($data->photo); //regresa null si es la primera vez (si no hay foto)
+            if (!empty($data->photo)) {
+                unlink(public_path('upload/user_images/' . $data->photo)); // para borrar la imagen anterior
+            }
+
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/user_images'), $filename);
             $data['photo'] = $filename; //Guardar a Base de Datos
@@ -68,5 +73,52 @@ class UserController extends Controller
         return redirect('/login');
 
     }
+
+    // User Change Password
+    public function UserChangePassword()
+    {
+
+        return view('frontend.dashboard.change_password');
+
+    }
+
+     // User Update Password
+     public function UserPasswordUpdate(Request $request)
+     {
+
+         // Validation
+         $request->validate([
+
+             'old_password' => 'required',
+             'new_password' => 'required|confirmed'
+
+         ]);
+
+
+         // Match The Old Password
+         if (!Hash::check($request->old_password, auth::user()->password)) {
+             $notification = array(
+                 'message' => 'Contraseña Vieja NO coincide!',
+                 'alert-type' => 'error'
+             );
+             return back()->with($notification);
+         }
+
+         // Update The New Password
+         User::whereId(auth()->user()->id)->update([
+             'password' => Hash::make($request->new_password)
+         ]);
+
+         $notification = array(
+             'message' => 'La Contraseña se ha actualizado con éxito!',
+             'alert-type' => 'success'
+         );
+
+         return back()->with($notification);
+
+     }
+
+
+
 
 }

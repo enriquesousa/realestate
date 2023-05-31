@@ -1616,11 +1616,25 @@ Para que no falle la linea:
 unlink(public_path('upload/user_images/' . $data->photo)); // para borrar la imagen anterior
 La primera vez tenemos que comentarla, para salvar por lo menos una imagen.
 Ya que este salvada la primer imagen ya podemos des-comentarla.
+
+Para arreglar este problema usar:
+```php
+// dd($data->photo); //regresa null si es la primera vez (si no hay foto)
+if (!empty($data->photo)) {
+    unlink(public_path('upload/user_images/' . $data->photo)); // para borrar la imagen anterior
+}
+```
 ## 40. User Logout Option
 User Logout
 - resources/views/frontend/dashboard/dashboard_sidebar.blade.php
 - routes/web.php
 - app/Http/Controllers/UserController.php
+## 41. User Profile Password Change
+Cambiar Contraseña
+- resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+- routes/web.php
+- app/Http/Controllers/UserController.php
+- resources/views/frontend/dashboard/change_password.blade.php
 
 
 

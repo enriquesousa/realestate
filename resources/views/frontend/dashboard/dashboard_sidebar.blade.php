@@ -3,7 +3,7 @@
 
     <ul class="category-list ">
 
-        <li class="current"> <a href="blog-details.html"><i class="fab fa fa-envelope "></i> Dashboard</a></li>
+        <li class="current"> <a href="{{ route('dashboard') }}"><i class="fab fa fa-envelope "></i> Panel</a></li>
 
         <li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
 
@@ -13,9 +13,9 @@
 
         <li><a href="blog-details.html"><i class="fa fa-indent" aria-hidden="true"></i> Add a Property</a></li>
 
-        <li><a href="blog-details.html"><i class="fa fa-key" aria-hidden="true"></i> Security</a></li>
+        <li><a href="{{ route('user.change.password') }}"><i class="fa fa-key" aria-hidden="true"></i> Cambiar Contraseña</a></li>
 
-        <li><a href="{{ route('user.logout') }}"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i> Logout</a></li>
+        <li><a href="{{ route('user.logout') }}"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i> Cerrar Sesión</a></li>
 
     </ul>
 
