@@ -1849,7 +1849,11 @@ Listo!
 ## 45. Property Type Crud Part 2
 - resources/views/backend/type/all_type.blade.php
 - resources/views/admin/admin_dashboard.blade.php
-
+## 46. Property Type Crud Part 3
+- resources/views/backend/type/all_type.blade.php
+- routes/web.php
+- app/Http/Controllers/Backend/PropertyTypeController.php
+- resources/views/backend/type/add_type.blade.php
 
 
 
