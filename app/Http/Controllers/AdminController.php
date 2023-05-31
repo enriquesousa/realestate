@@ -88,6 +88,7 @@ class AdminController extends Controller
 
         // Validation
         $request->validate([
+
             'old_password' => 'required',
             'new_password' => 'required|confirmed'
 
