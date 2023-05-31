@@ -9,10 +9,10 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>Sign In</h1>
+            <h1>Iniciar sesión</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="index.html">Home</a></li>
-                <li>Sign In</li>
+                <li>Iniciar sesión</li>
             </ul>
         </div>
     </div>
@@ -34,7 +34,7 @@
                     <div class="tab-btn-box">
                         <ul class="tab-btns tab-buttons centred clearfix">
                             <li class="tab-btn active-btn" data-tab="#tab-1">Acceso</li>
-                            <li class="tab-btn" data-tab="#tab-2"> Regístrate </li>
+                            <li class="tab-btn" data-tab="#tab-2"> Regístrate</li>
                         </ul>
                     </div>
 
@@ -66,7 +66,7 @@
 
                                 </form>
                                 <div class="othre-text">
-                                    <p>Have not any account? <a href="signup.html">Register Now</a></p>
+                                    <p>No tienes una cuenta? <a href="#">Da Click en pestaña de Regístrate</a></p>
                                 </div>
                             </div>
                         </div>
@@ -109,10 +109,6 @@
                                     </div>
 
                                 </form>
-
-                                <div class="othre-text">
-                                    <p>Have not any account? <a href="signup.html">Register Now</a></p>
-                                </div>
 
                             </div>
                         </div>
