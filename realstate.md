@@ -1846,9 +1846,9 @@ Route::middleware(['auth','role:admin'])->group(function(){
 }); 
 ```
 Listo!
-
-
-
+## 45. Property Type Crud Part 2
+- resources/views/backend/type/all_type.blade.php
+- resources/views/admin/admin_dashboard.blade.php
 
 
 
