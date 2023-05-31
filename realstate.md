@@ -1568,6 +1568,7 @@ public function create(): View
 
 # Sección 6 - Project Frontend User Profile Setup
 ## 37. User Profile Design Part 1
+Setup Theme Page
 Tomar:
 ~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Frontend/my-profile.html
 
@@ -1593,6 +1594,7 @@ Y copiar solo estas tres secciones en resources/views/dashboard.blade.php:
 ``` 
 Las modificaciones las podemos ver en este commit en github
 ## 38. User Profile Design Part 2
+Display User
 Archivos que modifique:
 - resources/views/dashboard.blade.php
 - app/Http/Controllers/UserController.php
@@ -1600,6 +1602,7 @@ Archivos que modifique:
 - routes/web.php
 - resources/views/frontend/dashboard/dashboard_sidebar.blade.php
 ## 39. User Profile Design Part 3
+Update User
 Archivos que modifique:
 - app/Http/Controllers/UserController.php
 - resources/views/frontend/frontend_dashboard.blade.php
@@ -1613,6 +1616,11 @@ Para que no falle la linea:
 unlink(public_path('upload/user_images/' . $data->photo)); // para borrar la imagen anterior
 La primera vez tenemos que comentarla, para salvar por lo menos una imagen.
 Ya que este salvada la primer imagen ya podemos des-comentarla.
+## 40. User Logout Option
+User Logout
+- resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+- routes/web.php
+- app/Http/Controllers/UserController.php
 
 
 
