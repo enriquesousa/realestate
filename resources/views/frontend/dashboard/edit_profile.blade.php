@@ -1,7 +1,6 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
-
 <!--Page Title-->
 <section class="page-title centred" style="background-image: url({{ asset('frontend/assets/images/background/page-title-5.jpg') }});">
     <div class="auto-container">
@@ -29,6 +28,7 @@
             @endphp
 
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+
                 <div class="blog-sidebar">
 
                     {{-- Datos de Perfil de Usuario --}}
@@ -62,65 +62,65 @@
                 </div>
             </div>
 
+
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+
                 <div class="blog-details-content">
                     <div class="news-block-one">
                         <div class="inner-box">
 
                             <div class="lower-content">
 
-                                <h3>Including Animation In Your Design System.</h3>
+                                <form action="signin.html" method="post" class="default-form">
 
-                                <div class="row">
-
-                                    <div class="col-lg-4">
-                                        <div class="card-body" style="background-color: #1baf65;">
-                                            <h1 class="card-title" style="color: white; font-weight: bold;">0
-                                            </h1>
-                                            <h5 class="card-text" style="color: white;"> Approved properties
-                                            </h5>
-
-                                        </div>
+                                    {{-- Username --}}
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" name="username" value="{{ $userData->username }}">
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div class="card-body" style="background-color: #ffc107;">
-                                            <h1 class="card-title" style="color: white; font-weight: bold; ">0
-                                            </h1>
-                                            <h5 class="card-text" style="color: white;"> Pending approve
-                                                properties</h5>
-
-                                        </div>
+                                    {{-- Name --}}
+                                    <div class="form-group">
+                                        <label>Nombre</label>
+                                        <input type="text" name="name" value="{{ $userData->name }}">
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <div class="card-body" style="background-color: #002758;">
-                                            <h1 class="card-title" style="color: white; font-weight: bold;">0
-                                            </h1>
-                                            <h5 class="card-text" style="color: white; "> Rejected properties
-                                            </h5>
-
-                                        </div>
+                                    {{-- Email --}}
+                                    <div class="form-group">
+                                        <label>Correo Electrónico</label>
+                                        <input type="email" name="email" value="{{ $userData->email }}">
                                     </div>
 
-                                </div>
+                                    {{-- Phone --}}
+                                    <div class="form-group">
+                                        <label>Teléfono</label>
+                                        <input type="text" name="phone" value="{{ $userData->phone }}">
+                                    </div>
+
+                                    {{-- Address --}}
+                                    <div class="form-group">
+                                        <label>Dirección</label>
+                                        <input type="text" name="address" value="{{ $userData->address }}">
+                                    </div>
+
+                                    {{-- Imagen --}}
+                                    <div class="form-group">
+                                        <label for="formFile" class="form-label">Default file input example</label>
+                                        <input class="form-control" name="photo" type="file" id="formFile">
+                                    </div>
+
+
+                                    <div class="form-group message-btn">
+                                        <button type="submit" class="theme-btn btn-one">Save Changes</button>
+                                    </div>
+                                </form>
+
+
 
                             </div>
                         </div>
                     </div>
 
-                </div>
-
-                <div class="blog-details-content">
-
-                    <div class="news-block-one">
-                        <div class="inner-box">
-                            <div class="lower-content">
-                                <h3>Activity Logs</h3>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -131,7 +131,6 @@
     </div>
 </section>
 <!-- sidebar-page-container -->
-
 
 <!-- subscribe-section -->
 <section class="subscribe-section bg-color-3">
@@ -158,6 +157,5 @@
     </div>
 </section>
 <!-- subscribe-section end -->
-
 
 @endsection

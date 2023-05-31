@@ -1592,6 +1592,14 @@ Y copiar solo estas tres secciones en resources/views/dashboard.blade.php:
 @endsection
 ``` 
 Las modificaciones las podemos ver en este commit en github
+## 38. User Profile Design Part 2
+Archivos que modifique:
+- resources/views/dashboard.blade.php
+- app/Http/Controllers/UserController.php
+- resources/views/frontend/dashboard/edit_profile.blade.php
+- routes/web.php
+- resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+
 
 
 
