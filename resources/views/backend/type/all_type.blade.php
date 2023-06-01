@@ -38,7 +38,7 @@
                                     <td>{{ $item->type_icon }}</td>
                                     <td>
                                         <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="" class="btn btn-inverse-danger">Borrar</a>
+                                        <a href="{{ route('delete.type',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
                                     </td>
                                 </tr>
                                 @endforeach
