@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\PropertyType;
+use App\Models\Amenities;
 
 class PropertyTypeController extends Controller
 {
+    /*
+    ***** Property Type todos los metodos *****
+    */
+
     // Tomar todos los datos de la tabla property_types
     public function AllType(){
 
@@ -87,5 +92,23 @@ class PropertyTypeController extends Controller
         return redirect()->back()->with($notification);
 
     }
+
+
+    /*
+    ***** Amenities todos los metodos *****
+    */
+
+    // All Amenities
+    public function AllAmenities(){
+
+        $amenities = Amenities::latest()->get();
+        return view('backend.amenities.all_amenities', compact('amenities'));
+    }
+
+    // Añadir AddAmenities
+    public function AddAmenities(){
+        return view('backend.amenities.add_amenities');
+    }
+
 
 }

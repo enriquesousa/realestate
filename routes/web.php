@@ -57,16 +57,24 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 // Admin group middleware
 Route::middleware(['auth','role:admin'])->group(function(){
 
-    // Property All Routes
+    // Property Type All Routes
     Route::controller(PropertyTypeController::class)->group(function(){
-
         Route::get('/all/type', 'AllType')->name('all.type');
         Route::get('/add/type', 'AddType')->name('add.type');
         Route::post('/store/type', 'StoreType')->name('store.type');
         Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
         Route::post('/update/type', 'UpdateType')->name('update.type');
         Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
+    });
 
+    // Amenities All Routes
+    Route::controller(PropertyTypeController::class)->group(function(){
+        Route::get('/all/amenities', 'AllAmenities')->name('all.amenities');
+        Route::get('/add/amenities', 'AddAmenities')->name('add.amenities');
+        Route::post('/store/type', 'StoreType')->name('store.type');
+        Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
+        Route::post('/update/type', 'UpdateType')->name('update.type');
+        Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
     });
 
 });

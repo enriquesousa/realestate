@@ -1895,13 +1895,58 @@ Y en resources/views/backend/type/all_type.blade.php usar el id="delete"
 ```php
 <td>
     <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-    <a href="" class="btn btn-inverse-danger" id="delete">Borrar</a>
-</td> 
+    <a href="{{ route('delete.type',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+</td>
 ```
 Ahora ya podemos usar nuestro mensaje con sweet alert 2.
 Para modificar los mensajes solo editarlos en public/backend/assets/js/code/code.js
 
+En routes/web.php
+```php
+Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type'); 
+```
 
+En app/Http/Controllers/Backend/PropertyTypeController.php
+```php
+// Delete Type
+public function DeleteType($id){
+
+    PropertyType::findOrFail($id)->delete();
+
+    $notification = array(
+        'message' => 'Property Type se elimino con éxito!',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification);
+
+} 
+```
+Listo!
+
+# Sección 8 - Project Backend Property Amenities
+## 49. Amenities Crud Part 1
+Crear una nueva tabla y su modelo
+```php
+php artisan make:model Amenities -m 
+```
+Agregar un solo campo, en database/migrations/2023_06_01_151806_create_amenities_table.php
+```php
+$table->string('amenities_name'); 
+```
+En en modelo hacer fillable todos los campos, app/Models/Amenities.php
+```php
+protected $guarded = []; 
+```
+Hacer la migracion:
+```php
+php artisan migrate 
+```
+Varios archivos mas ver este commit en github
+## 50. Add Validation Message
+
+
+## 51. Amenities Crud Part 2
 
 
 
