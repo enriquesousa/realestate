@@ -23,7 +23,7 @@ class PropertyTypeController extends Controller
         return view('backend.type.all_type', compact('types'));
     }
 
-    // Anadir un Property Type
+    // Añadir un Property Type
     public function AddType(){
 
         return view('backend.type.add_type');
@@ -108,6 +108,61 @@ class PropertyTypeController extends Controller
     // Añadir AddAmenities
     public function AddAmenities(){
         return view('backend.amenities.add_amenities');
+    }
+
+    // Store Amenities
+    public function StoreAmenities(Request $request){
+
+        Amenities::insert([
+            'amenities_name' => $request->amenities_name,
+        ]);
+
+        $notification = array(
+            'message' => 'Nuevo Amenities Creada con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.amenities')->with($notification);
+    }
+
+    // Edit Amenities
+    public function EditAmenities($id){
+
+        $amenities = Amenities::findOrFail($id);
+
+        return view('backend.amenities.edit_amenities', compact('amenities'));
+    }
+
+     // Update Amenities
+     public function UpdateAmenities(Request $request){
+
+        $ame_id = $request->id;
+
+        Amenities::findOrFail($ame_id)->update([
+            'amenities_name' => $request->amenities_name,
+        ]);
+
+        $notification = array(
+            'message' => 'El campo amenities se actualizo con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.amenities')->with($notification);
+
+    }
+
+     // Delete Amenities
+     public function DeleteAmenities($id){
+
+        Amenities::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'El registro se elimino con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
     }
 
 

@@ -1943,7 +1943,7 @@ Hacer la migracion:
 php artisan migrate 
 ```
 Varios archivos mas ver este commit en github
-## 50. Add Validation Message con JS
+## 50. Add Validation Message con JS Crud Part 1
 Ahora vamos hacer la validación del campo con Java Script
 - Copiar validate.min.js a /home/enrique/Sites/realestate/public/backend/assets/js/code
 Para soportar este nuevo código tenemos que agregarlo a resources/views/admin/admin_dashboard.blade.php:
@@ -2052,6 +2052,14 @@ La ventaja que tenemos al usar la validación con JS es que sin tener que recarg
 los errores de validación son desplegados.
 Listo!
 ## 51. Amenities Crud Part 2
+Completar las acciones de:
+- Añadir
+- Editar
+- Update
+- y Borrar
+- resources/views/backend/amenities/add_amenities.blade.php
+- routes/web.php
+- app/Http/Controllers/Backend/PropertyTypeController.php
 
 
 

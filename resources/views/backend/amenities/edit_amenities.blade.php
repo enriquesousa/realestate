@@ -15,16 +15,17 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Añadir Amenities</h6>
+                        <h6 class="card-title">Editar Amenities</h6>
 
-                        <form id="myForm" method="POST" action="{{ route('store.amenities') }}" class="forms-sample">
+                        <form id="myForm" method="POST" action="{{ route('update.amenities') }}" class="forms-sample">
                         @csrf
 
+                            <input type="hidden" name="id" value="{{ $amenities->id }}">
 
                             {{-- Amenities Name --}}
                             <div class="form-group mb-3">
                                 <label for="amenities_name" class="form-label">Amenities Name</label>
-                                <input type="text" name="amenities_name" class="form-control">
+                                <input type="text" name="amenities_name" class="form-control" value="{{ $amenities->amenities_name }}">
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Save Changes</button>
