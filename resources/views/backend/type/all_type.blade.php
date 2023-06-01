@@ -37,7 +37,7 @@
                                     <td>{{ $item->type_name }}</td>
                                     <td>{{ $item->type_icon }}</td>
                                     <td>
-                                        <a href="" class="btn btn-inverse-warning">Editar</a>
+                                        <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
                                         <a href="" class="btn btn-inverse-danger">Borrar</a>
                                     </td>
                                 </tr>

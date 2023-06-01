@@ -1854,7 +1854,10 @@ Listo!
 - routes/web.php
 - app/Http/Controllers/Backend/PropertyTypeController.php
 - resources/views/backend/type/add_type.blade.php
-
+## 47. Property Type Crud Part 4
+- resources/views/backend/type/edit_type.blade.php
+- app/Http/Controllers/Backend/PropertyTypeController.php - UpdateType()
+- routes/web.php - ruta '/update/type'
 
 
 
