@@ -41,7 +41,7 @@ return new class extends Migration
             $table->string('featured')->nullable();
             $table->string('hot')->nullable();
             $table->integer('agent_id')->nullable();
-            $table->string('status')->default(0);
+            $table->string('status')->default(0); //1-Activo 0-Inactivo
 
             $table->timestamps();
         });

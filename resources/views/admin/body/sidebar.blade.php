@@ -62,7 +62,23 @@
                     </ul>
                 </div>
 
-
+                {{-- Property --}}
+                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="mail"></i>
+                    <span class="link-title">Propiedades</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="property">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('all.property') }}" class="nav-link">Todas las Propiedades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.amenities') }}" class="nav-link">Añadir una Comodidad</a>
+                        </li>
+                    </ul>
+                </div>
 
             </li>
 
