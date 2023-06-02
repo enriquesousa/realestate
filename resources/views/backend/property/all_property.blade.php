@@ -5,7 +5,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{ route('add.amenities') }}" class="btn btn-inverse-info">Añadir Propiedad</a>
+            <a href="{{ route('add.property') }}" class="btn btn-inverse-info">Añadir Propiedad</a>
         </ol>
     </nav>
 

@@ -75,7 +75,7 @@
                             <a href="{{ route('all.property') }}" class="nav-link">Todas las Propiedades</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.amenities') }}" class="nav-link">Añadir una Comodidad</a>
+                            <a href="{{ route('add.property') }}" class="nav-link">Añadir una Propiedad</a>
                         </li>
                     </ul>
                 </div>
