@@ -30,7 +30,13 @@
                     </div>
                 @else
                     <div class="sign-box">
-                        <a href="{{ route('login') }}"><i class="fas fa-user"></i>Iniciar Sesión</a>
+                        <label for="">Iniciar Sesión: </label>
+                    </div>
+                    <div class="sign-box">
+                        <a href="{{ route('login') }}" class="pl-2">User<i class="fas fa-user"></i> </a>
+                    </div>
+                    <div class="sign-box">
+                        <a href="{{ route('admin.login') }}">Admin<i class="fas fa-user"> </i></a>
                     </div>
                 @endauth
 
