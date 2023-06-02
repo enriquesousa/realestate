@@ -30,16 +30,16 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Property Type</span>
+                    <span class="link-title">Tipo de Propiedades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.type') }}" class="nav-link">All Type</a>
+                            <a href="{{ route('all.type') }}" class="nav-link">Todas las Propiedades</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Add Type</a>
+                            <a href="{{ route('add.type') }}" class="nav-link">Añadir una Propiedad</a>
                         </li>
                     </ul>
                 </div>
@@ -48,16 +48,16 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#amenities" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Amenities</span>
+                    <span class="link-title">Comodidades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="amenities">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.amenities') }}" class="nav-link">All Amenities</a>
+                            <a href="{{ route('all.amenities') }}" class="nav-link">Todas las Comodidades</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Add Amenities</a>
+                            <a href="{{ route('add.amenities') }}" class="nav-link">Añadir una Comodidad</a>
                         </li>
                     </ul>
                 </div>

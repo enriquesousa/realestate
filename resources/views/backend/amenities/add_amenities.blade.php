@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Añadir Amenities</h6>
+                        <h6 class="card-title">Añadir Comodidad</h6>
 
                         <form id="myForm" method="POST" action="{{ route('store.amenities') }}" class="forms-sample">
                         @csrf
@@ -23,11 +23,11 @@
 
                             {{-- Amenities Name --}}
                             <div class="form-group mb-3">
-                                <label for="amenities_name" class="form-label">Amenities Name</label>
+                                <label for="amenities_name" class="form-label">Nombre Comodidad</label>
                                 <input type="text" name="amenities_name" class="form-control">
                             </div>
 
-                            <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                            <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
 
                         </form>
 

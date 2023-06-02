@@ -2061,6 +2061,86 @@ Completar las acciones de:
 - routes/web.php
 - app/Http/Controllers/Backend/PropertyTypeController.php
 
+# Sección 9 - Backend Add Property Page Design
+# 52. Add Property Database Design Part 1 
+Crear un controlador nuevo:
+```php
+php artisan make:controller Backend/PropertyController 
+```
+Crear una nueva tabla, esto se hace creando su modelo con migración:
+```php
+php artisan make:model Property -m 
+```
+En el modelo app/Models/Property.php:
+```php
+class Property extends Model
+{
+    use HasFactory;
+
+    // Para que todos los campos sean fill-ables
+    protected $guarded = [];
+
+} 
+```
+Los campos que vamos a crear en la tabla database/migrations/2023_06_02_011542_create_properties_table.php
+```php
+public function up(): void
+{
+    Schema::create('properties', function (Blueprint $table) {
+        $table->id();
+
+        $table->string('ptype_id');
+        $table->string('amenities_id');
+        $table->string('property_name');
+        $table->string('property_slug');
+        $table->string('property_code');
+        $table->string('property_status');
+        $table->string('lowest_price')->nullable();
+        $table->string('max_price')->nullable();
+        $table->string('property_thambnail');
+        $table->string('short_descp')->nullable();
+        $table->text('long_descp')->nullable();
+        $table->string('bedrooms')->nullable();
+        $table->string('bathrooms')->nullable();
+        $table->string('garage')->nullable();
+        $table->string('garage_size')->nullable();
+        $table->string('property_size')->nullable();
+        $table->string('property_video')->nullable();
+        $table->string('address')->nullable();
+        $table->string('city')->nullable();
+        $table->string('state')->nullable();
+        $table->string('postal_code')->nullable();
+        $table->string('neighborhood')->nullable();
+        $table->string('latitude')->nullable();
+        $table->string('longitude')->nullable();
+        $table->string('featured')->nullable();
+        $table->string('hot')->nullable();
+        $table->integer('agent_id')->nullable();
+        $table->string('status')->default(0);
+
+        $table->timestamps();
+    });
+} 
+```
+Listo!
+# 53. Add Property Database Design Part 2
+
+# 54. Add Property Database and Page Design Part 1
+
+# 55. Add Property Database and Page Design Part 2
+
+# 56. Show Image Using Javascript
+
+# 57. Add Property Database and Page Design Part 5
+
+# 58. Add Property Database and Page Design Part 6
+
+# 59. Add Property Database and Page Design Part 7
+
+# 60. Add Property Database and Page Design Part 8
+
+# 61. Add Property JavaScript Validation
+
 
 
 

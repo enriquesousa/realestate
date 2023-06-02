@@ -12,7 +12,7 @@ use App\Models\Amenities;
 class PropertyTypeController extends Controller
 {
     /*
-    ***** Property Type todos los metodos *****
+    ***** Property Type todos los metodos / Tipos de Propiedad *****
     */
 
     // Tomar todos los datos de la tabla property_types
@@ -98,7 +98,7 @@ class PropertyTypeController extends Controller
     ***** Amenities todos los metodos *****
     */
 
-    // All Amenities
+    // All Amenities / Comodidades
     public function AllAmenities(){
 
         $amenities = Amenities::latest()->get();
