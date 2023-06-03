@@ -145,6 +145,11 @@
 	<script src="{{ asset('backend/assets/js/typeahead.js') }}"></script>
 	<script src="{{ asset('backend/assets/js/tags-input.js') }}"></script>
 
+    {{-- Plugins para soportar al editor tinymce que lo usamos en resources/views/backend/property/add_property.blade.php --}}
+    <script src="{{ asset('backend/assets/vendors/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/tinymce.js') }}"></script>
+
+
 </body>
 
 </html>
