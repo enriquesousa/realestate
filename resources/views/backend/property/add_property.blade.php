@@ -18,7 +18,7 @@
 
                         <form>
 
-                            {{-- Row 1 --}}
+                            {{-- Row 1, Seleccionar Estatus, Precio mas Bajo, Precio mas Alto, Imagen Miniatura, Imágenes Multiples --}}
                             <div class="row">
 
                                 {{-- Nombre Propiedad --}}
@@ -80,7 +80,7 @@
 
                             </div><!-- Row -->
 
-                            {{-- Row 2 --}}
+                            {{-- Row 2, Dormitorios, Baños, Cochera, Tamaño Cochera --}}
                             <div class="row">
 
                                 {{-- BedRooms --}}
@@ -117,7 +117,7 @@
 
                             </div><!-- Row -->
 
-                            {{-- Row 3 --}}
+                            {{-- Row 3, Dirección, Ciudad, Estado --}}
                             <div class="row">
 
                                 {{-- Address --}}
@@ -154,7 +154,7 @@
 
                             </div><!-- Row -->
 
-                            {{-- Row 4 --}}
+                            {{-- Row 4, Tamaño Propiedad, Video, Vecindario --}}
                             <div class="row">
 
                                 {{-- Property Size --}}
@@ -183,55 +183,65 @@
 
                             </div><!-- Row -->
 
-                            {{-- Row 5 --}}
+                            {{-- Row 5, Latitud, Longitud --}}
                             <div class="row">
 
                                 {{-- Latitude --}}
                                 <div class="col-sm-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Latitude</label>
+                                        <label class="form-label">Latitud</label>
                                         <input type="text" name="latitude" class="form-control">
-                                        <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Go here to get Latitude
-                                            from address</a>
+                                        <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Ve aquí para saber la latitud de una dirección</a>
                                     </div>
                                 </div><!-- Col -->
 
                                 {{-- Longitude --}}
                                 <div class="col-sm-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Longitude</label>
+                                        <label class="form-label">Longitud</label>
                                         <input type="text" name="longitude" class="form-control">
-                                        <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Go here to get Longitude
-                                            from address</a>
+                                        <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Ve aquí para saber la latitud de una dirección</a>
                                     </div>
                                 </div><!-- Col -->
 
                             </div><!-- Row -->
 
-                            {{-- Row 6 --}}
+                            {{-- Row 6, Tipo de Propiedad, Comodidades, Agente --}}
                             <div class="row">
 
                                 {{-- Property Type --}}
                                 <div class="col-sm-4">
                                     <div class="mb-3">
-                                        <label class="form-label">Property Type</label>
-                                        <input type="text" name="property_size" class="form-control">
+                                        <label class="form-label">Tipo de Propiedad</label>
+                                        <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
+                                            <option selected="" disabled="">Seleccionar Tipo</option>
+                                            @foreach($propertytype as $ptype)
+                                                <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div><!-- Col -->
 
                                 {{-- Property Amenities --}}
                                 <div class="col-sm-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Property Amenities</label>
-                                        <input type="text" name="property_video" class="form-control">
-                                    </div>
+                                    <label class="form-label">Comodidades</label>
+                                    <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+										@foreach($amenities as $ameni)
+                                            <option value="{{ $ameni->id }}">{{ $ameni->amenities_name }}</option>
+                                        @endforeach
+									</select>
                                 </div><!-- Col -->
 
                                 {{-- Agent --}}
                                 <div class="col-sm-4">
                                     <div class="mb-3">
-                                        <label class="form-label">Agent</label>
-                                        <input type="text" name="neighborhood" class="form-control">
+                                        <label class="form-label">Agente</label>
+                                        <select name="agent_id" class="form-select" id="exampleFormControlSelect1">
+                                            <option selected="" disabled="">Seleccionar Agente</option>
+                                            @foreach($activeAgent as $agent)
+                                                <option value="{{ $agent->id }}">{{ $agent->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div><!-- Col -->
 
