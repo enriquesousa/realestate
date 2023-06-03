@@ -16,14 +16,15 @@
                     <div class="card-body">
                         <h6 class="card-title">Añadir Propiedad</h6>
 
-                        <form>
+                        <form method="POST" action="" id="myForm" enctype="multipart/form-data">
+                        @csrf
 
                             {{-- Row 1, Seleccionar Estatus, Precio mas Bajo, Precio mas Alto, Imagen Miniatura, Imágenes Multiples --}}
                             <div class="row">
 
                                 {{-- Nombre Propiedad --}}
                                 <div class="col-sm-6">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Nombre</label>
                                         <input type="text" name="property_name" class="form-control">
                                     </div>
@@ -31,7 +32,7 @@
 
                                 {{-- Property Status --}}
                                 <div class="col-sm-6">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Estatus</label>
                                         <select name="property_status" class="form-select"
                                             id="exampleFormControlSelect1">
@@ -44,7 +45,7 @@
 
                                 {{-- Lowest Price --}}
                                 <div class="col-sm-6">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Precio mas Bajo</label>
                                         <input type="text" name="lowest_price" class="form-control">
                                     </div>
@@ -52,7 +53,7 @@
 
                                 {{-- Max Price --}}
                                 <div class="col-sm-6">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Precio mas Alto</label>
                                         <input type="text" name="max_price" class="form-control">
                                     </div>
@@ -60,7 +61,7 @@
 
                                 {{-- picture thumbnail --}}
                                 <div class="col-sm-6">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Imagen Miniatura</label>
                                         <input type="file" name="property_thambnail" class="form-control"
                                             onChange="mainThamUrl(this)">
@@ -70,7 +71,7 @@
 
                                 {{-- Multiple Image --}}
                                 <div class="col-sm-6">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Imágenes Multiples</label>
                                         <input type="file" name="multi_img[]" class="form-control" id="multiImg"
                                             multiple="">
@@ -211,7 +212,7 @@
 
                                 {{-- Property Type --}}
                                 <div class="col-sm-4">
-                                    <div class="mb-3">
+                                    <div class="form-group mb-3">
                                         <label class="form-label">Tipo de Propiedad</label>
                                         <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Seleccionar Tipo</option>
@@ -328,9 +329,10 @@
                             </div>
                             <!---end row-->
 
+                            <button type="submit" class="btn btn-primary">Salvar Cambios</button>
+
                         </form>
 
-                        <button type="button" class="btn btn-primary submit">Salvar Cambios</button>
 
                     </div>
                 </div>
@@ -409,19 +411,44 @@
         $('#myForm').validate({
 
             rules: {
-
-                amenities_name: {
+                property_name: {
+                    required : true,
+                },
+                property_status: {
+                    required : true,
+                },
+                lowest_price: {
+                    required : true,
+                },
+                max_price: {
+                    required : true,
+                },
+                ptype_id: {
                     required : true,
                 },
 
             },
+
             messages :{
-                amenities_name: {
-                    required : 'Favor entrar nombre de amenities, campo requerido',
+
+                property_name: {
+                    required : 'Favor entrar nombre de la Propiedad, campo requerido',
+                },
+                property_status: {
+                    required : 'Favor seleccionar Estatus de la Propiedad, campo requerido',
+                },
+                lowest_price: {
+                    required : 'Favor entrar precio mas bajo, campo requerido',
+                },
+                max_price: {
+                    required : 'Favor entrar precio mas alto, campo requerido',
+                },
+                ptype_id: {
+                    required : 'Favor seleccionar Tipo de Propiedad, campo requerido',
                 },
 
-
             },
+
             errorElement : 'span',
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');
