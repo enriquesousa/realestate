@@ -56,6 +56,7 @@ class PropertyController extends Controller
         Image::make($image)->resize(370,250)->save('upload/property/thambnail/'.$name_gen);
         $save_url = 'upload/property/thambnail/'.$name_gen;
 
+        // Insertar datos a tabla 'properties'
         $property_id = Property::insertGetId([
 
             'ptype_id' => $request->ptype_id,
@@ -92,6 +93,23 @@ class PropertyController extends Controller
             'created_at' => Carbon::now(),
 
         ]);
+
+
+        // Insertar datos a tabla 'multi_images', Multiple Image Upload From Here
+        $images = $request->file('multi_img');
+        foreach ($images as $img) {
+
+            $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(770, 520)->save('upload/property/multi-image/' . $make_name);
+            $uploadPath = 'upload/property/multi-image/' . $make_name;
+
+            MultiImage::insert([
+                'property_id' => $property_id,
+                'photo_name' => $uploadPath,
+                'created_at' => Carbon::now(),
+            ]);
+
+        } // End Foreach
 
     }
 
