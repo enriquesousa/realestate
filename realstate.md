@@ -1229,6 +1229,7 @@ resources/views/admin/admin_change_password.blade.php
 
 </form>
 ```
+Listo!
 ## 30. Admin Profile Change Password Part 2
 Cambios en:
 - resources/views/admin/admin_change_password.blade.php
@@ -1238,6 +1239,7 @@ Para los detalles ver este commit en GitHub.
 
 admin
 udemy12345
+Listo!
 ## 31. Take Backup And Restore in Localhost
 Para hacer Backup de todo el proyecto:
 
@@ -1356,6 +1358,7 @@ me estaba faltando el asset:
 ```
 
 También actualice todos las {{ asset('frontend/) }} para todas las images de la pagina, que son como 50!
+Listo!
 ## 33. Frontend Template Setup Part 2
 Segmentar en secciones.
 En resources/views/frontend/frontend_dashboard.blade.php:
@@ -1420,6 +1423,7 @@ Ponemos en main content
     ...
 @endsection
 ```
+Listo!
 ## 34. Frontend Template Setup Part 3
 Ahora seccionar el main content.
 En resources/views/frontend/index.blade.php
@@ -1506,6 +1510,7 @@ Solo la parte del tab-1 iniciar sesión
     </div>
 </div> 
 ```
+Listo!
 ## 36. Frontend Template Register Page Setup
 En el tab-2 Registrarse resources/views/auth/login.blade.php
 ```php
@@ -1565,6 +1570,7 @@ public function create(): View
     return view('auth.login');
 } 
 ```
+Listo!
 
 # Sección 6 - Project Frontend User Profile Setup
 ## 37. User Profile Design Part 1
@@ -1593,6 +1599,7 @@ Y copiar solo estas tres secciones en resources/views/dashboard.blade.php:
 @endsection
 ``` 
 Las modificaciones las podemos ver en este commit en github
+Listo!
 ## 38. User Profile Design Part 2
 Display User
 Archivos que modifique:
@@ -1601,6 +1608,7 @@ Archivos que modifique:
 - resources/views/frontend/dashboard/edit_profile.blade.php
 - routes/web.php
 - resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+Listo!
 ## 39. User Profile Design Part 3
 Update User
 Archivos que modifique:
@@ -1624,17 +1632,20 @@ if (!empty($data->photo)) {
     unlink(public_path('upload/user_images/' . $data->photo)); // para borrar la imagen anterior
 }
 ```
+Listo!
 ## 40. User Logout Option
 User Logout
 - resources/views/frontend/dashboard/dashboard_sidebar.blade.php
 - routes/web.php
 - app/Http/Controllers/UserController.php
+Listo!
 ## 41. User Profile Password Change
 Cambiar Contraseña
 - resources/views/frontend/dashboard/dashboard_sidebar.blade.php
 - routes/web.php
 - app/Http/Controllers/UserController.php
 - resources/views/frontend/dashboard/change_password.blade.php
+Listo!
 ## 42. Update User Login Setup with and without Login
 En resources/views/frontend/home/header.blade.php
 ```php
@@ -1849,16 +1860,19 @@ Listo!
 ## 45. Property Type Crud Part 2
 - resources/views/backend/type/all_type.blade.php
 - resources/views/admin/admin_dashboard.blade.php
+Listo!
 ## 46. Property Type Crud Part 3
 - resources/views/backend/type/all_type.blade.php
 - routes/web.php
 - app/Http/Controllers/Backend/PropertyTypeController.php
 - resources/views/backend/type/add_type.blade.php
+Listo!
 ## 47. Property Type Crud Part 4
 Edit Update Type
 - resources/views/backend/type/edit_type.blade.php
 - app/Http/Controllers/Backend/PropertyTypeController.php - UpdateType()
 - routes/web.php - ruta '/update/type'
+Listo!
 ## 48. Property Type Crud Part 5
 Delete y aviso con Sweet Alert 2
 - En resources/views/admin/admin_dashboard.blade.php
@@ -1942,7 +1956,8 @@ Hacer la migracion:
 ```php
 php artisan migrate 
 ```
-Varios archivos mas ver este commit en github
+Varios archivos mas ver este commit en github.
+Listo!
 ## 50. Add Validation Message con JS Crud Part 1
 Ahora vamos hacer la validación del campo con Java Script
 - Copiar validate.min.js a /home/enrique/Sites/realestate/public/backend/assets/js/code
@@ -2060,9 +2075,10 @@ Completar las acciones de:
 - resources/views/backend/amenities/add_amenities.blade.php
 - routes/web.php
 - app/Http/Controllers/Backend/PropertyTypeController.php
+listo!
 
 # Sección 9 - Backend Add Property Page Design
-# 52. Add Property Database Design Part 1 
+## 52. Add Property Database Design Part 1 
 Crear un controlador nuevo:
 ```php
 php artisan make:controller Backend/PropertyController 
@@ -2123,7 +2139,7 @@ public function up(): void
 } 
 ```
 Listo!
-# 53. Add Property Database Design Part 2
+## 53. Add Property Database Design Part 2
 Crear una nueva tabla para almacenar las multiples imágenes asociadas a una propiedad.
 ```php
 php artisan make:model MultiImage -m 
@@ -2178,7 +2194,7 @@ Se crearon las tres tablas con éxito:
 2023_06_02_014659_create_facilities_table ....................... 30ms DONE 
 ```
 Listo!
-# 54. Add Property Database and Page Design Part 1
+## 54. Add Property Database and Page Design Part 1
 Añadir otra opción de menu en el sidebar 
 en resources/views/admin/body/sidebar.blade.php
 ```php
@@ -2224,7 +2240,7 @@ public function AllProperty(){
 ```
 Crear la vista donde presentaremos los datos en una tabla resources/views/backend/property/all_property.blade.php
 Listo!
-# 55. Add Property Database and Page Design Part 2
+## 55. Add Property Database and Page Design Part 2
 Diseño de la forma de captura de datos en resources/views/backend/property/add_property.blade.php
 ```php
 Nos quedamos hasta aqui:
@@ -2246,7 +2262,7 @@ Nos quedamos hasta aqui:
 ```
 En la siguiente lección implementaremos la selección de la imágenes!
 Listo!
-# 56. Show Image Using Javascript
+## 56. Show Image Using Javascript
 Usar los scrips de JS para visualizar tanto single image como multiple images.
 en resources/views/backend/property/add_property.blade.php
 ```php
@@ -2314,7 +2330,7 @@ en resources/views/backend/property/add_property.blade.php
 </script>
 ```
 Listo!
-# 57. Add Property Database and Page Design Part 5
+## 57. Add Property Database and Page Design Part 5
 Seguir diseñando la forma en resources/views/backend/property/add_property.blade.php
 ```php
 <form>
@@ -2543,7 +2559,7 @@ Seguir diseñando la forma en resources/views/backend/property/add_property.blad
 Dejamos par ala siguiente lección el {{-- Row 6 --}}
 Ya que estos campos los tenemos que relacionar con nuestras otras tablas.
 Listo!
-# 58. Add Property Database and Page Design Part 6
+## 58. Add Property Database and Page Design Part 6
 Relacionar la tabla de "property_types", "amenities", y de la tabla "users" vamos a relacionar al agente donde su 'role' sea un "agent" y que este "activo" (en campo 'status'), pasando los datos desde el controlador app/Http/Controllers/Backend/PropertyController.php
 ```php
 // Añadir Propiedad
@@ -2628,7 +2644,7 @@ Y antes de que cierre el Body tag colocamos el codigo JS
 <script src="{{ asset('backend/assets/js/tags-input.js') }}"></script>
 ```
 Listo!
-# 59. Add Property Database and Page Design Part 7
+## 59. Add Property Database and Page Design Part 7
 Buscar una text area input para nuestros campos descripcion corta y larga.
 Los drivers para tener un editor en el text area.
 Para el txt area del long description:
@@ -2680,7 +2696,7 @@ Para los check boxes de Features Property y Hot Property insertamos en resources
 ```
 En name va el nombre del campo y en value va el valor que inertaremos en el campo si lo dejaron en check!
 Listo!
-# 60. Add Property Database and Page Design Part 8
+## 60. Add Property Database and Page Design Part 8
 Agregar las Instalaciones Cercas en resources/views/backend/property/add_property.blade.php
 ```php
 ...
@@ -2789,7 +2805,7 @@ Agregar las Instalaciones Cercas en resources/views/backend/property/add_propert
 Con esto logramos poder poder agregar Instalciones cercas y todas las podremos grabar a la tabla, esto
 se vera mas adelante.
 Listo!
-# 61. Add Property JavaScript Validation
+## 61. Add Property JavaScript Validation
 Agragar validacion a nuestra forma!
 En resources/views/backend/property/add_property.blade.php
 - Empatar la forma con el id="myForm" que ya definimos en el codigo JS al final de la pagina
@@ -2909,7 +2925,7 @@ En resources/views/backend/property/add_property.blade.php
 Listo!
 
 # Sección 10 - Backend Insert Property Setup 
-# 62. Install Image Intervention Package
+## 62. Install Image Intervention Package
 Utilizar el paquete de Laravel Intervention Packeage para reizes las imagenes que vamos a subir!
 https://image.intervention.io/v2
 Intervention Image is an open source PHP image handling and manipulation library. It provides an easier and expressive way to create, edit, and compose images and supports currently the two most common image processing libraries GD Library and Imagick.
@@ -2940,32 +2956,56 @@ php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLa
 ```
 Copying file [vendor/intervention/image/src/config/config.php] to [config/image.php] ........................................................ DONE
 Listo!
-# 63. Property Insert Database Part 1
+## 63. Property Insert Database Part 1
+Empezando por crear la ruta en la forma de captura en resources/views/backend/property/add_property.blade.php
+```php
+...
+<form method="POST" action="{{ route('store.property') }}" id="myForm" enctype="multipart/form-data">
+@csrf
+... 
+```
+Definimos la ruta en routes/web.php
+```php
+Route::post('/store/property', 'StoreProperty')->name('store.property'); 
+```
+Empezamos a crear el metodo StoreProperty() en app/Http/Controllers/Backend/PropertyController.php
+```php
+...
+use Intervention\Image\Facades\Image;
+...
+// Store Property
+public function StoreProperty(Request $request){
+    $image = $request->file('property_thambnail');
+    // crear un unique id para la imagen
+    $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+    Image::make($image)->resize(370,250)->save('upload/property/thambnail/'.$name_gen);
+    $save_url = 'upload/property/thambnail/'.$name_gen;
+} 
+```
+Listo!
+## 64. Property Insert Database Part 2
 
 
 
-
-
-# 64. Property Insert Database Part 2
-# 65. Property Insert Database Part 3
-# 66. Property Insert Database Part 4
-# 67. Manage Property Read All Product
-# 68. Manage Property Edit Option Part 1
-# 69. Manage Property Edit Option Part 2
-# 70. Manage Property Update Option
-# 71. Manage Property Update Single and Multiple Image Part 1
-# 72. Manage Property Update Single and Multiple Image Part 2
-# 73. Manage Property Update Single and Multiple Image Part 3
-# 74. Manage Property Update Single and Multiple Image Part 4
-# 75. Multiple Image Delete
-# 76. Add Multi Image In Property
-# 77. Manage Property Update Facility Part 1
-# 78. Manage Property Update Facility Part 2
-# 79. Property Delete With Multiple Image
-# 80. Create Property Details Page Part 1
-# 81. Create Property Details Page Part 2
-# 82. Property Active Inactive From Details Page
-# 83. Bug Fixed for Redirect Login Page
+## 65. Property Insert Database Part 3
+## 66. Property Insert Database Part 4
+## 67. Manage Property Read All Product
+## 68. Manage Property Edit Option Part 1
+## 69. Manage Property Edit Option Part 2
+## 70. Manage Property Update Option
+## 71. Manage Property Update Single and Multiple Image Part 1
+## 72. Manage Property Update Single and Multiple Image Part 2
+## 73. Manage Property Update Single and Multiple Image Part 3
+## 74. Manage Property Update Single and Multiple Image Part 4
+## 75. Multiple Image Delete
+## 76. Add Multi Image In Property
+## 77. Manage Property Update Facility Part 1
+## 78. Manage Property Update Facility Part 2
+## 79. Property Delete With Multiple Image
+## 80. Create Property Details Page Part 1
+## 81. Create Property Details Page Part 2
+## 82. Property Active Inactive From Details Page
+## 83. Bug Fixed for Redirect Login Page
 
 
 

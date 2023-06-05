@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Añadir Propiedad</h6>
 
-                        <form method="POST" action="" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('store.property') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
 
                             {{-- Row 1, Seleccionar Estatus, Precio mas Bajo, Precio mas Alto, Imagen Miniatura, Imágenes Multiples --}}
@@ -287,7 +287,7 @@
 
                             </div>
 
-                            {{-- Facilities Option --}}
+                            {{-- Facilities Option / Instalaciones Cercanas --}}
                             <div class="row add_item">
 
                                 {{-- Instalaciones Cercanas --}}
@@ -344,7 +344,7 @@
 
 </div>
 
-<!--========== Start of add multiple class with ajax, Para agregar mas opciones a Facilities Option ==============-->
+<!--========== Start of add multiple class with ajax, Para agregar mas opciones a Facilities Option / Instalaciones Cercanas ==============-->
 <div style="visibility: hidden">
     <div class="whole_extra_item_add" id="whole_extra_item_add">
         <div class="whole_extra_item_delete" id="whole_extra_item_delete">
@@ -352,7 +352,7 @@
                 <div class="row">
 
                     <div class="form-group col-md-4">
-                        <label for="facility_name">Facilities</label>
+                        <label for="facility_name">Instalación Cercana</label>
                         <select name="facility_name[]" id="facility_name" class="form-control">
 
                             <option value="">Selecciona Instalación</option>
