@@ -55,7 +55,7 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('edit.amenities',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
                                         <a href="{{ route('delete.amenities',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
                                     </td>
 

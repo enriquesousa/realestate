@@ -17,7 +17,7 @@ use Carbon\Carbon;
 
 class PropertyController extends Controller
 {
-    // All Property / Todas las Propiedades
+    // All Property / Despliega todas las Propiedades
     public function AllProperty(){
 
         // Recuperar todos los datos de la tabla properties
@@ -25,7 +25,7 @@ class PropertyController extends Controller
         return view('backend.property.all_property', compact('property'));
     }
 
-    // Añadir Propiedad
+    // Añadir Una Propiedad
     public function AddProperty(){
 
         $propertytype = PropertyType::latest()->get();
@@ -35,7 +35,7 @@ class PropertyController extends Controller
         return view('backend.property.add_property',compact('propertytype','amenities','activeAgent'));
     }
 
-    // Store Property
+    // Store Property, Almacenar una Propiedad a la DB
     public function StoreProperty(Request $request){
 
         $amen = $request->amenities_id;
@@ -134,5 +134,19 @@ class PropertyController extends Controller
 
 
     } // End Método StoreProperty
+
+
+    // Editar Datos de la Propiedad
+    public function EditProperty($id){
+
+        $property = Property::findOrFail($id);
+        $propertytype = PropertyType::latest()->get();
+        $amenities = Amenities::latest()->get();
+        $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
+
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent'));
+
+    }
+
 
 }
