@@ -3252,7 +3252,6 @@ Para hacer las traducciones de los campos que inician con {{ __('Email') }} por 
 }  
 ```
 
-Listo!
 Este si funciono, traduje perfil en resources/views/admin/body/header.blade.php
 ```php
 {{-- Profile --}}
@@ -3263,9 +3262,34 @@ Este si funciono, traduje perfil en resources/views/admin/body/header.blade.php
     </a>
 </li> 
 ```
+Listo!
 
+Relacionar el ptype_id con la tabla property_types para desplegar nombre type_name.
+En app/Models/Property.php
+```php
+// Relacion del campo 'ptype_id' con el 'id' de la tabla 'property_types'
+public function type(){
+    return $this->belongsTo(PropertyType::class,'ptype_id','id');
+} 
+```
 
+Ahora para desplegar el nombre en vez del 'ptype_id' 
+En resources/views/backend/property/all_property.blade.php
+```php
+<td>{{ $item['type']['type_name'] }}</td> 
+``` 
+agregar nueva columna con el property_code
+```php
+<td>{{ $item->property_code }}</td> 
+```
+
+En la siguiente leccion veremos el boton de Editar.
+Listo!
 ## 68. Manage Property Edit Option Part 1
+
+
+
+
 ## 69. Manage Property Edit Option Part 2
 ## 70. Manage Property Update Option
 ## 71. Manage Property Update Single and Multiple Image Part 1

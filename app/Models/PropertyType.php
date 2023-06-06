@@ -13,6 +13,4 @@ class PropertyType extends Model
     protected $guarded = [];
 
 
-
-
 }

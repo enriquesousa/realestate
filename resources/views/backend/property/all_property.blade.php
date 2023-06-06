@@ -27,6 +27,7 @@
                                     <th>Tipo</th>
                                     <th>Tipo Estatus</th>
                                     <th>Ciudad</th>
+                                    <th>Código</th>
                                     <th>Estatus</th>
                                     <th>Action</th>
                                 </tr>
@@ -40,9 +41,10 @@
                                     <td>{{ $key+1 }}</td>
                                     <td><img src="{{ asset($item->property_thambnail) }}" style="width: 70px; height: 40px;"></td>
                                     <td>{{ $item->property_name }}</td>
-                                    <td>{{ $item->ptype_id }}</td>
+                                    <td>{{ $item['type']['type_name'] }}</td>
                                     <td>{{ $item->property_status }}</td>
                                     <td>{{ $item->city }}</td>
+                                    <td>{{ $item->property_code }}</td>
 
                                     <td>
                                         @if ($item->status == 1)
