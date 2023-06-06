@@ -109,8 +109,30 @@ class PropertyController extends Controller
                 'created_at' => Carbon::now(),
             ]);
 
-        } // End Foreach
+        }
 
-    }
+        // Insertar datos a tabla 'facilities', Instalaciones cercanas - Facilities Add From Here
+        $facilities = Count($request->facility_name);
+        if ($facilities != NULL) {
+           for ($i=0; $i < $facilities; $i++) {
+               $fcount = new Facility();
+               $fcount->property_id = $property_id;
+               $fcount->facility_name = $request->facility_name[$i];
+               $fcount->distance = $request->distance[$i];
+               $fcount->save();
+           }
+        }
+
+        $notification = array(
+            'message' => 'La Propiedad fue añadida con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.property')->with($notification);
+
+
+
+
+    } // End Método StoreProperty
 
 }

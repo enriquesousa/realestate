@@ -3126,10 +3126,39 @@ foreach ($images as $img) {
 ```
 Listo!
 ## 66. Property Insert Database Part 4
+Agregar codigo en metodo para agregar las "Instalaciones Cercanas" 
+En app/Http/Controllers/Backend/PropertyController.php
+```php
+use App\Models\Facility;
+...
+// Insertar datos a tabla 'facilities', Instalaciones cercanas - Facilities Add From Here
+$facilities = Count($request->facility_name);
+if ($facilities != NULL) {
+    for ($i=0; $i < $facilities; $i++) {
+        $fcount = new Facility();
+        $fcount->property_id = $property_id;
+        $fcount->facility_name = $request->facility_name[$i];
+        $fcount->distance = $request->distance[$i];
+        $fcount->save();
+    }
+}
 
+$notification = array(
+    'message' => 'La Propiedad fue añadida con éxito!',
+    'alert-type' => 'success'
+);
 
-
+return back()->roue('all.property')->with($notification); 
+...
+```
+Aqui usamos otro metodo para grabar los datos, de cualquier for de todas maneras se 
+necesita soportar el objeto de Gacility con:
+```php
+use App\Models\Facility; 
+```
+Listo!
 ## 67. Manage Property Read All Product
+
 ## 68. Manage Property Edit Option Part 1
 ## 69. Manage Property Edit Option Part 2
 ## 70. Manage Property Update Option
