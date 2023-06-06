@@ -16,8 +16,11 @@
                     <div class="card-body">
                         <h6 class="card-title">{{ __('Edit Property') }}</h6>
 
-                        <form method="POST" action="{{ route('store.property') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.property') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
+
+                            {{-- Para capturar el id del record que queremos editar --}}
+                            <input type="hidden" name="id" value="{{ $property->id }}">
 
                             {{-- Row 1, Seleccionar Estatus, Precio mas Bajo, Precio mas Alto, Imagen Miniatura, Imágenes Multiples --}}
                             <div class="row">
