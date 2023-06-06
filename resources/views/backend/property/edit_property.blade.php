@@ -37,8 +37,8 @@
                                         <select name="property_status" class="form-select"
                                             id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Seleccionar Estatus</option>
-                                            <option value="rent">Para Renta</option>
-                                            <option value="buy">Para Compra</option>
+                                            <option value="rent" {{ $property->property_status == 'rent' ? 'selected' : '' }}>Para Renta</option>
+                                            <option value="buy" {{ $property->property_status == 'buy' ? 'selected' : '' }}>Para Compra</option>
                                         </select>
                                     </div>
                                 </div><!-- Col -->
@@ -197,7 +197,7 @@
                                         <select name="ptype_id" class="form-select" id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Seleccionar Tipo</option>
                                             @foreach($propertytype as $ptype)
-                                                <option value="{{ $ptype->id }}">{{ $ptype->type_name }}</option>
+                                                <option value="{{ $ptype->id }}" {{ $ptype->id == $property->ptype_id ? 'selected' : '' }}>{{ $ptype->type_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -208,7 +208,7 @@
                                     <label class="form-label text-warning">Comodidades</label>
                                     <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
 										@foreach($amenities as $ameni)
-                                            <option value="{{ $ameni->id }}">{{ $ameni->amenities_name }}</option>
+                                            <option value="{{ $ameni->id }}" {{ (in_array($ameni->id, $property_ami)) ? 'selected' : '' }}>{{ $ameni->amenities_name }}</option>
                                         @endforeach
 									</select>
                                 </div><!-- Col -->
@@ -220,7 +220,7 @@
                                         <select name="agent_id" class="form-select" id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Seleccionar Agente</option>
                                             @foreach($activeAgent as $agent)
-                                                <option value="{{ $agent->id }}">{{ $agent->name }}</option>
+                                                <option value="{{ $agent->id }}" {{ $agent->id == $property->agent_id ? 'selected' : '' }}>{{ $agent->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -254,14 +254,14 @@
                             <div class="mb-3">
 
                                 <div class="form-check form-check-inline">
-                                    <input type="checkbox" name="featured" value="1" class="form-check-input" id="checkInline1">
+                                    <input type="checkbox" name="featured" value="1" class="form-check-input" id="checkInline1" {{ $property->featured == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label text-warning" for="checkInline1">
                                         Features Property
                                     </label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input type="checkbox" name="hot" value="1" class="form-check-input" id="checkInline">
+                                    <input type="checkbox" name="hot" value="1" class="form-check-input" id="checkInline" {{ $property->hot == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label text-warning" for="checkInline">
                                         Hot Property
                                     </label>
