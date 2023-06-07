@@ -288,7 +288,7 @@
 
 </div>
 
-{{-- Property Mail Thumbnail Image Update  --}}
+{{-- Property Main Thumbnail Image Update  --}}
 <div class="page-content" style="margin-top: -35px">
     <div class="row profile-body">
 
@@ -338,6 +338,64 @@
 
     </div>
 </div>
+
+{{-- Property Multiple Image Update  --}}
+<div class="page-content" style="margin-top: -35px">
+    <div class="row profile-body">
+
+        <!-- wrapper datos para editar con el total del ancho 12 columnas -->
+        <div class="col-md-12 col-xl-12 middle-wrapper">
+            <div class="row">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Editar Imágenes Multiples de la Propiedad</h6>
+
+                        <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
+                            @csrf
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Serie</th>
+                                        <th>Imagen</th>
+                                        <th>Cambiar Imagen</th>
+                                        <th>Actualizar - Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($multiImage as $key => $img)
+                                        <tr>
+                                            <td>{{ $key+1 }}</td>
+                                            <td class="py-1">
+                                                <img src="{{ asset($img->photo_name) }}" alt="image" style="width: 50px; height: 50px;">
+                                            </td>
+                                            <td>
+                                                <input type="file" class="form-group" name="multi_img">
+                                            </td>
+                                            <td>
+                                                <input type="submit" class="btn btn-primary px-4" value="Actualizar Imagen">
+                                                <a href="" class="btn btn-danger" id="delete">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <br><br>
+                            <button type="submit" class="btn btn-primary">Salvar Cambios</button>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 {{-- Script de JS para la Validación --}}
 <script type="text/javascript">

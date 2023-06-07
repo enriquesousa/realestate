@@ -141,11 +141,14 @@ class PropertyController extends Controller
         $type = $property->amenities_id;
         $property_ami = explode(',', $type);
 
+        // Cargar las imágenes de la tabla 'multi_images' que correspondan con el $id de la propiedad editada
+        $multiImage = MultiImage::where('property_id',$id)->get();
+
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent', 'property_ami'));
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage'));
 
     }
 
