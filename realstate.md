@@ -4040,8 +4040,90 @@ public function DeleteProperty($id){
 ```
 Listo!
 ## 80. Create Property Details Page Part 1
+Vamos hacer la vista de detalle.
+De una vez aprovechamos para agregar unos iconos que trae nuestra plantilla.
+En resources/views/backend/property/all_property.blade.php
+```php
+<td>
+    <a href="{{ route('details.property',$item->id) }}" class="btn btn-inverse-info" title="Detalles"><i data-feather="eye"></i></a>
 
+    <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
+
+    <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+
+</td> 
+```
+En routes/web.php
+```php
+Route::get('/details/property/{id}', 'DetailsProperty')->name('details.property'); 
+```
+En app/Http/Controllers/Backend/PropertyController.php
+```php
+// Details Property - Desplegar solo los detalles de una propiedad en una sola pagina
+public function DetailsProperty($id){
+
+    // Cargar solo los datos de la tabla 'facilities' donde el 'property_id' es igual al $id de la Propiedad
+    $facilities = Facility::where('property_id',$id)->get();
+
+    // Cargar todos los datos de la tabla 'properties' donde el id es igual al $id pasado por la función
+    $property = Property::findOrFail($id);
+
+    $type = $property->amenities_id;
+    $property_ami = explode(',', $type);
+
+    // Cargar las imágenes de la tabla 'multi_images' que correspondan con el $id de la propiedad editada
+    $multiImage = MultiImage::where('property_id',$id)->get();
+
+    $propertytype = PropertyType::latest()->get();
+    $amenities = Amenities::latest()->get();
+    $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
+
+    return view('backend.property.details_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage', 'facilities'));
+} 
+```
+Y en la vista resources/views/backend/property/details_property.blade.php
+```php
+{{-- Primer Tabla a la Izquierda --}}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-title">Detalles Propiedad</h6>
+            <p class="text-muted mb-3">Add class <code>.table</code></p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+
+                    <tbody>
+
+                        <tr>
+                            <td>Nombre</td>
+                            <td>{{ $property->property_name }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Estatus</td>
+                            <td>{{ $property->property_status }}</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 
+```
+Listo!
 ## 81. Create Property Details Page Part 2
+
+
+
+
+
+
+
+
+
+
 
 ## 82. Property Active Inactive From Details Page
 

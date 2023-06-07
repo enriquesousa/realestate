@@ -373,4 +373,26 @@ class PropertyController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // Details Property - Desplegar solo los detalles de una propiedad en una sola pagina
+    public function DetailsProperty($id){
+
+        // Cargar solo los datos de la tabla 'facilities' donde el 'property_id' es igual al $id de la Propiedad
+        $facilities = Facility::where('property_id',$id)->get();
+
+        // Cargar todos los datos de la tabla 'properties' donde el id es igual al $id pasado por la función
+        $property = Property::findOrFail($id);
+
+        $type = $property->amenities_id;
+        $property_ami = explode(',', $type);
+
+        // Cargar las imágenes de la tabla 'multi_images' que correspondan con el $id de la propiedad editada
+        $multiImage = MultiImage::where('property_id',$id)->get();
+
+        $propertytype = PropertyType::latest()->get();
+        $amenities = Amenities::latest()->get();
+        $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
+
+        return view('backend.property.details_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage', 'facilities'));
+    }
+
 }
