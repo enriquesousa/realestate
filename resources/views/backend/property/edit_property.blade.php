@@ -351,7 +351,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Editar Imágenes Multiples de la Propiedad</h6>
 
-                        <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.property.multi-image') }}" id="myForm" enctype="multipart/form-data">
                             @csrf
 
                             <table class="table table-striped">
@@ -371,19 +371,16 @@
                                                 <img src="{{ asset($img->photo_name) }}" alt="image" style="width: 50px; height: 50px;">
                                             </td>
                                             <td>
-                                                <input type="file" class="form-group" name="multi_img">
+                                                <input type="file" class="form-control" name="multi_img[{{ $img->id }}]">
                                             </td>
                                             <td>
                                                 <input type="submit" class="btn btn-primary px-4" value="Actualizar Imagen">
-                                                <a href="" class="btn btn-danger" id="delete">Eliminar</a>
+                                                <a href="" class="btn btn-danger" id="delete">Borrar</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-
-                            <br><br>
-                            <button type="submit" class="btn btn-primary">Salvar Cambios</button>
 
                         </form>
 
