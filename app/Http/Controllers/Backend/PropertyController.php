@@ -315,5 +315,33 @@ class PropertyController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // Update Property Facilities
+    public function UpdatePropertyFacilities(Request $request){
+
+        $pid = $request->id;
+
+        if ($request->facility_name == NULL) {
+            return redirect()->back();
+        }else{
+            // Borrar registro
+            Facility::where('property_id', $pid)->delete();
+
+            // Si queda algún registro Insertar datos a tabla 'facilities'
+            $facilities = Count($request->facility_name);
+            for ($i=0; $i < $facilities; $i++) {
+                $fcount = new Facility();
+                $fcount->property_id = $pid;
+                $fcount->facility_name = $request->facility_name[$i];
+                $fcount->distance = $request->distance[$i];
+                $fcount->save();
+            }
+        }
+
+        $notification = array(
+            'message' => 'Instalaciones cercanas actualizadas con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 
 }
