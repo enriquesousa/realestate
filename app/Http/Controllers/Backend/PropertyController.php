@@ -262,4 +262,17 @@ class PropertyController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // Eliminar una imagen de las de Multi Image de una propiedad
+    public function DeleteMultiImageProperty($id){
+        $oldImg = MultiImage::findOrFail($id);
+        unlink($oldImg->photo_name);
+
+        MultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'La multi-imagen fue eliminada con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

@@ -360,7 +360,7 @@
                                         <th>Serie</th>
                                         <th>Imagen</th>
                                         <th>Cambiar Imagen</th>
-                                        <th>Actualizar - Eliminar</th>
+                                        <th>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -375,7 +375,7 @@
                                             </td>
                                             <td>
                                                 <input type="submit" class="btn btn-primary px-4" value="Actualizar Imagen">
-                                                <a href="" class="btn btn-danger" id="delete">Borrar</a>
+                                                <a href="{{ route('delete.property.multi-image', $img->id) }}" class="btn btn-danger" id="delete">Borrar</a>
                                             </td>
                                         </tr>
                                     @endforeach
