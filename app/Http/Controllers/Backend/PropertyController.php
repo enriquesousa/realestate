@@ -344,4 +344,33 @@ class PropertyController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // Delete Property
+    public function DeleteProperty($id){
+
+        // Encontrar el registro en la tabla 'properties' y eliminarlo con todo y foto de thumbnail
+        $property = Property::findOrFail($id);
+        unlink($property->property_thambnail);
+        Property::findOrFail($id)->delete();
+
+        // Ahora eliminar todas las multi fotos relacionadas con este registro $id
+        $images = MultiImage::where('property_id',$id)->get();
+        foreach ($images as $img) {
+            unlink($img->photo_name);
+            MultiImage::where('property_id',$id)->delete();
+        }
+
+        // Ahora eliminar todos los facilities de tabla 'facilities' donde 'property_id' sea igual al $id
+        $comodidades = Facility::where('property_id',$id)->get();
+        foreach ($comodidades as $item) {
+            $item->facility_name;
+            Facility::where('property_id',$id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Propiedad Eliminada con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 }

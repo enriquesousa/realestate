@@ -14,7 +14,6 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">Todas las Propiedades</h6>
-
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
 
@@ -56,7 +55,7 @@
 
                                     <td>
                                         <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.amenities',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+                                        <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
                                     </td>
 
                                 </tr>
