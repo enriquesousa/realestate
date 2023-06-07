@@ -275,4 +275,41 @@ class PropertyController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    // Store New Multi Image
+    public function StoreNewMultiImage(Request $request){
+
+        $new_multi = $request->imageId;
+        $image = $request->file('multi_img');
+
+
+        if (!empty($image)) {
+
+            $make_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(770, 520)->save('upload/property/multi-image/' . $make_name);
+            $uploadPath = 'upload/property/multi-image/' . $make_name;
+
+            MultiImage::insert([
+                'property_id' => $new_multi,
+                'photo_name' => $uploadPath,
+                'created_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Multi-Imagen fue añadida con éxito!',
+                'alert-type' => 'success'
+            );
+
+        } else {
+
+            $notification = array(
+                'message' => 'No hay Imagen para Añadir!',
+                'alert-type' => 'warning'
+            );
+        }
+
+        return redirect()->back()->with($notification);
+    }
+
+
 }

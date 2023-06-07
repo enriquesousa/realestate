@@ -29,7 +29,7 @@
                                     <th>Ciudad</th>
                                     <th>Código</th>
                                     <th>Estatus</th>
-                                    <th>Action</th>
+                                    <th>Acción</th>
                                 </tr>
 
                             </thead>

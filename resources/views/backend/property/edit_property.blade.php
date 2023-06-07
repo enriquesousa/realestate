@@ -351,6 +351,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Editar Imágenes Multiples de la Propiedad</h6>
 
+                        {{-- Tabla con Botones de acción actualizar y borrar --}}
                         <form method="POST" action="{{ route('update.property.multi-image') }}" id="myForm" enctype="multipart/form-data">
                             @csrf
 
@@ -383,6 +384,28 @@
                             </table>
 
                         </form>
+
+                        {{-- solo botón par añadir una multi imagen  --}}
+                        <form method="POST" action="{{ route('store.new.multi-image') }}" id="myForm" enctype="multipart/form-data">
+                        @csrf
+
+                            <input type="hidden" name="imageId" value="{{ $property->id }}">
+
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="file" class="form-control" name="multi_img">
+                                        </td>
+                                        <td>
+                                            <input type="submit" class="btn btn-info px-4" value="Añadir Imagen">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </form>
+
 
                     </div>
                 </div>
