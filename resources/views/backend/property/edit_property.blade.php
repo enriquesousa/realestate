@@ -300,7 +300,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Editar Imagen Miniatura Principal</h6>
 
-                        <form method="POST" action="{{ route('update.property') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
 
                             {{-- Para capturar el id del record que queremos editar --}}
@@ -319,7 +319,7 @@
                                     <img src="" id="mainThmb">
                                 </div>
 
-                                {{-- picture thumbnail Anterior --}}
+                                {{-- picture thumbnail Anterior old_img --}}
                                 <div class="form-group col-md-6">
                                     <label class="form-label text-warning"></label>
                                     <img src="{{ asset($property->property_thambnail) }}" alt="" style="width: 100px; height: 100px;">
