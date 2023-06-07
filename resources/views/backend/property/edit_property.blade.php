@@ -416,6 +416,131 @@
     </div>
 </div>
 
+{{-- Update Facilities - Actualizar Instalaciones Cercanas  --}}
+<div class="page-content" style="margin-top: -35px">
+    <div class="row profile-body">
+        <!-- wrapper datos para editar con el total del ancho 12 columnas -->
+        <div class="col-md-12 col-xl-12 middle-wrapper">
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Editar Instalaciones Cercanas de la Propiedad</h6>
+
+                        <form method="POST" action="{{ route('update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data">
+                        @csrf
+
+                        @foreach ($facilities as $item)
+
+                            {{-- Facilities Option / Instalaciones Cercanas --}}
+                            <div class="whole_extra_item_delete" id="whole_extra_item_delete">
+                                <div class="container mt-2">
+                                    <div class="row">
+
+                                        <div class="form-group col-md-4">
+                                            <label for="facility_name">Instalación Cercana</label>
+                                            <select name="facility_name[]" id="facility_name" class="form-control">
+
+                                                <option value="">Selecciona Instalación</option>
+                                                <option value="Hospital" {{ $item->facility_name == 'Hospital' ? 'selected' : '' }}>Hospital</option>
+                                                <option value="Super Mercado" {{ $item->facility_name == 'Super Mercado' ? 'selected' : '' }}>Super Mercado</option>
+                                                <option value="Escuela" {{ $item->facility_name == 'Escuela' ? 'selected' : '' }}>Escuela</option>
+                                                <option value="Entretenimiento" {{ $item->facility_name == 'Entretenimiento' ? 'selected' : '' }}>Entretenimiento</option>
+                                                <option value="Farmacia" {{ $item->facility_name == 'Farmacia' ? 'selected' : '' }}>Farmacia</option>
+                                                <option value="Aeropuerto" {{ $item->facility_name == 'Aeropuerto' ? 'selected' : '' }}>Aeropuerto</option>
+                                                <option value="Estación de Tren" {{ $item->facility_name == 'Estación de Tren' ? 'selected' : '' }}>Estación de Tren</option>
+                                                <option value="Parada de autobus" {{ $item->facility_name == 'Parada de autobus' ? 'selected' : '' }}>Parada de autobus</option>
+                                                <option value="Playa" {{ $item->facility_name == 'Playa' ? 'selected' : '' }}>Playa</option>
+                                                <option value="Centro Comercial" {{ $item->facility_name == 'Centro Comercial' ? 'selected' : '' }}>Centro Comercial</option>
+                                                <option value="Banco" {{ $item->facility_name == 'Banco' ? 'selected' : '' }}>Banco</option>
+                                                <option value="Cine" {{ $item->facility_name == 'Cine' ? 'selected' : '' }}>Cine</option>
+                                                <option value="Restaurante" {{ $item->facility_name == 'Restaurante' ? 'selected' : '' }}>Restaurante</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="distance">Distancia</label>
+                                            <input type="text" name="distance[]" id="distance" class="form-control" value="{{ $item->distance }}">
+                                        </div>
+                                        <div class="form-group col-md-4" style="padding-top: 20px">
+                                            <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Agregar</i></span>
+                                            <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remover</i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--========== Start of add multiple class with ajax, Para agregar mas opciones a Facilities Option / Instalaciones Cercanas ==============-->
+<div style="visibility: hidden">
+    <div class="whole_extra_item_add" id="whole_extra_item_add">
+        <div class="whole_extra_item_delete" id="whole_extra_item_delete">
+            <div class="container mt-2">
+                <div class="row">
+
+                    <div class="form-group col-md-4">
+                        <label for="facility_name">Instalación Cercana</label>
+                        <select name="facility_name[]" id="facility_name" class="form-control">
+
+                            <option value="">Selecciona Instalación</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="Super Mercado">Super Mercado</option>
+                            <option value="Escuela">Escuela</option>
+                            <option value="Entretenimiento">Entretenimiento</option>
+                            <option value="Farmacia">Farmacia</option>
+                            <option value="Aeropuerto">Aeropuerto</option>
+                            <option value="Estación de Tren">Estación de Tren</option>
+                            <option value="Parada de autobus">Parada de autobus</option>
+                            <option value="Playa">Playa</option>
+                            <option value="Centro Comercial">Centro Comercial</option>
+                            <option value="Banco">Banco</option>
+                            <option value="Cine">Cine</option>
+                            <option value="Restaurante">Restaurante</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="distance">Distancia</label>
+                        <input type="text" name="distance[]" id="distance" class="form-control"
+                            placeholder="Distancia en (Km)">
+                    </div>
+                    <div class="form-group col-md-4" style="padding-top: 20px">
+                        <span class="btn btn-success btn-sm addeventmore"><i class="fa fa-plus-circle">Agregar</i></span>
+                        <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remover</i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----For Section-------->
+<script type="text/javascript">
+    $(document).ready(function(){
+       var counter = 0;
+       $(document).on("click",".addeventmore",function(){
+             var whole_extra_item_add = $("#whole_extra_item_add").html();
+             $(this).closest(".add_item").append(whole_extra_item_add);
+             counter++;
+       });
+       $(document).on("click",".removeeventmore",function(event){
+             $(this).closest("#whole_extra_item_delete").remove();
+             counter -= 1
+       });
+    });
+</script>
+<!--========== End of add multiple class with ajax ==============-->
 
 {{-- Script de JS para la Validación --}}
 <script type="text/javascript">

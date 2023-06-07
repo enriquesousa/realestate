@@ -14,17 +14,13 @@
 
 {{-- Contenido del profile form html --}}
 <div class="page-content">
-
     <div class="row profile-body">
-
         <!-- wrapper datos para editar con el total del ancho 12 columnas -->
         <div class="col-md-12 col-xl-12 middle-wrapper">
             <div class="row">
-
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-title">Añadir Propiedad</h6>
-
                         <form method="POST" action="{{ route('store.property') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
 
@@ -337,20 +333,16 @@
 
                             </div>
                             <!---end row-->
+
                             <hr>
                             <button type="submit" class="btn btn-primary">Salvar Cambios</button>
 
                         </form>
-
-
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-
 </div>
 
 <!--========== Start of add multiple class with ajax, Para agregar mas opciones a Facilities Option / Instalaciones Cercanas ==============-->

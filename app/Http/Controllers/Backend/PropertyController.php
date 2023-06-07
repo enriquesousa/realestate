@@ -136,6 +136,10 @@ class PropertyController extends Controller
     // Editar Datos de la Propiedad
     public function EditProperty($id){
 
+        // Cargar solo los datos de la tabla 'facilities' donde el 'property_id' es igual al $id de la Propiedad
+        $facilities = Facility::where('property_id',$id)->get();
+
+        // Cargar todos los datos de la tabla 'properties' donde el id es igual al $id pasado por la función
         $property = Property::findOrFail($id);
 
         $type = $property->amenities_id;
@@ -148,7 +152,7 @@ class PropertyController extends Controller
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage'));
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage', 'facilities'));
 
     }
 
