@@ -4114,18 +4114,125 @@ Y en la vista resources/views/backend/property/details_property.blade.php
 ```
 Listo!
 ## 81. Create Property Details Page Part 2
+Continuamos llenando de datos las dos tablas.
+En resources/views/backend/property/details_property.blade.php
+```php
+{{-- Segunda Tabla a la Derecha --}}
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
 
+                        <tr>
+                            <td>Código</td>
+                            <td><code>{{ $property->property_code }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Tamaño</td>
+                            <td><code>{{ $property->property_size }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Video</td>
+                            <td><code>{{ $property->property_video }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Vecindario</td>
+                            <td><code>{{ $property->neighborhood }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Latitud</td>
+                            <td><code>{{ $property->latitude }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Longitud</td>
+                            <td><code>{{ $property->longitude }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Tipo</td>
+                            <td><code>{{ $property['type']['type_name'] }}</code></td>
+                        </tr>
 
+                        <tr>
+                            <td>Comodidades</td>
+                            <td>
+                                <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+                                    @foreach($amenities as $ameni)
+                                        <option value="{{ $ameni->id }}" {{ (in_array($ameni->id, $property_ami)) ? 'selected' : '' }}>{{ $ameni->amenities_name }}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                        </tr>
 
+                        <tr>
+                            <td>Agente</td>
+                            <td>
+                                @if ($property->agent_id == NULL)
+                                    <td><code> Admin </code></td>
+                                @else
+                                    <td><code>{{ $property['user']['name'] }}</code></td>
+                                @endif
+                            </td>
+                        </tr>
 
+                        {{-- <tr>
+                            <td>Descripción Corta</td>
+                            <td><code>{{ $property->short_descp }}</code></td>
+                        </tr> --}}
 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 
+```
+Para desplegar lso odatos que tiene una relacion:
+```php
+<tr>
+    <td>Tipo</td>
+    <td><code>{{ $property['type']['type_name'] }}</code></td>
+</tr> 
+
+<tr>
+    <td>Agente</td>
+    <td>
+        @if ($property->agent_id == NULL)
+            <td><code> Admin </code></td>
+        @else
+            <td><code>{{ $property['user']['name'] }}</code></td>
+        @endif
+    </td>
+</tr>
+```
+Tenemos que asignar la relacion al modelo app/Models/Property.php
+```php
+// Relación del campo 'ptype_id' con el 'id' de la tabla 'property_types'
+public function type(){
+    return $this->belongsTo(PropertyType::class,'ptype_id','id');
+}
+
+// Relación del campo 'agent_id' con el 'id' de la tabla 'users'
+public function user(){
+    return $this->belongsTo(User::class,'agent_id','id');
+} 
+```
+Listo!
 ## 82. Property Active Inactive From Details Page
+
+
+
+
+
+
+
 
 ## 83. Bug Fixed for Redirect Login Page
 

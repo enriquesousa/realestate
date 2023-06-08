@@ -14,7 +14,6 @@
             <div class="card">
                 <div class="card-body">
                     <h6 class="card-title">Detalles Propiedad</h6>
-                    <p class="text-muted mb-3">Add class <code>.table</code></p>
                     <div class="table-responsive">
                         <table class="table table-striped">
 
@@ -22,13 +21,88 @@
 
                                 <tr>
                                     <td>Nombre</td>
-                                    <td>{{ $property->property_name }}</td>
+                                    <td><code>{{ $property->property_name }}</code></td>
                                 </tr>
 
                                 <tr>
                                     <td>Estatus</td>
-                                    <td>{{ $property->property_status }}</td>
+                                    <td><code>{{ $property->property_status }}</code></td>
                                 </tr>
+
+                                <tr>
+                                    <td>Estatus</td>
+                                    <td><code>{{ $property->property_status }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Precio mas Bajo</td>
+                                    <td><code>{{ $property->lowest_price }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Precio mas Alto</td>
+                                    <td><code>{{ $property->max_price }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Dormitorios</td>
+                                    <td><code>{{ $property->bedrooms }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Baños</td>
+                                    <td><code>{{ $property->bathrooms }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Cochera</td>
+                                    <td><code>{{ $property->garage }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Tamaño de Cochera</td>
+                                    <td><code>{{ $property->garage_size }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Dirección</td>
+                                    <td><code>{{ $property->address }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Ciudad</td>
+                                    <td><code>{{ $property->city }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Estado</td>
+                                    <td><code>{{ $property->state }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Código Postal</td>
+                                    <td><code>{{ $property->postal_code }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Imagen Principal</td>
+                                    <td>
+                                        <img src="{{ asset($property->property_thambnail) }}" style="width: 100px; height: 70px;">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Estatus</td>
+                                    <td>
+                                        @if ($property->status == 1)
+                                            <span class="badge rounded-pill bg-success">Activa</span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger">Inactiva</span>
+                                        @endif
+                                    </td>
+                                </tr>
+
+
 
                             </tbody>
 
@@ -42,49 +116,72 @@
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">Hoverable Table</h6>
-                    <p class="text-muted mb-3">Add class <code>.table-hover</code></p>
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>LAST NAME</th>
-                                    <th>USERNAME</th>
-                                </tr>
-                            </thead>
+                        <table class="table table-striped">
                             <tbody>
+
                                 <tr>
-                                    <th>1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>Código</td>
+                                    <td><code>{{ $property->property_code }}</code></td>
                                 </tr>
+
                                 <tr>
-                                    <th>2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
+                                    <td>Tamaño</td>
+                                    <td><code>{{ $property->property_size }}</code></td>
                                 </tr>
+
                                 <tr>
-                                    <th>3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
+                                    <td>Video</td>
+                                    <td><code>{{ $property->property_video }}</code></td>
                                 </tr>
+
                                 <tr>
-                                    <th>4</th>
-                                    <td>Larry</td>
-                                    <td>Jellybean</td>
-                                    <td>@lajelly</td>
+                                    <td>Vecindario</td>
+                                    <td><code>{{ $property->neighborhood }}</code></td>
                                 </tr>
+
                                 <tr>
-                                    <th>5</th>
-                                    <td>Larry</td>
-                                    <td>Kikat</td>
-                                    <td>@lakitkat</td>
+                                    <td>Latitud</td>
+                                    <td><code>{{ $property->latitude }}</code></td>
                                 </tr>
+
+                                <tr>
+                                    <td>Longitud</td>
+                                    <td><code>{{ $property->longitude }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Tipo</td>
+                                    <td><code>{{ $property['type']['type_name'] }}</code></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Comodidades</td>
+                                    <td>
+                                        <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+                                            @foreach($amenities as $ameni)
+                                                <option value="{{ $ameni->id }}" {{ (in_array($ameni->id, $property_ami)) ? 'selected' : '' }}>{{ $ameni->amenities_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Agente</td>
+                                    <td>
+                                        @if ($property->agent_id == NULL)
+                                            <td><code> Admin </code></td>
+                                        @else
+                                            <td><code>{{ $property['user']['name'] }}</code></td>
+                                        @endif
+                                    </td>
+                                </tr>
+
+                                {{-- <tr>
+                                    <td>Descripción Corta</td>
+                                    <td><code>{{ $property->short_descp }}</code></td>
+                                </tr> --}}
+
                             </tbody>
                         </table>
                     </div>
