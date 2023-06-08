@@ -4284,8 +4284,47 @@ public function ActiveProperty(Request $request){
 ```
 Listo!
 ## 83. Bug Fixed for Redirect Login Page
+El Bug que tenemos ahorita es:
+Si estamos login como admin y visitamos: http://realestate.test/admin/login
+nos manda a la pagina de login de admin, y no es corercto pues ya estamos login.
+La solucion es modifucar el middleware que usa laravel breeze.
 
+Vamos customizar la redireccion del home page 
+en app/Http/Middleware/RedirectIfAuthenticated.php
+```php
+public function handle(Request $request, Closure $next, string ...$guards): Response
+{
+    $guards = empty($guards) ? [null] : $guards;
 
+    foreach ($guards as $guard) {
+        if (Auth::guard($guard)->check()) {
+
+            if (Auth::check() && Auth::user()->role == 'user') {
+                return redirect('/dashboard');
+            }
+
+            if (Auth::check() && Auth::user()->role == 'agent') {
+                return redirect('/agent/dashboard');
+            }
+
+            if (Auth::check() && Auth::user()->role == 'admin') {
+                return redirect('/admin/dashboard');
+            }
+
+        }
+    }
+
+    return $next($request);
+} 
+```
+Ahora usar este middleware en routes/web.php
+Pra proteger a nuestra ruta de admin
+```php
+use App\Http\Middleware\RedirectIfAuthenticated;
+
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
+```
+Listo!
 
 
 
