@@ -24,7 +24,7 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         $notification = array(
-            'message' => 'Cierre de Sesión Exitosa',
+            'message' => 'Admin Cierre de Sesión Exitosa',
             'alert-type' => 'success'
         );
 

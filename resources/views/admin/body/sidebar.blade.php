@@ -23,7 +23,7 @@
             </li>
 
             {{-- * RealEstate --}}
-            <li class="nav-item nav-category">RealEstate</li>
+            <li class="nav-item nav-category">Admin</li>
             <li class="nav-item">
 
                 {{-- Property Type --}}

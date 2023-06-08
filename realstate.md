@@ -4464,10 +4464,45 @@ public function AgentDashboard(){
 ```
 Listo!
 ## 87. Agent Logout Option
+En resources/views/agent/body/header.blade.php
+```php
+{{-- Log Out --}}
+<li class="dropdown-item py-2">
+    <a href="{{ route('agent.logout') }}" class="text-body ms-0">
+        <i class="me-2 icon-md" data-feather="log-out"></i>
+        <span>Cierra Sesión</span>
+    </a>
+</li> 
+```
+En routes/web.php
+```php
+// Agent group middleware
+Route::middleware(['auth','role:agent'])->group(function(){
+    Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
+    Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
+}); 
+```
+En app/Http/Controllers/AgentController.php
+```php
+// Agent Logout
+public function AgentLogout(Request $request)
+{
+    Auth::guard('web')->logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
+    $notification = array(
+        'message' => 'Agente Cierre de Sesión Exitosa',
+        'alert-type' => 'success'
+    );
 
-
-
-
+    return redirect('/agent/login')->with($notification);
+} 
+```
+Listo!
 ## 88. Agent Profile & Image Update
+
+
+
+
 ## 89. Agent Profile Change Password

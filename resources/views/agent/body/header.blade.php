@@ -281,9 +281,9 @@
 
                         {{-- Log Out --}}
                         <li class="dropdown-item py-2">
-                            <a href="{{ route('admin.logout') }}" class="text-body ms-0">
+                            <a href="{{ route('agent.logout') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
-                                <span>Log Out</span>
+                                <span>Cierra Sesión</span>
                             </a>
                         </li>
 

@@ -22,6 +22,21 @@ class AgentController extends Controller
         return view('agent.agent_login');
     }
 
+    // Agent Logout
+    public function AgentLogout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        $notification = array(
+            'message' => 'Agente Cierre de Sesión Exitosa',
+            'alert-type' => 'success'
+        );
+
+        return redirect('/agent/login')->with($notification);
+    }
+
     // Registro de Agent
     public function AgentRegister(Request $request){
 
