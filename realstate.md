@@ -3,7 +3,7 @@ Kazi Ariyan
 
 # Estructura para Laravel Real Estate
 
-## Sección 3 - Multi Auth with Breeze
+# Sección 3 - Multi Auth with Breeze
 - 08. Instalar Laravel 10
 - 09. Create Database
 - 10. Install Laravel Breeze
@@ -14,7 +14,7 @@ Kazi Ariyan
 - 15. Multi Auth Breeze Part 3
 - 16. Login With Name Email or Phone
 
-## Sección 4 - Project Admin Panel Setup
+# Sección 4 - Project Admin Panel Setup
 - 17. Project Theme Overview
 - 18. Admin Template Setup
 - 19. Dashboard Page Segmentation
@@ -31,14 +31,14 @@ Kazi Ariyan
 - 30. Admin Profile Change Password Part 2
 - 31. Take Backup And Restore in Localhost
 
-## Sección 5 - Project Frontend Template Setup
+# Sección 5 - Project Frontend Template Setup
 - 32. Frontend Template Setup Part 1
 - 33. Frontend Template Setup Part 2
 - 34. Frontend Template Setup Part 3
 - 35. Frontend Template Login Page Setup
 - 36. Frontend Template Register Page Setup
 
-## Sección 6 - Project Frontend User Profile Setup
+# Sección 6 - Project Frontend User Profile Setup
 - 37. User Profile Design Part 1
 - 38. User Profile Design Part 2
 - 39. User Profile Design Part 3
@@ -47,80 +47,80 @@ Kazi Ariyan
 - 42. Update User Login Setup with and without Login
 - 43. User Login and Logout Notification
 
-## Sección 7 - Project Backend Property Type Setup
-- 44. Property Type Crud Part 1
-- 45. Property Type Crud Part 2
-- 46. Property Type Crud Part 3
-- 47. Property Type Crud Part 4
-- 48. Property Type Crud Part 5
+# Sección 7 - Project Backend Property Type Setup
+## 44. Property Type Crud Part 1
+## 45. Property Type Crud Part 2
+## 46. Property Type Crud Part 3
+## 47. Property Type Crud Part 4
+## 48. Property Type Crud Part 5
 
-## Sección 8 - Project Backend Property Amenities
-- 49. Amenities Crud Part 1
-- 50. Add Validation Message
-- 51. Amenities Crud Part 2
+# Sección 8 - Project Backend Property Amenities
+## 49. Amenities Crud Part 1
+## 50. Add Validation Message
+## 51. Amenities Crud Part 2
 
-## Sección 9 - Backend Add Property Page Design
-- 52. Add Property Database Design Part 1 
-- 53. Add Property Database Design Part 2
-- 54. Add Property Database and Page Design Part 1
-- 55. Add Property Database and Page Design Part 2
-- 56. Show Image Using Javascript
-- 57. Add Property Database and Page Design Part 5
-- 58. Add Property Database and Page Design Part 6
-- 59. Add Property Database and Page Design Part 7
-- 60. Add Property Database and Page Design Part 8
-- 61. Add Property JavaScript Validation
+# Sección 9 - Backend Add Property Page Design
+## 52. Add Property Database Design Part 1 
+## 53. Add Property Database Design Part 2
+## 54. Add Property Database and Page Design Part 1
+## 55. Add Property Database and Page Design Part 2
+## 56. Show Image Using Javascript
+## 57. Add Property Database and Page Design Part 5
+## 58. Add Property Database and Page Design Part 6
+## 59. Add Property Database and Page Design Part 7
+## 60. Add Property Database and Page Design Part 8
+## 61. Add Property JavaScript Validation
 
-## Sección 10 - Backend Insert Property Setup 
-- 62. Install Image Intervention Package
-- 63. Property Insert Database Part 1
-- 64. Property Insert Database Part 2
-- 65. Property Insert Database Part 3
-- 66. Property Insert Database Part 4
-- 67. Manage Property Read All Product
-- 68. Manage Property Edit Option Part 1
-- 69. Manage Property Edit Option Part 2
-- 70. Manage Property Update Option
-- 71. Manage Property Update Single and Multiple Image Part 1
-- 72. Manage Property Update Single and Multiple Image Part 2
-- 73. Manage Property Update Single and Multiple Image Part 3
-- 74. Manage Property Update Single and Multiple Image Part 4
-- 75. Multiple Image Delete
-- 76. Add Multi Image In Property
-- 77. Manage Property Update Facility Part 1
-- 78. Manage Property Update Facility Part 2
-- 79. Property Delete With Multiple Image
-- 80. Create Property Details Page Part 1
-- 81. Create Property Details Page Part 2
-- 82. Property Active Inactive From Details Page
-- 83. Bug Fixed for Redirect Login Page
+# Sección 10 - Backend Insert Property Setup 
+## 62. Install Image Intervention Package
+## 63. Property Insert Database Part 1
+## 64. Property Insert Database Part 2
+## 65. Property Insert Database Part 3
+## 66. Property Insert Database Part 4
+## 67. Manage Property Read All Product
+## 68. Manage Property Edit Option Part 1
+## 69. Manage Property Edit Option Part 2
+## 70. Manage Property Update Option
+## 71. Manage Property Update Single and Multiple Image Part 1
+## 72. Manage Property Update Single and Multiple Image Part 2
+## 73. Manage Property Update Single and Multiple Image Part 3
+## 74. Manage Property Update Single and Multiple Image Part 4
+## 75. Multiple Image Delete
+## 76. Add Multi Image In Property
+## 77. Manage Property Update Facility Part 1
+## 78. Manage Property Update Facility Part 2
+## 79. Property Delete With Multiple Image
+## 80. Create Property Details Page Part 1
+## 81. Create Property Details Page Part 2
+## 82. Property Active Inactive From Details Page
+## 83. Bug Fixed for Redirect Login Page
 
-## Sección 11 - Add Agent Register Page Setup
-- 84. Add Agent Register Page Setup Part 1
-- 85. Add Agent Register Page Setup Part 2
+# Sección 11 - Add Agent Register Page Setup
+## 84. Add Agent Register Page Setup Part 1
+## 85. Add Agent Register Page Setup Part 2
 
-## Sección 12 - Project Agent Panel Setup
-- 86. Agent Template Setup
-- 87. Agent Logout Option
-- 88. Agent Profile & Image Update
-- 89. Agent Profile Change Password
+# Sección 12 - Project Agent Panel Setup
+## 86. Agent Template Setup
+## 87. Agent Logout Option
+## 88. Agent Profile & Image Update
+## 89. Agent Profile Change Password
 
-## Sección 13 - Manage Agent In Admin Dashboard
-- 90. Manage Agent In admin Page Part 1 
-- 91. Manage Agent In admin Page Part 2
-- 92. Manage Agent In admin Page Part 3
-- 93. Active Inactive In Agent Dashboard
-- 94. Active Inactive Agent From Admin Page
+# Sección 13 - Manage Agent In Admin Dashboard
+## 90. Manage Agent In admin Page Part 1 
+## 91. Manage Agent In admin Page Part 2
+## 92. Manage Agent In admin Page Part 3
+## 93. Active Inactive In Agent Dashboard
+## 94. Active Inactive Agent From Admin Page
 
-## Sección 14 - Backend Add Property From Agent
-- 95. Add Property From Agent Part 1
-- 96. Add Property From Agent Part 2
-- 97. Add Property From Agent Part 3
-- 98. Add Property From Agent Part 4
-- 99. Add Property From Agent Part 5
-- 100. Update Add Property Amenities Fields
+# Sección 14 - Backend Add Property From Agent
+## 95. Add Property From Agent Part 1
+## 96. Add Property From Agent Part 2
+## 97. Add Property From Agent Part 3
+## 98. Add Property From Agent Part 4
+## 99. Add Property From Agent Part 5
+## 100. Update Add Property Amenities Fields
 
-## Sección 15 - Backend Agent Buy Packages Option
+# Sección 15 - Backend Agent Buy Packages Option
 - 101. Design Buy Package Agent Dashboard
 - 102. Agent Buy Package Option Part 1
 - 103. Agent Buy Package Option Part 2
@@ -128,24 +128,24 @@ Kazi Ariyan
 - 105. Agent Buy Package Option Part 4
 - 106. Agent Buy Package Option Part 5
 
-## Sección 16 - Package Sales Report In Agent Dashboard With PDF
+# Sección 16 - Package Sales Report In Agent Dashboard With PDF
 - 107. Package sales Report In Agent Dashboard Part 1
 - 108. Package sales Report In Agent Dashboard Part 2
 - 109. Package sales Report In Agent Dashboard Part 3 
 
-## Sección 17 - Package Sales Report In Admin Dashboard With PDF
+# Sección 17 - Package Sales Report In Admin Dashboard With PDF
 - 110. Package Sales Report In Admin Dashboard Part 1
 - 111. Package Sales Report In Admin Dashboard Part 2
 
-## Sección 18 - Display Property Type In Frontend
+# Sección 18 - Display Property Type In Frontend
 - 112. Show Property Type In Frontend Part 1
 - 113. Show Property Type In Frontend Part 2
 
-## Sección 19 - Display Features Property In Frontend 
+# Sección 19 - Display Features Property In Frontend 
 - 114. Show Features Property In Frontend Part 1
 - 115. Show Features Property In Frontend Part 2
 
-## Sección 20 - Setup Property Details Page 
+# Sección 20 - Setup Property Details Page 
 - 116. Setup Property Details Page Part 1
 - 117. Setup Property Details Page Part 2
 - 118. Setup Property Details Page Part 3
@@ -153,7 +153,7 @@ Kazi Ariyan
 - 120. Setup Property Details Page Part 5
 - 121. Setup Property Details Related Page
 
-## Sección 21 - Setup Property Wishlist Option
+# Sección 21 - Setup Property Wishlist Option
 - 122. Property Wishlist Setup Part 1
 - 123. Property Wishlist Setup Part 2
 - 124. Property Wishlist Setup Part 3
@@ -162,45 +162,45 @@ Kazi Ariyan
 - 127. Property Wishlist Setup Part 6
 - 128. Property Wishlist Setup Part 7
 
-## Sección 22 - Setup Property Compare Option 
+# Sección 22 - Setup Property Compare Option 
 - 129. Property Compare Setup Part 1
 - 130. Property Compare Setup Part 2
 - 131. Property Compare Setup Part 3
 - 132. Property Compare Setup Part 4
 
-## Sección 23 - Setup Send Message From Details Page
+# Sección 23 - Setup Send Message From Details Page
 - 133. Send Message To agent Part 1
 - 134. Send Message To agent Part 2
 - 135. Send Message To agent Part 3
 
-## Sección 24 - Setup Property Message In Agent Dashboard 
+# Sección 24 - Setup Property Message In Agent Dashboard 
 - 136. Send Message To Agent Part 1
 - 137. Send Message To Agent Part 2
 - 138. Send Message To Agent Part 3
 - 139. Show Message In Admin Dashboard
 
-## Sección 25 - Property Agent Page In Frontend
+# Sección 25 - Property Agent Page In Frontend
 - 140. Display Agent Page in Frontend
 - 141. Display Agent Details Page Part 1
 - 142. Display Agent Details Page Part 2
 - 143. Display Agent Details Page Part 3
 - 144. Display Agent Details Page Part 4
 
-## Sección 26 - Setup Property Buy and Rent List Page
+# Sección 26 - Setup Property Buy and Rent List Page
 - 145. Property Rent List Part 1
 - 146. Property Rent List Part 2
 - 147. Property Buy List
 - 148. Get Type Wise Property
 - 149. Update Header Menu
 
-## Sección 27 - Create Custom Pagination 
+# Sección 27 - Create Custom Pagination 
 - 150. Add Custom Pagination Part 1
 - 151. Add Custom Pagination Part 2
 
-## Sección 28 - Display Hot Latest Property In Frontend 
+# Sección 28 - Display Hot Latest Property In Frontend 
 - 152. Show Hot Property in Frontend
 
-## Sección 29 - Work For Property Location By State In Admin 
+# Sección 29 - Work For Property Location By State In Admin 
 - 153. Property Location By State in Admin Part 1
 - 154. Property Location By State in Admin Part 2
 - 155. Property Location By State in Admin Part 3
@@ -209,95 +209,95 @@ Kazi Ariyan
 - 158. Update Admin Add and Edit Property for State Part 2
 - 159. Update Agent Add and Edit Property for State
 
-## Sección 30 - Property Location Area In Frontend
+# Sección 30 - Property Location Area In Frontend
 - 160. Property Location Area in Frontend Part 1
 - 161. Property Location Area in Frontend Part 2
 - 162. Property Location Area in Frontend Part 3
 
-## Sección 31 - Property Search Option In Home Page 
+# Sección 31 - Property Search Option In Home Page 
 - 163. Property Search Option in Home Page Part 1
 - 164. Property Search Option in Home Page Part 2
 - 165. Property Search Option in Home Page Part 3
 
-## Sección 32 - Property Search Option In Category Page
+# Sección 32 - Property Search Option In Category Page
 - 166. Property Search Option in Category Page
 
-## Sección 33 - Setup Testimonials From Admin Backend
+# Sección 33 - Setup Testimonials From Admin Backend
 - 167. Setup Testimonials from Admin Part 1
 - 168. Setup Testimonials from Admin Part 2
 - 169. Setup Testimonials from Admin Part 3
 - 170. Setup Testimonials in Frontend
 
-## Sección 34 - Admin Blog Category Setup
+# Sección 34 - Admin Blog Category Setup
 - 171. Advance Blog Category Setup Part 1
 - 172. Advance Blog Category Setup Part 2
 - 173. Advance Blog Category Setup Part 3
 - 174. Advance Blog Category Setup Part 4
 
-## Sección 35 - Admin Blog Management Setup
+# Sección 35 - Admin Blog Management Setup
 - 175. Blog Post Setup Part 1
 - 176. Blog Post Setup Part 2
 - 177. Blog Post Setup Part 3
 - 178. Blog Post Setup Part 4
 
-## Sección 36 - Show Blog In Front Page
+# Sección 36 - Show Blog In Front Page
 - 179. Show Blog in Frontend Page Part 1
 - 180. Show Blog in Frontend Page Part 2
 - 181. Show Blog in Frontend Page Part 3
 
-## Sección 37 - Category Wise Blog List Page
+# Sección 37 - Category Wise Blog List Page
 - 182. Show Blog Category List Page
 - 183. Show Blog List Page
 
-## Sección 38 - Blog Comment Function Frontend Page
+# Sección 38 - Blog Comment Function Frontend Page
 - 184. Show Blog Comment in Frontend Page Part 1
 - 185. Show Blog Comment in Frontend Page Part 2
 
-## Sección 39 - Blog Comment Function Backend With Replay
+# Sección 39 - Blog Comment Function Backend With Replay
 - 186. Comment Function Backend With Replay Part 1
 - 187. Comment Function Backend With Replay Part 2
 - 188. Comment Function Backend With Replay Part 3
 
-## Sección 40 - Schedule a Tour Setup for Property
+# Sección 40 - Schedule a Tour Setup for Property
 - 189. Property Schedule a Tour Setup Part 1
 - 190. Property Schedule a Tour Setup Part 2
 
-## Sección 41 - Schedule a Tour Setup In Admin With Email
+# Sección 41 - Schedule a Tour Setup In Admin With Email
 - 191. Schedule a Tour in Admin With Email Part 1
 - 192. Schedule a Tour in Admin With Email Part 2
 - 193. Schedule a Tour in Admin With Email Part 3
 - 194. Schedule a Tour in Admin With Email Part 4
 - 195. Schedule a Tour in Admin With Email Part 5
 
-## Sección 42 - Dynamic Email Configuration In Laravel Edit env
+# Sección 42 - Dynamic Email Configuration In Laravel Edit env
 - 196. Dynamic Email Configuration Part 1
 - 197. Dynamic Email Configuration Part 2
 - 198. Dynamic Email Configuration Part 3
 
-## Sección 43 - Property Schedule in User Dashboard
+# Sección 43 - Property Schedule in User Dashboard
 - 199. Schedule in User Dashboard Part 1
 - 200. Schedule in User Dashboard Part 2
 
-## Sección 44 - Site Setting Option Update
+# Sección 44 - Site Setting Option Update
 - 201. Site Setting Option Part 1
 - 202. Site Setting Option Part 2
 - 203. Site Setting Option Part 3
 - 204. Update Custom Title
 
-## Sección 45 - Setup User Permission
+# Sección 45 - Setup User Permission
 - 205. User Permission Introduction
 - 206. Install Laravel Spatie Permission
 - 207. Setup User Permission Part 1
 - 208. Setup User Permission Part 2
 - 209. Setup User Permission Part 3
 
-## Sección 46 - Permission Import and Export From Excel File
+# Sección 46 - Permission Import and Export From Excel File
 - 210. Install Laravel Excel Package in Project
 - 211. How to Import and Export Permission Part 1
 - 212. How to Import and Export Permission Part 2
 - 213. How to Import and Export Permission Part 3
 
-## Sección 47 - Setup User Roles 
+# Sección 47 - Setup User Roles 
 - 214. Setup User Roles Part 1
 - 215. Setup User Roles Part 2
 - 216. Add Roles in Permission Part 1
@@ -310,21 +310,21 @@ Kazi Ariyan
 - 223. Edit Roles in Permission Part 2
 - 224. Delete Roles in Permission
 
-## Sección 48 - Multi Admin For Store 
+# Sección 48 - Multi Admin For Store 
 - 225. Multi Admin Setup Part 1
 - 226. Multi Admin Setup Part 2
 - 227. Multi Admin Setup Part 3
 - 228. Multi Admin Setup Part 4
 
-## Sección 49 - Add Role And Permission in Sidebar
+# Sección 49 - Add Role And Permission in Sidebar
 - 229. Add Role and Permission for Admin User Part 1
 - 230. Add Role and Permission for Admin User Part 2
 
-## Sección 50 - Create 404 and 403 Page
+# Sección 50 - Create 404 and 403 Page
 - 231. How to Create 404 Page
 - 232. How to Create 403 Page
 
-## Sección 51 - Live Chat Application System For User and Agent
+# Sección 51 - Live Chat Application System For User and Agent
 - 233. Live Chat Application Introduction
 - 234. Live Chat Application Part 1
 - 235. Live Chat Application Part 2
@@ -349,12 +349,12 @@ Kazi Ariyan
 # Contenido
 ***
 
-# S1 Introduccion
+# Sección 1 Introduccion
 ## 01. Que contruiremos
 
 
 
-# S3 - Multi Auth with Breeze
+# Sección 3 - Multi Auth with Breeze
 ## 13. Laravel Multi Auth with Breeze Part 1
 ## 14. Laravel Multi Auth with Breeze Part 2
 - Para ver la lista de routes:
@@ -475,7 +475,7 @@ public function authenticate(): void
 Listo!
 Ya podemos ingresas con nombre, email o phone
 
-# S4 - Admin Panel Setup## 31. Take Backup And Restore in Localhost
+# Sección 4 - Admin Panel Setup## 31. Take Backup And Restore in Localhost
 Para hacer Backup de todo el proyecto:
 Primero remover y limpiar cache de laravel asi:
 - php artisan config:cache
@@ -4325,6 +4325,56 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 ```
 Listo!
+
+
+
+
+
+
+# Sección 11 - Add Agent Register Page Setup
+## 84. Add Agent Register Page Setup Part 1
+Crear las ruta pertinente al login de agente!
+Organize mejor las rutas en routes/web.php
+```php
+Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class); 
+```
+En el controlador app/Http/Controllers/AgentController.php
+```php
+// Agent Login
+public function AgentLogin(){
+    return view('agent.agent_login');
+} 
+```
+En la vista resources/views/agent/agent_login.blade.php
+Copiamos la misma vista de resources/views/auth/login.blade.php
+Y la modificamos ligeramente para visualizar que es login y registro para Agente
+```php
+...
+{{-- Tabs Login y Register --}}
+<div class="tab-btn-box">
+    <ul class="tab-btns tab-buttons centred clearfix">
+        <li class="tab-btn active-btn" data-tab="#tab-1">Acceso Agente</li>
+        <li class="tab-btn" data-tab="#tab-2"> Registro Agente</li>
+    </ul>
+</div>
+
+...
+{{-- tab-1 Login --}}
+<div class="tab active-tab" id="tab-1">
+    <div class="inner-box">
+        <h4>Inicia Sesión Agente</h4>
+        ...
+
+{-- tab-2 Regístrate --}}
+<div class="tab" id="tab-2">
+    <div class="inner-box">
+        <h4>Registro de Agente</h4>
+        ...
+...
+```
+Listo!
+## 85. Add Agent Register Page Setup Part 2
+
 
 
 

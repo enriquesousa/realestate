@@ -14,15 +14,29 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 //     return view('welcome');
 // });
 
+require __DIR__.'/auth.php';
+
+/******************
+* Acceso para todos
+*******************/
+
 // Home User Frontend All Route
 Route::get('/', [UserController::class, 'index']);
 
-// user
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
+
+Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
+
+/******
+* User
+*******/
+
+// user '/dashboard'
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// User group middleware
+// User group middleware, profile, logout, change password
 Route::middleware('auth')->group(function () {
 
     Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
@@ -33,9 +47,12 @@ Route::middleware('auth')->group(function () {
 
 });
 
-require __DIR__.'/auth.php';
 
-// Admin group middleware
+/******
+* Admin
+*******/
+
+// Admin group middleware, Dashboard, profile, logout, change password, All Routes
 Route::middleware(['auth','role:admin'])->group(function(){
 
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -47,16 +64,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 });
 
-// Agent group middleware
-Route::middleware(['auth','role:agent'])->group(function(){
-    Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
-});
-
-
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
-
-
-// Admin group middleware
+// Admin group middleware, Property Type, Amenities, and Property, All Routes
 Route::middleware(['auth','role:admin'])->group(function(){
 
     // Property Type All Routes
@@ -105,6 +113,13 @@ Route::middleware(['auth','role:admin'])->group(function(){
 });
 
 
+/******
+* Agent
+*******/
 
+// Agent group middleware
+Route::middleware(['auth','role:agent'])->group(function(){
+    Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
+});
 
 
