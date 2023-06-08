@@ -4446,3 +4446,28 @@ Listo!
 
 
 
+
+# Sección 12 - Project Agent Panel Setup
+## 86. Agent Template Setup
+Copiar de admin y modificar:
+- resources/views/agent/index.blade.php
+- resources/views/agent/agent_dashboard.blade.php
+- resources/views/agent/body/footer.blade.php
+- resources/views/agent/body/header.blade.php
+- resources/views/agent/body/sidebar.blade.php
+Y en app/Http/Controllers/AgentController.php:
+```php
+// Agent Dashboard
+public function AgentDashboard(){
+    return view('agent.index');
+} 
+```
+Listo!
+## 87. Agent Logout Option
+
+
+
+
+
+## 88. Agent Profile & Image Update
+## 89. Agent Profile Change Password
