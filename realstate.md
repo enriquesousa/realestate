@@ -4374,8 +4374,74 @@ Y la modificamos ligeramente para visualizar que es login y registro para Agente
 ```
 Listo!
 ## 85. Add Agent Register Page Setup Part 2
+En resources/views/agent/agent_login.blade.php
+```php
+<form action="{{ route('agent.register') }}" method="POST" class="default-form">
+@csrf
+
+    {{-- Nombre --}}
+    <div class="form-group">
+        <label>Nombre Agente</label>
+        <input type="text" name="name" id="name" required="">
+    </div>
+
+    {{-- Email --}}
+    <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" name="email" id="email" required="">
+    </div>
+
+    {{-- Phone --}}
+    <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" name="phone" id="phone" required="">
+    </div>
+
+    {{-- Password --}}
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" id="password" required="">
+    </div>
 
 
+    {{-- botón regístrate --}}
+    <div class="form-group message-btn">
+        <button type="submit" class="theme-btn btn-one">Regístrate</button>
+    </div>
+
+</form> 
+```
+En routes/web.php
+```php
+Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register'); 
+```
+En app/Http/Controllers/AgentController.php
+```php
+// Registro de Agent
+public function AgentRegister(Request $request){
+
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'password' => Hash::make($request->password),
+        'role' => 'agent',
+        'status' => 'inactive',
+    ]);
+
+    event(new Registered($user));
+    Auth::login($user);
+    return redirect(RouteServiceProvider::AGENT);
+} 
+```
+Para el codigo de AgentRegister() tomamos como base el de app/Http/Controllers/Auth/RegisteredUserController.php
+
+Y en app/Providers/RouteServiceProvider.php
+```php
+public const HOME = '/dashboard';
+public const AGENT = '/agent/dashboard'; 
+```
+Listo!
 
 
 

@@ -76,12 +76,12 @@
                             <div class="inner-box">
                                 <h4>Registro de Agente</h4>
 
-                                <form action="{{ route('register') }}" method="POST" class="default-form">
-                                    @csrf
+                                <form action="{{ route('agent.register') }}" method="POST" class="default-form">
+                                @csrf
 
                                     {{-- Nombre --}}
                                     <div class="form-group">
-                                        <label>Nombre</label>
+                                        <label>Nombre Agente</label>
                                         <input type="text" name="name" id="name" required="">
                                     </div>
 
@@ -91,17 +91,18 @@
                                         <input type="email" name="email" id="email" required="">
                                     </div>
 
+                                    {{-- Phone --}}
+                                    <div class="form-group">
+                                        <label>Teléfono</label>
+                                        <input type="text" name="phone" id="phone" required="">
+                                    </div>
+
                                     {{-- Password --}}
                                     <div class="form-group">
                                         <label>Contraseña</label>
                                         <input type="password" name="password" id="password" required="">
                                     </div>
 
-                                    {{-- Confirm Password --}}
-                                    <div class="form-group">
-                                        <label>Confirma Contraseña</label>
-                                        <input type="password" name="password_confirmation" id="password_confirmation" required="">
-                                    </div>
 
                                     {{-- botón regístrate --}}
                                     <div class="form-group message-btn">
