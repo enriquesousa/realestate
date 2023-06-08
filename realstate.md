@@ -4225,15 +4225,64 @@ public function user(){
 } 
 ```
 Listo!
-## 82. Property Active Inactive From Details Page
+## 82. Property Active Inactive Form Details Page
+Agrgar boton para Activar o Desactivar la Propiedad
+En resources/views/backend/property/details_property.blade.php
+```php
+<br><br>
+{{-- Desplegar forma  para  cambiar estado de del 'status' --}}
+@if ($property->status == 1)
+    <form method="POST" action="{{ route('inactive.property') }}">
+    @csrf
+        <input type="hidden" name="id" value="{{ $property->id }}">
+        <button type="submit" class="btn btn-primary">Desactivar</button>
+    </form>
+@else
+    <form method="POST" action="{{ route('active.property') }}">
+    @csrf
+        <input type="hidden" name="id" value="{{ $property->id }}">
+        <button type="submit" class="btn btn-primary">Activar</button>
+    </form>
+@endif 
+```
+En routes/web.php
+```php
+Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
+Route::post('/active/property', 'ActiveProperty')->name('active.property'); 
+```
+En app/Http/Controllers/Backend/PropertyController.php
+```php
+// Cambiar el status de la propiedad a Inactiva
+public function InactiveProperty(Request $request){
 
+    $pid = $request->id;
+    Property::findOrFail($pid)->update([
+        'status' => 0,
+    ]);
 
+    $notification = array(
+        'message' => 'Estado de Propiedad Inactiva!',
+        'alert-type' => 'success'
+    );
+    return redirect()->route('all.property')->with($notification);
+}
 
+// Cambiar el status de la propiedad a Activa
+public function ActiveProperty(Request $request){
 
+    $pid = $request->id;
+    Property::findOrFail($pid)->update([
+        'status' => 1,
+    ]);
 
-
-
-
+    $notification = array(
+        'message' => 'Estado de Propiedad Activa!',
+        'alert-type' => 'success'
+    );
+    return redirect()->route('all.property')->with($notification);
+} 
+```
+Listo!
 ## 83. Bug Fixed for Redirect Login Page
 
 

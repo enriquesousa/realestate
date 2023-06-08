@@ -168,13 +168,11 @@
 
                                 <tr>
                                     <td>Agente</td>
-                                    <td>
-                                        @if ($property->agent_id == NULL)
-                                            <td><code> Admin </code></td>
-                                        @else
-                                            <td><code>{{ $property['user']['name'] }}</code></td>
-                                        @endif
-                                    </td>
+                                    @if ($property->agent_id == NULL)
+                                        <td><code> Admin </code></td>
+                                    @else
+                                        <td><code>{{ $property['user']['name'] }}</code></td>
+                                    @endif
                                 </tr>
 
                                 {{-- <tr>
@@ -184,6 +182,23 @@
 
                             </tbody>
                         </table>
+
+                        <br><br>
+                        {{-- Desplegar forma  para  cambiar estado de del 'status' --}}
+                        @if ($property->status == 1)
+                            <form method="POST" action="{{ route('inactive.property') }}">
+                            @csrf
+                                <input type="hidden" name="id" value="{{ $property->id }}">
+                                <button type="submit" class="btn btn-primary">Desactivar</button>
+                            </form>
+                        @else
+                            <form method="POST" action="{{ route('active.property') }}">
+                            @csrf
+                                <input type="hidden" name="id" value="{{ $property->id }}">
+                                <button type="submit" class="btn btn-primary">Activar</button>
+                            </form>
+                        @endif
+
                     </div>
                 </div>
             </div>

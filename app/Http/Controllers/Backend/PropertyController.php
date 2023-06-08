@@ -395,4 +395,35 @@ class PropertyController extends Controller
         return view('backend.property.details_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage', 'facilities'));
     }
 
+    // Cambiar el status de la propiedad a Inactiva
+    public function InactiveProperty(Request $request){
+
+        $pid = $request->id;
+        Property::findOrFail($pid)->update([
+            'status' => 0,
+        ]);
+
+        $notification = array(
+            'message' => 'Estado de Propiedad Inactiva!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.property')->with($notification);
+    }
+
+    // Cambiar el status de la propiedad a Activa
+    public function ActiveProperty(Request $request){
+
+        $pid = $request->id;
+        Property::findOrFail($pid)->update([
+            'status' => 1,
+        ]);
+
+        $notification = array(
+            'message' => 'Estado de Propiedad Activa!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.property')->with($notification);
+    }
+
+
 }
