@@ -168,4 +168,38 @@ class AdminController extends Controller
         return redirect()->route('all.agent')->with($notification);
     }
 
+    // Edit Agent
+    public function EditAgent($id){
+        $allAgents = User::findOrFail($id);
+        return view('backend.agentuser.edit_agent',  compact('allAgents'));
+    }
+
+    // Update Agent
+    public function UpdateAgent(Request $request){
+        $user_id = $request->id;
+
+        User::findOrFail($user_id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+        ]);
+
+        $notification = array(
+            'message' => 'Agente Actualizado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.agent')->with($notification);
+    }
+
+    // Delete Agent
+    public function DeleteAgent($id){
+        User::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Agente Eliminado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 }

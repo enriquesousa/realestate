@@ -4696,15 +4696,116 @@ public function StoreAgent(Request $request){
 ```
 Lito!
 ## 92. Manage Agent In admin Page Part 3
+Implementar la ruta de Editar
+En resources/views/backend/agentuser/all_agent.blade.php
+```php
+<a href="{{ route('edit.agent',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a> 
+```
+En routes/web.php
+```php
+Route::get('/edit/agent/{id}', 'EditAgent')->name('edit.agent'); 
+```
+En app/Http/Controllers/AdminController.php
+```php
+// Edit Agent
+public function EditAgent($id){
+    $allAgents = User::findOrFail($id);
+    return view('backend.agentuser.edit_agent',  compact('allAgents'));
+} 
+```
+Y en resources/views/backend/agentuser/edit_agent.blade.php
+Va a ser tal cual resources/views/backend/agentuser/add_agent.blade.php asi que copiamos todo de ahi.
+```php
+<form id="myForm" method="POST" action="{{ route('update.agent') }}" class="forms-sample">
+@csrf
 
+    <input type="hidden" name="id" value="{{ $allAgents->id }}">
 
+    {{-- Name --}}
+    <div class="form-group mb-3">
+        <label for="amenities_name" class="form-label">Nombre Agente</label>
+        <input type="text" name="name" class="form-control" value="{{ $allAgents->name }}">
+    </div>
 
+    {{-- Email --}}
+    <div class="form-group mb-3">
+        <label for="amenities_name" class="form-label">Correo Electrónico</label>
+        <input type="email" name="email" class="form-control" value="{{ $allAgents->email }}">
+    </div>
 
+    {{-- Phone --}}
+    <div class="form-group mb-3">
+        <label for="amenities_name" class="form-label">Teléfono</label>
+        <input type="text" name="phone" class="form-control" value="{{ $allAgents->phone }}">
+    </div>
 
+    {{-- Address --}}
+    <div class="form-group mb-3">
+        <label for="amenities_name" class="form-label">Dirección</label>
+        <input type="text" name="address" class="form-control" value="{{ $allAgents->address }}">
+    </div>
 
+    <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
 
+</form> 
+```
+Para la Ruta update.agent en routes/web.php
+```php
+Route::post('/update/agent', 'UpdateAgent')->name('update.agent'); 
+```
+En app/Http/Controllers/AdminController.php
+```php
+// Update Agent
+public function UpdateAgent(Request $request){
+    $user_id = $request->id;
 
+    User::findOrFail($user_id)->update([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'address' => $request->address,
+    ]);
+
+    $notification = array(
+        'message' => 'Agente Actualizado con éxito!',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->route('all.agent')->with($notification);
+} 
+```
+
+Ahora vamos a implementar el Delete
+En resources/views/backend/agentuser/all_agent.blade.php
+```php
+<a href="{{ route('delete.agent',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a> 
+```
+En routes/web.php
+```php
+Route::get('/delete/agent/{id}', 'DeleteAgent')->name('delete.agent'); 
+```
+En app/Http/Controllers/AdminController.php
+```php
+// Delete Agent
+public function DeleteAgent($id){
+    User::findOrFail($id)->delete();
+    $notification = array(
+        'message' => 'Agente Eliminado con éxito!',
+        'alert-type' => 'success'
+    );
+    return redirect()->back()->with($notification);
+} 
+```
+Listo!
 ## 93. Active Inactive In Agent Dashboard
+
+
+
+
+
+
+
+
 ## 94. Active Inactive Agent From Admin Page
 
 
