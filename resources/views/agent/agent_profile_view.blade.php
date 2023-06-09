@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('agent.agent_dashboard')
+@section('agent')
 
 {{-- Funcionalidad con la imagen --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 
                         {{-- Foto --}}
                         <div>
-                            <img class="wd-100 rounded-circle" src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="profile">
+                            <img class="wd-100 rounded-circle" src="{{ (!empty($profileData->photo)) ? url('upload/agent_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="profile">
                             <span class="h4 ms-3">{{ $profileData->username }}</span>
                         </div>
 
@@ -61,9 +61,9 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Actualizar Perfil de Admin</h6>
+                        <h6 class="card-title">Actualizar Perfil de Agente</h6>
 
-                        <form method="POST" action="{{ route('admin.profile.store') }}" class="forms-sample" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('agent.profile.store') }}" class="forms-sample" enctype="multipart/form-data">
                         @csrf
 
                             {{-- username --}}
@@ -105,7 +105,7 @@
                             {{-- Desplegar Photo --}}
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label"></label>
-                                <img id="showImage" class="wd-80 rounded-circle" src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="profile">
+                                <img id="showImage" class="wd-80 rounded-circle" src="{{ (!empty($profileData->photo)) ? url('upload/agent_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="profile">
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>

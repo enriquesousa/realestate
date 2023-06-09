@@ -61,7 +61,12 @@ class AdminController extends Controller
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
-            unlink(public_path('upload/admin_images/' . $data->photo)); // para borrar la imagen anterior
+
+            // dd($data->photo); //regresa null si es la primera vez (si no hay foto)
+            if (!empty($data->photo)) {
+                unlink(public_path('upload/admin_images/' . $data->photo)); // para borrar la imagen anterior
+            }
+
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('upload/admin_images'), $filename);
             $data['photo'] = $filename; //Guardar a Base de Datos
