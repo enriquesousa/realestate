@@ -4504,5 +4504,73 @@ Listo!
 Varios Archivos Ver Este Commit
 Listo!
 ## 89. Agent Profile Change Password
+En resources/views/agent/body/header.blade.php
+```php
+{{-- Edit Profile --}}
+<li class="dropdown-item py-2">
+    <a href="{{ route('agent.change.password') }}" class="text-body ms-0">
+        <i class="me-2 icon-md" data-feather="edit"></i>
+        <span>Cambiar Contraseña</span>
+    </a>
+</li> 
+```
+En routes/web.php
+```php
+Route::get('/agent/change/password', [AgentController::class, 'AgentChangePassword'])->name('agent.change.password');
+Route::post('/agent/update/password', [AgentController::class, 'AgentUpdatePassword'])->name('agent.update.password'); 
+```
+En app/Http/Controllers/AgentController.php
+```php
+// Agent Change Password
+public function AgentChangePassword(){
+    $id = Auth::user()->id;
+    $profileData = User::find($id);
+    return view('agent.agent_change_password', compact('profileData'));
+}
+
+// Agent Update Password
+public function AgentUpdatePassword(Request $request){
+    // Validation
+    $request->validate([
+
+        'old_password' => 'required',
+        'new_password' => 'required|confirmed'
+
+    ]);
+
+
+    // Match The Old Password
+    if (!Hash::check($request->old_password, auth::user()->password)) {
+        $notification = array(
+            'message' => 'Contraseña Vieja NO coincide!',
+            'alert-type' => 'error'
+        );
+        return back()->with($notification);
+    }
+
+    // Update The New Password
+    User::whereId(auth()->user()->id)->update([
+        'password' => Hash::make($request->new_password)
+    ]);
+
+    $notification = array(
+        'message' => 'Contraseña actualizada con éxito!',
+        'alert-type' => 'success'
+    );
+
+    return back()->with($notification);
+} 
+```
+En resources/views/agent/agent_change_password.blade.php
+```php
+{{-- Foto --}}
+<div>
+    <img class="wd-100 rounded-circle" src="{{ (!empty($profileData->photo)) ? url('upload/agent_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="profile">
+    <span class="h4 ms-3">{{ $profileData->username }}</span>
+</div> 
+```
+Listo!
+
+
 
 
