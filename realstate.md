@@ -4798,15 +4798,60 @@ public function DeleteAgent($id){
 ```
 Listo!
 ## 93. Active Inactive In Agent Dashboard
+Cuando hagamos que el Agent este en 'status' "inactive", entonces el Agent no podra
+accesar las opciones del sidebar.
+En resources/views/agent/index.blade.php
+```php
+@php
+    // Obtener el id del usuario que esta login
+    $id = Auth::user()->id;
+    $agentId = App\Models\User::find($id); // Con esto traemos a todo el objeto
+    $status = $agentId->status;
 
+    // Los podríamos obtener asi también
+    // $name = Auth::user()->name;
+    // $status = Auth::user()->status;
+@endphp
 
+{{-- Contenido --}}
+<div class="page-content">
 
+    @if ($status === 'active')
+        <h6>Cuenta: <span class="text-success">Activa</span></h6>
+    @else
+        <h6>Cuenta: <span class="text-danger">Inactiva</span></h6>
+        <p class="text-danger">Espere a que el <b>Admin</b> apruebe su cuenta!</p>
+    @endif
 
+    ...
+```
+Y en resources/views/agent/body/sidebar.blade.php
+```php
+...
+{{-- Menus SideBar --}}
+@if ($status === 'active')
+    {{-- * Menus para Agente --}} 
+    {{-- Calendar --}}
+    {{-- * COMPONENTS --}}
+    {{-- UI Kit --}}
+    {{-- Advanced UI --}}
+@else
 
-
-
-
+@endif
+{{-- * DOCS --}}
+<li class="nav-item nav-category">Docs</li>
+<li class="nav-item">
+    <a href="#" target="_blank" class="nav-link">
+        <i class="link-icon" data-feather="hash"></i>
+        <span class="link-title">Documentation</span>
+    </a>
+</li>
+...
+```
+Listo!
 ## 94. Active Inactive Agent From Admin Page
+
+
 
 
 

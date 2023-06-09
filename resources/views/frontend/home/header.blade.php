@@ -36,6 +36,9 @@
                         <a href="{{ route('login') }}" class="pl-2">User<i class="fas fa-user"></i> </a>
                     </div>
                     <div class="sign-box">
+                        <a href="{{ route('agent.login') }}" class="pl-2">Agent<i class="fas fa-user"></i> </a>
+                    </div>
+                    <div class="sign-box">
                         <a href="{{ route('admin.login') }}">Admin<i class="fas fa-user"> </i></a>
                     </div>
                 @endauth
