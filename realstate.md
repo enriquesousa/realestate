@@ -4649,12 +4649,61 @@ En resources/views/backend/agentuser/all_agent.blade.php
 ```
 Listo!
 ## 91. Manage Agent In admin Page Part 2
+En resources/views/backend/agentuser/all_agent.blade.php
+```php
+<a href="{{ route('add.agent') }}" class="btn btn-inverse-info">Añadir Agente</a> 
+```
+En routes/web.php
+```php
+Route::get('/add/agent', 'AddAgent')->name('add.agent'); 
+```
+En app/Http/Controllers/AdminController.php
+```php
+// Añadir Agente
+public function AddAgent(){
+    return view('backend.agentuser.add_agent');
+} 
+```
+En resources/views/backend/agentuser/add_agent.blade.php
+```php
+<form id="myForm" method="POST" action="{{ route('store.agent') }}" class="forms-sample"> 
+```
+En routes/web.php
+```php
+Route::post('/store/agent', 'StoreAgent')->name('store.agent'); 
+```
+En app/Http/Controllers/AdminController.php
+```php
+// Almacenar Agent a Base de Datos
+public function StoreAgent(Request $request){
+    User::insert([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'address' => $request->address,
+        'password' => Hash::make($request->password),
+        'role' => 'agent',
+        'status' => 'active',
+    ]);
 
+    $notification = array(
+        'message' => 'Agente Creado con éxito!',
+        'alert-type' => 'success'
+    );
 
-
-
-
+    return redirect()->route('all.agent')->with($notification);
+} 
+```
+Lito!
 ## 92. Manage Agent In admin Page Part 3
+
+
+
+
+
+
+
+
 ## 93. Active Inactive In Agent Dashboard
 ## 94. Active Inactive Agent From Admin Page
 
