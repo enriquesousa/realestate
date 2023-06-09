@@ -4571,6 +4571,92 @@ En resources/views/agent/agent_change_password.blade.php
 ```
 Listo!
 
+# Sección 13 - Manage Agent In Admin Dashboard
+## 90. Manage Agent In admin Page Part 1
+En resources/views/admin/body/sidebar.blade.php
+```php
+<li class="nav-item">
+    <a href="{{ route('all.agent') }}" class="nav-link">Todos</a>
+</li> 
+```
+En routes/web.php
+Agregar rutas en // Admin group middleware, Property Type, Amenities, and Property, All Routes
+```php
+// Agent All Routes desde Admin
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/all/agent', 'AllAgent')->name('all.agent');
+}); 
+```
+En app/Http/Controllers/AdminController.php
+```php
+// Desplegar todos los Agentes
+public function AllAgent(){
+    $allAgents = User::where('role','agent')->get();
+    return view('backend.agentuser.all_agent',  compact('allAgents'));
+} 
+```
+En resources/views/backend/agentuser/all_agent.blade.php
+```php
+<table id="dataTableExample" class="table">
+
+    <thead>
+
+        <tr>
+            <th>Serie</th>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>Estatus</th>
+            <th>Cambiar</th>
+            <th>Acción</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach ($allAgents as $key => $item)
+        <tr>
+            <td>{{ $key+1 }}</td>
+            <td><img src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" style="width: 70px; height: 40px;"></td>
+            <td>{{ $item->name }}</td>
+            <td>{{ $item->role }}</td>
+
+            <td>
+                @if ($item->status == 'active')
+                    <span class="badge rounded-pill bg-success">Activo</span>
+                @else
+                    <span class="badge rounded-pill bg-danger">Inactivo</span>
+                @endif
+            </td>
+
+            <td>
+                Cambiar
+            </td>
+
+            <td>
+
+                <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
+
+                <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+            </td>
+
+        </tr>
+        @endforeach
+
+    </tbody>
+</table> 
+```
+Listo!
+## 91. Manage Agent In admin Page Part 2
+
+
+
+
+
+## 92. Manage Agent In admin Page Part 3
+## 93. Active Inactive In Agent Dashboard
+## 94. Active Inactive Agent From Admin Page
 
 
 

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    /******
+    * Admin
+    *******/
+
     // Admin Dashboard
     public function AdminDashboard()
     {
@@ -127,6 +131,16 @@ class AdminController extends Controller
 
         return back()->with($notification);
 
+    }
+
+    /******
+    * Agent
+    *******/
+
+    // Desplegar todos los Agentes
+    public function AllAgent(){
+        $allAgents = User::where('role','agent')->get();
+        return view('backend.agentuser.all_agent',  compact('allAgents'));
     }
 
 }

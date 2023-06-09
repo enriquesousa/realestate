@@ -91,23 +91,23 @@
             </li>
 
             {{-- * COMPONENTS --}}
-            <li class="nav-item nav-category">Components</li>
+            <li class="nav-item nav-category">Funciones para Usuario</li>
 
             {{-- UI Kit --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
                     <i class="link-icon" data-feather="feather"></i>
-                    <span class="link-title">UI Kit</span>
+                    <span class="link-title">Agentes</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="uiComponents">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">Accordion</a>
+                            <a href="{{ route('all.agent') }}" class="nav-link">Todos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
+                            <a href="pages/ui-components/alerts.html" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>
