@@ -4922,9 +4922,67 @@ Listo!
 
 # Sección 14 - Backend Add Property From Agent
 ## 95. Add Property From Agent Part 1
+Crear controlador nuevo para manejar las propiedades por el Agente
+```php
+php artisan make:controller Agent/AgentPropertyController    
+```
 
+En resources/views/agent/body/sidebar.blade.php
+```php
+<a href="{{ route('agent.all.property') }}" class="nav-link">Todas las Propiedades</a> 
+```
 
+En routes/web.php
+```php
+// Agent group middleware - Propiedades
+Route::middleware(['auth','role:agent'])->group(function(){
+
+    // Grupo de Rutas AgentPropertyController - Propiedades
+    Route::controller(AgentPropertyController::class)->group(function(){
+
+        Route::get('/agent/all/property', 'AgentAllProperty')->name('agent.all.property');
+
+    });
+
+}); 
+```
+
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+<?php
+
+namespace App\Http\Controllers\Agent;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Property;
+use App\Models\MultiImage;
+use App\Models\Facility;
+use App\Models\Amenities;
+use App\Models\PropertyType;
+use App\Models\User;
+use Intervention\Image\Facades\Image;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
+class AgentPropertyController extends Controller
+{
+    // Despliega todas las Propiedades para el Agente
+    public function AgentAllProperty(){
+        $id = Auth::user()->id;
+        $property = Property::where('agent_id', $id)->latest()->get();
+        return view('agent.property.all_property', compact('property'));
+    }
+} 
+```
+
+En resources/views/agent/property/all_property.blade.php
+Copiamos todo de: resources/views/backend/property/all_property.blade.php
+
+Listo!
 ## 96. Add Property From Agent Part 2
+
 ## 97. Add Property From Agent Part 3
 ## 98. Add Property From Agent Part 4
 ## 99. Add Property From Agent Part 5

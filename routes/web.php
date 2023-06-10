@@ -9,6 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Agent\AgentPropertyController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -132,15 +134,25 @@ Route::middleware(['auth','role:admin'])->group(function(){
 * Agent
 *******/
 
-// Agent group middleware
+// Agent group middleware - Dashboard, Logout, Profile, Change Password
 Route::middleware(['auth','role:agent'])->group(function(){
-
     Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
     Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
     Route::get('/agent/profile', [AgentController::class, 'AgentProfile'])->name('agent.profile');
     Route::post('/agent/profile/store', [AgentController::class, 'AgentProfileStore'])->name('agent.profile.store');
     Route::get('/agent/change/password', [AgentController::class, 'AgentChangePassword'])->name('agent.change.password');
     Route::post('/agent/update/password', [AgentController::class, 'AgentUpdatePassword'])->name('agent.update.password');
+});
+
+// Agent group middleware - Propiedades
+Route::middleware(['auth','role:agent'])->group(function(){
+
+    // Grupo de Rutas AgentPropertyController - Propiedades
+    Route::controller(AgentPropertyController::class)->group(function(){
+
+        Route::get('/agent/all/property', 'AgentAllProperty')->name('agent.all.property');
+
+    });
 
 });
 
