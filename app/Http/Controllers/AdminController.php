@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class AdminController extends Controller
+class   AdminController extends Controller
 {
     /******
     * Admin
@@ -200,6 +200,16 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+
+    // Para cambiar el status de Agent desde el toggle JS en resources/views/backend/agentuser/all_agent.blade.php
+    public function changeStatus(Request $request){
+        $user = User::find($request->user_id);
+        $user->status = $request->status;
+        $user->save();
+
+        // return response()->json(['success' => 'Estatus Cambio con Éxito']);
+        return response()->json(['success' => $user->status]);
     }
 
 }

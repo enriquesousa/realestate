@@ -4850,6 +4850,88 @@ Y en resources/views/agent/body/sidebar.blade.php
 ```
 Listo!
 ## 94. Active Inactive Agent From Admin Page
+Vamos a usar codigo JS para que nos ayude hacer un boton de toggle.
+con un boton en la lista de Agentes de Admin poder toggle el status del agent.
+En resources/views/backend/agentuser/all_agent.blade.php
+```php
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+...
+
+<td>
+    <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger"  data-toggle="toggle" data-on="ESTATUS" data-off="ESTATUS" {{ $item->status ? 'checked' : '' }} >
+</td>
+
+...
+
+{{-- JS para el botón de toggle de active o inactive agent --}}
+<script type="text/javascript">
+  $(function() {
+    $('.toggle-class').change(function() {
+        var status = $(this).prop('checked') == true ? 'active' : 'inactive';
+        var user_id = $(this).data('id');
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/changeStatus',
+            data: {'status': status, 'user_id': user_id},
+            success: function(data){
+                // console.log(data.success)
+
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                        type: 'success',
+                        title: data.success,
+                        })
+                }else{
+                        Toast.fire({
+                        type: 'error',
+                        title: data.error,
+                        })
+                }
+                // End Message
+
+                // para refrescar la ventana
+                window.location.reload();
+            }
+        });
+    })
+  })
+</script>
+
+```
+
+En resources/views/admin/admin_dashboard.blade.php
+```php
+al final de la pagina
+...
+{{-- Para el boton de toggle en resources/views/backend/agentuser/all_agent.blade.php --}}
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script 
+```
+Listo!
+
+# Sección 14 - Backend Add Property From Agent
+## 95. Add Property From Agent Part 1
+
+
+## 96. Add Property From Agent Part 2
+## 97. Add Property From Agent Part 3
+## 98. Add Property From Agent Part 4
+## 99. Add Property From Agent Part 5
+## 100. Update Add Property Amenities Fields
+
+
+
 
 
 
