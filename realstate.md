@@ -5131,16 +5131,40 @@ Para la siguiente leccion vemos
 - Actualizar Instalaciones Cercanas
 Listo!
 ## 98. Add Property From Agent Part 4
+Botón par añadir una multi imagen 
+En resources/views/agent/property/edit_property.blade.php
+```php
+<form method="POST" action="{{ route('agent.store.new.multi-image') }}" id="myForm" enctype="multipart/form-data"> 
+```
+En routes/web.php
+```php
+Route::post('/agent/store/new/multi-image', 'AgentStoreNewMultiImage')->name('agent.store.new.multi-image') 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual!
 
+Ahora para Actualizar Instalaciones Cercanas
+En resources/views/agent/property/edit_property.blade.php
+```php
+<form method="POST" action="{{ route('agent.update.property.facilities') }}" id="myForm" enctype="multipart/form-data"> 
+```
+En routes/web.php
+```php
+Route::post('/agent/update/property/facilities', 'AgentUpdatePropertyFacilities')->name('agent.update.property.facilities'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual!
 
-
-
-
-
-
-
-
+La siguiente leccion veremos implementar el boton ver los detalles.
+Listo!
 ## 99. Add Property From Agent Part 5
+
+
+
+
+
 ## 100. Update Add Property Amenities Fields
 
 

@@ -375,7 +375,7 @@
                         </form>
 
                         {{-- solo botón par añadir una multi imagen  --}}
-                        <form method="POST" action="{{ route('store.new.multi-image') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('agent.store.new.multi-image') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
 
                             <input type="hidden" name="imageId" value="{{ $property->id }}">
@@ -415,7 +415,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Editar Instalaciones Cercanas de la Propiedad</h6>
 
-                        <form method="POST" action="{{ route('update.property.facilities') }}" id="myForm" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('agent.update.property.facilities') }}" id="myForm" enctype="multipart/form-data">
                         @csrf
 
                             {{-- Para capturar el id del record que queremos editar --}}
