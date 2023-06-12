@@ -14,6 +14,8 @@ use Intervention\Image\Facades\Image;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use DB;
+
 
 class AgentPropertyController extends Controller
 {
@@ -37,6 +39,11 @@ class AgentPropertyController extends Controller
 
     // Store Property, Almacenar una Propiedad a la DB
     public function AgentStoreProperty(Request $request){
+
+        $id = Auth::user()->id;
+        $uid = User::findOrFail($id);
+        $nid = $uid->credit;
+
         $amen = $request->amenities_id;
         // dd($amen);
         $comodidades_str = implode(",", $amen);
@@ -121,6 +128,12 @@ class AgentPropertyController extends Controller
                $fcount->save();
            }
         }
+
+        // Auto incrementar el campo 'credit' en la tabla de 'users'
+        User::where('id',$id)->update([
+            'credit' => DB::raw('1 + '. $nid),
+        ]);
+
 
         $notification = array(
             'message' => 'La Propiedad fue añadida con éxito!',

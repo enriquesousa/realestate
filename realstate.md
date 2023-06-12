@@ -5299,29 +5299,86 @@ Hacerle los cambios pertinentes!
 @section('agent')
 
 <div class="page-content">
-    
+
 
 </div>
 
 @endsection
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Listo!
 ## 102. Agent Buy Package Option Part 1
+Crear nuevo modelo con migracion
+```php
+php artisan make:model PackagePlan -m 
+```
+En app/Models/PackagePlan.php
+```php
+class PackagePlan extends Model
+{
+    use HasFactory;
+
+    // Para que todos los campos sean fillables
+    protected $guarded = [];
+
+} 
+```
+En database/migrations/2023_06_12_104957_create_package_plans_table.php
+```php
+Schema::create('package_plans', function (Blueprint $table) {
+    $table->id();
+
+    $table->integer('user_id');
+    $table->string('package_name')->nullable();
+    $table->string('package_credits')->nullable();
+    $table->string('package_amount')->nullable();
+
+    $table->timestamps();
+}); 
+```
+Hacer la migracion
+```php
+php artisan migrate 
+```
+
+En la tabla de 'users' hay que agregar un nuevo campo, con phpMyadmin
+```php
+Add 1 colum(s) after status [Go] 
+Name: credit
+Type: VARCHAR
+Length: 255
+Default: As define 0
+Null: check
+
+Save
+```
+
+Ahora vamos agregar que prueba el valor de 'credit' del user para saber
+si puede agregar una propiedad.
+En el metodo 'AgentStoreProperty' en app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+Agregar...
+use DB;
+
+public function AgentStoreProperty(Request $request){
+
+    $id = Auth::user()->id;
+    $uid = User::findOrFail($id);
+    $nid = $uid->credit;
+
+    ...
+
+    // Auto incrementar el campo 'credit' en la tabla de 'users'
+    User::where('id',$id)->update([
+        'credit' => DB::raw('1 + '. $nid),
+    ]);
+
+    ...
+} 
+```
+Listo!
 ## 103. Agent Buy Package Option Part 2
+
+
 ## 104. Agent Buy Package Option Part 3
 ## 105. Agent Buy Package Option Part 4
 ## 106. Agent Buy Package Option Part 5
