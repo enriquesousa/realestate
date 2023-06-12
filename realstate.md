@@ -121,12 +121,12 @@ Kazi Ariyan
 ## 100. Update Add Property Amenities Fields
 
 # Sección 15 - Backend Agent Buy Packages Option
-- 101. Design Buy Package Agent Dashboard
-- 102. Agent Buy Package Option Part 1
-- 103. Agent Buy Package Option Part 2
-- 104. Agent Buy Package Option Part 3
-- 105. Agent Buy Package Option Part 4
-- 106. Agent Buy Package Option Part 5
+## 101. Design Buy Package Agent Dashboard
+## 102. Agent Buy Package Option Part 1
+## 103. Agent Buy Package Option Part 2
+## 104. Agent Buy Package Option Part 3
+## 105. Agent Buy Package Option Part 4
+## 106. Agent Buy Package Option Part 5
 
 # Sección 16 - Package Sales Report In Agent Dashboard With PDF
 - 107. Package sales Report In Agent Dashboard Part 1
@@ -5253,7 +5253,78 @@ Y en resources/views/backend/property/edit_property.blade.php
 ```
 Listo!
 
+# Sección 15 - Backend Agent Buy Packages Option
+## 101. Design Buy Package Agent Dashboard
+Compra de paquete del Agente
+Vamos agregar un nuevo menu en el sidebar del agente
+En resources/views/agent/body/sidebar.blade.php
+```php
+{{-- Comprar paquete --}}
+<li class="nav-item">
+    <a href="{{ route('buy.package') }}" class="nav-link">
+        <i class="link-icon" data-feather="calendar"></i>
+        <span class="link-title">Comprar Paquete</span>
+    </a>
+</li> 
+```
+En routes/web.php
+```php
+// Agent group middleware
+Route::middleware(['auth','role:agent'])->group(function(){
+    // Agent Grupo de Rutas (AgentPropertyController) - Propiedades
+    ...
 
+    // Agent Grupo de Rutas (AgentPropertyController) - Buy Package
+    Route::controller(AgentPropertyController::class)->group(function(){
+        Route::get('/buy/package', 'BuyPackage')->name('buy.package');
+    });
+}); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+/**************************
+ * Agente Buy Package
+ **************************/
+
+public function BuyPackage(){
+return view('agent.package.buy_package');
+} 
+```
+En resources/views/agent/package/buy_package.blade.php
+Copiar de ~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Backend Theme/Main/pages/general/pricing.html
+Solo tomar el <div class="page-content">
+Hacerle los cambios pertinentes!
+```php
+@extends('agent.agent_dashboard')
+@section('agent')
+
+<div class="page-content">
+    
+
+</div>
+
+@endsection
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 102. Agent Buy Package Option Part 1
+## 103. Agent Buy Package Option Part 2
+## 104. Agent Buy Package Option Part 3
+## 105. Agent Buy Package Option Part 4
+## 106. Agent Buy Package Option Part 5
 
 
 

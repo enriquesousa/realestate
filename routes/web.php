@@ -134,7 +134,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 * Agent
 *******/
 
-// Agent group middleware - Dashboard, Logout, Profile, Change Password
+// Agent group middleware (AgentController) - Dashboard, Logout, Profile, Change Password
 Route::middleware(['auth','role:agent'])->group(function(){
     Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
     Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
@@ -144,12 +144,11 @@ Route::middleware(['auth','role:agent'])->group(function(){
     Route::post('/agent/update/password', [AgentController::class, 'AgentUpdatePassword'])->name('agent.update.password');
 });
 
-// Agent group middleware - Propiedades
+// Agent group middleware
 Route::middleware(['auth','role:agent'])->group(function(){
 
-    // Grupo de Rutas AgentPropertyController - Propiedades
+    // Agent Grupo de Rutas (AgentPropertyController) - Propiedades
     Route::controller(AgentPropertyController::class)->group(function(){
-
         Route::get('/agent/all/property', 'AgentAllProperty')->name('agent.all.property');
         Route::get('/agent/add/property', 'AgentAddProperty')->name('agent.add.property');
         Route::post('/agent/store/property', 'AgentStoreProperty')->name('agent.store.property');
@@ -162,9 +161,16 @@ Route::middleware(['auth','role:agent'])->group(function(){
         Route::post('/agent/update/property/facilities', 'AgentUpdatePropertyFacilities')->name('agent.update.property.facilities');
         Route::get('/agent/details/property/{id}', 'AgentDetailsProperty')->name('agent.details.property');
         Route::get('/agent/delete/property/{id}', 'AgentDeleteProperty')->name('agent.delete.property');
+    });
+
+    // Agent Grupo de Rutas (AgentPropertyController) - Buy Package
+    Route::controller(AgentPropertyController::class)->group(function(){
+
+        Route::get('/buy/package', 'BuyPackage')->name('buy.package');
 
     });
 
 });
+
 
 

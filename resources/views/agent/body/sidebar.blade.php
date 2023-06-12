@@ -30,10 +30,9 @@
             {{-- Menus SideBar --}}
             @if ($status === 'active')
 
-                {{-- * Menus para Agente --}}
+                {{-- * Menus para Agente, Propiedades --}}
                 <li class="nav-item nav-category">Agente</li>
                 <li class="nav-item">
-
                     {{-- Propiedades --}}
                     <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
                         aria-controls="emails">
@@ -51,14 +50,13 @@
                             </li>
                         </ul>
                     </div>
-
                 </li>
 
-                {{-- Calendar --}}
+                {{-- Comprar paquete --}}
                 <li class="nav-item">
-                    <a href="pages/apps/calendar.html" class="nav-link">
+                    <a href="{{ route('buy.package') }}" class="nav-link">
                         <i class="link-icon" data-feather="calendar"></i>
-                        <span class="link-title">Calendar</span>
+                        <span class="link-title">Comprar Paquete</span>
                     </a>
                 </li>
 

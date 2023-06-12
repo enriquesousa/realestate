@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AgentPropertyController extends Controller
 {
+    /**************************
+     * Agente Propiedades: CRUD
+     **************************/
+
     // Despliega todas las Propiedades para el Agente
     public function AgentAllProperty(){
         $id = Auth::user()->id;
@@ -384,5 +388,15 @@ class AgentPropertyController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    /**************************
+     * Agente Buy Package
+     **************************/
+
+     public function BuyPackage(){
+        return view('agent.package.buy_package');
+     }
+
+
 
 }
