@@ -5377,9 +5377,78 @@ public function AgentStoreProperty(Request $request){
 ```
 Listo!
 ## 103. Agent Buy Package Option Part 2
+Quitar del sidebar el menu de anadir propiedad
+En resources/views/agent/body/sidebar.blade.php, quedarnos por lo pronto con solo "Lista Propiedades"
+```php
+<div class="collapse" id="property">
+    <ul class="nav sub-menu">
+        <li class="nav-item">
+            <a href="{{ route('agent.all.property') }}" class="nav-link">Lista Propiedades</a>
+        </li>
 
+    </ul>
+</div> 
+```
+Poner la condicion en el metodo 'AgentAddProperty' en app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+public function AgentAddProperty(){
 
+    $propertytype = PropertyType::latest()->get();
+    $amenities = Amenities::latest()->get();
+
+    $id = Auth::user()->id;
+    $property = User::where('role','agent')->where('id',$id)->first();
+    $pcount = $property->credit;
+    // dd($pcount);
+
+    if ($pcount == 1) {
+        return redirect()->route('buy.package');
+    }else{
+        return view('agent.property.add_property',compact('propertytype','amenities'));
+    }
+
+} 
+```
+
+En resources/views/agent/package/buy_package.blade.php
+```php
+<div class="d-grid">
+    <a href="{{ route('buy.business.plan') }}" class="btn btn-success mt-4">Empezar Ahora</a>
+</div> 
+``` 
+En routes/web.php
+```php
+Route::get('/buy/business/plan', 'BuyBusinessPlan')->name('buy.business.plan'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+//  Plan de Negocios
+public function BuyBusinessPlan(){
+$id = Auth::user()->id;
+return view('agent.package.business_plan',compact('id'));
+} 
+```
+En resources/views/agent/package/business_plan.blade.php
+Cargar el template de ~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Backend Theme/Main/pages/general/invoice.html, solo lo de "page-content"
+```php
+@extends('agent.agent_dashboard')
+@section('agent')
+
+<div class="page-content">
+...
+</div>
+
+@endsection 
+```
+Listo!
 ## 104. Agent Buy Package Option Part 3
+
+
+
+
+
+
+
 ## 105. Agent Buy Package Option Part 4
 ## 106. Agent Buy Package Option Part 5
 

@@ -45,9 +45,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('agent.all.property') }}" class="nav-link">Todas las Propiedades</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('agent.add.property') }}" class="nav-link">Añadir una Propiedad</a>
-                            </li>
+
                         </ul>
                     </div>
                 </li>

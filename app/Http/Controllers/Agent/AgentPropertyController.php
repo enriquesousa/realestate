@@ -32,9 +32,21 @@ class AgentPropertyController extends Controller
 
     // Añadir Una Propiedad
     public function AgentAddProperty(){
+
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
-        return view('agent.property.add_property',compact('propertytype','amenities'));
+
+        $id = Auth::user()->id;
+        $property = User::where('role','agent')->where('id',$id)->first();
+        $pcount = $property->credit;
+        // dd($pcount);
+
+        if ($pcount == 1) {
+            return redirect()->route('buy.package');
+        }else{
+            return view('agent.property.add_property',compact('propertytype','amenities'));
+        }
+
     }
 
     // Store Property, Almacenar una Propiedad a la DB
@@ -408,6 +420,12 @@ class AgentPropertyController extends Controller
 
      public function BuyPackage(){
         return view('agent.package.buy_package');
+     }
+
+    //  Plan de Negocios
+     public function BuyBusinessPlan(){
+        $id = Auth::user()->id;
+        return view('agent.package.business_plan',compact('id'));
      }
 
 

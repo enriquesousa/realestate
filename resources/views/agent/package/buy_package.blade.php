@@ -19,6 +19,8 @@
 
                     <div class="container">
                         <div class="row">
+
+                            {{-- Paquete Básico --}}
                             <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card">
                                     <div class="card-body">
@@ -43,11 +45,13 @@
                                             </tr>
                                         </table>
                                         <div class="d-grid">
-                                            <button class="btn btn-primary mt-4">Start free trial</button>
+                                            <button class="btn btn-primary mt-4">Empezar Ahora</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- Paquete Negocio --}}
                             <div class="col-md-4 stretch-card grid-margin grid-margin-md-0">
                                 <div class="card">
                                     <div class="card-body">
@@ -73,11 +77,13 @@
 
                                         </table>
                                         <div class="d-grid">
-                                            <button class="btn btn-success mt-4">Start free trial</button>
+                                            <a href="{{ route('buy.business.plan') }}" class="btn btn-success mt-4">Empezar Ahora</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- Paquete Profesional --}}
                             <div class="col-md-4 stretch-card">
                                 <div class="card">
                                     <div class="card-body">
@@ -104,7 +110,7 @@
 
                                         </table>
                                         <div class="d-grid">
-                                            <button class="btn btn-primary mt-4">Start free trial</button>
+                                            <a href="" class="btn btn-primary mt-4">Empezar Ahora</a>
                                         </div>
                                     </div>
                                 </div>
