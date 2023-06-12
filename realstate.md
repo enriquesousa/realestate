@@ -5030,16 +5030,116 @@ return redirect()->route('agent.all.property')->with($notification);
 ```
 Listo!
 ## 97. Add Property From Agent Part 3
+Editar
+En resources/views/agent/property/all_property.blade.php
+```php
+<a href="{{ route('agent.edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a> 
+```
+En routes/web.php
+```php
+Route::get('/agent/edit/property/{id}', 'AgentEditProperty')->name('agent.edit.property'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php 
+copiar de app/Http/Controllers/Backend/PropertyController.php
+Y solo remover activeAgent
+```php
+// Editar Datos de la Propiedad
+public function AgentEditProperty($id){
 
+    // Cargar solo los datos de la tabla 'facilities' donde el 'property_id' es igual al $id de la Propiedad
+    $facilities = Facility::where('property_id',$id)->get();
 
+    // Cargar todos los datos de la tabla 'properties' donde el id es igual al $id pasado por la función
+    $property = Property::findOrFail($id);
 
+    $type = $property->amenities_id;
+    $property_ami = explode(',', $type);
 
+    // Cargar las imágenes de la tabla 'multi_images' que correspondan con el $id de la propiedad editada
+    $multiImage = MultiImage::where('property_id',$id)->get();
 
+    $propertytype = PropertyType::latest()->get();
+    $amenities = Amenities::latest()->get();
 
+    return view('agent.property.edit_property',compact('property','propertytype','amenities', 'property_ami', 'multiImage', 'facilities'));
 
+} 
+```
+En resources/views/agent/property/edit_property.blade.php
+copiar de resources/views/backend/property/edit_property.blade.php
+Quitar la parte de Seleccionar Agente
+Ya despliega bien la pagina para editar propiedad.
+Para la ruta de la primar forma:
+```php
+<form method="POST" action="{{ route('agent.update.property') }}" id="myForm" enctype="multipart/form-data"> 
+```
+En routes/web.php
+```php
+Route::post('/agent/update/property', 'AgentUpdateProperty')->name('agent.update.property'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+copiar el metodo de app/Http/Controllers/Backend/PropertyController.php
+y solo quitar 'agent_id' => $request->agent_id, reemplazarlo con:
+```php
+'agent_id' => Auth::user()->id, 
+...
+return redirect()->route('agent.all.property')->with($notification);
+```
+Ya funciono hacer edicion para la primer forma!
 
+Ahora para editar la forma de "Property Main Thumbnail Image Update"
+```php
+<form method="POST" action="{{ route('agent.update.property.thumbnail') }}" id="myForm" enctype="multipart/form-data"> 
+```
+En routes/web.php
+```php
+Route::post('/agent/update/property/thumbnail', 'AgentUpdatePropertyThumbnail')->name('agent.update.property.thumbnail'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual!
 
+Ahora vamos a la forma de {{-- Property Multiple Image Update  --}}
+```php
+<form method="POST" action="{{ route('agent.update.property.multi-image') }}" id="myForm" enctype="multipart/form-data"> 
+```
+En routes/web.php
+```php
+Route::post('/agent/update/property/multi-image', 'AgentUpdatePropertyMultiImage')->name('agent.update.property.multi-image'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual!
+
+Ahora completar el boton de Delete
+```php
+<td>
+    <input type="submit" class="btn btn-primary px-4" value="Actualizar Imagen">
+    <a href="{{ route('agent.delete.property.multi-image', $img->id) }}" class="btn btn-danger" id="delete">Borrar</a>
+</td> 
+```
+En routes/web.php
+```php
+Route::get('/agent/delete/property/multi-image/{id}', 'AgentDeletePropertyMultiImage')->name('agent.delete.property.multi-image'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual!
+
+Para la siguiente leccion vemos
+- Añadir una multi imagen mas
+- Actualizar Instalaciones Cercanas
+Listo!
 ## 98. Add Property From Agent Part 4
+
+
+
+
+
+
+
+
+
 ## 99. Add Property From Agent Part 5
 ## 100. Update Add Property Amenities Fields
 
