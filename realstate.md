@@ -5198,13 +5198,60 @@ Queda todo igual!
 
 Listo!
 ## 100. Update Add Property Amenities Fields
+Vamos a cambiar lo que grabamos en el campo 'amenities_id' en la tabla 'properties'
+porque nos conviene mas guardar los nombres.
+En vez de insertar el id, vamos a insertar el nombre de la comodidad.
+En resources/views/agent/property/add_property.blade.php
+```php
+{{-- Property Amenities --}}
+<div class="col-sm-4">
+    <label class="form-label text-warning">Comodidades</label>
+    <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+        @foreach($amenities as $ameni)
+            <option value="{{ $ameni->amenities_name }}">{{ $ameni->amenities_name }}</option>
+        @endforeach
+    </select>
+</div><!-- Col --> 
+```
+Tenemos tambien que actualizar nuestra pagina de edit en resources/views/agent/property/edit_property.blade.php
+```php
+{{-- Property Amenities --}}
+<div class="col-sm-4">
+    <label class="form-label text-warning">Comodidades</label>
+    <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+        @foreach($amenities as $ameni)
+            <option value="{{ $ameni->amenities_name }}" {{ (in_array($ameni->amenities_name, $property_ami)) ? 'selected' : '' }}>{{ $ameni->amenities_name }}</option>
+        @endforeach
+    </select>
+</div><!-- Col --> 
+```
 
-
-
-
-
-
-
+Y lo mismo tenemos que hacer para el area de admin.
+En resources/views/backend/property/add_property.blade.php
+```php
+{{-- Property Amenities --}}
+<div class="col-sm-4">
+    <label class="form-label text-warning">Comodidades</label>
+    <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+        @foreach($amenities as $ameni)
+            <option value="{{ $ameni->amenities_name }}">{{ $ameni->amenities_name }}</option>
+        @endforeach
+    </select>
+</div><!-- Col --> 
+```
+Y en resources/views/backend/property/edit_property.blade.php
+```php
+{{-- Property Amenities --}}
+<div class="col-sm-4">
+    <label class="form-label text-warning">Comodidades</label>
+    <select name="amenities_id[]" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+        @foreach($amenities as $ameni)
+            <option value="{{ $ameni->amenities_name }}" {{ (in_array($ameni->amenities_name, $property_ami)) ? 'selected' : '' }}>{{ $ameni->amenities_name }}</option>
+        @endforeach
+    </select>
+</div><!-- Col --> 
+```
+Listo!
 
 
 
