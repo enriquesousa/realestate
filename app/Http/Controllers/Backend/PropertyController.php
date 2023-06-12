@@ -27,17 +27,14 @@ class PropertyController extends Controller
 
     // Añadir Una Propiedad
     public function AddProperty(){
-
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
-
         return view('backend.property.add_property',compact('propertytype','amenities','activeAgent'));
     }
 
     // Store Property, Almacenar una Propiedad a la DB
     public function StoreProperty(Request $request){
-
         $amen = $request->amenities_id;
         // dd($amen);
         $comodidades_str = implode(",", $amen);
@@ -129,7 +126,6 @@ class PropertyController extends Controller
         );
 
         return redirect()->route('all.property')->with($notification);
-
     } // End Método StoreProperty
 
 

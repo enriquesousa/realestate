@@ -23,4 +23,107 @@ class AgentPropertyController extends Controller
         $property = Property::where('agent_id', $id)->latest()->get();
         return view('agent.property.all_property', compact('property'));
     }
+
+    // Añadir Una Propiedad
+    public function AgentAddProperty(){
+        $propertytype = PropertyType::latest()->get();
+        $amenities = Amenities::latest()->get();
+        return view('agent.property.add_property',compact('propertytype','amenities'));
+    }
+
+    // Store Property, Almacenar una Propiedad a la DB
+    public function AgentStoreProperty(Request $request){
+        $amen = $request->amenities_id;
+        // dd($amen);
+        $comodidades_str = implode(",", $amen);
+        // dd($comodidades);
+
+        // Generar un código unique de 5 dígitos con un prefix property code (PC)
+        $pcode = IdGenerator::generate([
+                        'table' => 'properties',
+                        'field' => 'property_code',
+                        'length' => 5,
+                        'prefix' => 'PC'
+                    ]);
+
+        $image = $request->file('property_thambnail');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // crear un unique id para la imagen
+        Image::make($image)->resize(370,250)->save('upload/property/thambnail/'.$name_gen);
+        $save_url = 'upload/property/thambnail/'.$name_gen;
+
+        // Insertar datos a tabla 'properties'
+        $property_id = Property::insertGetId([
+
+            'ptype_id' => $request->ptype_id,
+            'amenities_id' => $comodidades_str,
+            'property_name' => $request->property_name,
+            'property_slug' => strtolower(str_replace(' ', '-', $request->property_name)),
+            'property_code' => $pcode,
+            'property_status' => $request->property_status,
+
+            'lowest_price' => $request->lowest_price,
+            'max_price' => $request->max_price,
+            'short_descp' => $request->short_descp,
+            'long_descp' => $request->long_descp,
+            'bedrooms' => $request->bedrooms,
+            'bathrooms' => $request->bathrooms,
+            'garage' => $request->garage,
+            'garage_size' => $request->garage_size,
+
+            'property_size' => $request->property_size,
+            'property_video' => $request->property_video,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'postal_code' => $request->postal_code,
+
+            'neighborhood' => $request->neighborhood,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'featured' => $request->featured,
+            'hot' => $request->hot,
+            'agent_id' => Auth::user()->id,
+            'status' => 1,
+            'property_thambnail' => $save_url,
+            'created_at' => Carbon::now(),
+
+        ]);
+
+
+        // Insertar datos a tabla 'multi_images', Multiple Image Upload From Here
+        $images = $request->file('multi_img');
+        foreach ($images as $img) {
+
+            $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
+            Image::make($img)->resize(770, 520)->save('upload/property/multi-image/' . $make_name);
+            $uploadPath = 'upload/property/multi-image/' . $make_name;
+
+            MultiImage::insert([
+                'property_id' => $property_id,
+                'photo_name' => $uploadPath,
+                'created_at' => Carbon::now(),
+            ]);
+
+        }
+
+        // Insertar datos a tabla 'facilities', Instalaciones cercanas - Facilities Add From Here
+        $facilities = Count($request->facility_name);
+        if ($facilities != NULL) {
+           for ($i=0; $i < $facilities; $i++) {
+               $fcount = new Facility();
+               $fcount->property_id = $property_id;
+               $fcount->facility_name = $request->facility_name[$i];
+               $fcount->distance = $request->distance[$i];
+               $fcount->save();
+           }
+        }
+
+        $notification = array(
+            'message' => 'La Propiedad fue añadida con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('agent.all.property')->with($notification);
+    }
+
 }

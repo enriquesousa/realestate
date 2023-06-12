@@ -4982,8 +4982,63 @@ Copiamos todo de: resources/views/backend/property/all_property.blade.php
 
 Listo!
 ## 96. Add Property From Agent Part 2
+Agregar liga add property para el agente en resources/views/agent/property/all_property.blade.php
+```php
+<a href="{{ route('agent.add.property') }}" class="btn btn-inverse-info">Añadir Propiedad</a> 
+```
+Y en el sidebar resources/views/agent/body/sidebar.blade.php
+```php
+<li class="nav-item">
+    <a href="{{ route('agent.add.property') }}" class="nav-link">Añadir una Propiedad</a>
+</li> 
+```
+En routes/web.php
+```php
+Route::get('/agent/add/property', 'AgentAddProperty')->name('agent.add.property'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+// Añadir Una Propiedad
+public function AgentAddProperty(){
+    $propertytype = PropertyType::latest()->get();
+    $amenities = Amenities::latest()->get();
+    return view('agent.property.add_property',compact('propertytype','amenities'));
+} 
+```
+Y en resources/views/agent/property/add_property.blade.php
+Copiamos de resources/views/backend/property/add_property.blade.php
+y hacemos muy pocos cambios.
 
+Para la ruta de la forma en resources/views/agent/property/add_property.blade.php
+```php
+<form method="POST" action="{{ route('agent.store.property') }}" id="myForm" enctype="multipart/form-data"> 
+```
+En routes/web.php
+```php
+Route::post('/agent/store/property', 'AgentStoreProperty')->name('agent.store.property'); 
+```
+Y en app/Http/Controllers/Agent/AgentPropertyController.php
+Copiamos el mismo procedimiento de app/Http/Controllers/Backend/PropertyController.php
+Lo unico que vamos a cambiar el el 'agent_id' => $request->agent_id, a:
+```php
+public function AgentStoreProperty(Request $request){
+...
+'agent_id' => Auth::user()->id,
+...
+return redirect()->route('agent.all.property')->with($notification);
+} 
+```
+Listo!
 ## 97. Add Property From Agent Part 3
+
+
+
+
+
+
+
+
+
 ## 98. Add Property From Agent Part 4
 ## 99. Add Property From Agent Part 5
 ## 100. Update Add Property Amenities Fields
