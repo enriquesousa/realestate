@@ -335,4 +335,54 @@ class AgentPropertyController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // Details Property - Desplegar solo los detalles de una propiedad en una sola pagina
+    public function AgentDetailsProperty($id){
+
+        // Cargar solo los datos de la tabla 'facilities' donde el 'property_id' es igual al $id de la Propiedad
+        $facilities = Facility::where('property_id',$id)->get();
+
+        // Cargar todos los datos de la tabla 'properties' donde el id es igual al $id pasado por la función
+        $property = Property::findOrFail($id);
+
+        $type = $property->amenities_id;
+        $property_ami = explode(',', $type);
+
+        // Cargar las imágenes de la tabla 'multi_images' que correspondan con el $id de la propiedad editada
+        $multiImage = MultiImage::where('property_id',$id)->get();
+
+        $propertytype = PropertyType::latest()->get();
+        $amenities = Amenities::latest()->get();
+
+        return view('agent.property.details_property',compact('property','propertytype','amenities', 'property_ami', 'multiImage', 'facilities'));
+    }
+
+    // Delete Property
+    public function AgentDeleteProperty($id){
+
+        // Encontrar el registro en la tabla 'properties' y eliminarlo con todo y foto de thumbnail
+        $property = Property::findOrFail($id);
+        unlink($property->property_thambnail);
+        Property::findOrFail($id)->delete();
+
+        // Ahora eliminar todas las multi fotos relacionadas con este registro $id
+        $images = MultiImage::where('property_id',$id)->get();
+        foreach ($images as $img) {
+            unlink($img->photo_name);
+            MultiImage::where('property_id',$id)->delete();
+        }
+
+        // Ahora eliminar todos los facilities de tabla 'facilities' donde 'property_id' sea igual al $id
+        $comodidades = Facility::where('property_id',$id)->get();
+        foreach ($comodidades as $item) {
+            $item->facility_name;
+            Facility::where('property_id',$id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Propiedad Eliminada con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 }

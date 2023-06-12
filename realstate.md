@@ -5160,12 +5160,48 @@ Queda todo igual!
 La siguiente leccion veremos implementar el boton ver los detalles.
 Listo!
 ## 99. Add Property From Agent Part 5
+Ver los detalles
+En resources/views/agent/property/all_property.blade.php
+```php
+<a href="{{ route('agent.details.property',$item->id) }}" class="btn btn-inverse-info" title="Detalles"><i data-feather="eye"></i></a> 
+```
+En routes/web.php
+```php
+Route::get('/agent/details/property/{id}', 'AgentDetailsProperty')->name('agent.details.property'); 
+```  
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual! solo remover activeAgent, y apuntar a una nueva pagina
+```php
+public function AgentDetailsProperty($id){
+    ...
+    return view('agent.property.details_property',compact('property','propertytype','amenities', 'property_ami', 'multiImage', 'facilities'));
+} 
+```
+En resources/views/agent/property/details_property.blade.php
+Copiarlo de resources/views/backend/property/details_property.blade.php
+Y solo remover el if de Active Inactive que esta al final de la pagina
+```php
+@extends('agent.agent_dashboard')
+@section('agent')
+... 
+```
 
+Ahora implementar al boton de Delete (Eliminar Propiedad)
+En resources/views/agent/property/all_property.blade.php
+```php
+<a href="{{ route('agent.delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a> 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+Copir metodo de app/Http/Controllers/Backend/PropertyController.php
+Queda todo igual!
 
-
-
-
+Listo!
 ## 100. Update Add Property Amenities Fields
+
+
+
+
 
 
 
