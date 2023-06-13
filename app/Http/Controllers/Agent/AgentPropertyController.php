@@ -423,7 +423,7 @@ class AgentPropertyController extends Controller
         return view('agent.package.buy_package');
      }
 
-    //  Plan de Negocios
+    //  Plan de Negocios - Buy Business Plan
      public function BuyBusinessPlan(){
         $id = Auth::user()->id;
         $data = User::findOrFail($id);
@@ -453,6 +453,41 @@ class AgentPropertyController extends Controller
 
         $notification = array(
             'message' => 'Haz comprado el paquete Negocio con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('agent.all.property')->with($notification);
+     }
+
+    //  Comprar Paquete Profesional - Buy Professional Plan
+     public function BuyProfessionalPlan(){
+        $id = Auth::user()->id;
+        $data = User::findOrFail($id);
+        return view('agent.package.professional_plan',compact('data'));
+     }
+
+     //  Store professional Plan
+     public function StoreProfessionalPlan(Request $request){
+
+        $id = Auth::user()->id;
+        $uid = User::findOrFail($id);
+        $nid = $uid->credit;
+
+        PackagePlan::insert([
+            'user_id' => $id,
+            'package_name' => 'Professional',
+            'package_credits' => '10',
+            'invoice' => 'ERS'.mt_rand(10000000,99999999),
+            'package_amount' => '50',
+            'created_at' => Carbon::now(),
+        ]);
+
+        // Auto incrementar el campo 'credit' en la tabla de 'users'
+        User::where('id',$id)->update([
+            'credit' => DB::raw('10 + '. $nid),
+        ]);
+
+        $notification = array(
+            'message' => 'Haz comprado el paquete Profesional con éxito!',
             'alert-type' => 'success'
         );
         return redirect()->route('agent.all.property')->with($notification);

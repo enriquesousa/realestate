@@ -129,9 +129,9 @@ Kazi Ariyan
 ## 106. Agent Buy Package Option Part 5
 
 # Sección 16 - Package Sales Report In Agent Dashboard With PDF
-- 107. Package sales Report In Agent Dashboard Part 1
-- 108. Package sales Report In Agent Dashboard Part 2
-- 109. Package sales Report In Agent Dashboard Part 3 
+## 107. Package sales Report In Agent Dashboard Part 1
+## 108. Package sales Report In Agent Dashboard Part 2
+## 109. Package sales Report In Agent Dashboard Part 3 
 
 # Sección 17 - Package Sales Report In Admin Dashboard With PDF
 - 110. Package Sales Report In Admin Dashboard Part 1
@@ -5659,8 +5659,74 @@ public function AgentAddProperty(){
 ```
 Listo!
 ## 106. Agent Buy Package Option Part 5
+Ahora vamos a implementar el codigo para el "paquete profesional"
+En resources/views/agent/package/buy_package.blade.php
+```php
+<div class="d-grid">
+    <a href="{{ route('buy.professional.plan') }}" class="btn btn-primary mt-4">Empezar Ahora</a>
+</div> 
+```
+En routes/web.php
+```php
+Route::get('/buy/professional/plan', 'BuyProfessionalPlan')->name('buy.professional.plan'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+//  Comprar Paquete Profesional - Buy Professional Plan
+public function BuyProfessionalPlan(){
+$id = Auth::user()->id;
+$data = User::findOrFail($id);
+return view('agent.package.professional_plan',compact('data'));
+} 
+```
+En resources/views/agent/package/professional_plan.blade.php
+copiarlo de resources/views/agent/package/business_plan.blade.php
 
+Ruta para la forma en resources/views/agent/package/professional_plan.blade.php
+```php
+<form method="POST" action="{{ route('store.professional.plan') }}"> 
+```
+En routes/web.php
+```php
+Route::post('/store/professional/plan', 'StoreProfessionalPlan')->name('store.professional.plan'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+//  Store professional Plan
+public function StoreProfessionalPlan(Request $request){
 
+    $id = Auth::user()->id;
+    $uid = User::findOrFail($id);
+    $nid = $uid->credit;
+
+    PackagePlan::insert([
+        'user_id' => $id,
+        'package_name' => 'Professional',
+        'package_credits' => '10',
+        'invoice' => 'ERS'.mt_rand(10000000,99999999),
+        'package_amount' => '50',
+        'created_at' => Carbon::now(),
+    ]);
+
+    // Auto incrementar el campo 'credit' en la tabla de 'users'
+    User::where('id',$id)->update([
+        'credit' => DB::raw('10 + '. $nid),
+    ]);
+
+    $notification = array(
+        'message' => 'Haz comprado el paquete Profesional con éxito!',
+        'alert-type' => 'success'
+    );
+    return redirect()->route('agent.all.property')->with($notification);
+} 
+```
+Listo!
+
+# Sección 16 - Package Sales Report In Agent Dashboard With PDF
+## 107. Package sales Report In Agent Dashboard Part 1
+
+## 108. Package sales Report In Agent Dashboard Part 2
+## 109. Package sales Report In Agent Dashboard Part 3
 
 
 
