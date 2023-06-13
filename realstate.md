@@ -5827,11 +5827,55 @@ En resources/views/agent/package/package_history.blade.php
 ```
 Listo!
 ## 108. Package sales Report In Agent Dashboard Part 2
+Crear un documento PDF de descarga.
+Vamos a usar un Wrapper de Laravel. 
+DOMPDF Wrapper for Laravel (https://github.com/barryvdh/laravel-dompdf)
+Require this package in your composer.json and update composer. This will download the package and the dompdf + fontlib libraries also.
+```php
+composer require barryvdh/laravel-dompdf 
+```
+The defaults configuration settings are set in config/dompdf.php. Copy this file to your own config directory to modify the values. You can publish the config using this command:
+```php
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider" 
+```
 
+En resources/views/agent/package/package_history.blade.php
+```php
+<td>
+    <a href="{{ route('agent.package.invoice',$item->id) }}" class="btn btn-inverse-warning" title="Descargar"><i data-feather="download"></i></a>
+</td> 
+``` 
+En routes/web.php
+```php
+Route::get('/agent/package/invoice/{id}', 'AgentPackageInvoice')->name('agent.package.invoice'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+...
+use Barryvdh\DomPDF\Facade\Pdf;
+...
+//  Agent Package Invoice - Descargar Recibo en PDF
+public function AgentPackageInvoice($id){
+    $packageHistory = PackagePlan::where('id', $id)->first();
 
-
-
+    // Convertir la Vista a PDF con el paquete pdf que ya instalamos
+    $pdf = Pdf::loadView('agent.package.package_history_invoice', compact('packageHistory'))->setPaper('a4')->setOption([
+        'tempDir' => public_path(),
+        'chroot' => public_path()
+    ]);
+    return $pdf->download('recibo.pdf');
+} 
+```
+Listo!
 ## 109. Package sales Report In Agent Dashboard Part 3
+
+
+
+
+
+
+
+
 
 
 

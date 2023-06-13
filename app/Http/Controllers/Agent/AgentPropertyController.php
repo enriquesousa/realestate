@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Models\PackagePlan;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class AgentPropertyController extends Controller
@@ -498,5 +499,17 @@ class AgentPropertyController extends Controller
         $id = Auth::user()->id;
         $packageHistory = PackagePlan::where('user_id',$id)->get();
         return view('agent.package.package_history', compact('packageHistory'));
+     }
+
+    //  Agent Package Invoice - Descargar Recibo en PDF
+     public function AgentPackageInvoice($id){
+        $packageHistory = PackagePlan::where('id', $id)->first();
+
+        // Convertir la Vista a PDF con el paquete pdf que ya instalamos
+        $pdf = Pdf::loadView('agent.package.package_history_invoice', compact('packageHistory'))->setPaper('a4')->setOption([
+            'tempDir' => public_path(),
+            'chroot' => public_path()
+        ]);
+        return $pdf->download('recibo.pdf');
      }
 }

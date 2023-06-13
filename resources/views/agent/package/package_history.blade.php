@@ -43,9 +43,7 @@
                                     <td>{{ $item->created_at->format('d M Y') }} ({{ __($item->created_at->format('l')) }})</td>
 
                                     <td>
-
-                                        <a href="{{ route('agent.edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
-
+                                        <a href="{{ route('agent.package.invoice',$item->id) }}" class="btn btn-inverse-warning" title="Descargar"><i data-feather="download"></i></a>
                                     </td>
 
                                 </tr>
