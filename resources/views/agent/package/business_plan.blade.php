@@ -108,9 +108,7 @@
                                 <i data-feather="send" class="me-3 icon-md"></i>Mandar Recibo
                             </button>
 
-                            <a href="javascript:;" class="btn btn-primary float-end mt-4 ms-2"><i data-feather="send"
-                                    class="me-3 icon-md"></i>Mandar Recibo</a>
-                            {{-- <a href="javascript:;" class="btn btn-outline-primary float-end mt-4"><i data-feather="printer"
+                                {{-- <a href="javascript:;" class="btn btn-outline-primary float-end mt-4"><i data-feather="printer"
                                     class="me-2 icon-md"></i>Imprimir</a> --}}
                         </div>
 

@@ -5596,13 +5596,71 @@ public function StoreBusinessPlan(Request $request){
 ```
 Listo!
 ## 105. Agent Buy Package Option Part 4
+Agregar un campo nuevo.
+En database/migrations/2023_06_12_104957_create_package_plans_table.php
+```php
+$table->string('invoice')->nullable(); 
+```
+Nota:
+Lo tenemos que agregar manual con phpMyadmin tambien!
 
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+...
+use App\Models\PackagePlan; 
+...
+//  Store Business Plan
+public function StoreBusinessPlan(Request $request){
 
+$id = Auth::user()->id;
+$uid = User::findOrFail($id);
+$nid = $uid->credit;
 
+PackagePlan::insert([
+    'user_id' => $id,
+    'package_name' => 'Business',
+    'package_credits' => '3',
+    'invoice' => 'ERS'.mt_rand(10000000,99999999),
+    'package_amount' => '20',
+    'created_at' => Carbon::now(),
+]);
 
+// Auto incrementar el campo 'credit' en la tabla de 'users'
+User::where('id',$id)->update([
+    'credit' => DB::raw('3 + '. $nid),
+]);
 
+$notification = array(
+    'message' => 'Haz comprado el paquete Negocio con éxito!',
+    'alert-type' => 'success'
+);
+return redirect()->route('agent.all.property')->with($notification);
+}
+```
+Y controlar el acceso con el metodo AgentAddProperty en app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+public function AgentAddProperty(){
 
+    $propertytype = PropertyType::latest()->get();
+    $amenities = Amenities::latest()->get();
+
+    $id = Auth::user()->id;
+    $property = User::where('role','agent')->where('id',$id)->first();
+    $pcount = $property->credit;
+    // dd($pcount);
+
+    if ($pcount == 1 || $pcount == 7) {
+        return redirect()->route('buy.package');
+    }else{
+        return view('agent.property.add_property',compact('propertytype','amenities'));
+    }
+
+} 
+```
+Listo!
 ## 106. Agent Buy Package Option Part 5
+
+
 
 
 
