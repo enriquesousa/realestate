@@ -425,9 +425,13 @@ class AgentPropertyController extends Controller
     //  Plan de Negocios
      public function BuyBusinessPlan(){
         $id = Auth::user()->id;
-        return view('agent.package.business_plan',compact('id'));
+        $data = User::findOrFail($id);
+        return view('agent.package.business_plan',compact('data'));
      }
 
+    //  Store Business Plan
+     public function StoreBusinessPlan(Request $request){
 
+     }
 
 }

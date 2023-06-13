@@ -5442,14 +5442,166 @@ Cargar el template de ~/Sites/recursos/udemy/Laravel 10 - Build Real Estate Prop
 ```
 Listo!
 ## 104. Agent Buy Package Option Part 3
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+//  Plan de Negocios
+public function BuyBusinessPlan(){
+$id = Auth::user()->id;
+$data = User::findOrFail($id);
+return view('agent.package.business_plan',compact('data'));
+} 
+```
+
+En resources/views/agent/package/business_plan.blade.php
+```php
+@extends('agent.agent_dashboard')
+@section('agent')
 
 
+<div class="page-content">
 
+    <nav class="page-breadcrumb">
+        <ol class="breadcrumb">
 
+        </ol>
+    </nav>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
 
+                <form method="POST" action="{{ route('store.business.plan') }}">
+                @csrf
 
+                    <div class="card-body">
+
+                        {{-- A nombre de quien el INVOICE --}}
+                        <div class="container-fluid d-flex justify-content-between">
+                            <div class="col-lg-3 ps-0">
+                                <a href="#" class="noble-ui-logo logo-light d-block mt-3">Noble<span>UI</span></a>
+                                <p class="mt-1 mb-1"><b>NobleUI Themes</b></p>
+                                <p>108,<br> Great Russell St,<br>London, WC1B 3NA.</p>
+                                <h5 class="mt-5 mb-2 text-muted">Invoice to :</h5>
+                                <p>{{ $data->name }},<br> {{ $data->email }},<br>{{ $data->address }}.</p>
+                            </div>
+                            <div class="col-lg-3 pe-0">
+                                <h4 class="fw-bolder text-uppercase text-end mt-4 mb-2">invoice</h4>
+                                <h6 class="text-end mb-5 pb-4"></h6>
+                                <p class="text-end mb-1">Balance Due</p>
+                                <h4 class="text-end fw-normal">$ 20.00</h4>
+                                <h6 class="mb-0 mt-3 text-end fw-normal mb-2"><span class="text-muted"> </span> </h6>
+
+                            </div>
+                        </div>
+
+                        {{-- Tabla de productos del Invoice --}}
+                        <div class="container-fluid mt-5 d-flex justify-content-center w-100">
+                            <div class="table-responsive w-100">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Paquete</th>
+                                            <th class="text-end">Cantidad</th>
+                                            <th class="text-end">Costo Unitario</th>
+                                            <th class="text-end">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr class="text-end">
+                                            <td class="text-start">1</td>
+                                            <td class="text-start">Paquete Negocio</td>
+                                            <td>3</td>
+                                            <td>$20</td>
+                                            <td>$20</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {{-- Tabla de Total y Subtotal --}}
+                        <div class="container-fluid mt-5 w-100">
+                            <div class="row">
+                                <div class="col-md-6 ms-auto">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+
+                                                <tr>
+                                                    <td>Sub Total</td>
+                                                    <td class="text-end">$ 20.00</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="text-bold-800">Total</td>
+                                                    <td class="text-bold-800 text-end"> $ 20.00</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Payment Made</td>
+                                                    <td class="text-danger text-end">(-) $ 20.00</td>
+                                                </tr>
+
+                                                <tr class="bg-dark">
+                                                    <td class="text-bold-800">Balance Due</td>
+                                                    <td class="text-bold-800 text-end">$ 20.00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Botón Send Invoice --}}
+                        <div class="container-fluid w-100">
+
+                            <button type="submit" class="btn btn-primary float-end mt-4 ms-2">
+                                <i data-feather="send" class="me-3 icon-md"></i>Mandar Recibo
+                            </button>
+
+                            <a href="javascript:;" class="btn btn-primary float-end mt-4 ms-2"><i data-feather="send"
+                                    class="me-3 icon-md"></i>Mandar Recibo</a>
+                            {{-- <a href="javascript:;" class="btn btn-outline-primary float-end mt-4"><i data-feather="printer"
+                                    class="me-2 icon-md"></i>Imprimir</a> --}}
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection 
+```
+
+En routes/web.php
+```php
+Route::post('/store/business/plan', 'StoreBusinessPlan')->name('store.business.plan'); 
+```
+
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+//  Store Business Plan
+public function StoreBusinessPlan(Request $request){
+
+} 
+```
+Listo!
 ## 105. Agent Buy Package Option Part 4
+
+
+
+
+
+
 ## 106. Agent Buy Package Option Part 5
 
 
