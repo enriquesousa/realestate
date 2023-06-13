@@ -112,6 +112,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
         Route::post('/active/property', 'ActiveProperty')->name('active.property');
 
+        Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
+
     });
 
     // Agent All Routes desde Admin
@@ -134,18 +136,18 @@ Route::middleware(['auth','role:admin'])->group(function(){
 * Agent
 *******/
 
-// Agent group middleware (AgentController) - Dashboard, Logout, Profile, Change Password
-Route::middleware(['auth','role:agent'])->group(function(){
-    Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
-    Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
-    Route::get('/agent/profile', [AgentController::class, 'AgentProfile'])->name('agent.profile');
-    Route::post('/agent/profile/store', [AgentController::class, 'AgentProfileStore'])->name('agent.profile.store');
-    Route::get('/agent/change/password', [AgentController::class, 'AgentChangePassword'])->name('agent.change.password');
-    Route::post('/agent/update/password', [AgentController::class, 'AgentUpdatePassword'])->name('agent.update.password');
-});
-
 // Agent group middleware
 Route::middleware(['auth','role:agent'])->group(function(){
+
+    // Agent group middleware (AgentController) - Dashboard, Logout, Profile, Change Password
+    Route::controller(AgentController::class)->group(function(){
+        Route::get('/agent/dashboard', 'AgentDashboard')->name('agent.dashboard');
+        Route::get('/agent/logout', 'AgentLogout')->name('agent.logout');
+        Route::get('/agent/profile', 'AgentProfile')->name('agent.profile');
+        Route::post('/agent/profile/store', 'AgentProfileStore')->name('agent.profile.store');
+        Route::get('/agent/change/password', 'AgentChangePassword')->name('agent.change.password');
+        Route::post('/agent/update/password', 'AgentUpdatePassword')->name('agent.update.password');
+    });
 
     // Agent Grupo de Rutas (AgentPropertyController) - Propiedades
     Route::controller(AgentPropertyController::class)->group(function(){
@@ -165,7 +167,6 @@ Route::middleware(['auth','role:agent'])->group(function(){
 
     // Agent Grupo de Rutas (AgentPropertyController) - Buy Package
     Route::controller(AgentPropertyController::class)->group(function(){
-
         Route::get('/buy/package', 'BuyPackage')->name('buy.package');
         Route::get('/buy/business/plan', 'BuyBusinessPlan')->name('buy.business.plan');
         Route::post('/store/business/plan', 'StoreBusinessPlan')->name('store.business.plan');
@@ -173,7 +174,6 @@ Route::middleware(['auth','role:agent'])->group(function(){
         Route::post('/store/professional/plan', 'StoreProfessionalPlan')->name('store.professional.plan');
         Route::get('/package/history', 'PackageHistory')->name('package.history');
         Route::get('/agent/package/invoice/{id}', 'AgentPackageInvoice')->name('agent.package.invoice');
-
     });
 
 });

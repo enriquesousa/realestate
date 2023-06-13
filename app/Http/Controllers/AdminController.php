@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class   AdminController extends Controller
 {
+
     /******
     * Admin
     *******/
@@ -211,5 +212,6 @@ class   AdminController extends Controller
         // return response()->json(['success' => 'Estatus Cambio con Éxito']);
         return response()->json(['success' => $user->status]);
     }
+
 
 }

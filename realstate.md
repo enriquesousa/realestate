@@ -6017,10 +6017,51 @@ Vamos a usar un template de Invoice Html en resources/views/agent/package/packag
 Listo!
 # Sección 17 - Package Sales Report In Admin Dashboard With PDF
 ## 110. Package Sales Report In Admin Dashboard Part 1
+En resources/views/admin/body/sidebar.blade.php
+```php
+{{-- Historial de Pagos --}}
+<li class="nav-item">
+    <a href="{{ route('admin.package.history') }}" class="nav-link">
+        {{-- <i class="link-icon" data-feather="calendar"></i> --}}
+        <i data-feather="book-open"></i>
+        <span class="link-title">Historial de Pagos</span>
+    </a>
+</li> 
+```
+En routes/web.php
+```php
+// Property All Routes
+Route::controller(PropertyController::class)->group(function(){
+    ...
+    Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
+}); 
+```
+En app/Http/Controllers/Backend/PropertyController.php
+```php
+...
+use App\Models\PackagePlan;
+use Barryvdh\DomPDF\Facade\Pdf;
+...
+// Admin Package History
+public function AdminPackageHistory(){
+    $packageHistory = PackagePlan::latest()->get();
+    return view('backend.package.package_history', compact('packageHistory'));
+}
+```
+En resources/views/backend/package/package_history.blade.php
+Copiarlo de resources/views/agent/package/package_history.blade.php
 
-
-
+Agregarle nombre a la tabla, tiene ya una relacion con user asi que podemos desplegarlo asi:
+En resources/views/backend/package/package_history.blade.php
+```php
+<td>{{ $item['user']['name'] }}</td> 
+```
+Listo!
 ## 111. Package Sales Report In Admin Dashboard Part 2
+
+
+
+
 
 
 

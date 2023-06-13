@@ -74,42 +74,42 @@
 
                                         <a href="#"
                                             class="noble-ui-logo logo-light d-block mb-2">Fotos<span>Oficiales</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+                                        <h5 class="text-muted fw-normal mb-4">¡Bienvenido de nuevo! Ingrese a su cuenta.</h5>
 
                                         <form class="forms-sample" method="POST" action="{{ route('login') }}">
                                         @csrf
 
                                             {{-- Email/Name/Phone --}}
                                             <div class="mb-3">
-                                                <label for="login" class="form-label">Email/Name/Phone</label>
+                                                {{-- <label for="login" class="form-label">Correo / Nombre / Teléfono</label> --}}
                                                 <input type="text" name="login" class="form-control" id="login"
-                                                    placeholder="Email, Name, or Phone">
+                                                    placeholder="Correo, Nombre, o Teléfono">
                                             </div>
 
                                             {{-- password --}}
                                             <div class="mb-3">
-                                                <label for="userPassword" class="form-label">Password</label>
+                                                {{-- <label for="userPassword" class="form-label">Contraseña</label> --}}
                                                 <input type="password" class="form-control" id="password" name="password"
-                                                    autocomplete="current-password" placeholder="Password">
+                                                    autocomplete="current-password" placeholder="Contraseña">
                                             </div>
 
                                             {{-- Remember me --}}
                                             <div class="form-check mb-3">
                                                 <input type="checkbox" class="form-check-input" id="authCheck">
                                                 <label class="form-check-label" for="authCheck">
-                                                    Remember me
+                                                    Recuérdeme
                                                 </label>
                                             </div>
 
                                             {{-- botón login --}}
                                             <div>
                                                 <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
-                                                    Login
+                                                    Acceder
                                                 </button>
                                             </div>
 
                                             {{-- Not a user? Sign up --}}
-                                            <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign up</a>
+                                            {{-- <a href="#" class="d-block mt-3 text-muted">No estas registrado? Registro aquí!</a> --}}
 
                                         </form>
 
