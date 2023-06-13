@@ -5724,8 +5724,113 @@ Listo!
 
 # Sección 16 - Package Sales Report In Agent Dashboard With PDF
 ## 107. Package sales Report In Agent Dashboard Part 1
+Crear otro menu en sidebar de agent titulado "historial de pagos"
+En resources/views/agent/body/sidebar.blade.php
+```php
+{{-- Historial de Compras de Paquetes o Pagos --}}
+<li class="nav-item">
+    <a href="{{ route('package.history') }}" class="nav-link">
+        <i data-feather="book-open"></i>
+        <span class="link-title">Historial de Pagos</span>
+    </a>
+</li> 
+```
+En routes/web.php
+```php
+Route::get('/package/history', 'PackageHistory')->name('package.history'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+//  Package History - Historial de Pagos
+public function PackageHistory(){
+$id = Auth::user()->id;
+$packageHistory = PackagePlan::where('user_id',$id)->get();
+return view('agent.package.package_history', compact('packageHistory'));
+} 
+```
+En resources/views/agent/package/package_history.blade.php
+Copiar de resources/views/agent/property/all_property.blade.php
 
+Crear una realacion con user en app/Models/PackagePlan.php
+```php
+// Relación del campo 'user_id' con el 'id' de la tabla 'users'
+public function user(){
+    return $this->belongsTo(User::class,'user_id','id');
+} 
+```
+En resources/views/agent/package/package_history.blade.php
+```php
+@extends('agent.agent_dashboard')
+@section('agent')
+
+<div class="page-content">
+
+    <nav class="page-breadcrumb">
+        <ol class="breadcrumb">
+            <a href="{{ route('agent.add.property') }}" class="btn btn-inverse-info">Añadir Propiedad</a>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Historial de Compras</h6>
+                    <div class="table-responsive">
+                        <table id="dataTableExample" class="table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Serie</th>
+                                    <th>Imagen</th>
+                                    <th>Paquete</th>
+                                    <th>Recibo</th>
+                                    <th>Cantidad</th>
+                                    <th>Fecha</th>
+                                    <th>Acción</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @foreach ($packageHistory as $key => $item)
+                                <tr>
+                                    <td>{{ $key+1 }}</td>
+                                    <td><img src="{{ (!empty($item->user->photo)) ? url('upload/agent_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" style="width: 70px; height: 40px;"></td>
+                                    <td>{{ $item->package_name }}</td>
+                                    <td>{{ $item->invoice }}</td>
+                                    <td>{{ $item->package_amount }}</td>
+                                    <td>{{ $item->created_at->format('d M Y') }} ({{ __($item->created_at->format('l')) }})</td>
+
+                                    <td>
+
+                                        <a href="{{ route('agent.edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
+
+                                    </td>
+
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@endsection 
+```
+Listo!
 ## 108. Package sales Report In Agent Dashboard Part 2
+
+
+
+
 ## 109. Package sales Report In Agent Dashboard Part 3
 
 

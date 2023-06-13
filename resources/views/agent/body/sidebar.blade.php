@@ -53,8 +53,17 @@
                 {{-- Comprar paquete --}}
                 <li class="nav-item">
                     <a href="{{ route('buy.package') }}" class="nav-link">
-                        <i class="link-icon" data-feather="calendar"></i>
+                        {{-- <i class="link-icon" data-feather="calendar"></i> --}}
+                        <i data-feather="package"></i>
                         <span class="link-title">Comprar Paquete</span>
+                    </a>
+                </li>
+
+                {{-- Historial de Compras de Paquetes o Pagos --}}
+                <li class="nav-item">
+                    <a href="{{ route('package.history') }}" class="nav-link">
+                        <i data-feather="book-open"></i>
+                        <span class="link-title">Historial de Compras</span>
                     </a>
                 </li>
 
