@@ -24,8 +24,10 @@
                                     <th>Imagen</th>
                                     <th>Nombre</th>
                                     <th>Tipo</th>
-                                    <th>Tipo Estatus</th>
+                                    <th>Estatus</th>
                                     <th>Ciudad</th>
+                                    <th>Popular</th>
+                                    <th>Especial</th>
                                     <th>Código</th>
                                     <th>Estatus</th>
                                     <th>Acción</th>
@@ -43,6 +45,24 @@
                                     <td>{{ $item['type']['type_name'] }}</td>
                                     <td>{{ $item->property_status }}</td>
                                     <td>{{ $item->city }}</td>
+
+                                    <td>
+                                        @if ($item->featured == 1)
+                                            <span class="badge rounded-pill bg-success"><i data-feather="check-circle"></i></span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger"><i data-feather="x"></i></span>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        @if ($item->hot == 1)
+                                            <span class="badge rounded-pill bg-success"><i data-feather="check-circle"></i></span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger"><i data-feather="x"></i></span>
+                                        @endif
+                                    </td>
+
+
                                     <td>{{ $item->property_code }}</td>
 
                                     <td>

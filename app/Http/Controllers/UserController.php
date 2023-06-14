@@ -124,7 +124,13 @@ class UserController extends Controller
 
      }
 
+     /*********
+     * Frontend
+     **********/
 
-
+    //  Ver todas las categorías
+     public function CategoryAll(){
+        return view('frontend.home.category_todas');
+     }
 
 }

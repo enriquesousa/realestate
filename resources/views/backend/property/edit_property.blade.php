@@ -259,14 +259,14 @@
                                 <div class="form-check form-check-inline">
                                     <input type="checkbox" name="featured" value="1" class="form-check-input" id="checkInline1" {{ $property->featured == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label text-warning" for="checkInline1">
-                                        Features Property
+                                        Popular
                                     </label>
                                 </div>
 
                                 <div class="form-check form-check-inline">
                                     <input type="checkbox" name="hot" value="1" class="form-check-input" id="checkInline" {{ $property->hot == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label text-warning" for="checkInline">
-                                        Hot Property
+                                        Especial
                                     </label>
                                 </div>
 

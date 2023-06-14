@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\PropertyType;
 use App\Models\User;
 
+// App\Models\Property
 class Property extends Model
 {
     use HasFactory;

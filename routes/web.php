@@ -23,12 +23,11 @@ require __DIR__.'/auth.php';
 *******************/
 
 // Home User Frontend All Route
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', [UserController::class, 'index'])->name('casa');
+Route::get('/category/all', [UserController::class, 'CategoryAll'])->name('category.all');
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
-
 Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
-
 Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
 
 /******

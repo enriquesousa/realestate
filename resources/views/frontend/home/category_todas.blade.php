@@ -1,6 +1,28 @@
+@extends('frontend.frontend_dashboard_no_preload')
+@section('main2')
+
+
 @php
-    $propertyType = App\Models\PropertyType::latest()->limit(5)->get(); //limitado a 5 datos
+    $propertyType = App\Models\PropertyType::latest()->get(); //Todas las categorías
 @endphp
+
+<!--Page Title-->
+<section class="page-title-two bg-color-1 centred">
+    <div class="pattern-layer">
+        <div class="pattern-1" style="background-image: url(assets/images/shape/shape-9.png);"></div>
+        <div class="pattern-2" style="background-image: url(assets/images/shape/shape-10.png);"></div>
+    </div>
+    <div class="auto-container">
+        <div class="content-box clearfix">
+            <h1>Todas las Categorías</h1>
+            {{-- <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li>
+                <li>Categories</li>
+            </ul> --}}
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
 
 <!-- category-section -->
 <section class="category-section centred">
@@ -24,8 +46,11 @@
             @endforeach
 
             </ul>
-            <div class="more-btn"><a href="{{ route('category.all') }}" class="theme-btn btn-one">Todas las Categorías</a></div>
+
         </div>
     </div>
 </section>
 <!-- category-section end -->
+
+
+@endsection
