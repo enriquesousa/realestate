@@ -6089,11 +6089,41 @@ Listo!
 
 # Sección 18 - Display Property Type In Frontend
 ## 112. Show Property Type In Frontend Part 1
+Empezamos por hacer dinamica el segmento de resources/views/frontend/home/category.blade.php
+```php
+@php
+    $propertyType = App\Models\PropertyType::latest()->limit(5)->get(); //limitado a 5 datos
+@endphp
 
+<!-- category-section -->
+<section class="category-section centred">
+    <div class="auto-container">
+        <div class="inner-container wow slideInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+            <ul class="category-list clearfix">
 
+            @foreach ($propertyType as $item)
+                <li>
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="{{ $item->type_icon }}"></i></div>
+                            <h5><a href="property-details.html">{{ $item->type_name }}</a></h5>
+                            <span>52</span>
+                        </div>
+                    </div>
+                </li>
+            @endforeach
 
-
+            </ul>
+            <div class="more-btn"><a href="categories.html" class="theme-btn btn-one">All Categories</a></div>
+        </div>
+    </div>
+</section>
+<!-- category-section end --> 
+```
+Listo!
 ## 113. Show Property Type In Frontend Part 2
+
+
 
 
 

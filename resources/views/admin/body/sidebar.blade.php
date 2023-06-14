@@ -30,16 +30,16 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Tipo de Propiedades</span>
+                    <span class="link-title">Tipos de Propiedad</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.type') }}" class="nav-link">Todas las Propiedades</a>
+                            <a href="{{ route('all.type') }}" class="nav-link">Lista</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.type') }}" class="nav-link">Añadir una Propiedad</a>
+                            <a href="{{ route('add.type') }}" class="nav-link">Añadir un tipo</a>
                         </li>
                     </ul>
                 </div>
@@ -54,10 +54,10 @@
                 <div class="collapse" id="amenities">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.amenities') }}" class="nav-link">Todas las Comodidades</a>
+                            <a href="{{ route('all.amenities') }}" class="nav-link">Lista</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.amenities') }}" class="nav-link">Añadir una Comodidad</a>
+                            <a href="{{ route('add.amenities') }}" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>
@@ -72,10 +72,10 @@
                 <div class="collapse" id="property">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.property') }}" class="nav-link">Todas las Propiedades</a>
+                            <a href="{{ route('all.property') }}" class="nav-link">Lista</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.property') }}" class="nav-link">Añadir una Propiedad</a>
+                            <a href="{{ route('add.property') }}" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>
