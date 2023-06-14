@@ -146,12 +146,12 @@ Kazi Ariyan
 ## 115. Show Features Property In Frontend Part 2
 
 # Sección 20 - Setup Property Details Page 
-- 116. Setup Property Details Page Part 1
-- 117. Setup Property Details Page Part 2
-- 118. Setup Property Details Page Part 3
-- 119. Setup Property Details Page Part 4
-- 120. Setup Property Details Page Part 5
-- 121. Setup Property Details Related Page
+## 116. Setup Property Details Page Part 1
+## 117. Setup Property Details Page Part 2
+## 118. Setup Property Details Page Part 3
+## 119. Setup Property Details Page Part 4
+## 120. Setup Property Details Page Part 5
+## 121. Setup Property Details Related Page
 
 # Sección 21 - Setup Property Wishlist Option
 - 122. Property Wishlist Setup Part 1
@@ -6224,10 +6224,31 @@ En resources/views/frontend/home/feature.blade.php
 ```
 Listo!
 ## 115. Show Features Property In Frontend Part 2
+En resources/views/frontend/home/feature.blade.php
+```php
+@if ($item->agent_id == Null)
+    <figure class="author-thumb"><img src="{{ url('upload/admin.png') }}" alt=""></figure>
+    <h6>Admin</h6>
+@else
+    <figure class="author-thumb"><img src="{{ (!empty($item->user->photo)) ? url('upload/agent_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" alt=""></figure>
+    <h6>{{ $item->user->name }}</h6>
+@endif 
+```
+Listo!
+
+# Sección 20 - Setup Property Details Page 
+## 116. Setup Property Details Page Part 1
 
 
 
 
+
+
+## 117. Setup Property Details Page Part 2
+## 118. Setup Property Details Page Part 3
+## 119. Setup Property Details Page Part 4
+## 120. Setup Property Details Page Part 5
+## 121. Setup Property Details Related Page
 
 
 
