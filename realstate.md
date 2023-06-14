@@ -138,8 +138,8 @@ Kazi Ariyan
 ## 111. Package Sales Report In Admin Dashboard Part 2
 
 # Sección 18 - Display Property Type In Frontend
-- 112. Show Property Type In Frontend Part 1
-- 113. Show Property Type In Frontend Part 2
+## 112. Show Property Type In Frontend Part 1
+## 113. Show Property Type In Frontend Part 2
 
 # Sección 19 - Display Features Property In Frontend 
 - 114. Show Features Property In Frontend Part 1
@@ -6058,8 +6058,42 @@ En resources/views/backend/package/package_history.blade.php
 ```
 Listo!
 ## 111. Package Sales Report In Admin Dashboard Part 2
+Descargar PDF desde Admin
+En resources/views/backend/package/package_history.blade.php
+```php
+<td>
+    <a href="{{ route('admin.package.invoice',$item->id) }}" class="btn btn-inverse-warning" title="Descargar"><i data-feather="download"></i></a>
+</td> 
+```
+En routes/web.php
+```php
+Route::get('/admin/package/invoice/{id}', 'AdminPackageInvoice')->name('admin.package.invoice'); 
+```
+En app/Http/Controllers/Backend/PropertyController.php
+```php
+// Admin Package Invoice - Descargar PDF desde Admin
+public function AdminPackageInvoice($id){
+    $packageHistory = PackagePlan::where('id', $id)->first();
+
+    // Convertir la Vista a PDF con el paquete pdf que ya instalamos
+    $pdf = Pdf::loadView('backend.package.package_history_invoice', compact('packageHistory'))->setPaper('a4')->setOption([
+        'tempDir' => public_path(),
+        'chroot' => public_path()
+    ]);
+    return $pdf->download('recibo.pdf');
+} 
+```
+La vista resources/views/backend/package/package_history_invoice.blade.php
+Copiarla de resources/views/agent/package/package_history_invoice.blade.php
+Listo!
+
+# Sección 18 - Display Property Type In Frontend
+## 112. Show Property Type In Frontend Part 1
 
 
+
+
+## 113. Show Property Type In Frontend Part 2
 
 
 

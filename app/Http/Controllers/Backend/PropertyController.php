@@ -429,5 +429,16 @@ class PropertyController extends Controller
         return view('backend.package.package_history', compact('packageHistory'));
     }
 
+    // Admin Package Invoice - Descargar PDF desde Admin
+    public function AdminPackageInvoice($id){
+        $packageHistory = PackagePlan::where('id', $id)->first();
+
+        // Convertir la Vista a PDF con el paquete pdf que ya instalamos
+        $pdf = Pdf::loadView('backend.package.package_history_invoice', compact('packageHistory'))->setPaper('a4')->setOption([
+            'tempDir' => public_path(),
+            'chroot' => public_path()
+        ]);
+        return $pdf->download('recibo.pdf');
+    }
 
 }
