@@ -9,12 +9,15 @@
             <ul class="category-list clearfix">
 
             @foreach ($propertyType as $item)
+            @php
+                $property = App\Models\Property::where('ptype_id',$item->id)->get();
+            @endphp
                 <li>
                     <div class="category-block-one">
                         <div class="inner-box">
                             <div class="icon-box"><i class="{{ $item->type_icon }}"></i></div>
                             <h5><a href="property-details.html">{{ $item->type_name }}</a></h5>
-                            <span>52</span>
+                            <span>{{ count($property) }}</span>
                         </div>
                     </div>
                 </li>

@@ -6122,8 +6122,28 @@ Empezamos por hacer dinamica el segmento de resources/views/frontend/home/catego
 ```
 Listo!
 ## 113. Show Property Type In Frontend Part 2
-
-
+Ahora vamos a contar cuantas tipos de propiedades tenemos en la tabla 'properties'
+Tenemos que contar las veces que es igual en el campo 'pttpe_id'
+En resources/views/frontend/home/category.blade.php
+```php
+...
+@foreach ($propertyType as $item)
+@php
+    $property = App\Models\Property::where('ptype_id',$item->id)->get();
+@endphp
+    <li>
+        <div class="category-block-one">
+            <div class="inner-box">
+                <div class="icon-box"><i class="{{ $item->type_icon }}"></i></div>
+                <h5><a href="property-details.html">{{ $item->type_name }}</a></h5>
+                <span>{{ count($property) }}</span>
+            </div>
+        </div>
+    </li>
+@endforeach 
+...
+```
+Listo!
 
 
 
