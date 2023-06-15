@@ -6296,20 +6296,79 @@ En resources/views/frontend/property/property_details.blade.php
 ```
 Listo!
 ## 117. Setup Property Details Page Part 2
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// PropertyDetails - Detalle de la Propiedad
+public function PropertyDetails($id, $slug){
+    $property = Property::findOrFail($id);
+    $multiImage = MultiImage::where('property_id',$id)->get();
+    return view('frontend.property.property_details', compact('property', 'multiImage'));
+} 
+```
+Empezamos por pasar algunos datos a resources/views/frontend/property/property_details.blade.php
+```php
+...
+<div class="content-box clearfix">
+    <h1>Detalles de la Propiedad</h1>
+    <ul class="bread-crumb clearfix">
+        {{-- <li><a href="index.html">Home</a></li> --}}
+        <li>{{ $property->property_name }}</li>
+    </ul>
+</div>
+...
+{{-- Titulo de la Propiedad y Agente mas estrellas de calificación --}}
+<div class="left-column pull-left clearfix">
+    <h3>{{ $property->property_name }}</h3>
+    <div class="author-info clearfix">
+        <div class="author-box pull-left">
 
+            @if ($property->agent_id == Null)
+                <figure class="author-thumb"><img src="{{ url('upload/admin.png') }}" alt=""></figure>
+                <h6>Admin</h6>
+            @else
+                <figure class="author-thumb"><img src="{{ (!empty($property->user->photo)) ? url('upload/agent_images/'.$property->user->photo) : url('upload/no_image.jpg') }}" alt=""></figure>
+                <h6>{{ $property->user->name }}</h6>
+            @endif
 
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+        <ul class="rating clearfix pull-left">
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-39"></i></li>
+            <li><i class="icon-40"></i></li>
+        </ul>
+    </div>
+</div>
+...
+<div class="price-inner clearfix">
+    <ul class="category clearfix pull-left">
+        <li><a href="property-details.html">{{ $property->type->type_name }}</a></li>
+        <li><a href="property-details.html">Para {{ $property->property_status }}</a></li>
+    </ul>
+    <div class="price-box pull-right">
+        <h3>${{ $property->lowest_price }}</h3>
+    </div>
+</div>
+...
+{{-- Display Multi Images en Carousel --}}
+<div class="carousel-inner">
+    <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
+        @foreach ($multiImage as $image)
+            <figure class="image-box"><img src="{{ asset($image->photo_name) }}" alt=""></figure>
+        @endforeach
+    </div>
+</div>
+...
+```
+Listo!
 ## 118. Setup Property Details Page Part 3
+
+
+
+
+
+
 ## 119. Setup Property Details Page Part 4
 ## 120. Setup Property Details Page Part 5
 ## 121. Setup Property Details Related Page

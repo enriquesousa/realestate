@@ -19,7 +19,9 @@ class IndexController extends Controller
 
     // PropertyDetails - Detalle de la Propiedad
     public function PropertyDetails($id, $slug){
-        return view('frontend.property.property_details');
+        $property = Property::findOrFail($id);
+        $multiImage = MultiImage::where('property_id',$id)->get();
+        return view('frontend.property.property_details', compact('property', 'multiImage'));
     }
 
 }
