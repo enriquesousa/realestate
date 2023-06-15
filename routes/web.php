@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPropertyController;
+use App\Http\Controllers\Frontend\IndexController;
 
 
 // Route::get('/', function () {
@@ -26,6 +27,11 @@ require __DIR__.'/auth.php';
 Route::get('/', [UserController::class, 'index'])->name('casa');
 Route::get('/category/all', [UserController::class, 'CategoryAll'])->name('category.all');
 
+// Frontend Property Details All Routes (IndexController)
+Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']);
+
+
+// Login and Register
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
 Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
 Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');

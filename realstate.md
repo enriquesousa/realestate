@@ -6238,13 +6238,77 @@ Listo!
 
 # Sección 20 - Setup Property Details Page 
 ## 116. Setup Property Details Page Part 1
+En resources/views/frontend/home/feature.blade.php
+```php
+{{-- botón ver detalles --}}
+<div class="btn-box">
+    <a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}" class="theme-btn btn-two">Ver Detalles</a>
+</div> 
+```
+Crear nuevo controlador.
+```php
+php artisan make:controller Frontend/IndexController
+```
+En routes/web.php
+```php
+/******************
+* Acceso para todos
+*******************/
+...
+// Frontend Property Details All Routes (IndexController)
+Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+<?php
+
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use App\Models\Property;
+use App\Models\MultiImage;
+use App\Models\Facility;
+use App\Models\Amenities;
+use App\Models\PropertyType;
+use App\Models\User;
+use App\Models\PackagePlan;
 
 
+class IndexController extends Controller
+{
+
+    // PropertyDetails - Detalle de la Propiedad
+    public function PropertyDetails($id, $slug){
+        return view('frontend.property.property_details');
+    }
+
+}
+```
+En resources/views/frontend/property/property_details.blade.php
+```php
+@extends('frontend.frontend_dashboard')
+@section('main')
 
 
-
-
+@endsection 
+```
+Listo!
 ## 117. Setup Property Details Page Part 2
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 118. Setup Property Details Page Part 3
 ## 119. Setup Property Details Page Part 4
 ## 120. Setup Property Details Page Part 5

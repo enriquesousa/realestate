@@ -21,13 +21,19 @@
                 <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms"
                     data-wow-duration="1500ms">
                     <div class="inner-box">
+
+                        {{-- Caja de la Imagen --}}
                         <div class="image-box">
                             <figure class="image"><img src="{{ asset($item->property_thambnail) }}" alt="">
                             </figure>
                             <div class="batch"><i class="icon-11"></i></div>
                             <span class="category">Popular</span>
                         </div>
+
+                        {{-- lower-content --}}
                         <div class="lower-content">
+
+                            {{-- Agent Name, Photo and property_status for (rent or buy) --}}
                             <div class="author-info clearfix">
                                 <div class="author pull-left">
 
@@ -43,9 +49,13 @@
                                 <div class="buy-btn pull-right"><a href="property-details.html">For {{ $item->property_status }}</a>
                                 </div>
                             </div>
+
+                            {{-- Nombre de la Propiedad --}}
                             <div class="title-text">
                                 <h4><a href="property-details.html">{{ $item->property_name }}</a></h4>
                             </div>
+
+                            {{-- lowest_price --}}
                             <div class="price-box clearfix">
                                 <div class="price-info pull-left">
                                     <h6>Inicia desde</h6>
@@ -56,14 +66,24 @@
                                     <li><a href="property-details.html"><i class="icon-13"></i></a></li>
                                 </ul>
                             </div>
+
+                            {{-- short_descp --}}
                             <p>{{ $item->short_descp }}</p>
+
+                            {{-- bedrooms, bathrooms, property_size --}}
                             <ul class="more-details clearfix">
                                 <li><i class="icon-14"></i>{{ $item->bedrooms }} Cuartos</li>
                                 <li><i class="icon-15"></i>{{ $item->bathrooms }} Baños</li>
                                 <li><i class="icon-16"></i>{{ $item->property_size }} m²</li>
                             </ul>
-                            <div class="btn-box"><a href="property-details.html" class="theme-btn btn-two">Ver Detalles</a></div>
+
+                            {{-- botón ver detalles --}}
+                            <div class="btn-box">
+                                <a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}" class="theme-btn btn-two">Ver Detalles</a>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>
