@@ -6363,13 +6363,38 @@ Empezamos por pasar algunos datos a resources/views/frontend/property/property_d
 ```
 Listo!
 ## 118. Setup Property Details Page Part 3
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// PropertyDetails - Detalle de la Propiedad
+public function PropertyDetails($id, $slug){
 
+    $property = Property::findOrFail($id);
 
+    $amenities = $property->amenities_id;
+    $property_amenities = explode(',',$amenities);
 
+    $multiImage = MultiImage::where('property_id',$id)->get();
 
-
-
+    return view('frontend.property.property_details', compact('property', 'multiImage', 'property_amenities'));
+} 
+```
+En resources/views/frontend/property/property_details.blade.php
+```php
+{{-- Property Description --}}
+...
+{{-- Property Details, ID, Rooms, Garage etc... --}}
+...
+{{-- Amenities --}}
+...
+{{-- Location google-map-area --}} 
+...
+```
+Listo!
 ## 119. Setup Property Details Page Part 4
+
+
+
+
 ## 120. Setup Property Details Page Part 5
 ## 121. Setup Property Details Related Page
 

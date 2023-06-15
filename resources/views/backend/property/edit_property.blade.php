@@ -94,7 +94,7 @@
                                 {{-- Garage Size --}}
                                 <div class="col-sm-3">
                                     <div class="mb-3">
-                                        <label class="form-label text-warning">Tamaño de Cochera</label>
+                                        <label class="form-label text-warning">Tamaño de Cochera (m²)</label>
                                         <input type="text" name="garage_size" class="form-control" value="{{ $property->garage_size }}">
                                     </div>
                                 </div><!-- Col -->
@@ -144,7 +144,7 @@
                                 {{-- Property Size --}}
                                 <div class="col-sm-4">
                                     <div class="mb-3">
-                                        <label class="form-label text-warning">Tamaño Propiedad</label>
+                                        <label class="form-label text-warning">Tamaño Propiedad (m²)</label>
                                         <input type="text" name="property_size"  class="form-control" value="{{ $property->property_size }}">
                                     </div>
                                 </div><!-- Col -->
