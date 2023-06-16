@@ -1,6 +1,7 @@
 @extends('frontend.frontend_dashboard_no_preload')
 @section('main2')
 
+{{-- From: PropertyDetails app/Http/Controllers/Frontend/IndexController.php --}}
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">
@@ -25,7 +26,7 @@
 <section class="property-details property-details-one">
     <div class="auto-container">
 
-        {{-- top-details --}}
+        {{-- top-details, Titulo de la Propiedad y Agente mas estrellas mas estatus, compra o renta --}}
         <div class="top-details clearfix">
 
             {{-- Titulo de la Propiedad y Agente mas estrellas de calificación --}}
@@ -76,6 +77,8 @@
 
         {{-- Multiples Características de la Propiedad --}}
         <div class="row clearfix">
+
+            {{-- property-details-content --}}
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                 <div class="property-details-content">
 
@@ -158,15 +161,31 @@
                                 }'>
                             </div>
 
-                            {{-- Botón Ver en Google Maps --}}
+                            {{-- Botón Ver en Google Maps con Latitude y Longitude--}}
                             <div class="btn-box m-2" >
                                 <a href="{{ url('/google/maps/'.$property->latitude.'/'.$property->longitude) }}" class="theme-btn btn-two" target="_blank">Ver en Google Maps</a>
                             </div>
+
+                            <br>
 
                             @if ($property->google_map !== Null)
                                 {{-- link con iframe --}}
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3363.962744026947!2d-117.11778768482424!3d32.52714198104826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDMxJzM3LjciTiAxMTfCsDA2JzU2LjIiVw!5e0!3m2!1ses-419!2smx!4v1686880226544!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             @endif
+
+                            {{-- <form action="{{ route('google.map') }}" method="POST" id="miForma">
+                            @csrf
+                                <input type="hidden" name="latitude" value="{{ $property->latitude }}">
+                                <input type="hidden" name="longitude" value="{{ $property->longitude }}">
+                                <input type="hidden" name="google_map" value="{{ $property->google_map }}">
+
+                                <button type="submit" class="btn btn-primary">Ver en Google Map</button> --}}
+
+                                {{-- Si lo quiero ver con Botón con estilo de la plantilla --}}
+                                {{-- <div class="btn-box m-2" >
+                                    <a href="#" target="_blank" onclick="document.getElementById('miForma').submit()" class="theme-btn btn-two">Ver en Google Maps</a>
+                                </div> --}}
+                            {{-- </form> --}}
 
                         </div>
                     </div>
@@ -272,23 +291,43 @@
                 </div>
             </div>
 
+            {{-- Datos del Agente - sidebar-side --}}
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                 <div class="property-sidebar default-sidebar">
+
+                    {{-- Datos del Agente, author-widget sidebar-widget --}}
                     <div class="author-widget sidebar-widget">
+
+                        {{-- Caja del Agente, Nombre, Dirección, Teléfono --}}
                         <div class="author-box">
-                            <figure class="author-thumb"><img src="assets/images/resource/author-1.jpg" alt="">
-                            </figure>
-                            <div class="inner">
-                                <h4>Michael Bean</h4>
-                                <ul class="info clearfix">
-                                    <li><i class="fas fa-map-marker-alt"></i>84 St. John Wood High Street,
-                                        St Johns Wood</li>
-                                    <li><i class="fas fa-phone"></i><a href="tel:03030571965">030 3057 1965</a>
-                                    </li>
-                                </ul>
-                                <div class="btn-box"><a href="agents-details.html">View Listing</a></div>
-                            </div>
+
+                            @if ($property->agent_id == Null)
+                                <figure class="author-thumb"><img src="{{ url('upload/admin.png') }}" alt="">
+                                </figure>
+                                <div class="inner">
+                                    <h4>Admin</h4>
+                                    <ul class="info clearfix">
+                                        <li><i class="fas fa-map-marker-alt"></i>Dirección de Admin Estática</li>
+                                        <li><i class="fas fa-phone"></i><a href="tel:03030571965">030 3057 1965 (Estático)</a></li>
+                                    </ul>
+                                    <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div>
+                                </div>
+                            @else
+                                <figure class="author-thumb"><img src="{{ (!empty($property->user->photo)) ? url('upload/agent_images/'.$property->user->photo) : url('upload/no_image.jpg') }}" alt="">
+                                </figure>
+                                <div class="inner">
+                                    <h4>{{ $property->user->name }}</h4>
+                                    <ul class="info clearfix">
+                                        <li><i class="fas fa-map-marker-alt"></i>{{ $property->user->address }}</li>
+                                        <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{ $property->user->phone }}</a></li>
+                                    </ul>
+                                    <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div>
+                                </div>
+                            @endif
+
                         </div>
+
+                        {{-- Nombre, Correo, Teléfono, Mensaje, Botón Enviar Mensaje --}}
                         <div class="form-inner">
                             <form action="property-details.html" method="post" class="default-form">
                                 <div class="form-group">
@@ -308,7 +347,10 @@
                                 </div>
                             </form>
                         </div>
+
                     </div>
+
+                    {{-- Calculadora de Costos - calculator-widget sidebar-widget --}}
                     <div class="calculator-widget sidebar-widget">
                         <div class="calculate-inner">
                             <div class="widget-title">
@@ -345,11 +387,13 @@
                             </form>
                         </div>
                     </div>
+
                 </div>
             </div>
+
         </div>
 
-
+        {{-- Propiedades Similares --}}
         <div class="similar-content">
             <div class="title">
                 <h4>Similar Properties</h4>
@@ -492,6 +536,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 <!-- property-details end -->

@@ -1,3 +1,9 @@
+{{--
+    Sección del frontend
+    "Propiedades Populares"
+    LLamado de: resources/views/frontend/index.blade.php
+--}}
+
 @php
     $property = App\Models\Property::where('status','1')->where('featured','1')->limit(3)->get();
 @endphp
@@ -10,8 +16,7 @@
             {{-- <h5>Features</h5> --}}
             <h5>Populares</h5>
             <h2>Propiedades Populares</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt <br />labore
-                dolore magna aliqua enim.</p>
+            <p>A continuación listamos las propiedades mas populares, debido a su buena ubicación e insuperables precios, esperemos que sean de su agrado.<br/>Nuestras propiedades siempre están respaldadas por nuestra garantía de entera satisfacción de nuestros clientes.</p>
         </div>
         <div class="row clearfix">
 

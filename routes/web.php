@@ -29,8 +29,9 @@ Route::get('/category/all', [UserController::class, 'CategoryAll'])->name('categ
 
 // Frontend Property Details All Routes (IndexController)
 Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']);
-Route::get('/google/maps/{latitude}/{longitude}', [IndexController::class, 'VerEnGoogleMaps']);
-// Route::get('/google/map/{latitude}/{longitude}/{google_map}', [IndexController::class, 'VerEnGoogleMaps'])->name('google.map');
+
+Route::get('/google/maps/{latitude}/{longitude}', [IndexController::class, 'VerEnGoogleMapsConLatitude']);
+// Route::post('/google/map', [IndexController::class, 'VerEnGoogleMaps'])->name('google.map');
 
 
 // Login and Register

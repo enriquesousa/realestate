@@ -6491,15 +6491,40 @@ En resources/views/frontend/property/property_details.blade.php
 Para copiar el iframe tenemos ue ir a la parte de compartir video y escoger incrustar!
 Listo!
 ## 120. Setup Property Details Page Part 5
+En resources/views/frontend/property/property_details.blade.php
+```php
+{{-- Caja del Agente, Nombre, Dirección, Teléfono --}}
+<div class="author-box">
 
+    @if ($property->agent_id == Null)
+        <figure class="author-thumb"><img src="{{ url('upload/admin.png') }}" alt="">
+        </figure>
+        <div class="inner">
+            <h4>Admin</h4>
+            <ul class="info clearfix">
+                <li><i class="fas fa-map-marker-alt"></i>Dirección de Admin Estática</li>
+                <li><i class="fas fa-phone"></i><a href="tel:03030571965">030 3057 1965 (Estático)</a></li>
+            </ul>
+            <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div>
+        </div>
+    @else
+        <figure class="author-thumb"><img src="{{ (!empty($property->user->photo)) ? url('upload/agent_images/'.$property->user->photo) : url('upload/no_image.jpg') }}" alt="">
+        </figure>
+        <div class="inner">
+            <h4>{{ $property->user->name }}</h4>
+            <ul class="info clearfix">
+                <li><i class="fas fa-map-marker-alt"></i>{{ $property->user->address }}</li>
+                <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{ $property->user->phone }}</a></li>
+            </ul>
+            <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div>
+        </div>
+    @endif
 
-
-
-
-
-
-
+</div> 
+```
+Listo!
 ## 121. Setup Property Details Related Page
+
 
 
 

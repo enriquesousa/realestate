@@ -35,23 +35,37 @@ class IndexController extends Controller
     // "http://maps.google.com/?q=[lat],[long]"
     // "http://maps.google.com/?q=32.524690,-117.120030"
     // por vinculo: https://goo.gl/maps/eK8L7DbqUzmnqcbw9
-    public function VerEnGoogleMaps($latitude, $longitude){
+    public function VerEnGoogleMaps(Request $request){
 
         // return Redirect::to('https://goo.gl/maps/eK8L7DbqUzmnqcbw9');
         // $mapa1 = 'https://goo.gl/maps/eK8L7DbqUzmnqcbw9';
         // $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
 
-        // dd($latitude,$longitude);
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+        $google_map = $request->google_map;
+        // dd($latitude,$longitude,$google_map);
 
+        // $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
+        // return Redirect::to($mapa);
+
+        if ($google_map == Null) {
+            $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
+            return Redirect::away($mapa);
+        } else {
+            return Redirect::away($google_map);
+        }
+    }
+
+    /**
+     * Summary of VerEnGoogleMapsConLatitude
+     * @param mixed $latitude
+     * @param mixed $longitude
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function VerEnGoogleMapsConLatitude($latitude, $longitude){
         $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
         return Redirect::to($mapa);
-
-        // if ($latitude == Null) {
-        //     $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
-        //     return Redirect::to($mapa);
-        // } else {
-        //     return Redirect::to($latitude);
-        // }
     }
 
 }

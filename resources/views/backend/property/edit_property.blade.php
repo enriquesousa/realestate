@@ -239,7 +239,6 @@
 
                             </div><!-- Row -->
 
-
                             {{-- Short Description --}}
                             <div class="col-sm-12">
                                 <div class="mb-3">
