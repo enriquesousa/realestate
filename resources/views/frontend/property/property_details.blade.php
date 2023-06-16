@@ -133,6 +133,8 @@
                         <div class="title-box">
                             <h4>Ubicación</h4>
                         </div>
+
+                        {{-- Dirección --}}
                         <ul class="info clearfix">
                             <li><span>Dirección: </span>{{ $property->address }}</li>
                             <li><span>Estado: </span>{{ $property->state }}</li>
@@ -140,32 +142,55 @@
                             <li><span>Código Postal: </span>{{ $property->postal_code }}</li>
                             <li><span>Ciudad: </span>{{ $property->city }}</li>
                         </ul>
-                        <div class="google-map-area">
-                            <div class="google-map" id="contact-google-map" data-map-lat="40.712776"
-                                data-map-lng="-74.005974" data-icon-path="assets/images/icons/map-marker.png"
-                                data-map-title="Brooklyn, New York, United Kingdom" data-map-zoom="12"
-                                data-markers='{
-                                    "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","assets/images/icons/map-marker.png"]
-                                }'>
 
+                        {{-- google-map-area --}}
+                        <div class="google-map-area">
+                            <div class="google-map" id="contact-google-map"
+                                data-map-lat="{{ $property->latitude }}"
+                                data-map-lng="{{ $property->longitude }}"
+                                data-icon-path="{{ asset('frontend/assets/images/icons/map-marker.png') }}"
+                                data-map-title="Iglesia Estrella del Mar, Playas de Tijuana" data-map-zoom="12"
+                                data-markers='{
+                                    "marker-1":
+                                    [32.524690, -117.120030,
+                                    "<h4>Iglesia Estrella del Mar</h4><p>Playas de Tijuana</p>",
+                                    "{{ asset('frontend/assets/images/icons/map-marker.png') }}"]
+                                }'>
                             </div>
+
+                            {{-- Botón Ver en Google Maps --}}
+                            <div class="btn-box m-2" >
+                                <a href="{{ url('/google/maps/'.$property->latitude.'/'.$property->longitude) }}" class="theme-btn btn-two" target="_blank">Ver en Google Maps</a>
+                            </div>
+
+                            @if ($property->google_map !== Null)
+                                {{-- link con iframe --}}
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3363.962744026947!2d-117.11778768482424!3d32.52714198104826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDMxJzM3LjciTiAxMTfCsDA2JzU2LjIiVw!5e0!3m2!1ses-419!2smx!4v1686880226544!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            @endif
+
                         </div>
                     </div>
 
-                    {{-- What’s Nearby? --}}
+                    {{-- Que hay cerca? --}}
                     <div class="nearby-box content-widget">
                         <div class="title-box">
-                            <h4>What’s Nearby?</h4>
+                            <h4>Que hay cerca?</h4>
                         </div>
                         <div class="inner-box">
+
+                            {{-- Lugares --}}
                             <div class="single-item">
                                 <div class="icon-box"><i class="fas fa-book-reader"></i></div>
                                 <div class="inner">
-                                    <h5>Education:</h5>
+
+                                    <h5>Lugares:</h5>
+
+                                    @foreach ($facility as $item)
                                     <div class="box clearfix">
                                         <div class="text pull-left">
-                                            <h6>Western Reserve University <span>(2.10 km)</span></h6>
+                                            <h6>{{ $item->facility_name }} <span>({{ $item->distance }} km)</span></h6>
                                         </div>
+                                        {{-- calificación con 5 estrellas --}}
                                         <ul class="rating pull-right clearfix">
                                             <li><i class="icon-39"></i></li>
                                             <li><i class="icon-39"></i></li>
@@ -174,116 +199,21 @@
                                             <li><i class="icon-40"></i></li>
                                         </ul>
                                     </div>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>Georgia Institute of Technology <span>(1.42 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>Harvey Mudd College <span>(2.10 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
+                                    @endforeach
+
                                 </div>
                             </div>
-                            <div class="single-item">
-                                <div class="icon-box"><i class="fas fa-coffee"></i></div>
-                                <div class="inner">
-                                    <h5>Restaurant:</h5>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>SC Ranch Market <span>(3.10 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>Chill On The Hill <span>(2.42 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>Gordon Ramsay Hell's Kitchen <span>(1.22 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-item">
-                                <div class="icon-box"><i class="fas fa-capsules"></i></div>
-                                <div class="inner">
-                                    <h5>Health & Medical:</h5>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>North Star Medical Clinic <span> (2.10 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="box clearfix">
-                                        <div class="text pull-left">
-                                            <h6>Clairvoyant Healing <span>(1.42 km)</span></h6>
-                                        </div>
-                                        <ul class="rating pull-right clearfix">
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-39"></i></li>
-                                            <li><i class="icon-40"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
-                    {{-- Page Statistics --}}
+                    {{-- Video Link --}}
                     <div class="statistics-box content-widget">
                         <div class="title-box">
-                            <h4>Page Statistics</h4>
+                            <h4>Video</h4>
                         </div>
                         <figure class="image-box">
-                            <a href="assets/images/resource/statistics-1.png" class="lightbox-image"
-                                data-fancybox="gallery"><img src="assets/images/resource/statistics-1.png"
-                                    alt=""></a>
+                            <iframe width="700" height="415" src="{{ $property->property_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </figure>
                     </div>
 

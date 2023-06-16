@@ -6391,11 +6391,114 @@ En resources/views/frontend/property/property_details.blade.php
 ```
 Listo!
 ## 119. Setup Property Details Page Part 4
+Implemetar el mapa de google
+Insertar el google map script antes de main-js al final en mis dos templates.
+resources/views/frontend/frontend_dashboard.blade.php y 
+resources/views/frontend/frontend_dashboard_no_preload.blade.php
+```php
+...
+<!-- map script -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+<script src="{{ asset('frontend/assets/js/gmaps.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/map-helper.js') }}"></script>
 
+<!-- main-js -->
+<script src="{{ asset('frontend/assets/js/script.js') }}"></script> 
+```
+Y en resources/views/frontend/property/property_details.blade.php
+```php
+{{-- google-map-area --}}
+<div class="google-map-area">
+    <div class="google-map" id="contact-google-map"
+        data-map-lat="{{ $property-> latitude }}"
+        data-map-lng="{{ $property-> longitude }}"
+        data-icon-path="{{ asset('frontend/assets/images/icons/map-marker.png') }}"
+        data-map-title="Iglesia Estrella del Mar, Playas de Tijuana" data-map-zoom="12"
+        data-markers='{
+            "marker-1":
+            [32.524690, -117.120030,
+            "<h4>Iglesia Estrella del Mar</h4><p>Playas de Tijuana</p>",
+            "{{ asset('frontend/assets/images/icons/map-marker.png') }}"]
+        }'>
+    </div>
+    {{-- botón ver en google maps --}}
+    <div class="btn-box mt-2" >
+        <a href="{{ url('/google/maps/'.$property-> latitude.'/'.$property-> longitude) }}" class="theme-btn btn-two" target="_blank">Ver en Google Maps</a>
 
+        <a href="{{ url('/google/maps/'.$property->latitude.'/'.$property->longitude.'/'.$property->google_map) }}" class="theme-btn btn-two">Ver en Google Maps</a>
 
+    </div>
+</div> 
+```
+En routes/web.php
+```php
+// Frontend Property Details All Routes (IndexController)
+Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']);
+Route::get('/google/maps/{latitude}/{longitude}', [IndexController::class, 'VerEnGoogleMaps']); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// PropertyDetails - Detalle de la Propiedad
+public function PropertyDetails($id, $slug){
 
+    $property = Property::findOrFail($id);
+
+    $amenities = $property->amenities_id;
+    $property_amenities = explode(',',$amenities);
+
+    $multiImage = MultiImage::where('property_id',$id)->get();
+    $facility = Facility::where('property_id',$id)->get();
+
+    return view('frontend.property.property_details', compact('property', 'multiImage', 'property_amenities', 'facility'));
+}
+
+// Ver en Google Maps
+// "http://maps.google.com/?q=[lat],[long]"
+// "http://maps.google.com/?q=32.524690,-117.120030"
+// por vinculo: https://goo.gl/maps/eK8L7DbqUzmnqcbw9
+public function VerEnGoogleMaps($latitude, $longitude){
+    // return Redirect::to('https://goo.gl/maps/eK8L7DbqUzmnqcbw9');
+    $mapa1 = 'https://goo.gl/maps/eK8L7DbqUzmnqcbw9';
+    // $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
+    return Redirect::to($mapa1);
+    // Cualquiera de los dos me funciona $mapa1 o $map
+} 
+```
+En resources/views/frontend/property/property_details.blade.php
+```php
+...
+{{-- Botón Ver en Google Maps --}}
+<div class="btn-box m-2" >
+    <a href="{{ url('/google/maps/'.$property->latitude.'/'.$property->longitude) }}" class="theme-btn btn-two" target="_blank">Ver en Google Maps</a>
+</div>
+
+@if ($property->google_map !== Null)
+    {{-- link con iframe --}}
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3363.962744026947!2d-117.11778768482424!3d32.52714198104826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDMxJzM3LjciTiAxMTfCsDA2JzU2LjIiVw!5e0!3m2!1ses-419!2smx!4v1686880226544!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+@endif 
+...
+{{-- Video Link --}}
+<div class="statistics-box content-widget">
+    <div class="title-box">
+        <h4>Video</h4>
+    </div>
+    <figure class="image-box">
+        <iframe width="700" height="415" src="{{ $property->property_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </figure>
+</div>
+...
+```
+Para copiar el iframe tenemos ue ir a la parte de compartir video y escoger incrustar!
+Listo!
 ## 120. Setup Property Details Page Part 5
+
+
+
+
+
+
+
+
 ## 121. Setup Property Details Related Page
 
 

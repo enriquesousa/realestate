@@ -12,7 +12,7 @@ use App\Models\Amenities;
 use App\Models\PropertyType;
 use App\Models\User;
 use App\Models\PackagePlan;
-
+use Redirect;
 
 class IndexController extends Controller
 {
@@ -26,8 +26,32 @@ class IndexController extends Controller
         $property_amenities = explode(',',$amenities);
 
         $multiImage = MultiImage::where('property_id',$id)->get();
+        $facility = Facility::where('property_id',$id)->get();
 
-        return view('frontend.property.property_details', compact('property', 'multiImage', 'property_amenities'));
+        return view('frontend.property.property_details', compact('property', 'multiImage', 'property_amenities', 'facility'));
+    }
+
+    // Ver en Google Maps
+    // "http://maps.google.com/?q=[lat],[long]"
+    // "http://maps.google.com/?q=32.524690,-117.120030"
+    // por vinculo: https://goo.gl/maps/eK8L7DbqUzmnqcbw9
+    public function VerEnGoogleMaps($latitude, $longitude){
+
+        // return Redirect::to('https://goo.gl/maps/eK8L7DbqUzmnqcbw9');
+        // $mapa1 = 'https://goo.gl/maps/eK8L7DbqUzmnqcbw9';
+        // $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
+
+        // dd($latitude,$longitude);
+
+        $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
+        return Redirect::to($mapa);
+
+        // if ($latitude == Null) {
+        //     $mapa = 'http://maps.google.com/?q='.$latitude.','.$longitude;
+        //     return Redirect::to($mapa);
+        // } else {
+        //     return Redirect::to($latitude);
+        // }
     }
 
 }

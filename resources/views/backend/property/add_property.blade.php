@@ -189,11 +189,11 @@
 
                             </div><!-- Row -->
 
-                            {{-- Row 5, Latitud, Longitud --}}
+                            {{-- Row 5, Latitud, Longitud y Google Map Link--}}
                             <div class="row">
 
                                 {{-- Latitude --}}
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="mb-3">
                                         <label class="form-label text-warning">Latitud</label>
                                         <input type="text" name="latitude" class="form-control">
@@ -202,11 +202,19 @@
                                 </div><!-- Col -->
 
                                 {{-- Longitude --}}
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="mb-3">
                                         <label class="form-label text-warning">Longitud</label>
                                         <input type="text" name="longitude" class="form-control">
                                         <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">Ve aquí para saber la latitud de una dirección</a>
+                                    </div>
+                                </div><!-- Col -->
+
+                                {{-- Liga Google Map --}}
+                                <div class="col-sm-4">
+                                    <div class="mb-3">
+                                        <label class="form-label text-warning">Liga Google Map</label>
+                                        <input type="text" name="google_map" class="form-control">
                                     </div>
                                 </div><!-- Col -->
 

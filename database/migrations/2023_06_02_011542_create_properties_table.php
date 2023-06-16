@@ -38,6 +38,7 @@ return new class extends Migration
             $table->string('neighborhood')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+            $table->string('google_map')->nullable();
             $table->string('featured')->nullable();
             $table->string('hot')->nullable();
             $table->integer('agent_id')->nullable();
