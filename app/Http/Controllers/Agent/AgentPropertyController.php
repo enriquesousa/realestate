@@ -21,6 +21,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class AgentPropertyController extends Controller
 {
+
     /**************************
      * Agente Propiedades: CRUD
      **************************/

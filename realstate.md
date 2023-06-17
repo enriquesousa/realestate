@@ -6524,9 +6524,19 @@ En resources/views/frontend/property/property_details.blade.php
 ```
 Listo!
 ## 121. Setup Property Details Related Page
+Propiedades similares.
+Preparamos datos para las propiedades similares, en app/Http/Controllers/Frontend/IndexController.php
+```php
+$type_id = $property->ptype_id;
+$relatedProperty = Property::where('ptype_id',$type_id)->where('id','!=',$id)->orderBy('id','DESC')->limit(3)->get();
 
-
-
-
+return view('frontend.property.property_details', compact('property', 'multiImage', 'property_amenities', 'facility','relatedProperty'));
+```
+Ahora en la vista resources/views/frontend/property/property_details.blade.php
+```php
+{{-- Propiedades Similares --}}
+...
+```
+Listo!
 
 
