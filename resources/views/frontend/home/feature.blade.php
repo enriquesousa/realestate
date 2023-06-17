@@ -9,7 +9,7 @@
 @endphp
 
 
-<!-- feature-section -->
+<!-- feature-section Sección de Propiedades Populares -->
 <section class="feature-section sec-pad bg-color-1">
     <div class="auto-container">
         <div class="sec-title centred">
@@ -60,16 +60,23 @@
                                 <h4><a href="{{ url('property/details/'.$item->id.'/'.$item->property_slug) }}">{{ $item->property_name }}</a></h4>
                             </div>
 
-                            {{-- lowest_price --}}
+                            {{-- lowest_price y botones de comparar y favorito--}}
                             <div class="price-box clearfix">
+
+                                {{-- Precio mas bajo --}}
                                 <div class="price-info pull-left">
                                     <h6>Inicia desde</h6>
                                     <h4>$ {{ $item->lowest_price }}</h4>
                                 </div>
+
+                                {{-- botones de comparar y favorito --}}
                                 <ul class="other-option pull-right clearfix">
+                                    {{-- botón comprar propiedades --}}
                                     <li><a href="property-details.html"><i class="icon-12"></i></a></li>
-                                    <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                                    {{-- botón añadir a favoritos --}}
+                                    <li><a aria-label="Añadir a Deseo" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)"><i class="icon-13"></i></a></li>
                                 </ul>
+
                             </div>
 
                             {{-- short_descp --}}

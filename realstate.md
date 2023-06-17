@@ -154,13 +154,13 @@ Kazi Ariyan
 ## 121. Setup Property Details Related Page
 
 # Sección 21 - Setup Property Wishlist Option
-- 122. Property Wishlist Setup Part 1
-- 123. Property Wishlist Setup Part 2
-- 124. Property Wishlist Setup Part 3
-- 125. Property Wishlist Setup Part 4
-- 126. Property Wishlist Setup Part 5
-- 127. Property Wishlist Setup Part 6
-- 128. Property Wishlist Setup Part 7
+## 122. Property Wishlist Setup Part 1
+## 123. Property Wishlist Setup Part 2
+## 124. Property Wishlist Setup Part 3
+## 125. Property Wishlist Setup Part 4
+## 126. Property Wishlist Setup Part 5
+## 127. Property Wishlist Setup Part 6
+## 128. Property Wishlist Setup Part 7
 
 # Sección 22 - Setup Property Compare Option 
 - 129. Property Compare Setup Part 1
@@ -6539,4 +6539,89 @@ Ahora en la vista resources/views/frontend/property/property_details.blade.php
 ```
 Listo!
 
+# Sección 21 - Setup Property Wishlist Option
+## 122. Property Wishlist Setup Part 1
+Whish List, Lista de Deseos
+Vamos a crear otro controlador y tabla para almacenar los favoritos.
+```php
+php artisan make:controller Frontend/WishlistController 
+```
+Crear Mpdelo y tabla de migracion:
+```php
+php artisan make:model Wishlist -m 
+```
+Que sen fillable los campos de la tabla en app/Models/Wishlist.php
+```php
+// Para que todos los campos sean fillables
+protected $guarded = []; 
+```
+Agregamos campos a la tabla database/migrations/2023_06_17_120222_create_wishlists_table.php
+```php
+Schema::create('wishlists', function (Blueprint $table) {
+    $table->id();
+
+    $table->unsignedBigInteger('user_id');
+    $table->unsignedBigInteger('property_id');
+
+    $table->timestamps();
+}); 
+```
+Hacemos la migracion:
+```php
+php artisan migrate 
+```
+Preparar el boton en resources/views/frontend/home/feature.blade.php
+```php
+{{-- botón añadir a favoritos --}}
+<li>
+    <a aria-label="Añadir a Deseo" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)">
+        <i class="icon-13"></i>
+    </a>
+</li>
+```    
+
+Y la funcion JS en resources/views/frontend/frontend_dashboard.blade.php
+```php
+<head>
+   ...
+    {{-- Para soportar el csrf token en la función de JS, Ver al final, Añadir a Lista de Favoritos, add to wishlist --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" > 
+    ...
+</head>
+
+<body>
+    ...
+
+    {{-- Añadir a Lista de Favoritos, add to wishlist --}}
+    <script type="text/javascript">
+
+        // Soportar el csrf token
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        })
+
+        // Función para añadir a lista de favoritos, viene de resources/views/frontend/home/feature.blade.php
+        function addToWishList(property_id){
+
+        }
+
+    </script>
+</body>
+```
+En la siguiente clase seguimo con la funcion
+Listo!
+## 123. Property Wishlist Setup Part 2
+
+
+
+
+
+
+## 124. Property Wishlist Setup Part 3
+## 125. Property Wishlist Setup Part 4
+## 126. Property Wishlist Setup Part 5
+## 127. Property Wishlist Setup Part 6
+## 128. Property Wishlist Setup Part 7
 

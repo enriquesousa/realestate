@@ -12,6 +12,9 @@
     <!-- Fav Icon -->
     <link rel="icon" href="{{ asset('frontend/assets/images/favicon.ico') }}" type="image/x-icon">
 
+    {{-- Para soportar el csrf token en la función de JS, Ver al final, Añadir a Lista de Favoritos, add to wishlist --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
+
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -118,6 +121,24 @@
             }
         @endif
     </script>
+
+    {{-- Añadir a Lista de Favoritos, add to wishlist --}}
+    <script type="text/javascript">
+
+        // Soportar el csrf token
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        })
+
+        // Función para añadir a lista de favoritos, viene de resources/views/frontend/home/feature.blade.php
+        function addToWishList(property_id){
+
+        }
+
+    </script>
+
 
 </body>
 <!-- End of .page_wrapper -->
