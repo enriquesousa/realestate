@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPropertyController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\WishlistController;
 
 
 // Route::get('/', function () {
@@ -30,8 +31,13 @@ Route::get('/category/all', [UserController::class, 'CategoryAll'])->name('categ
 // Frontend Property Details All Routes (IndexController)
 Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']);
 
+// Para desplegar el mapa
 Route::get('/google/maps/{latitude}/{longitude}', [IndexController::class, 'VerEnGoogleMapsConLatitude']);
-// Route::post('/google/map', [IndexController::class, 'VerEnGoogleMaps'])->name('google.map');
+    // Route::post('/google/map', [IndexController::class, 'VerEnGoogleMaps'])->name('google.map'); // si lo queremos hacer con parámetros POST
+
+// Para Wishlist
+Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddToWishList']);
+
 
 
 // Login and Register

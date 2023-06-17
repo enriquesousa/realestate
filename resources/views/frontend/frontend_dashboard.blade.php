@@ -122,6 +122,9 @@
         @endif
     </script>
 
+    {{-- Plugin for sweet alert 2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     {{-- Añadir a Lista de Favoritos, add to wishlist --}}
     <script type="text/javascript">
 
@@ -134,6 +137,44 @@
 
         // Función para añadir a lista de favoritos, viene de resources/views/frontend/home/feature.blade.php
         function addToWishList(property_id){
+
+            $.ajax({
+
+                type: "POST",
+                dataType: 'json',
+                url: "/add-to-wishList/"+property_id,
+
+                // Si hay datos json data se llena de info, entonces manda un mensaje de éxito! (data.success)
+                // O si hay error, también el toaster message despliega el mensaje de error. (data.error)
+                success:function(data){
+
+                    // Start Toaster Message
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                    }else{
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+                        })
+                    }
+                    // End Toaster Message
+
+                }
+
+            })
 
         }
 

@@ -6613,13 +6613,118 @@ Y la funcion JS en resources/views/frontend/frontend_dashboard.blade.php
 En la siguiente clase seguimo con la funcion
 Listo!
 ## 123. Property Wishlist Setup Part 2
+Funcion de JS
+En resources/views/admin/admin_dashboard.blade.php
+```php
+{{-- Plugin for sweet alert 2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+{{-- Añadir a Lista de Favoritos, add to wishlist --}}
+<script type="text/javascript">
 
+    // Soportar el csrf token
+    $.ajaxSetup({
+        headers:{
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+        }
+    })
 
+    // Función para añadir a lista de favoritos, viene de resources/views/frontend/home/feature.blade.php
+    function addToWishList(property_id){
 
+        $.ajax({
 
+            type: "POST",
+            dataType: 'json',
+            url: "/add-to-wishList/"+property_id,
 
+            // Si hay datos json data se llena de info, entonces manda un mensaje de éxito! (data.success)
+            // O si hay error, también el toaster message despliega el mensaje de error. (data.error)
+            success:function(data){
+
+                // Start Toaster Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Toaster Message
+
+            }
+
+        })
+
+    }
+
+</script> 
+```
+No olvidar soportar el Plugin for sweet alert 2, en la pagina para poder desplegar los mensajes.
+
+Ahora soportar en nuestras rutas la liga que dimos "/add-to-wishList/"
+En routes/web.php
+```php
+// Para Wishlist
+Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddToWishList']); 
+```
+
+En app/Http/Controllers/Frontend/WishlistController.php
+```php
+<?php
+
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use App\Models\Property;
+use App\Models\MultiImage;
+use App\Models\Facility;
+use App\Models\Amenities;
+use App\Models\PropertyType;
+use App\Models\User;
+use App\Models\PackagePlan;
+use Redirect;
+
+class WishlistController extends Controller
+{
+    // Añadir a Lista de Deseos
+    public function AddToWishList(Request $request, $property_id){
+
+    }
+} 
+```
+Listo!
 ## 124. Property Wishlist Setup Part 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 125. Property Wishlist Setup Part 4
 ## 126. Property Wishlist Setup Part 5
 ## 127. Property Wishlist Setup Part 6
