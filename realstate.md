@@ -6711,21 +6711,41 @@ class WishlistController extends Controller
 ```
 Listo!
 ## 124. Property Wishlist Setup Part 3
+El usuario tiene que estar Login para poder guardar al WishList
+En app/Http/Controllers/Frontend/WishlistController.php
+```php
+public function AddToWishList(Request $request, $property_id){
 
+    if (Auth::check()) {
+        $exists = Wishlist::where('user_id', Auth::id())->where('property_id', $property_id)->first();
 
+        if (!$exists) {
+            Wishlist::insert([
+                'user_id' => Auth::id(),
+                'property_id' => $property_id,
+                'created_at' => Carbon::now(),
+            ]);
+            return response()->json(['success' => 'Se añadió con éxito a tu lista de deseos!']);
+        }
+        else{
+            return response()->json(['error' => 'Esta propiedad ya esta en tu lista de deseos!']);
+        }
 
+    }else{
+        return response()->json(['error' => 'Primero inicie sesión!']);
+    }
 
-
-
-
-
-
-
-
-
-
-
+} 
+```
+Listo!
 ## 125. Property Wishlist Setup Part 4
+
+
+
+
+
+
+
 ## 126. Property Wishlist Setup Part 5
 ## 127. Property Wishlist Setup Part 6
 ## 128. Property Wishlist Setup Part 7
