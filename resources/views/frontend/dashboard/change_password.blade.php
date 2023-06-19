@@ -34,6 +34,7 @@
 
                     {{-- Datos de Perfil de Usuario --}}
                     <div class="sidebar-widget post-widget">
+
                         <div class="widget-title">
                             <h4>Cambiar Contraseña</h4>
                         </div>
@@ -49,6 +50,7 @@
                                 <p>{{ $userData->email }}</p>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="sidebar-widget category-widget">
@@ -66,7 +68,7 @@
                 </div>
             </div>
 
-
+            {{-- content-side aquí ponemos el formulario para cambiar contraseña --}}
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
 
                 <div class="blog-details-content">

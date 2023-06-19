@@ -41,5 +41,14 @@ class WishlistController extends Controller
 
     }
 
+    // User Wishlist se manda llamar desde el panel de control de user en resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+    public function UserWishlist(){
+
+        $id = Auth::user()->id;
+        $userData = User::find($id);
+
+        return view('frontend.dashboard.wishlist', compact('userData'));
+    }
+
 
 }

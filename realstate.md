@@ -6739,14 +6739,44 @@ public function AddToWishList(Request $request, $property_id){
 ```
 Listo!
 ## 125. Property Wishlist Setup Part 4
+Crear una nueva opcion de menu en el panel de usuario para que nos de una lista de las propiedades
+que tenemos en el WishList
+En resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+```php
+<li><a href="{{ route('user.wishlist') }}"><i class="fa fa-indent" aria-hidden="true"></i> Lista de Deseos</a></li> 
+```
+En routes/web.php
+```php
+// User group middleware, profile, logout, change password
+Route::middleware('auth')->group(function () {
+    ...
+    // User Wishlist All Routes
+    Route::controller(WishlistController::class)->group(function(){
+        Route::get('/user/wishlist', 'UserWishlist')->name('user.wishlist');
+    });
+}); 
+```
+En app/Http/Controllers/Frontend/WishlistController.php
+```php
+ // User Wishlist se manda llamar desde el panel de control de user en resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+public function UserWishlist(){
 
+    $id = Auth::user()->id;
+    $userData = User::find($id);
 
+    return view('frontend.dashboard.wishlist', compact('userData'));
+} 
+```
+En resources/views/frontend/dashboard/wishlist.blade.php copiar de resources/views/frontend/dashboard/change_password.blade.php
 
-
-
-
-
+Listo!
 ## 126. Property Wishlist Setup Part 5
+
+
+
+
+
+
 ## 127. Property Wishlist Setup Part 6
 ## 128. Property Wishlist Setup Part 7
 

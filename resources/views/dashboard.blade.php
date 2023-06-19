@@ -1,8 +1,10 @@
+{{-- Llamado de:  resources/views/frontend/home/header.blade.php --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
 
 
-<!--Page Title-->
+<!--Page Title -->
 <section class="page-title centred" style="background-image: url({{ asset('frontend/assets/images/background/page-title-5.jpg') }});">
     <div class="auto-container">
         <div class="content-box clearfix">
@@ -17,7 +19,7 @@
 <!--End Page Title-->
 
 
-<!-- sidebar-page-container -->
+<!-- sidebar-page-container Perfil de Usuario -->
 <section class="sidebar-page-container blog-details sec-pad-2">
     <div class="auto-container">
         <div class="row clearfix">
