@@ -50,5 +50,19 @@ class WishlistController extends Controller
         return view('frontend.dashboard.wishlist', compact('userData'));
     }
 
+    // Get Wishlist con JS
+    public function GetWishlistProperty(){
+
+        // mandamos llamar primero a la relación que le llamamos 'property' en app/Models/Wishlist.php
+        // después aplicamos el filtro que vea solo al user que esta login
+        $wishlist = Wishlist::with('property')->where('user_id', Auth::id())->latest()->get();
+        $wishQty = wishlist::count();
+
+        return response()->json([
+            'wishlist' => $wishlist,
+            'wishQty' => $wishQty,
+        ]);
+    }
+
 
 }

@@ -6771,12 +6771,80 @@ En resources/views/frontend/dashboard/wishlist.blade.php copiar de resources/vie
 
 Listo!
 ## 126. Property Wishlist Setup Part 5
+crear funcion de JS en resources/views/frontend/frontend_dashboard_no_preload.blade.php y resources/views/frontend/frontend_dashboard.blade.php
+```php
+{{-- Start Load Wishlist Data --}}
+<script type="text/javascript">
 
+    function wishlist(){
 
+        $.ajax({
 
+            type: "GET",
+            dataType: 'json',
+            url: "/get-wishlist-property/",
 
+            success:function(response){
+                $('#wishQty').text(response.wishQty);
+            }
+        })
 
+    }
 
+</script> 
+```
+Craer Ruta en routes/web.php
+```php
+Route::get('/get-wishlist-property', 'GetWishlistProperty'); 
+```
+Crear un arelacion entre la tabla 'wishlists' con 'properties' en app/Models/Wishlist.php
+```php
+class Wishlist extends Model
+{
+    use HasFactory;
+
+    // Para que todos los campos sean fillables
+    protected $guarded = [];
+
+    // Relación del campo 'property_id' con el 'id' de la tabla 'properties'
+    public function property(){
+        return $this->belongsTo(Property::class,'property_id','id');
+    }
+} 
+```
+
+Crear metodo en app/Http/Controllers/Frontend/WishlistController.php
+```php
+// Get Wishlist con JS
+public function GetWishlistProperty(){
+
+    // mandamos llamar primero a la relación que le llamamos 'property' en app/Models/Wishlist.php
+    // después aplicamos el filtro que vea solo al user que esta login
+    $wishlist = Wishlist::with('property')->where('user_id', Auth::id())->latest()->get();
+    $wishQty = wishlist::count();
+
+    return response()->json([
+        'wishlist' => $wishlist,
+        'wishQty' => $wishQty,
+    ]);
+} 
+```
+Listo!
 ## 127. Property Wishlist Setup Part 6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 128. Property Wishlist Setup Part 7
 
