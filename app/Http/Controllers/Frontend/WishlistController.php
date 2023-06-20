@@ -50,7 +50,7 @@ class WishlistController extends Controller
         return view('frontend.dashboard.wishlist', compact('userData'));
     }
 
-    // Get Wishlist con JS
+    // Get Wishlist con respuesta json para la petición de JS
     public function GetWishlistProperty(){
 
         // mandamos llamar primero a la relación que le llamamos 'property' en app/Models/Wishlist.php
@@ -60,7 +60,7 @@ class WishlistController extends Controller
 
         return response()->json([
             'wishlist' => $wishlist,
-            'wishQty' => $wishQty,
+            'wishQty' => $wishQty
         ]);
     }
 
