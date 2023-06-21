@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Property;
 
 class Compare extends Model
 {
@@ -12,5 +13,8 @@ class Compare extends Model
      // Para que todos los campos sean fillables
      protected $guarded = [];
 
-
+    // Relación del campo 'property_id' con el 'id' de la tabla 'properties'
+    public function property(){
+        return $this->belongsTo(Property::class,'property_id','id');
+    }
 }

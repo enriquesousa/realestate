@@ -351,6 +351,80 @@
 
     </script>
 
+    {{-- Load Compare Data, Funciones: compare()  --}}
+    <script type="text/javascript">
+
+        // Lista las Propiedades
+        function compare(){
+
+            $.ajax({
+                type: "GET",
+                dataType: 'json',
+                url: "/get-compare-property/",
+
+                success:function(response){
+
+                    var rows = "";
+                    $.each(response, function(key,value){
+
+                        rows += `
+
+                            <tr>
+                                <th>Property Info</th>
+                                <th>
+                                    <figure class="image-box"><img src="/${value.property.property_thambnail}" alt=""></figure>
+                                    <div class="title">${value.property.property_name}</div>
+                                    <div class="price">$${value.property.lowest_price}</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Ciudad</p>
+                                </td>
+                                <td>
+                                    <p>${value.property.city}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Superficie</p>
+                                </td>
+                                <td>
+                                    <p>${value.property.property_size} m²</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Cuartos</p>
+                                </td>
+                                <td>
+                                    <p>${value.property.bedrooms}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Baños</p>
+                                </td>
+                                <td>
+                                    <p>${value.property.bathrooms}</p>
+                                </td>
+                            </tr>
+                        `
+                    });
+
+                    // Desplegar el contenido en la etiqueta id = compare
+                    $('#compare').html(rows);
+
+                }
+            })
+
+        }
+
+        // para que auto refresque pagina
+        compare();
+
+
+    </script>
 
 </body>
 <!-- End of .page_wrapper -->

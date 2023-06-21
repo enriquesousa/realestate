@@ -7263,13 +7263,34 @@ Vamos a compiar aqui el formato de la plantilla compare-roperties.html que esta 
 
 Listo!
 ## 131. Property Compare Setup Part 3
+Funcion JS compare()
+En resources/views/frontend/frontend_dashboard.blade.php
+```php
+ 
+```
+Ruta en routes/web.php
+```php
+Route::get('/get-compare-property', 'GetCompareProperty'); 
+```
+Metodo en app/Http/Controllers/Frontend/CompareController.php
+```php
+// GetCompareProperty
+public function GetCompareProperty(){
 
+    $compare = Compare::with('property')->where('user_id', Auth::id())->latest()->get();
 
+    return response()->json($compare);
 
-
-
-
-
+} 
+```
+Relacionar property_id con la propiedad en app/Models/Compare.php
+```php
+// Relación del campo 'property_id' con el 'id' de la tabla 'properties'
+public function property(){
+    return $this->belongsTo(Property::class,'property_id','id');
+} 
+```
+Listo!
 ## 132. Property Compare Setup Part 4
 
 
