@@ -1,7 +1,7 @@
 <!-- main header -->
 <header class="main-header">
 
-    <!-- header-top -->
+    <!-- header-top en background negro una sola linea -->
     <div class="header-top">
         <div class="top-inner clearfix">
 
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <!-- header-lower -->
+    <!-- header-lower, donde esta el logo y menus -->
     <div class="header-lower">
         <div class="outer-box">
             <div class="main-box">

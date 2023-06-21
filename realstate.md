@@ -7292,6 +7292,80 @@ public function property(){
 ```
 Listo!
 ## 132. Property Compare Setup Part 4
+Agregar boton de remover
+En resources/views/frontend/frontend_dashboard.blade.php
+```php
+<tr>
+    <td>
+        <p>Acción</p>
+    </td>
+    <td>
+        <a type="submit" class="text-body" id="${value.id}" onclick="compareRemove(this.id)" ><i class="fa fa-trash"></i></a>
+    </td>
+</tr> 
+```
+Y copiar la funcion de wishlistRemove() y ahora modificarla a compare en resources/views/frontend/frontend_dashboard.blade.php
+```php
+// para que auto refresque pagina
+compare();
+
+// Compare Remove
+function compareRemove(id){
+
+    $.ajax({
+
+        type: "GET",
+        dataType: 'json',
+        url: "/compare-remove/"+id,
+
+        success:function(data){
+
+            // Para que se refresque la pagina automático
+            compare();
+
+            // Start Message
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+
+                showConfirmButton: false,
+                timer: 3000
+            })
+            if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                    type: 'success',
+                    icon: 'success',
+                    title: data.success,
+                })
+            }else{
+                Toast.fire({
+                    type: 'error',
+                    icon: 'error',
+                    title: data.error,
+                })
+            }
+            // End Message
+
+        }
+    })
+} 
+```
+En routes/web.php
+```php
+Route::get('/compare-remove/{id}', 'CompareRemove'); 
+```
+En app/Http/Controllers/Frontend/CompareController.php
+```php
+// CompareRemove - Remover registro de la tabla 'compares'
+public function CompareRemove($id){
+    Compare::where('user_id', Auth::id())->where('id', $id)->delete();
+    return response()->json(['success' => 'Propiedad removida con éxito!']);
+} 
+```
+No resolvio el problema de desplegar las propiedades side by side
+Listo!
+
+
 
 
 

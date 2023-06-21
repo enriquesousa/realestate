@@ -53,4 +53,10 @@ class CompareController extends Controller
 
     }
 
+    // CompareRemove - Remover registro de la tabla 'compares'
+    public function CompareRemove($id){
+        Compare::where('user_id', Auth::id())->where('id', $id)->delete();
+        return response()->json(['success' => 'Propiedad removida con éxito!']);
+    }
+
 }
