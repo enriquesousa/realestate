@@ -169,9 +169,9 @@ Kazi Ariyan
 ## 132. Property Compare Setup Part 4
 
 # Sección 23 - Setup Send Message From Details Page
-- 133. Send Message To agent Part 1
-- 134. Send Message To agent Part 2
-- 135. Send Message To agent Part 3
+## 133. Send Message To agent Part 1
+## 134. Send Message To agent Part 2
+## 135. Send Message To agent Part 3
 
 # Sección 24 - Setup Property Message In Agent Dashboard 
 - 136. Send Message To Agent Part 1
@@ -6015,6 +6015,7 @@ Vamos a usar un template de Invoice Html en resources/views/agent/package/packag
 </html>
 ```
 Listo!
+
 # Sección 17 - Package Sales Report In Admin Dashboard With PDF
 ## 110. Package Sales Report In Admin Dashboard Part 1
 En resources/views/admin/body/sidebar.blade.php
@@ -7364,6 +7365,59 @@ public function CompareRemove($id){
 ```
 No resolvio el problema de desplegar las propiedades side by side
 Listo!
+
+# Sección 23 - Setup Send Message From Details Page
+## 133. Send Message To agent Part 1
+Crear una nueva tabla 
+```php
+php artisan make:model PropertyMessage -m
+```
+Primero hacer fillables todos los campos en app/Models/PropertyMessage.php
+```php
+protected $guarded = []; 
+```
+Crear los campos en database/migrations/2023_06_21_123938_create_property_messages_table.php
+```php
+Schema::create('property_messages', function (Blueprint $table) {
+    $table->id();
+
+    $table->integer('user_id')->nullable();
+    $table->string('agent_id')->nullable();
+    $table->integer('property_id')->nullable();
+    $table->string('msg_name')->nullable();
+    $table->string('msg_email')->nullable();
+    $table->string('msg_phone')->nullable();
+    $table->text('message')->nullable();
+
+    $table->timestamps();
+}); 
+```
+Hacer la migracion
+```php
+php artisan migrate
+```
+Listo!
+## 134. Send Message To agent Part 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 135. Send Message To agent Part 3
 
 
 
