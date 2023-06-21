@@ -1,5 +1,5 @@
-@extends('frontend.frontend_dashboard_no_preload')
-@section('main2')
+@extends('frontend.frontend_dashboard')
+@section('main')
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">
@@ -27,7 +27,7 @@
 
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
 
-                // Recuperamos al user que esta login
+                {{-- Recuperamos al user que esta login --}}
                 @php
                     $id = Auth::user()->id;
                     $userData = App\Models\User::find($id);

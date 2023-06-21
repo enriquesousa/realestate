@@ -64,5 +64,10 @@ class WishlistController extends Controller
         ]);
     }
 
+    // WishlistRemove - Remover registro del wishlist table
+    public function WishlistRemove($id){
+        Wishlist::where('user_id', Auth::id())->where('id', $id)->delete();
+        return response()->json(['success' => 'Propiedad removida con éxito!']);
+    }
 
 }

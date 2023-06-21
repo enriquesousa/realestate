@@ -12,8 +12,9 @@
     <!-- Fav Icon -->
     <link rel="icon" href="{{ asset('frontend/assets/images/favicon.ico') }}" type="image/x-icon">
 
-    {{-- Para soportar el csrf token en la función de JS, Ver al final, Añadir a Lista de Favoritos, add to wishlist --}}
-    <meta name="csrf-token" content="{{ csrf_token() }}" >
+    {{-- Para soportar el csrf token en la función de JS, Ver al final, Añadir a Lista de Favoritos, add to wishlist
+    --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Google Fonts -->
     <link
@@ -127,7 +128,6 @@
 
     {{-- Añadir a Lista de Favoritos, add to wishlist --}}
     <script type="text/javascript">
-
         // Soportar el csrf token
         $.ajaxSetup({
             headers:{
@@ -147,6 +147,9 @@
                 // Si hay datos json data se llena de info, entonces manda un mensaje de éxito! (data.success)
                 // O si hay error, también el toaster message despliega el mensaje de error. (data.error)
                 success:function(data){
+
+                    // Para que se refresque la pagina automático
+                    wishlist();
 
                     // Start Toaster Message
                     const Toast = Swal.mixin({
@@ -180,25 +183,126 @@
 
     </script>
 
-    {{-- Start Load Wishlist Data --}}
+    {{-- Load Wishlist Data and función para Remover --}}
     <script type="text/javascript">
 
+        // Lista las Propiedades
         function wishlist(){
 
             $.ajax({
-
                 type: "GET",
                 dataType: 'json',
                 url: "/get-wishlist-property/",
 
                 success:function(response){
+
                     $('#wishQty').text(response.wishQty);
+
+                    var rows = "";
+                    var tipo = "";
+                    $.each(response.wishlist, function(key,value){
+
+                        if (value.property.featured == 1) {
+                            tipo = "Popular";
+                        }else{
+                            tipo = "";
+                        }
+
+                        rows += `
+                            <div class="deals-block-one">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><img src="/${value.property.property_thambnail}" alt="">
+                                        </figure>
+                                        <div class="batch"><i class="icon-11"></i></div>
+                                        <span class="category">${tipo}</span>
+                                        <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
+                                    </div>
+                                    <div class="lower-content">
+                                        <div class="title-text">
+                                            <h4><a href="#">${value.property.property_name}</a></h4>
+                                        </div>
+                                        <div class="price-box clearfix">
+                                            <div class="price-info pull-left">
+                                                <h6>Inicia desde</h6>
+                                                <h4>$${value.property.lowest_price}</h4>
+                                            </div>
+
+                                        </div>
+
+                                        <ul class="more-details clearfix">
+                                            <li><i class="icon-14"></i>${value.property.bedrooms} Cuartos</li>
+                                            <li><i class="icon-15"></i>${value.property.bathrooms} Baños</li>
+                                            <li><i class="icon-16"></i>${value.property.property_size} m²</li>
+                                        </ul>
+
+                                        <div class="other-info-box clearfix">
+
+                                            <ul class="other-option pull-right clearfix">
+                                                <li><a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)" ><i class="fa fa-trash"></i></a></li>
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                    });
+
+                    // Desplegar el contenido en la etiqueta id = wishlist
+                    $('#wishlist').html(rows);
+
                 }
             })
 
         }
 
+        wishlist();
+
+        // Wishlist Remove
+        function wishlistRemove(id){
+
+            $.ajax({
+
+                type: "GET",
+                dataType: 'json',
+                url: "/wishlist-remove/"+id,
+
+                success:function(data){
+
+                    // Para que se refresque la pagina automático
+                    wishlist();
+
+                    // Start Message
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                            Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                    }else{
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+                        })
+                    }
+                    // End Message
+
+                }
+            })
+        }
+
     </script>
+
 
 </body>
 <!-- End of .page_wrapper -->

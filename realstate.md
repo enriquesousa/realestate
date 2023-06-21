@@ -163,10 +163,10 @@ Kazi Ariyan
 ## 128. Property Wishlist Setup Part 7
 
 # Sección 22 - Setup Property Compare Option 
-- 129. Property Compare Setup Part 1
-- 130. Property Compare Setup Part 2
-- 131. Property Compare Setup Part 3
-- 132. Property Compare Setup Part 4
+## 129. Property Compare Setup Part 1
+## 130. Property Compare Setup Part 2
+## 131. Property Compare Setup Part 3
+## 132. Property Compare Setup Part 4
 
 # Sección 23 - Setup Send Message From Details Page
 - 133. Send Message To agent Part 1
@@ -6925,6 +6925,202 @@ Y crear la funcion de JS con ajax en resources/views/frontend/frontend_dashboard
 ```
 Listo!
 ## 128. Property Wishlist Setup Part 7
+En resources/views/frontend/frontend_dashboard.blade.php
+```php
+{{-- Añadir a Lista de Favoritos, add to wishlist --}}
+<script type="text/javascript">
+    // Soportar el csrf token
+    $.ajaxSetup({
+        headers:{
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+        }
+    })
+
+    // Función para añadir a lista de favoritos, viene de resources/views/frontend/home/feature.blade.php
+    function addToWishList(property_id){
+
+        $.ajax({
+
+            type: "POST",
+            dataType: 'json',
+            url: "/add-to-wishList/"+property_id,
+
+            // Si hay datos json data se llena de info, entonces manda un mensaje de éxito! (data.success)
+            // O si hay error, también el toaster message despliega el mensaje de error. (data.error)
+            success:function(data){
+
+                // Para que se refresque la pagina automático
+                wishlist();
+
+                // Start Toaster Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Toaster Message
+
+            }
+
+        })
+
+    }
+
+</script>
+
+{{-- Load Wishlist Data and función para Remover --}}
+<script type="text/javascript">
+
+    // Lista las Propiedades
+    function wishlist(){
+
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            url: "/get-wishlist-property/",
+
+            success:function(response){
+
+                $('#wishQty').text(response.wishQty);
+
+                var rows = "";
+                var tipo = "";
+                $.each(response.wishlist, function(key,value){
+
+                    if (value.property.featured == 1) {
+                        tipo = "Popular";
+                    }else{
+                        tipo = "";
+                    }
+
+                    rows += `
+                        <div class="deals-block-one">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><img src="/${value.property.property_thambnail}" alt="">
+                                    </figure>
+                                    <div class="batch"><i class="icon-11"></i></div>
+                                    <span class="category">${tipo}</span>
+                                    <div class="buy-btn"><a href="#">For ${value.property.property_status}</a></div>
+                                </div>
+                                <div class="lower-content">
+                                    <div class="title-text">
+                                        <h4><a href="#">${value.property.property_name}</a></h4>
+                                    </div>
+                                    <div class="price-box clearfix">
+                                        <div class="price-info pull-left">
+                                            <h6>Inicia desde</h6>
+                                            <h4>$${value.property.lowest_price}</h4>
+                                        </div>
+
+                                    </div>
+
+                                    <ul class="more-details clearfix">
+                                        <li><i class="icon-14"></i>${value.property.bedrooms} Cuartos</li>
+                                        <li><i class="icon-15"></i>${value.property.bathrooms} Baños</li>
+                                        <li><i class="icon-16"></i>${value.property.property_size} m²</li>
+                                    </ul>
+
+                                    <div class="other-info-box clearfix">
+
+                                        <ul class="other-option pull-right clearfix">
+                                            <li><a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)" ><i class="fa fa-trash"></i></a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        `
+                });
+
+                // Desplegar el contenido en la etiqueta id = wishlist
+                $('#wishlist').html(rows);
+
+            }
+        })
+
+    }
+
+    wishlist();
+
+    // Wishlist Remove
+    function wishlistRemove(id){
+
+        $.ajax({
+
+            type: "GET",
+            dataType: 'json',
+            url: "/wishlist-remove/"+id,
+
+            success:function(data){
+
+                // Para que se refresque la pagina automático
+                wishlist();
+
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Message
+
+            }
+        })
+    }
+
+</script> 
+```
+
+No voy a usar resources/views/frontend/frontend_dashboard_no_preload.blade.php
+porque me da conflicto con funciones de JS toaster.
+
+Listo!
+
+# Sección 22 - Setup Property Compare Option 
+## 129. Property Compare Setup Part 1
+
+
+
+
+## 130. Property Compare Setup Part 2
+## 131. Property Compare Setup Part 3
+## 132. Property Compare Setup Part 4
+
+
 
 
 
