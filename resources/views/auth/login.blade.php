@@ -2,7 +2,7 @@
 @section('main')
 
 <!--Page Title-->
-<section class="page-title-two bg-color-1 centred">
+{{-- <section class="page-title-two bg-color-1 centred">
     <div class="pattern-layer">
         <div class="pattern-1" style="background-image: url({{ asset('frontend/assets/images/shape/shape-9.png') }});"></div>
         <div class="pattern-2" style="background-image: url({{ asset('frontend/assets/images/shape/shape-10.png') }});"></div>
@@ -16,7 +16,7 @@
             </ul>
         </div>
     </div>
-</section>
+</section> --}}
 <!--End Page Title-->
 
 
@@ -26,7 +26,7 @@
         <div class="row clearfix">
             <div class="col-xl-8 col-lg-12 col-md-12 offset-xl-2 big-column">
                 <div class="sec-title">
-
+                    <h3>Inicia Sesión para Usuario</h3>
                 </div>
                 <div class="tabs-box">
 

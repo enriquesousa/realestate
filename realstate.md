@@ -7231,12 +7231,45 @@ public function AddToCompare(Request $request, $property_id){
 ```
 Listo!
 ## 130. Property Compare Setup Part 2
+Crear nuevo menu en sidebar del panel de user
+En resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+```php
+<li><a href="{{ route('user.compare') }}"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Comparativo</a></li> 
+```
+En routes/web.php
+```php
+// User Compare All Routes
+Route::controller(CompareController::class)->group(function(){
+    Route::get('/user/compare', 'UserCompare')->name('user.compare');
+}); 
+```
+En app/Http/Controllers/Frontend/CompareController.php
+```php
+ // UserCompare - compara propiedades
+public function UserCompare(){
+    return view('frontend.dashboard.compare');
+} 
+```
+En resources/views/frontend/dashboard/compare.blade.php
+```php
+@extends('frontend.frontend_dashboard')
+@section('main')
 
 
+@endsection
+```
+Vamos a compiar aqui el formato de la plantilla compare-roperties.html que esta en:
+/home/enrique/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Frontend
 
-
-
+Listo!
 ## 131. Property Compare Setup Part 3
+
+
+
+
+
+
+
 ## 132. Property Compare Setup Part 4
 
 

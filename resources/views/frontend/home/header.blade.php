@@ -33,6 +33,9 @@
                         <label for="">Iniciar Sesión: </label>
                     </div>
                     <div class="sign-box">
+                        {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
+                        {{-- redirige a iniciar sesión en resources/views/auth/login.blade.php --}}
+                        {{-- Si login es correcto lo redirige a resources/views/dashboard.blade.php  --}}
                         <a href="{{ route('login') }}" class="pl-2">User<i class="fas fa-user"></i> </a>
                     </div>
                     <div class="sign-box">

@@ -37,5 +37,11 @@ class CompareController extends Controller
 
     }
 
+    // UserCompare - compara propiedades
+    public function UserCompare(){
+
+        return view('frontend.dashboard.compare');
+
+    }
 
 }

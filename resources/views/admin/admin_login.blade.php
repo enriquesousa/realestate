@@ -74,7 +74,7 @@
 
                                         <a href="#"
                                             class="noble-ui-logo logo-light d-block mb-2">Fotos<span>Oficiales</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">¡Bienvenido de nuevo! Ingrese a su cuenta.</h5>
+                                        <h5 class="text-muted fw-normal mb-4">¡Bienvenido <span class="text-white">Admin!</span> Ingrese a su cuenta.</h5>
 
                                         <form class="forms-sample" method="POST" action="{{ route('login') }}">
                                         @csrf

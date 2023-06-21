@@ -48,16 +48,18 @@ Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.
 Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
 Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
 
-/******
-* User
-*******/
 
-// user '/dashboard'
+/******************************************************************
+* User
+* Pagina de inicio de sesión: resources/views/auth/login.blade.php
+*******************************************************************/
+
+// user '/dashboard' cuando user hace login valido aquí entra
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// User group middleware, profile, logout, change password
+// User group middleware, profile, logout, change password, Wishlist, Compare
 Route::middleware('auth')->group(function () {
 
     Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
@@ -68,19 +70,25 @@ Route::middleware('auth')->group(function () {
 
     // User Wishlist All Routes
     Route::controller(WishlistController::class)->group(function(){
-
         Route::get('/user/wishlist', 'UserWishlist')->name('user.wishlist');
         Route::get('/get-wishlist-property', 'GetWishlistProperty');
         Route::get('/wishlist-remove/{id}', 'WishlistRemove');
+    });
+
+    // User Compare All Routes
+    Route::controller(CompareController::class)->group(function(){
+
+        Route::get('/user/compare', 'UserCompare')->name('user.compare');
 
     });
 
 });
 
 
-/******
+/************************************************************************
 * Admin
-*******/
+* Pagina de inicio de sesión: resources/views/admin/admin_login.blade.php
+**************************************************************************/
 
 // Admin group middleware, Dashboard, profile, logout, change password, All Routes
 Route::middleware(['auth','role:admin'])->group(function(){
@@ -159,9 +167,10 @@ Route::middleware(['auth','role:admin'])->group(function(){
 });
 
 
-/******
+/************************************************************************
 * Agent
-*******/
+* Pagina de inicio de sesión: resources/views/agent/agent_login.blade.php
+*************************************************************************/
 
 // Agent group middleware
 Route::middleware(['auth','role:agent'])->group(function(){
