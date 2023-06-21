@@ -20,6 +20,7 @@ class WishlistController extends Controller
     // Añadir a Lista de Deseos
     public function AddToWishList(Request $request, $property_id){
 
+        // User must be login
         if (Auth::check()) {
             $exists = Wishlist::where('user_id', Auth::id())->where('property_id', $property_id)->first();
 

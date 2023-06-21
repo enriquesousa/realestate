@@ -71,10 +71,13 @@
 
                                 {{-- botones de comparar y favorito --}}
                                 <ul class="other-option pull-right clearfix">
+
                                     {{-- botón comprar propiedades --}}
-                                    <li><a href="property-details.html"><i class="icon-12"></i></a></li>
+                                    <li><a aria-label="Comparar" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
+
                                     {{-- botón añadir a favoritos --}}
                                     <li><a aria-label="Añadir a Deseo" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)"><i class="icon-13"></i></a></li>
+
                                 </ul>
 
                             </div>

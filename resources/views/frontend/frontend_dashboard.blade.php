@@ -303,6 +303,54 @@
 
     </script>
 
+    {{-- Añadir a Comparar, onclick="addToCompare(this.id) viene de resources/views/frontend/home/feature.blade.php --}}
+    <script type="text/javascript">
+
+        // Función para comparar propiedad
+        function addToCompare(property_id){
+
+            $.ajax({
+
+                type: "POST",
+                dataType: 'json',
+                url: "/add-to-compare/"+property_id,
+
+                // Si hay datos json data se llena de info, entonces manda un mensaje de éxito! (data.success)
+                // O si hay error, también el toaster message despliega el mensaje de error. (data.error)
+                success:function(data){
+
+                    // Start Toaster Message
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            type: 'success',
+                            icon: 'success',
+                            title: data.success,
+                        })
+                    }else{
+                        Toast.fire({
+                            type: 'error',
+                            icon: 'error',
+                            title: data.error,
+                        })
+                    }
+                    // End Toaster Message
+
+                }
+
+            })
+
+        }
+
+    </script>
+
 
 </body>
 <!-- End of .page_wrapper -->

@@ -7112,11 +7112,130 @@ Listo!
 
 # Sección 22 - Setup Property Compare Option 
 ## 129. Property Compare Setup Part 1
+Crear una nueva tabla
+```php
+php artisan make:model Compare -m
+```
+En app/Models/Compare.php
+```php
+protected $guarded = []; 
+```
+En database/migrations/2023_06_20_192002_create_compares_table.php
+```php
+$table->unsignedBigInteger('user_id');
+$table->unsignedBigInteger('property_id'); 
+```
+Hacer la migracion
+```php
+php artisan migrate
+```
+Crear nuevo controlador
+```php
+php artisan make:controller Frontend/CompareController
+```
 
+En resources/views/frontend/home/feature.blade.php
+```php
+{{-- botones de comparar y favorito --}}
+<ul class="other-option pull-right clearfix">
 
+    {{-- botón comprar propiedades --}}
+    <li><a aria-label="Comparar" class="action-btn" id="{{ $item->id }}" onclick="addToCompare(this.id)"><i class="icon-12"></i></a></li>
 
+    {{-- botón añadir a favoritos --}}
+    <li><a aria-label="Añadir a Deseo" class="action-btn" id="{{ $item->id }}" onclick="addToWishList(this.id)"><i class="icon-13"></i></a></li>
 
+</ul>
+```
+En resources/views/frontend/frontend_dashboard.blade.php
+```php
+{{-- Añadir a Comparar, onclick="addToCompare(this.id) viene de resources/views/frontend/home/feature.blade.php --}}
+<script type="text/javascript">
+
+    // Función para comparar propiedad
+    function addToCompare(property_id){
+
+        $.ajax({
+
+            type: "POST",
+            dataType: 'json',
+            url: "/add-to-compare/"+property_id,
+
+            // Si hay datos json data se llena de info, entonces manda un mensaje de éxito! (data.success)
+            // O si hay error, también el toaster message despliega el mensaje de error. (data.error)
+            success:function(data){
+
+                // Start Toaster Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    })
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Toaster Message
+
+            }
+
+        })
+
+    }
+
+</script> 
+```
+En routes/web.php
+```php
+// Para Compare
+Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']); 
+```
+En app/Http/Controllers/Frontend/CompareController.php
+```php
+// Añadir a tabla 'compares'
+public function AddToCompare(Request $request, $property_id){
+
+    // User must be login
+    if (Auth::check()) {
+        $exists = Compare::where('user_id', Auth::id())->where('property_id', $property_id)->first();
+
+        if (!$exists) {
+            Compare::insert([
+                'user_id' => Auth::id(),
+                'property_id' => $property_id,
+                'created_at' => Carbon::now(),
+            ]);
+            return response()->json(['success' => 'Se añadió con éxito a tu lista de comparativos!']);
+        }
+        else{
+            return response()->json(['error' => 'Esta propiedad ya esta en tu lista de comparativos!']);
+        }
+
+    }else{
+        return response()->json(['error' => 'Primero inicie sesión!']);
+    }
+
+} 
+```
+Listo!
 ## 130. Property Compare Setup Part 2
+
+
+
+
+
 ## 131. Property Compare Setup Part 3
 ## 132. Property Compare Setup Part 4
 

@@ -12,6 +12,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Agent\AgentPropertyController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Frontend\CompareController;
 
 
 // Route::get('/', function () {
@@ -20,9 +21,9 @@ use App\Http\Controllers\Frontend\WishlistController;
 
 require __DIR__.'/auth.php';
 
-/******************
-* Acceso para todos
-*******************/
+/***************************
+* Acceso para todos frontend
+****************************/
 
 // Home User Frontend All Route
 Route::get('/', [UserController::class, 'index'])->name('casa');
@@ -38,6 +39,8 @@ Route::get('/google/maps/{latitude}/{longitude}', [IndexController::class, 'VerE
 // Para Wishlist
 Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddToWishList']);
 
+// Para Compare
+Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']);
 
 
 // Login and Register
