@@ -94,27 +94,56 @@
                                 </div>
                             </div>
 
-                            {{-- email-list --}}
+                            {{-- message details --}}
                             <div class="email-list">
 
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tbody>
 
-                                @foreach ($userMessage as $msg)
+                                            <tr>
+                                                <th>Nombre del Cliente:</th>
+                                                <td>{{ $msgDetails['user']['name'] }}</td>
+                                            </tr>
 
-                                    <!-- email list item -->
-                                    <div class="email-list-item">
-                                        <a href="{{ route('agent.message.details', $msg->id) }}" class="email-list-detail">
-                                            <div class="content">
-                                                <span class="from">{{ $msg['user']['name'] }}</span>
-                                                <p class="msg">{{ $msg->message }}</p>
-                                            </div>
-                                            <span class="date">
-                                                <span class="icon"><i data-feather="paperclip"></i> </span>
-                                                {{ $msg->created_at->format('l d M') }}
-                                            </span>
-                                        </a>
-                                    </div>
+                                            <tr>
+                                                <th>Correo Electrónico del Cliente:</th>
+                                                <td>{{ $msgDetails['user']['email'] }}</td>
+                                            </tr>
 
-                                @endforeach
+                                            <tr>
+                                                <th>Teléfono del Cliente:</th>
+                                                <td>{{ $msgDetails['user']['phone'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Nombre de la Propiedad:</th>
+                                                <td>{{ $msgDetails['property']['property_name'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Código de la Propiedad:</th>
+                                                <td>{{ $msgDetails['property']['property_code'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Estatus de la Propiedad:</th>
+                                                <td>{{ $msgDetails['property']['property_status'] }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Mensaje:</th>
+                                                <td>{{ $msgDetails->message }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Fecha del mensaje:</th>
+                                                <td>{{ $msgDetails->created_at->format('l d M') }}</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
 
                             </div>
 

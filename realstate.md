@@ -7555,14 +7555,57 @@ Agregar metodo AgentPropertyMessage()
 ```
 Craer vista resources/views/agent/message/all_message.blade.php
 ```php
- 
+@extends('agent.agent_dashboard')
+@section('agent')
+...
+@endsection 
 ```
-
-
-
-
+Listo!
 ## 137. Send Message To Agent Part 2
+Mostrar detalles del mensaje en resources/views/agent/message/all_message.blade.php
+```php
+href="{{ route('agent.message.details', $msg->id) }}"
+```
+En routes/web.php
+```php
+Route::get('/agent/message/details/{id}', 'AgentMessageDetails')->name('agent.message.details'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+// AgentMessageDetails - Ver los detalles del mensaje
+public function AgentMessageDetails($id){
+
+$uid = Auth::user()->id;
+$userMessage = PropertyMessage::where('agent_id', $uid)->get();
+$msgDetails = PropertyMessage::findOrFail($id);
+// dd($userMessage,$msgDetails);
+
+return view('agent.message.message_details', compact('userMessage','msgDetails'));
+
+} 
+```
+En resources/views/agent/message/message_details.blade.php
+```php
+Desplegar los datos en forma de tabla:
+<table class="table">
+    <tbody>
+
+        <tr>
+            <th>Nombre del Cliente:</th>
+            <td>{{ $msgDetails['user']['name'] }}</td>
+        </tr> 
+        ...
+```
+Listo!
 ## 138. Send Message To Agent Part 3
+
+
+
+
+
+
+
+
 ## 139. Show Message In Admin Dashboard
 
 
