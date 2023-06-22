@@ -67,6 +67,14 @@
                     </a>
                 </li>
 
+                {{-- Ver mensajes que nos han enviado desde resources/views/frontend/property/property_details.blade.php --}}
+                <li class="nav-item">
+                    <a href="{{ route('agent.property.message') }}" class="nav-link">
+                        <i data-feather="book-open"></i>
+                        <span class="link-title">Ver Mensajes</span>
+                    </a>
+                </li>
+
                 {{-- * COMPONENTS --}}
                 <li class="nav-item nav-category">Components</li>
 

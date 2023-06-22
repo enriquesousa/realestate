@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\PropertyMessage;
 
 
 class AgentPropertyController extends Controller
@@ -513,4 +514,20 @@ class AgentPropertyController extends Controller
         ]);
         return $pdf->download('recibo.pdf');
      }
+
+     /**************************
+     * Agente Ver Mensajes
+     **************************/
+
+     // AgentPropertyMessage
+     public function AgentPropertyMessage(){
+
+        $id = Auth::user()->id;
+        $userMessage = PropertyMessage::where('agent_id', $id)->get();
+
+        return view('agent.message.all_message', compact('userMessage'));
+
+     }
+
+
 }

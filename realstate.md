@@ -174,10 +174,10 @@ Kazi Ariyan
 ## 135. Send Message To agent Part 3
 
 # Sección 24 - Setup Property Message In Agent Dashboard 
-- 136. Send Message To Agent Part 1
-- 137. Send Message To Agent Part 2
-- 138. Send Message To Agent Part 3
-- 139. Show Message In Admin Dashboard
+## 136. Send Message To Agent Part 1
+## 137. Send Message To Agent Part 2
+## 138. Send Message To Agent Part 3
+## 139. Show Message In Admin Dashboard
 
 # Sección 25 - Property Agent Page In Frontend
 - 140. Display Agent Page in Frontend
@@ -7533,7 +7533,37 @@ public function PropertyMessage(Request $request){
 ```
 Listo!
 
+# Sección 24 - Setup Property Message In Agent Dashboard 
+## 136. Send Message To Agent Part 1
+Agregar nuevo menu en resources/views/agent/body/sidebar.blade.php
+```php
+{{-- Ver mensajes que nos han enviado desde resources/views/frontend/property/property_details.blade.php --}}
+<li class="nav-item">
+    <a href="{{ route('agent.property.message') }}" class="nav-link">
+        <i data-feather="book-open"></i>
+        <span class="link-title">Ver Mensajes</span>
+    </a>
+</li> 
+```
+Agregar ruta en routes/web.php
+```php
+Route::get('/agent/property/message', 'AgentPropertyMessage')->name('agent.property.message'); 
+```
+En app/Http/Controllers/Agent/AgentPropertyController.php
+```php
+Agregar metodo AgentPropertyMessage()
+```
+Craer vista resources/views/agent/message/all_message.blade.php
+```php
+ 
+```
 
+
+
+
+## 137. Send Message To Agent Part 2
+## 138. Send Message To Agent Part 3
+## 139. Show Message In Admin Dashboard
 
 
 

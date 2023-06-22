@@ -192,6 +192,7 @@ Route::middleware(['auth','role:agent'])->group(function(){
 
     // Agent Grupo de Rutas (AgentPropertyController) - Propiedades
     Route::controller(AgentPropertyController::class)->group(function(){
+
         Route::get('/agent/all/property', 'AgentAllProperty')->name('agent.all.property');
         Route::get('/agent/add/property', 'AgentAddProperty')->name('agent.add.property');
         Route::post('/agent/store/property', 'AgentStoreProperty')->name('agent.store.property');
@@ -204,6 +205,9 @@ Route::middleware(['auth','role:agent'])->group(function(){
         Route::post('/agent/update/property/facilities', 'AgentUpdatePropertyFacilities')->name('agent.update.property.facilities');
         Route::get('/agent/details/property/{id}', 'AgentDetailsProperty')->name('agent.details.property');
         Route::get('/agent/delete/property/{id}', 'AgentDeleteProperty')->name('agent.delete.property');
+
+        Route::get('/agent/property/message', 'AgentPropertyMessage')->name('agent.property.message');
+
     });
 
     // Agent Grupo de Rutas (AgentPropertyController) - Buy Package
