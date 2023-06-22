@@ -12,7 +12,10 @@ use App\Models\Amenities;
 use App\Models\PropertyType;
 use App\Models\User;
 use App\Models\PackagePlan;
+use Illuminate\Support\Carbon;
 use Redirect;
+use Illuminate\Support\Facades\Auth;
+use App\Models\PropertyMessage;
 
 class IndexController extends Controller
 {
@@ -73,6 +76,40 @@ class IndexController extends Controller
 
     // PropertyMessage
     public function PropertyMessage(Request $request){
+
+        $pid = $request->property_id;
+        $aid = $request->agent_id;
+
+        // check si el user esta login
+        if (Auth::check()) {
+
+            // insertar datos a DB
+            PropertyMessage::insert([
+                'user_id' => Auth::user()->id,
+                'agent_id' => $aid,
+                'property_id' => $pid,
+                'msg_name' => $request->msg_name,
+                'msg_email' => $request->msg_email,
+                'msg_phone' => $request->msg_phone,
+                'message' => $request->message,
+                'created_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Mensaje enviado con éxito!',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+
+        }else{
+
+            $notification = array(
+                'message' => 'Favor primero iniciar sesión!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+
+        }
 
     }
 

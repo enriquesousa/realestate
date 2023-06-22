@@ -370,7 +370,7 @@
                                         <textarea name="message" placeholder="Message"></textarea>
                                     </div>
                                     <div class="form-group message-btn">
-                                        <button type="submit" class="theme-btn btn-one">Send Message</button>
+                                        <button type="submit" class="theme-btn btn-one">Mandar Mensaje</button>
                                     </div>
 
                                 </form>
@@ -401,7 +401,7 @@
                                         <textarea name="message" placeholder="Message"></textarea>
                                     </div>
                                     <div class="form-group message-btn">
-                                        <button type="submit" class="theme-btn btn-one">Send Message</button>
+                                        <button type="submit" class="theme-btn btn-one">Mandar Mensaje</button>
                                     </div>
 
                                 </form>

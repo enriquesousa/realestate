@@ -7490,6 +7490,48 @@ public function PropertyMessage(Request $request){
 ```
 Listo!
 ## 135. Send Message To agent Part 3
+Terminar de implementar el metodo PropertyMessage en app/Http/Controllers/Frontend/IndexController.php
+```php
+// PropertyMessage
+public function PropertyMessage(Request $request){
+
+    $pid = $request->property_id;
+    $aid = $request->agent_id;
+
+    // check si el user esta login
+    if (Auth::check()) {
+
+        // insertar datos a DB
+        PropertyMessage::insert([
+            'user_id' => Auth::user()->id,
+            'agent_id' => $aid,
+            'property_id' => $pid,
+            'msg_name' => $request->msg_name,
+            'msg_email' => $request->msg_email,
+            'msg_phone' => $request->msg_phone,
+            'message' => $request->message,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Mensaje enviado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
+    }else{
+
+        $notification = array(
+            'message' => 'Favor primero iniciar sesión!',
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+
+    }
+
+} 
+```
+Listo!
 
 
 
