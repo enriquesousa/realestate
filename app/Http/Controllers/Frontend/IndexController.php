@@ -71,4 +71,9 @@ class IndexController extends Controller
         return Redirect::to($mapa);
     }
 
+    // PropertyMessage
+    public function PropertyMessage(Request $request){
+
+    }
+
 }

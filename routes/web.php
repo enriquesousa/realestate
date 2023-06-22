@@ -42,6 +42,9 @@ Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddTo
 // Para Compare
 Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']);
 
+// Para formulario de enviar mensaje en resources/views/frontend/property/property_details.blade.php
+Route::post('/property/message', [IndexController::class, 'PropertyMessage'])->name('property.message');
+
 
 // Login and Register
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
