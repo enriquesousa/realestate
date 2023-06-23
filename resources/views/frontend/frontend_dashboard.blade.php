@@ -48,7 +48,9 @@
     <div class="boxed_wrapper">
 
         <!-- preloader -->
-        @include('frontend.home.preload_inmuebles')
+        @if (Config::get('custom.display_preload'))
+            @include('frontend.home.preload_inmuebles')
+        @endif
 
         <!-- main header -->
         @include('frontend.home.header')

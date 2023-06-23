@@ -43,6 +43,11 @@
                         {{-- tab-1 Login --}}
                         <div class="tab active-tab" id="tab-1">
                             <div class="inner-box">
+
+                                @php
+                                    Config::set('custom.display_preload', false)
+                                @endphp
+
                                 <h4>Inicia Sesión</h4>
                                 <form action="{{ route('login') }}" method="post" class="default-form">
                                 @csrf
@@ -59,7 +64,7 @@
                                         <input type="password" name="password" id="password" required="">
                                     </div>
 
-                                    {{-- boton Sign In --}}
+                                    {{-- botón Sign In --}}
                                     <div class="form-group message-btn">
                                         <button type="submit" class="theme-btn btn-one">Iniciar</button>
                                     </div>

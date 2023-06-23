@@ -33,7 +33,8 @@ class   AdminController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect('/admin/login')->with($notification);
+        // return redirect('/admin/login')->with($notification);
+        return redirect('/')->with($notification);
 
     }
 

@@ -180,11 +180,11 @@ Kazi Ariyan
 ## 139. Show Message In Admin Dashboard
 
 # Sección 25 - Property Agent Page In Frontend
-- 140. Display Agent Page in Frontend
-- 141. Display Agent Details Page Part 1
-- 142. Display Agent Details Page Part 2
-- 143. Display Agent Details Page Part 3
-- 144. Display Agent Details Page Part 4
+## 140. Display Agent Page in Frontend
+## 141. Display Agent Details Page Part 1
+## 142. Display Agent Details Page Part 2
+## 143. Display Agent Details Page Part 3
+## 144. Display Agent Details Page Part 4
 
 # Sección 26 - Setup Property Buy and Rent List Page
 - 145. Property Rent List Part 1
@@ -392,7 +392,7 @@ if ($request->user()->role === 'admin') {
 return redirect()->intended($url);
 ```
 Listo!
-Hasta aqui la redireccion esta lista, ahora falta la proteccion de las rutas para que un 
+Hasta aqui la redireccion esta lista, ahora falta la protección de las rutas para que un 
 rol de user no pueda entrar a los otros dos dashboards (admin y agent).
 ## 15. Laravel Multi Auth with Breeze Part 3
 Para proteger las rutas, necesitamos usar el middleware que nos ofrece Laravel.
@@ -428,7 +428,7 @@ Route::middleware(['auth','role:agent'])->group(function(){
 });
 ```
 Listo!
-## 16. Login with Name or Emailor Phone
+## 16. Login with Name or Email or Phone
 Cambiar el label del login page en resources/views/auth/login.blade.php:
 ```php
 <!-- Email Address -->
@@ -438,7 +438,7 @@ Cambiar el label del login page en resources/views/auth/login.blade.php:
 </div>
 ```
 
-Ahora modificar el codigo en app/Http/Requests/Auth/LoginRequest.php:
+Ahora modificar el código en app/Http/Requests/Auth/LoginRequest.php:
 ```php
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -7626,7 +7626,24 @@ Trabaje en:
 El ultimo lo hoze yo solo.
 Listo!
 
+# Sección 25 - Property Agent Page In Frontend
+## 140. Display Agent Page in Frontend
 
+
+
+
+
+
+
+
+
+
+
+
+## 141. Display Agent Details Page Part 1
+## 142. Display Agent Details Page Part 2
+## 143. Display Agent Details Page Part 3
+## 144. Display Agent Details Page Part 4
 
 
 

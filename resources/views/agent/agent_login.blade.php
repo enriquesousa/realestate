@@ -43,6 +43,11 @@
                         {{-- tab-1 Login --}}
                         <div class="tab active-tab" id="tab-1">
                             <div class="inner-box">
+
+                                @php
+                                    Config::set('custom.display_preload', false)
+                                @endphp
+
                                 <h4>Inicia Sesión Agente</h4>
                                 <form action="{{ route('login') }}" method="post" class="default-form">
                                 @csrf
