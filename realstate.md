@@ -7628,19 +7628,125 @@ Listo!
 
 # Sección 25 - Property Agent Page In Frontend
 ## 140. Display Agent Page in Frontend
+Mejoras por mi cuenta
+En config/custom.php
+```php
+// lo saque de https://stackoverflow.com/questions/39563042/laravel-dynamic-config-settings
+// para ver dato: echo Config::get('filename.arraykey');
+// Config::get('custom.display_preload')
+// y Para set value usar: Config::set('custom.my_val', 'mysinglelue');
+// Config::set('custom.display_preload', false)
+// Y como usarlo en blade
+// @php
+//     Config::set('custom.display_preload', false)
+// @endphp
+// @dd(Config::get('custom.display_preload'))
+// Lo use en resources/views/frontend/frontend_dashboard.blade.php
+return array(
+    'display_preload' => true,
+    'my_arr_val' => array('1', '2', '3'),
+  ); 
+```
 
+Crear una nueva tabla y su modelo
+```php
+php artisan make:model TopbarData -m 
+```
+Agregar un solo campo, en database/migrations/...table.php
+```php
+$table->string('address'); 
+$table->string('horario'); 
+$table->string('phone'); 
+```
+En en modelo hacer fillable todos los campos, app/Models/.php
+```php
+protected $guarded = []; 
+```
+Hacer la migracion:
+```php
+php artisan migrate 
+```
 
+Como recuperar datos de una tabla estando en blade
+```php
+@php
+    // Recuperamos datos de tabla topbar_data
+    $topbarData = App\Models\TopbarData::find(1);
+@endphp 
+```
+o asi:
+```php
+{{-- Cargar solo los agentes que están activos y limitarlos a 5 --}}
+@php
+    $agents = App\Models\User::where('status','active')->where('role','agent')->orderBy('id','DESC')->limit(5)->get();
+@endphp 
+```
+Y para desplegar una imagen en blade
+```php
+{{-- Foto --}}
+<div>
+    <img class="wd-100 rounded-circle" src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" alt="profile">
+    <span class="h4 ms-3">{{ $item->username }}</span>
+</div> 
+```
 
+Esta leccion:
+Visualizar a los agentes que estan activos (Role: agent  y Status: active ) 
+en el home page en resources/views/frontend/home/team.blade.php
+```php
+{{-- Cargar solo los agentes que están activos y limitarlos a 5 --}}
+@php
+    $agents = App\Models\User::where('status','active')->where('role','agent')->orderBy('id','DESC')->limit(5)->get();
+@endphp
 
+<!-- team-section -->
+<section class="team-section sec-pad centred bg-color-1">
+    <div class="pattern-layer" style="background-image: url({{ asset('frontend/assets/images/shape/shape-1.png') }});"></div>
+    <div class="auto-container">
 
+        <div class="sec-title">
+            <h5>Nuestros Agentes</h5>
+            <h2>Conoce a nuestros excelentes agentes</h2>
+        </div>
 
+        <div class="single-item-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
 
+            @foreach ($agents as $item)
+            <div class="team-block-one">
+                <div class="inner-box">
+                    <figure class="image-box"><img src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" alt="" style="width: 370px; height: 370;"></figure>
+                    <div class="lower-content">
+                        <div class="inner">
+                            <h4><a href="agents-details.html">{{ $item->name }}</a></h4>
+                            <span class="designation">{{ $item->email }}</span>
+                            <ul class="social-links clearfix">
+                                <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
 
-
-
-
-
+        </div>
+    </div>
+</section>
+<!-- team-section end --> 
+```
+Listo!
 ## 141. Display Agent Details Page Part 1
+
+
+
+
+
+
+
+
+
+
 ## 142. Display Agent Details Page Part 2
 ## 143. Display Agent Details Page Part 3
 ## 144. Display Agent Details Page Part 4
