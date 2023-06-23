@@ -11,6 +11,7 @@
 
         <!-- left wrapper - Datos actuales del perfil -->
         <div class="d-none d-md-block col-md-4 col-xl-4 left-wrapper">
+
             <div class="card rounded">
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between mb-2">
@@ -52,12 +53,41 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card rounded mt-2">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+
+                        {{-- Titulo --}}
+                        <div>
+                            <span class="h4 ms-3">Datos Top Bar</span>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="tx-11 fw-bolder mb-0 text-uppercase">Dirección:</label>
+                        <p class="text-muted">{{ $topbarData->address }}</p>
+                    </div>
+                    <div class="mt-3">
+                        <label class="tx-11 fw-bolder mb-0 text-uppercase">Horario:</label>
+                        <p class="text-muted">{{ $topbarData->horario }}</p>
+                    </div>
+                    <div class="mt-3">
+                        <label class="tx-11 fw-bolder mb-0 text-uppercase">Teléfono:</label>
+                        <p class="text-muted">{{ $topbarData->phone }}</p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <!-- wrapper derecha datos para editar -->
         <div class="col-md-8 col-xl-8 middle-wrapper">
             <div class="row">
 
+                {{-- Editar datos de Perfil --}}
                 <div class="card">
                     <div class="card-body">
 
@@ -106,6 +136,40 @@
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label"></label>
                                 <img id="showImage" class="wd-80 rounded-circle" src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="profile">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
+
+                        </form>
+
+                    </div>
+                </div>
+
+                {{-- Editar datos de Top Bar --}}
+                <div class="card mt-2">
+                    <div class="card-body">
+
+                        <h6 class="card-title">Actualizar Datos Top Bar</h6>
+
+                        <form method="POST" action="{{ route('admin.topbar.store') }}" class="forms-sample">
+                        @csrf
+
+                            {{-- Dirección --}}
+                            <div class="mb-3">
+                                <label for="inputAddress" class="form-label">Dirección</label>
+                                <input type="text" name="address" class="form-control" id="inputAddress" autocomplete="off" value="{{ $topbarData->address }}">
+                            </div>
+
+                            {{-- Horario --}}
+                            <div class="mb-3">
+                                <label for="inputHorario" class="form-label">Horario</label>
+                                <input type="text" name="horario" class="form-control" id="inputHorario" autocomplete="off" value="{{ $topbarData->horario }}">
+                            </div>
+
+                            {{-- Teléfono --}}
+                            <div class="mb-3">
+                                <label for="inputPhone" class="form-label">Teléfono</label>
+                                <input type="text" name="phone" class="form-control" id="inputPhone" autocomplete="off" value="{{ $topbarData->phone }}">
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\TopbarData;
+
 
 class   AdminController extends Controller
 {
@@ -49,7 +51,9 @@ class   AdminController extends Controller
     {
         $id = Auth::user()->id;
         $profileData = User::find($id);
-        return view('admin.admin_profile_view', compact('profileData'));
+        $topbarData = TopbarData::find(1);
+
+        return view('admin.admin_profile_view', compact('profileData','topbarData'));
     }
 
     // Admin Profile Store
@@ -87,6 +91,25 @@ class   AdminController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+     // AdminTopbarStore para almacenar datos a tabla topbar_data
+     public function AdminTopbarStore(Request $request)
+     {
+
+         $data = TopbarData::find(1);
+
+         $data->address = $request->address;
+         $data->horario = $request->horario;
+         $data->phone = $request->phone;
+         $data->save();
+
+         $notification = array(
+             'message' => 'Datos de Top Bar Actualizado!',
+             'alert-type' => 'success'
+         );
+
+         return redirect()->back()->with($notification);
+     }
 
     // Admin Change Password
     public function AdminChangePassword()

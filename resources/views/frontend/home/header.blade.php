@@ -5,11 +5,16 @@
     <div class="header-top">
         <div class="top-inner clearfix">
 
+            @php
+                // Recuperamos datos de tabla topbar_data
+                $topbarData = App\Models\TopbarData::find(1);
+            @endphp
+
             <div class="left-column pull-left">
                 <ul class="info clearfix">
-                    <li><i class="far fa-map-marker-alt"></i>Discover St, New York, NY 10012, USA</li>
-                    <li><i class="far fa-clock"></i>Mon - Sat 9.00 - 18.00</li>
-                    <li><i class="far fa-phone"></i><a href="tel:2512353256">+251-235-3256</a></li>
+                    <li><i class="far fa-map-marker-alt"></i>{{ $topbarData->address }}</li>
+                    <li><i class="far fa-clock"></i>{{ $topbarData->horario }}</li>
+                    <li><i class="far fa-phone"></i><a href="tel:2512353256">{{ $topbarData->phone }}</a></li>
                 </ul>
             </div>
 

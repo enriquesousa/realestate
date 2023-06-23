@@ -104,7 +104,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassword'])->name('admin.update.password');
-
+    Route::post('/admin/topbar/store', [AdminController::class, 'AdminTopbarStore'])->name('admin.topbar.store');
 });
 
 // Admin group middleware, Property Type, Amenities, and Property, All Routes
