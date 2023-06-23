@@ -7616,7 +7616,15 @@ return view('agent.message.message_details', compact('userMessage','msgDetails')
 Listo!
 ## 139. Show Message In Admin Dashboard
 Ahora para desplegar todos los mensajes para el Admin
+Trabaje en:
+- resources/views/admin/body/sidebar.blade.php
+- routes/web.php
+- app/Http/Controllers/Backend/PropertyController.php
+- resources/views/backend/message/all_message.blade.php
+- resources/views/backend/message/message_details.blade.php
 
+El ultimo lo hoze yo solo.
+Listo!
 
 
 

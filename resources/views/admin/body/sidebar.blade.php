@@ -22,17 +22,18 @@
                 </a>
             </li>
 
-            {{-- * RealEstate --}}
+            {{-- * Admin Menu --}}
             <li class="nav-item nav-category">Admin</li>
             <li class="nav-item">
 
-                {{-- Property Type --}}
+                {{-- Titulo de Menu - Tipos de Propiedad --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Tipos de Propiedad</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                {{-- Submenus - Lista, Añadir un tipo --}}
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
@@ -44,13 +45,14 @@
                     </ul>
                 </div>
 
-                {{-- Amenities --}}
+                {{-- Titulo de Menu - Comodidades --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#amenities" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Comodidades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                {{-- Submenus - Lista, Añadir --}}
                 <div class="collapse" id="amenities">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
@@ -62,13 +64,14 @@
                     </ul>
                 </div>
 
-                {{-- Property --}}
+                {{-- Titulo de Menu - Propiedades --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Propiedades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+                {{-- Submenus - Lista, Añadir --}}
                 <div class="collapse" id="property">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
@@ -82,7 +85,7 @@
 
             </li>
 
-            {{-- Historial de Pagos --}}
+            {{-- * Historial de Pagos --}}
             <li class="nav-item">
                 <a href="{{ route('admin.package.history') }}" class="nav-link">
                     {{-- <i class="link-icon" data-feather="calendar"></i> --}}
@@ -90,6 +93,15 @@
                     <span class="link-title">Historial de Pagos</span>
                 </a>
             </li>
+
+            {{-- * Mensajes de las Propiedades --}}
+            <li class="nav-item">
+                <a href="{{ route('admin.property.message') }}" class="nav-link">
+                    <i data-feather="mail"></i>
+                    <span class="link-title">Ver Mensajes</span>
+                </a>
+            </li>
+
 
             {{-- * COMPONENTS --}}
             <li class="nav-item nav-category">Funciones para Usuario</li>

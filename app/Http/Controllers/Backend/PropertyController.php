@@ -15,6 +15,7 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Carbon\Carbon;
 use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\PropertyMessage;
 
 
 class PropertyController extends Controller
@@ -442,5 +443,28 @@ class PropertyController extends Controller
         ]);
         return $pdf->download('recibo.pdf');
     }
+
+    /*********************
+    * Admin Ver Mensajes
+    **********************/
+
+    // AdminPropertyMessage
+    public function AdminPropertyMessage(){
+
+        // Get todos los registros
+        $userMessage = PropertyMessage::latest()->get();
+
+        return view('backend.message.all_message', compact('userMessage'));
+    }
+
+    // AdminMessageDetails - Ver los detalles de los mensajes
+    public function AdminMessageDetails($id){
+
+        $allMessages = PropertyMessage::latest()->get();
+        $msgDetails = PropertyMessage::findOrFail($id);
+
+        return view('backend.message.message_details', compact('allMessages','msgDetails'));
+     }
+
 
 }
