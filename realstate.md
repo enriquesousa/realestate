@@ -7598,15 +7598,25 @@ Desplegar los datos en forma de tabla:
 ```
 Listo!
 ## 138. Send Message To Agent Part 3
+Arreglo el Bug que ya habia detectado en app/Http/Controllers/Agent/AgentPropertyController.php
+usar variable $uid en vez de $id
+```php
+// AgentMessageDetails - Ver los detalles del mensaje
+public function AgentMessageDetails($id){
 
+$uid = Auth::user()->id;
+$userMessage = PropertyMessage::where('agent_id', $uid)->get();
+$msgDetails = PropertyMessage::findOrFail($id);
+// dd($userMessage,$msgDetails);
 
+return view('agent.message.message_details', compact('userMessage','msgDetails'));
 
-
-
-
-
-
+} 
+```
+Listo!
 ## 139. Show Message In Admin Dashboard
+Ahora para desplegar todos los mensajes para el Admin
+
 
 
 
