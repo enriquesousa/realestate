@@ -107,7 +107,7 @@
             {{-- * COMPONENTS --}}
             <li class="nav-item nav-category">Funciones para Usuario</li>
 
-            {{-- UI Kit --}}
+            {{-- Agentes --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
@@ -121,7 +121,7 @@
                             <a href="{{ route('all.agent') }}" class="nav-link">Todos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/ui-components/alerts.html" class="nav-link">Añadir</a>
+                            <a href="{{ route('add.agent') }}" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>

@@ -46,6 +46,12 @@
                                 <input type="text" name="address" class="form-control" value="{{ $allAgents->address }}">
                             </div>
 
+                            {{-- Description --}}
+                            <div class="form-group mb-3">
+                                <label for="amenities_name" class="form-label">Descripción</label>
+                                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="4">{{ $allAgents->description }}</textarea>
+                            </div>
+
                             <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
 
                         </form>

@@ -18,7 +18,7 @@
             @foreach ($agents as $item)
             <div class="team-block-one">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" alt="" style="width: 370px; height: 370;"></figure>
+                    <figure class="image-box"><img src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" alt="" style="width:370px; height:370px;"></figure>
                     <div class="lower-content">
                         <div class="inner">
                             <h4><a href="{{ route('agent.details', $item->id) }}">{{ $item->name }}</a></h4>

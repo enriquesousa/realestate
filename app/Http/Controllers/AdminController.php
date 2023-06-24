@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\TopbarData;
 
 
-class   AdminController extends Controller
+class AdminController extends Controller
 {
 
     /******
@@ -208,6 +208,7 @@ class   AdminController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
+            'description' => $request->description,
         ]);
 
         $notification = array(
