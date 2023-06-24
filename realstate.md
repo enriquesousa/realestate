@@ -7737,17 +7737,38 @@ en el home page en resources/views/frontend/home/team.blade.php
 ```
 Listo!
 ## 141. Display Agent Details Page Part 1
-
-
-
-
-
-
-
-
-
-
+Vamos a crear la vista para ver los detalles del agente cuando hacen click en 
+resources/views/frontend/home/team.blade.php
+```php
+<h4><a href="{{ route('agent.details', $item->id) }}">{{ $item->name }}</a></h4> 
+```
+En routes/web.php
+```php
+// Para ver los detalles de uno de los agentes, desde el frontend resources/views/frontend/home/team.blade.php dan click en <h4><a href="{{ route('agent.details', $item->id) }}">{{ $item->name }}</a></h4>
+Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->name('agent.details'); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// Ver los detalles del Agente desde el frontend
+public function AgentDetails($id){
+    $agent = User::findOrFail($id);
+    return view('frontend.agent.agent_details', compact('agent'));
+} 
+```
+En resources/views/frontend/agent/agent_details.blade.php
+```php
+Copiamos del frontend template agents-details.html 
+```
+Listo!
 ## 142. Display Agent Details Page Part 2
+
+
+
+
+
+
+
+
 ## 143. Display Agent Details Page Part 3
 ## 144. Display Agent Details Page Part 4
 

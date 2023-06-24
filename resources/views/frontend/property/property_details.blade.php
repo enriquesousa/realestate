@@ -1,5 +1,5 @@
-@extends('frontend.frontend_dashboard_no_preload')
-@section('main2')
+@extends('frontend.frontend_dashboard')
+@section('main')
 
 {{-- From: PropertyDetails app/Http/Controllers/Frontend/IndexController.php --}}
 

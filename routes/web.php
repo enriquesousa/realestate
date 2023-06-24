@@ -45,6 +45,9 @@ Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCo
 // Para formulario de enviar mensaje en resources/views/frontend/property/property_details.blade.php
 Route::post('/property/message', [IndexController::class, 'PropertyMessage'])->name('property.message');
 
+// Para ver los detalles de uno de los agentes, desde el frontend resources/views/frontend/home/team.blade.php dan click en <h4><a href="{{ route('agent.details', $item->id) }}">{{ $item->name }}</a></h4>
+Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->name('agent.details');
+
 
 // Login and Register
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);

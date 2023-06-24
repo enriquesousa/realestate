@@ -63,7 +63,7 @@ class IndexController extends Controller
         }
     }
 
-    /**
+    /** VerEnGoogleMapsConLatitude
      * Summary of VerEnGoogleMapsConLatitude
      * @param mixed $latitude
      * @param mixed $longitude
@@ -112,5 +112,12 @@ class IndexController extends Controller
         }
 
     }
+
+    // Ver los detalles del Agente desde el frontend
+    public function AgentDetails($id){
+        $agent = User::findOrFail($id);
+        return view('frontend.agent.agent_details', compact('agent'));
+    }
+
 
 }
