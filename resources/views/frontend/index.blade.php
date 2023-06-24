@@ -1,3 +1,5 @@
+{{-- Llamado por: index() en app/Http/Controllers/UserController.php --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
 
