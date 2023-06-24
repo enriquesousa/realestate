@@ -7761,15 +7761,26 @@ Copiamos del frontend template agents-details.html
 ```
 Listo!
 ## 142. Display Agent Details Page Part 2
-
-
-
-
-
-
-
-
+Desplegar todas las propieade del agente
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+public function AgentDetails($id){
+    $agent = User::findOrFail($id);
+    $property = Property::where('agent_id', $id)->get();
+    return view('frontend.agent.agent_details', compact('agent', 'property'));
+} 
+```
+En resources/views/frontend/agent/agent_details.blade.php
+```php
+Ver codigo en este commit 
+```
+Listo!
 ## 143. Display Agent Details Page Part 3
+
+
+
+
+
 ## 144. Display Agent Details Page Part 4
 
 

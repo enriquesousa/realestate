@@ -115,8 +115,11 @@ class IndexController extends Controller
 
     // Ver los detalles del Agente desde el frontend
     public function AgentDetails($id){
+
         $agent = User::findOrFail($id);
-        return view('frontend.agent.agent_details', compact('agent'));
+        $property = Property::where('agent_id', $id)->get();
+
+        return view('frontend.agent.agent_details', compact('agent', 'property'));
     }
 
 

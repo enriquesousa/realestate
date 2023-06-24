@@ -21,7 +21,6 @@
         <div class="row clearfix">
 
         @foreach ($property as $item)
-
             <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
                 <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms"
                     data-wow-duration="1500ms">
@@ -102,7 +101,6 @@
                     </div>
                 </div>
             </div>
-
         @endforeach
 
         </div>
