@@ -30,25 +30,49 @@
             {{-- Menus SideBar --}}
             @if ($status === 'active')
 
-                {{-- * Menus para Agente, Propiedades --}}
+                {{-- * Agente Menu --}}
                 <li class="nav-item nav-category">Agente</li>
                 <li class="nav-item">
+
                     {{-- Propiedades --}}
-                    <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                    <a class="nav-link" data-bs-toggle="collapse" href="#propiedad" role="button" aria-expanded="false"
                         aria-controls="emails">
                         <i class="link-icon" data-feather="mail"></i>
                         <span class="link-title">Propiedades</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
-                    <div class="collapse" id="property">
+                    {{-- Submenus - Todas las Propiedades --}}
+                    <div class="collapse" id="propiedad">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
                                 <a href="{{ route('agent.all.property') }}" class="nav-link">Todas las Propiedades</a>
                             </li>
-
                         </ul>
                     </div>
+
+                    {{-- Titulo de Menu - Editar Datos de Perfil --}}
+                    <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false" aria-controls="emails">
+                        <i class="link-icon" data-feather="mail"></i>
+                        <span class="link-title">Perfil Agente</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                    </a>
+                    {{-- Submenus - Editar Perfil, Cambiar Contraseña, Lista, Cerrar Sesión --}}
+                    <div class="collapse" id="perfil">
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="{{ route('agent.profile') }}" class="nav-link">Editar Perfil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('agent.change.password') }}" class="nav-link">Cambiar Contraseña</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('agent.logout') }}" class="nav-link">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </li>
+
 
                 {{-- Comprar paquete --}}
                 <li class="nav-item">
@@ -117,6 +141,7 @@
                         </ul>
                     </div>
                 </li>
+
 
             @else
 

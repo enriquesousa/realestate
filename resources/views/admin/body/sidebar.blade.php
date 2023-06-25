@@ -27,14 +27,14 @@
             <li class="nav-item">
 
                 {{-- Titulo de Menu - Tipos de Propiedad --}}
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
+                <a class="nav-link" data-bs-toggle="collapse" href="#tipos" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Tipos de Propiedad</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 {{-- Submenus - Lista, Añadir un tipo --}}
-                <div class="collapse" id="emails">
+                <div class="collapse" id="tipos">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('all.type') }}" class="nav-link">Lista</a>
@@ -79,6 +79,28 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('add.property') }}" class="nav-link">Añadir</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {{-- Titulo de Menu - Editar Datos de Perfil --}}
+                <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="mail"></i>
+                    <span class="link-title">Perfil Admin</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                {{-- Submenus - Editar Perfil, Cambiar Contraseña, Lista, Cerrar Sesión --}}
+                <div class="collapse" id="perfil">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.profile') }}" class="nav-link">Editar Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.change.password') }}" class="nav-link">Cambiar Contraseña</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.logout') }}" class="nav-link">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
