@@ -50,7 +50,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label text-warning">Precio mas Bajo</label>
-                                        <input type="text" name="lowest_price" class="form-control" value="{{ $property->lowest_price }}">
+                                        <input type="text" name="lowest_price" class="form-control" value="@convert($property->lowest_price)">
                                     </div>
                                 </div><!-- Col -->
 
@@ -58,7 +58,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label text-warning">Precio mas Alto</label>
-                                        <input type="text" name="max_price" class="form-control" value="{{ $property->max_price }}">
+                                        <input type="text" name="max_price" class="form-control" value="@convert($property->max_price)">
                                     </div>
                                 </div><!-- Col -->
 
@@ -545,6 +545,8 @@
 
 {{-- Script de JS para la Validación --}}
 <script type="text/javascript">
+
+    // https://ej2.syncfusion.com/javascript/documentation/form-validator/validation-rules
     $(document).ready(function (){
         $('#myForm').validate({
 
@@ -557,9 +559,11 @@
                 },
                 lowest_price: {
                     required : true,
+                    number: true,
                 },
                 max_price: {
                     required : true,
+                    number: true,
                 },
                 ptype_id: {
                     required : true,
@@ -577,9 +581,11 @@
                 },
                 lowest_price: {
                     required : 'Favor entrar precio mas bajo, campo requerido',
+                    number : 'Favor entrar un numero valido',
                 },
                 max_price: {
                     required : 'Favor entrar precio mas alto, campo requerido',
+                    number : 'Favor entrar un numero valido',
                 },
                 ptype_id: {
                     required : 'Favor seleccionar Tipo de Propiedad, campo requerido',

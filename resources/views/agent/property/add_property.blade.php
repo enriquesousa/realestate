@@ -389,6 +389,8 @@
 {{-- Script de JS para la Validación --}}
 <script type="text/javascript">
     $(document).ready(function (){
+
+        // https://ej2.syncfusion.com/javascript/documentation/form-validator/validation-rules
         $('#myForm').validate({
 
             rules: {
@@ -400,9 +402,11 @@
                 },
                 lowest_price: {
                     required : true,
+                    number: true,
                 },
                 max_price: {
                     required : true,
+                    number: true,
                 },
                 ptype_id: {
                     required : true,
@@ -426,9 +430,11 @@
                 },
                 lowest_price: {
                     required : 'Favor entrar precio mas bajo, campo requerido',
+                    number : 'Favor entrar un numero valido',
                 },
                 max_price: {
                     required : 'Favor entrar precio mas alto, campo requerido',
+                    number : 'Favor entrar un numero valido',
                 },
                 ptype_id: {
                     required : 'Favor seleccionar Tipo de Propiedad, campo requerido',
