@@ -407,6 +407,12 @@
                 ptype_id: {
                     required : true,
                 },
+                property_thambnail: {
+                    required : true,
+                },
+                multi_img: {
+                    required : true,
+                },
 
             },
 
@@ -426,6 +432,12 @@
                 },
                 ptype_id: {
                     required : 'Favor seleccionar Tipo de Propiedad, campo requerido',
+                },
+                property_thambnail: {
+                    required : 'Favor seleccionar una imagen, campo requerido',
+                },
+                multi_img: {
+                    required : 'Favor seleccionar una imagen, campo requerido',
                 },
 
             },

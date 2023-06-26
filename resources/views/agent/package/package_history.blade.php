@@ -23,8 +23,9 @@
                                     <th>Serie</th>
                                     <th>Imagen</th>
                                     <th>Paquete</th>
+                                    <th>Unidades</th>
                                     <th>Recibo</th>
-                                    <th>Cantidad</th>
+                                    <th>Costo $</th>
                                     <th>Fecha</th>
                                     <th>Acción</th>
                                 </tr>
@@ -38,8 +39,9 @@
                                     <td>{{ $key+1 }}</td>
                                     <td><img src="{{ (!empty($item->user->photo)) ? url('upload/agent_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" style="width: 70px; height: 40px;"></td>
                                     <td>{{ $item->package_name }}</td>
+                                    <td>{{ $item->package_credits }}</td>
                                     <td>{{ $item->invoice }}</td>
-                                    <td>{{ $item->package_amount }}</td>
+                                    <td>${{ $item->package_amount }}</td>
                                     <td>{{ $item->created_at->format('d M Y') }} ({{ __($item->created_at->format('l')) }})</td>
 
                                     <td>

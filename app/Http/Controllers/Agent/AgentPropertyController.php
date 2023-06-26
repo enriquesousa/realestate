@@ -30,8 +30,10 @@ class AgentPropertyController extends Controller
     // Despliega todas las Propiedades para el Agente
     public function AgentAllProperty(){
         $id = Auth::user()->id;
+        $property_count = Property::where('agent_id', $id)->count();
         $property = Property::where('agent_id', $id)->latest()->get();
-        return view('agent.property.all_property', compact('property'));
+        $user_agent = User::findOrFail($id);
+        return view('agent.property.all_property', compact('property', 'property_count', 'user_agent'));
     }
 
     // Añadir Una Propiedad
@@ -41,11 +43,12 @@ class AgentPropertyController extends Controller
         $amenities = Amenities::latest()->get();
 
         $id = Auth::user()->id;
-        $property = User::where('role','agent')->where('id',$id)->first();
-        $pcount = $property->credit;
-        // dd($pcount);
+        $property_count = Property::where('agent_id', $id)->count();
+        $user_agent = User::where('role','agent')->where('id',$id)->first();
 
-        if ($pcount == 1 || $pcount == 7) {
+        // dd($user_agent->credit, $user_agent->max_credit);
+
+        if ($property_count >= $user_agent->max_credit ) {
             return redirect()->route('buy.package');
         }else{
             return view('agent.property.add_property',compact('propertytype','amenities'));
@@ -392,6 +395,21 @@ class AgentPropertyController extends Controller
     // Delete Property
     public function AgentDeleteProperty($id){
 
+        // Identificar al agente de esta propiedad
+        // Encontrar el registro en la tabla 'properties' y eliminarlo con todo y foto de thumbnail
+        $property = Property::findOrFail($id);
+        $uid = $property->agent_id;
+
+        $user_agent = User::findOrFail($uid);
+        $user_credit = $user_agent->credit;
+        $update_credit = $user_credit - 1;
+        // dd($user_credit, $update_credit);
+
+        // Decrement en 1 el campo 'credit' en la tabla de 'users'
+        User::where('id',$uid)->update([
+            'credit' => DB::raw($update_credit),
+        ]);
+
         // Encontrar el registro en la tabla 'properties' y eliminarlo con todo y foto de thumbnail
         $property = Property::findOrFail($id);
         unlink($property->property_thambnail);
@@ -445,13 +463,13 @@ class AgentPropertyController extends Controller
             'package_name' => 'Business',
             'package_credits' => '3',
             'invoice' => 'ERS'.mt_rand(10000000,99999999),
-            'package_amount' => '20',
+            'package_amount' => '20.00',
             'created_at' => Carbon::now(),
         ]);
 
         // Auto incrementar el campo 'credit' en la tabla de 'users'
         User::where('id',$id)->update([
-            'credit' => DB::raw('3 + '. $nid),
+            'max_credit' => DB::raw('3 + '. $nid),
         ]);
 
         $notification = array(
@@ -480,7 +498,7 @@ class AgentPropertyController extends Controller
             'package_name' => 'Professional',
             'package_credits' => '10',
             'invoice' => 'ERS'.mt_rand(10000000,99999999),
-            'package_amount' => '50',
+            'package_amount' => '50.00',
             'created_at' => Carbon::now(),
         ]);
 

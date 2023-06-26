@@ -7777,6 +7777,8 @@ Ver codigo en este commit
 Listo!
 ## 143. Display Agent Details Page Part 3
 
+Agregue campo max_credit a tabla users
+Para poder llevar un control del credito maximo
 
 
 

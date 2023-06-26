@@ -27,6 +27,7 @@ return new class extends Migration
             $table->enum('role',['admin', 'agent', 'user'])->default('user');
             $table->enum('status',['active', 'inactive'])->default('active');
             $table->string('credit')->default(0);
+            $table->string('max_credit')->default('1');
 
             $table->rememberToken();
             $table->timestamps();
