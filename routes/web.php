@@ -58,6 +58,10 @@ Route::get('/rent/list/property', [IndexController::class, 'RentListProperty'])-
 // Para listar todas las propiedades solo para compra, llamado de resources/views/frontend/agent/agent_details.blade.php
 Route::get('/buy/list/property', [IndexController::class, 'BuyListProperty'])->name('buy.list.property');
 
+// Para listar todas las propiedades por categoría, llamado de resources/views/frontend/home/category_todas.blade.php
+Route::get('/property/type/{id}', [IndexController::class, 'PropertyType'])->name('property.type');
+
+
 
 
 /******************************************************************

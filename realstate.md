@@ -7937,10 +7937,73 @@ public function BuyListProperty(){
     return view('frontend.property.buy_property', compact('property','rentaProperty','compraProperty'));
 } 
 ```
-
-
-
-
-
+Listo!
 ## 148. Get Type Wise Property
+Implementar pagina para cuando dan click en la seccion de Categoria de la pagina principal
+En resources/views/frontend/home/category_todas.blade.php y en resources/views/frontend/home/category.blade.php
+```php
+@foreach ($propertyType as $item)
+
+    @php
+        $property = App\Models\Property::where('ptype_id',$item->id)->get();
+    @endphp
+
+    <li>
+        <div class="category-block-one">
+            <div class="inner-box">
+                <div class="icon-box"><i class="{{ $item->type_icon }}"></i></div>
+                <h5><a href="{{ route('property.type',$item->id) }}">{{ $item->type_name }}</a></h5>
+                <span>{{ count($property) }}</span>
+            </div>
+        </div>
+    </li>
+
+@endforeach
+``` 
+En routes/web.php
+```php
+// Para listar todas las propiedades por categoría, llamado de resources/views/frontend/home/category_todas.blade.php
+Route::get('/property/type/{id}', [IndexController::class, 'PropertyType'])->name('property.type'); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// PropertyType Lista todas las propiedades por categoría
+public function PropertyType($id){
+
+    $property = Property::where('status', '1')->where('ptype_id', $id)->get();
+    $rentaProperty = Property::where('property_status', 'renta')->get();
+    $compraProperty = Property::where('property_status', 'compra')->get();
+    $categoryType = PropertyType::where('id', $id)->first();
+
+    return view('frontend.property.property_type', compact('property','rentaProperty','compraProperty', 'categoryType'));
+}
+```
+En resources/views/frontend/property/property_type.blade.php
+```php
+<!--Page Title-->
+<section class="page-title-two bg-color-1 centred">
+    <div class="pattern-layer">
+        <div class="pattern-1" style="background-image: url({{ asset('frontend/assets/images/shape/shape-9.png') }});"></div>
+        <div class="pattern-2" style="background-image: url({{ asset('frontend/assets/images/shape/shape-10.png') }});"></div>
+    </div>
+    <div class="auto-container">
+        <div class="content-box clearfix">
+        <h1>Lista de Propiedades por Categoría: {{ $categoryType->type_name }}</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ route('casa') }}">Inicio</a></li>
+                <li>por categoría {{ $categoryType->type_name }}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+...
+```
+Listo!
 ## 149. Update Header Menu
+
+
+
+
+

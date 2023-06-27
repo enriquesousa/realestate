@@ -10,10 +10,10 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>Lista de Propiedades</h1>
+        <h1>Lista de Propiedades por Categoría: {{ $categoryType->type_name }}</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ route('casa') }}">Inicio</a></li>
-                <li>solo para renta</li>
+                <li>por categoría {{ $categoryType->type_name }}</li>
             </ul>
         </div>
     </div>
@@ -130,7 +130,7 @@
                     {{-- Barra titulo y búsqueda Search Results --}}
                     <div class="item-shorting clearfix">
                         <div class="left-column pull-left">
-                            <h5>Resultados de la búsqueda: <span>Mostrando {{ count($property) }} propiedades</span></h5>
+                            <h5>Resultados Categoría: {{ $categoryType->type_name }} <span> Mostrando {{ count($property) }} propiedades</span></h5>
                         </div>
                     </div>
 
@@ -187,6 +187,11 @@
 
                                         </div>
                                         <p>{{ $item->short_descp }}</p>
+
+                                        <ul>
+                                            <li><span class="bg-color-1">Categoría: </span>{{ $item->type->type_name }}</li>
+                                        </ul>
+                                        <br>
 
                                         <ul class="more-details clearfix">
                                             <li><i class="icon-14"></i>{{ $item->bedrooms }} Cuartos</li>

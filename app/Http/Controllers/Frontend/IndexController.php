@@ -183,4 +183,15 @@ class IndexController extends Controller
         return view('frontend.property.buy_property', compact('property','rentaProperty','compraProperty'));
     }
 
+    // PropertyType Lista todas las propiedades por categoría
+    public function PropertyType($id){
+
+        $property = Property::where('status', '1')->where('ptype_id', $id)->get();
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
+        $categoryType = PropertyType::where('id', $id)->first();
+
+        return view('frontend.property.property_type', compact('property','rentaProperty','compraProperty', 'categoryType'));
+    }
+
 }

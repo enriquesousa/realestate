@@ -12,7 +12,7 @@
         <div class="content-box clearfix">
             <h1>Lista de Propiedades</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="{{ route('casa') }}">Inicio</a></li>
                 <li>solo para compra</li>
             </ul>
         </div>
