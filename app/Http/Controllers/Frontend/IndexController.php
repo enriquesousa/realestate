@@ -123,5 +123,42 @@ class IndexController extends Controller
         return view('frontend.agent.agent_details', compact('agent', 'property', 'featured'));
     }
 
+     // Agent Details Message - almacenar mensaje para Agent desde formulario send de resources/views/frontend/agent/agent_details.blade.php
+     public function AgentDetailsMessage(Request $request){
+
+        $aid = $request->agent_id;
+
+        // check si el user esta login
+        if (Auth::check()) {
+
+            // insertar datos a DB
+            PropertyMessage::insert([
+                'user_id' => Auth::user()->id,
+                'agent_id' => $aid,
+                'msg_name' => $request->msg_name,
+                'msg_email' => $request->msg_email,
+                'msg_phone' => $request->msg_phone,
+                'message' => $request->message,
+                'created_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Mensaje enviado con éxito!',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+
+        }else{
+
+            $notification = array(
+                'message' => 'Favor primero iniciar sesión!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+
+        }
+
+    }
+
 
 }

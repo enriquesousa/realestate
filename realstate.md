@@ -7796,9 +7796,58 @@ En resources/views/frontend/agent/agent_details.blade.php
 ```
 Listo!
 ## 144. Display Agent Details Page Part 4
+Contactar al Agente, sidebar de la derecha.
+Copiar  {{-- Nombre, Correo, Teléfono, Mensaje, Botón Enviar Mensaje --}} de resources/views/frontend/property/property_details.blade.php
+agents-contact en resources/views/frontend/agent/agent_details.blade.php
+```php
+{{-- Lo copie de resources/views/frontend/property/property_details.blade.php --}}
+{{-- Nombre, Correo, Teléfono, Mensaje, Botón Enviar Mensaje --}}
+{{-- No vamos a pasar el property_id porque aquí no se necesita --}} 
+```
+En routes/web.php
+```php
+// Para formulario de enviar mensaje en resources/views/frontend/agent/agent_details.blade.php
+Route::post('/agent/details/message', [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message'); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// Agent Details Message - almacenar mensaje para Agent desde formulario send de resources/views/frontend/agent/agent_details.blade.php
+public function AgentDetailsMessage(Request $request){
 
+    $aid = $request->agent_id;
 
+    // check si el user esta login
+    if (Auth::check()) {
 
+        // insertar datos a DB
+        PropertyMessage::insert([
+            'user_id' => Auth::user()->id,
+            'agent_id' => $aid,
+            'msg_name' => $request->msg_name,
+            'msg_email' => $request->msg_email,
+            'msg_phone' => $request->msg_phone,
+            'message' => $request->message,
+            'created_at' => Carbon::now(),
+        ]);
 
+        $notification = array(
+            'message' => 'Mensaje enviado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
+    }else{
+
+        $notification = array(
+            'message' => 'Favor primero iniciar sesión!',
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+
+    }   
+
+} 
+```
+Listo!
 
 

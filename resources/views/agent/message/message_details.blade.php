@@ -118,17 +118,23 @@
 
                                             <tr>
                                                 <th>Nombre de la Propiedad:</th>
-                                                <td>{{ $msgDetails['property']['property_name'] }}</td>
+                                                @if ($msgDetails->property_id != Null)
+                                                    <td>{{ $msgDetails['property']['property_name'] }}</td>
+                                                @endif
                                             </tr>
 
                                             <tr>
                                                 <th>Código de la Propiedad:</th>
-                                                <td>{{ $msgDetails['property']['property_code'] }}</td>
+                                                @if ($msgDetails->property_id != Null)
+                                                    <td>{{ $msgDetails['property']['property_code'] }}</td>
+                                                @endif
                                             </tr>
 
                                             <tr>
                                                 <th>Estatus de la Propiedad:</th>
-                                                <td>{{ $msgDetails['property']['property_status'] }}</td>
+                                                @if ($msgDetails->property_id != Null)
+                                                    <td>{{ $msgDetails['property']['property_status'] }}</td>
+                                                @endif
                                             </tr>
 
                                             <tr>

@@ -1235,27 +1235,76 @@
                     {{-- agents-contact --}}
                     <div class="agents-contact sidebar-widget">
                         <div class="widget-title">
-                            <h5>Contact To Michael</h5>
+                            <h5>Contactar a {{ $agent->name }}</h5>
                         </div>
+
+                        {{-- Lo copie de resources/views/frontend/property/property_details.blade.php --}}
+                        {{-- Nombre, Correo, Teléfono, Mensaje, Botón Enviar Mensaje --}}
+                        {{-- No vamos a pasar el property_id porque aquí no se necesita --}}
                         <div class="form-inner">
-                            <form action="contact.html" method="post" class="default-form">
-                                <div class="form-group">
-                                    <input type="text" name="name" placeholder="Your Name" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" placeholder="Email Address" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" name="phone" placeholder="Phone" required="">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="message" placeholder="Your Message"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="theme-btn btn-one">Send Message</button>
-                                </div>
-                            </form>
+
+                            {{-- Si el usuario esta login, despliega sus datos en la forma--}}
+                            @auth
+
+                                {{-- Get los datos del user que esta login --}}
+                                @php
+                                    $id = Auth::user()->id;
+                                    $userData = App\Models\User::find($id);
+                                @endphp
+
+                                <form action="{{ route('agent.details.message') }}" method="post" class="default-form">
+                                @csrf
+
+
+                                    <input type="hidden" name="agent_id" value="{{ $agent->id }}">
+
+                                    <div class="form-group">
+                                        <input type="text" name="msg_name" placeholder="Your name" value="{{ $userData->name }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="msg_email" placeholder="Your Email" value="{{ $userData->email }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="msg_phone" placeholder="Phone" value="{{ $userData->phone }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="form-group message-btn">
+                                        <button type="submit" class="theme-btn btn-one">Mandar Mensaje</button>
+                                    </div>
+
+                                </form>
+
+                            @else
+
+                                <form action="{{ route('agent.details.message') }}" method="post" class="default-form">
+                                @csrf
+
+                                    <input type="hidden" name="agent_id" value="{{ $agent->id }}">
+
+                                    <div class="form-group">
+                                        <input type="text" name="msg_name" placeholder="Your name" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="msg_email" placeholder="Your Email" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="msg_phone" placeholder="Phone" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="form-group message-btn">
+                                        <button type="submit" class="theme-btn btn-one">Mandar Mensaje</button>
+                                    </div>
+
+                                </form>
+
+                            @endauth
+
                         </div>
+
                     </div>
 
                     {{-- Estado de la Propiedad --}}

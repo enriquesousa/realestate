@@ -43,6 +43,8 @@ Route::post('/property/message', [IndexController::class, 'PropertyMessage'])->n
 // Para ver los detalles de uno de los agentes, desde el frontend resources/views/frontend/home/team.blade.php dan click en <h4><a href="{{ route('agent.details', $item->id) }}">{{ $item->name }}</a></h4>
 Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->name('agent.details');
 
+// Para formulario de enviar mensaje en resources/views/frontend/agent/agent_details.blade.php
+Route::post('/agent/details/message', [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message');
 
 // Login and Register
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
