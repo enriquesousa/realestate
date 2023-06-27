@@ -50,7 +50,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label text-warning">Precio mas Bajo</label>
-                                        <input type="text" name="lowest_price" class="form-control" value="@convert($property->lowest_price)">
+                                        <input type="text" name="lowest_price" class="form-control" value="{{ $property->lowest_price }}">
                                     </div>
                                 </div><!-- Col -->
 
@@ -58,7 +58,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label text-warning">Precio mas Alto</label>
-                                        <input type="text" name="max_price" class="form-control" value="@convert($property->max_price)">
+                                        <input type="text" name="max_price" class="form-control" value="{{ $property->max_price }}">
                                     </div>
                                 </div><!-- Col -->
 
@@ -560,10 +560,12 @@
                 lowest_price: {
                     required : true,
                     number: true,
+                    digits: true,
                 },
                 max_price: {
                     required : true,
                     number: true,
+                    digits: true,
                 },
                 ptype_id: {
                     required : true,

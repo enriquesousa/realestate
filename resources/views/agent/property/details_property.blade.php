@@ -36,12 +36,12 @@
 
                                 <tr>
                                     <td>Precio mas Bajo</td>
-                                    <td><code>{{ $property->lowest_price }}</code></td>
+                                    <td><code>$@convert($property->lowest_price)</code></td>
                                 </tr>
 
                                 <tr>
                                     <td>Precio mas Alto</td>
-                                    <td><code>{{ $property->max_price }}</code></td>
+                                    <td><code>$@convert($property->max_price)</code></td>
                                 </tr>
 
                                 <tr>

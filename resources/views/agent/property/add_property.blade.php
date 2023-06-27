@@ -403,10 +403,12 @@
                 lowest_price: {
                     required : true,
                     number: true,
+                    digits: true,
                 },
                 max_price: {
                     required : true,
                     number: true,
+                    digits: true,
                 },
                 ptype_id: {
                     required : true,

@@ -7780,13 +7780,21 @@ Listo!
 Agregue campo max_credit a tabla users
 Para poder llevar un control del credito maximo
 
-
-
-
-
-
-
-
+Pasar solo las propiedades populares donde el campo 'featured' = '1'
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+public function AgentDetails($id){
+    $agent = User::findOrFail($id);
+    $property = Property::where('agent_id', $id)->get();
+    $featured = Property::where('featured', '1')->limit(3)->get();
+    return view('frontend.agent.agent_details', compact('agent', 'property', 'featured'));
+} 
+```
+En resources/views/frontend/agent/agent_details.blade.php
+```php
+{{-- Card para el mini slide --}} 
+```
+Listo!
 ## 144. Display Agent Details Page Part 4
 
 
