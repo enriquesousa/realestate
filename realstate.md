@@ -7889,14 +7889,27 @@ En resources/views/frontend/property/rent_property.blade.php
 ```
 Listo!
 ## 146. Property Rent List Part 2
+Copiar de resources/views/frontend/agent/agent_details.blade.php 
+```php
+<div class="deals-list-content list-item">
+@foreach ($property as $item) 
+...
+```
+En resources/views/frontend/property/rent_property.blade.php
+```php
+{{-- content-side izquierdo --}}
+    {{-- Estado de la Propiedad --}}
 
-
-
-
-
-
-
-
+{{-- property-content-side --}}
+    {{-- Lista de propiedades --}}
+...
+```
+Listo!
 ## 147. Property Buy List
+
+
+
+
+
 ## 148. Get Type Wise Property
 ## 149. Update Header Menu

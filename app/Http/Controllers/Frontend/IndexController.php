@@ -167,8 +167,10 @@ class IndexController extends Controller
 
         // filtrar propiedades que estén activas (status='1') y que estén para renta (property_status='renta')
         $property = Property::where('status', '1')->where('property_status', 'renta')->get();
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
 
-        return view('frontend.property.rent_property', compact('property'));
+        return view('frontend.property.rent_property', compact('property','rentaProperty','compraProperty'));
     }
 
 }
