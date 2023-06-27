@@ -1310,11 +1310,11 @@
                     {{-- Estado de la Propiedad --}}
                     <div class="category-widget sidebar-widget">
                         <div class="widget-title">
-                            <h5>Status Of Property</h5>
+                            <h5>Estatus de las Propiedades</h5>
                         </div>
                         <ul class="category-list clearfix">
-                            <li><a href="agents-details.html">For Rent <span>(200)</span></a></li>
-                            <li><a href="agents-details.html">For Sale <span>(700)</span></a></li>
+                            <li><a href="{{ route('rent.list.property') }}">Para Renta <span>({{ count($rentaProperty) }})</span></a></li>
+                            <li><a href="agents-details.html">Para Compra <span>({{ count($compraProperty) }})</span></a></li>
                         </ul>
                     </div>
 

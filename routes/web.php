@@ -24,6 +24,12 @@ require __DIR__.'/auth.php';
 Route::get('/', [UserController::class, 'index'])->name('casa');
 Route::get('/category/all', [UserController::class, 'CategoryAll'])->name('category.all');
 
+// Login and Register
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
+Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
+Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
+
+
 // Frontend Property Details All Routes (IndexController)
 Route::get('/property/details/{id}/{slug}', [IndexController::class, 'PropertyDetails']);
 
@@ -46,10 +52,9 @@ Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->nam
 // Para formulario de enviar mensaje en resources/views/frontend/agent/agent_details.blade.php
 Route::post('/agent/details/message', [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message');
 
-// Login and Register
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);
-Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
-Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
+// Para listar todas las propiedades para renta, llamado de resources/views/frontend/agent/agent_details.blade.php
+Route::get('/rent/list/property', [IndexController::class, 'RentListProperty'])->name('rent.list.property');
+
 
 
 /******************************************************************

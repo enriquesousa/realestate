@@ -119,8 +119,10 @@ class IndexController extends Controller
         $agent = User::findOrFail($id);
         $property = Property::where('agent_id', $id)->get();
         $featured = Property::where('featured', '1')->limit(3)->get(); //sin importar de que agente es
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
 
-        return view('frontend.agent.agent_details', compact('agent', 'property', 'featured'));
+        return view('frontend.agent.agent_details', compact('agent', 'property', 'featured', 'rentaProperty', 'compraProperty'));
     }
 
      // Agent Details Message - almacenar mensaje para Agent desde formulario send de resources/views/frontend/agent/agent_details.blade.php
@@ -160,5 +162,13 @@ class IndexController extends Controller
 
     }
 
+    // RentListProperty - para listar todas las propiedades para renta
+    public function RentListProperty(){
+
+        // filtrar propiedades que estén activas (status='1') y que estén para renta (property_status='renta')
+        $property = Property::where('status', '1')->where('property_status', 'renta')->get();
+
+        return view('frontend.property.rent_property', compact('property'));
+    }
 
 }

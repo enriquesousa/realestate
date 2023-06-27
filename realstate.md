@@ -187,11 +187,11 @@ Kazi Ariyan
 ## 144. Display Agent Details Page Part 4
 
 # Sección 26 - Setup Property Buy and Rent List Page
-- 145. Property Rent List Part 1
-- 146. Property Rent List Part 2
-- 147. Property Buy List
-- 148. Get Type Wise Property
-- 149. Update Header Menu
+## 145. Property Rent List Part 1
+## 146. Property Rent List Part 2
+## 147. Property Buy List
+## 148. Get Type Wise Property
+## 149. Update Header Menu
 
 # Sección 27 - Create Custom Pagination 
 - 150. Add Custom Pagination Part 1
@@ -7850,4 +7850,53 @@ public function AgentDetailsMessage(Request $request){
 ```
 Listo!
 
+# Sección 26 - Setup Property Buy and Rent List Page
+## 145. Property Rent List Part 1
+En resources/views/frontend/agent/agent_details.blade.php
+```php
+{{-- Estado de la Propiedad --}}
+<div class="category-widget sidebar-widget">
+    <div class="widget-title">
+        <h5>Estatus de las Propiedades</h5>
+    </div>
+    <ul class="category-list clearfix">
+        <li><a href="{{ route('rent.list.property') }}">Para Renta <span>({{ count($rentaProperty) }})</span></a></li>
+        <li><a href="agents-details.html">Para Compra <span>({{ count($compraProperty) }})</span></a></li>
+    </ul>
+</div> 
+```
+En routes/web.php
+```php
+// Para listar todas las propiedades para renta, llamado de resources/views/frontend/agent/agent_details.blade.php
+Route::get('/rent/list/property', [IndexController::class, 'RentListProperty'])->name('rent.list.property'); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// RentListProperty - para listar todas las propiedades para renta
+public function RentListProperty(){
+    // filtrar propiedades que estén activas (status='1') y que estén para renta (property_status='renta')
+    $property = Property::where('status', '1')->where('property_status', 'renta')->get();
+    return view('frontend.property.rent_property', compact('property'));
+} 
+```
+En resources/views/frontend/property/rent_property.blade.php
+```php
+@extends('frontend.frontend_dashboard')
+@section('main')
 
+
+@endsection 
+```
+Listo!
+## 146. Property Rent List Part 2
+
+
+
+
+
+
+
+
+## 147. Property Buy List
+## 148. Get Type Wise Property
+## 149. Update Header Menu

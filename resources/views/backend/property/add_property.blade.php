@@ -42,8 +42,8 @@
                                         <select name="property_status" class="form-select"
                                             id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Seleccionar Estatus</option>
-                                            <option value="rent">Para Renta</option>
-                                            <option value="buy">Para Compra</option>
+                                            <option value="renta">Para Renta</option>
+                                            <option value="compra">Para Compra</option>
                                         </select>
                                     </div>
                                 </div><!-- Col -->
