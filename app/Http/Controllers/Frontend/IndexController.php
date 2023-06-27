@@ -162,7 +162,7 @@ class IndexController extends Controller
 
     }
 
-    // RentListProperty - para listar todas las propiedades para renta
+    // RentListProperty - para listar todas las propiedades solo para renta
     public function RentListProperty(){
 
         // filtrar propiedades que estén activas (status='1') y que estén para renta (property_status='renta')
@@ -171,6 +171,16 @@ class IndexController extends Controller
         $compraProperty = Property::where('property_status', 'compra')->get();
 
         return view('frontend.property.rent_property', compact('property','rentaProperty','compraProperty'));
+    }
+
+    // RentListProperty - para listar todas las propiedades solo para compra
+    public function BuyListProperty(){
+
+        $property = Property::where('status', '1')->where('property_status', 'compra')->get();
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
+
+        return view('frontend.property.buy_property', compact('property','rentaProperty','compraProperty'));
     }
 
 }

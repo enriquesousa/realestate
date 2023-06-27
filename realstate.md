@@ -7906,6 +7906,37 @@ En resources/views/frontend/property/rent_property.blade.php
 ```
 Listo!
 ## 147. Property Buy List
+Ahora hacemos el link para la opcion de 'para compra' en resources/views/frontend/agent/agent_details.blade.php
+href="{{ route('buy.list.property') }}"
+```php
+{{-- Estado de la Propiedad --}}
+<div class="category-widget sidebar-widget">
+    <div class="widget-title">
+        <h5>Estatus de las Propiedades</h5>
+    </div>
+    <ul class="category-list clearfix">
+        <li><a href="{{ route('rent.list.property') }}">Para Renta <span>({{ count($rentaProperty) }})</span></a></li>
+        <li><a href="{{ route('buy.list.property') }}">Para Compra <span>({{ count($compraProperty) }})</span></a></li>
+    </ul>
+</div> 
+```
+En routes/web.php
+```php
+// Para listar todas las propiedades solo para compra, llamado de resources/views/frontend/agent/agent_details.blade.php
+Route::get('/buy/list/property', [IndexController::class, 'BuyListProperty'])->name('buy.list.property'); 
+```
+En app/Http/Controllers/Frontend/IndexController.php
+```php
+// RentListProperty - para listar todas las propiedades solo para compra
+public function BuyListProperty(){
+
+    $property = Property::where('status', '1')->where('property_status', 'compra')->get();
+    $rentaProperty = Property::where('property_status', 'renta')->get();
+    $compraProperty = Property::where('property_status', 'compra')->get();
+
+    return view('frontend.property.buy_property', compact('property','rentaProperty','compraProperty'));
+} 
+```
 
 
 

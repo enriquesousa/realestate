@@ -13,7 +13,7 @@
             <h1>Lista de Propiedades</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="index.html">Inicio</a></li>
-                <li>solo para renta</li>
+                <li>solo para compra</li>
             </ul>
         </div>
     </div>

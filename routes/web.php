@@ -52,8 +52,11 @@ Route::get('/agent/details/{id}', [IndexController::class, 'AgentDetails'])->nam
 // Para formulario de enviar mensaje en resources/views/frontend/agent/agent_details.blade.php
 Route::post('/agent/details/message', [IndexController::class, 'AgentDetailsMessage'])->name('agent.details.message');
 
-// Para listar todas las propiedades para renta, llamado de resources/views/frontend/agent/agent_details.blade.php
+// Para listar todas las propiedades solo para renta, llamado de resources/views/frontend/agent/agent_details.blade.php
 Route::get('/rent/list/property', [IndexController::class, 'RentListProperty'])->name('rent.list.property');
+
+// Para listar todas las propiedades solo para compra, llamado de resources/views/frontend/agent/agent_details.blade.php
+Route::get('/buy/list/property', [IndexController::class, 'BuyListProperty'])->name('buy.list.property');
 
 
 
