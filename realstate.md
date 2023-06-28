@@ -198,16 +198,16 @@ Kazi Ariyan
 ## 151. Add Custom Pagination Part 2
 
 # Sección 28 - Display Hot Latest Property In Frontend 
-- 152. Show Hot Property in Frontend
+## 152. Show Hot Property in Frontend
 
 # Sección 29 - Work For Property Location By State In Admin 
-- 153. Property Location By State in Admin Part 1
-- 154. Property Location By State in Admin Part 2
-- 155. Property Location By State in Admin Part 3
-- 156. Property Location By State in Admin Part 4
-- 157. Update Admin Add and Edit Property for State Part 1
-- 158. Update Admin Add and Edit Property for State Part 2
-- 159. Update Agent Add and Edit Property for State
+## 153. Property Location By State in Admin Part 1
+## 154. Property Location By State in Admin Part 2
+## 155. Property Location By State in Admin Part 3
+## 156. Property Location By State in Admin Part 4
+## 157. Update Admin Add and Edit Property for State Part 1
+## 158. Update Admin Add and Edit Property for State Part 2
+## 159. Update Agent Add and Edit Property for State
 
 # Sección 30 - Property Location Area In Frontend
 - 160. Property Location Area in Frontend Part 1
@@ -8103,7 +8103,38 @@ Queda asi en resources/views/vendor/pagination/custom.blade.php
 ```
 Listo!
 
+# Sección 28 - Display Hot Latest Property In Frontend 
+## 152. Show Hot Property in Frontend
+En resources/views/frontend/home/deals.blade.php
+```php
+{{--
+Sección del frontend
+"Propiedades en Oferta (hot)"
+LLamado de: resources/views/frontend/index.blade.php
+--}}
 
+@php
+$property = App\Models\Property::where('status','1')->where('hot','1')->limit(3)->get();
+@endphp
+
+...
+```
+Listo!
+
+# Sección 29 - Work For Property Location By State In Admin 
+## 153. Property Location By State in Admin Part 1
+
+
+
+
+
+
+## 154. Property Location By State in Admin Part 2
+## 155. Property Location By State in Admin Part 3
+## 156. Property Location By State in Admin Part 4
+## 157. Update Admin Add and Edit Property for State Part 1
+## 158. Update Admin Add and Edit Property for State Part 2
+## 159. Update Agent Add and Edit Property for State
 
 
 

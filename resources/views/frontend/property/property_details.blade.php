@@ -562,7 +562,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 text-column">
                 <div class="text">
                     <span>Suscribirse</span>
-                    <h2>Suscríbase a nuestro boletín para recibir las últimas noticias y ofertas.</h2>
+                    <h2>Suscribirse a nuestro boletín para recibir las últimas noticias y ofertas.</h2>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 form-column">
@@ -570,7 +570,7 @@
                     <form action="contact.html" method="post" class="subscribe-form">
                         <div class="form-group">
                             <input type="email" name="email" placeholder="Enter your email" required="">
-                            <button type="submit">Suscríbase ahora</button>
+                            <button type="submit">Suscribirse ahora</button>
                         </div>
                     </form>
                 </div>
