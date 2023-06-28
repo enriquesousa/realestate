@@ -194,8 +194,8 @@ Kazi Ariyan
 ## 149. Update Header Menu
 
 # Sección 27 - Create Custom Pagination 
-- 150. Add Custom Pagination Part 1
-- 151. Add Custom Pagination Part 2
+## 150. Add Custom Pagination Part 1
+## 151. Add Custom Pagination Part 2
 
 # Sección 28 - Display Hot Latest Property In Frontend 
 - 152. Show Hot Property in Frontend
@@ -8007,6 +8007,38 @@ Modificaciones al menu principal en resources/views/frontend/home/header.blade.p
 {{-- Home Inicio --}} 
 ```
 Listo!
+
+# Sección 27 - Create Custom Pagination 
+## 150. Add Custom Pagination Part 1
+Para soportar la pagination con el tema tenemos que ir a:
+Customizing The Pagination View (https://laravel.com/docs/10.x/pagination#customizing-the-pagination-view)
+By default, the views rendered to display the pagination links are compatible with the Tailwind CSS framework. However, if you are not using Tailwind, you are free to define your own views to render these links. When calling the links method on a paginator instance, you may pass the view name as the first argument to the method:
+
+However, the easiest way to customize the pagination views is by exporting them to your resources/views/vendor directory using the vendor:publish command:
+```php
+php artisan vendor:publish --tag=laravel-pagination 
+```
+Ahora Copiar nuestra paginacion de nuestro tema a resources/views/vendor/pagination/custom.blade.php
+```php
+<ul class="pagination clearfix">
+    <li><a href="property-list.html" class="current">1</a></li>
+    <li><a href="property-list.html">2</a></li>
+    <li><a href="property-list.html">3</a></li>
+    <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
+</ul> 
+```
+Y en resources/views/frontend/property/rent_property.blade.php
+```php
+{{-- pagination-wrapper --}}
+<div class="pagination-wrapper">
+    {{ $property->links('vendor.pagination.custom') }}
+</div> 
+```
+Falta implementar la funcionabilidad, lo hacemos en la siguiente leccion.
+Listo!
+## 151. Add Custom Pagination Part 2
+
+
 
 
 

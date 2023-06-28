@@ -166,7 +166,7 @@ class IndexController extends Controller
     public function RentListProperty(){
 
         // filtrar propiedades que estén activas (status='1') y que estén para renta (property_status='renta')
-        $property = Property::where('status', '1')->where('property_status', 'renta')->get();
+        $property = Property::where('status', '1')->where('property_status', 'renta')->paginate(3);
         $rentaProperty = Property::where('property_status', 'renta')->get();
         $compraProperty = Property::where('property_status', 'compra')->get();
 
