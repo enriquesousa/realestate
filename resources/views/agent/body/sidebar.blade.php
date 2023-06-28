@@ -37,7 +37,7 @@
                     {{-- Propiedades --}}
                     <a class="nav-link" data-bs-toggle="collapse" href="#propiedad" role="button" aria-expanded="false"
                         aria-controls="emails">
-                        <i class="link-icon" data-feather="mail"></i>
+                        <i class="link-icon" data-feather="anchor"></i>
                         <span class="link-title">Propiedades</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
@@ -47,12 +47,15 @@
                             <li class="nav-item">
                                 <a href="{{ route('agent.all.property') }}" class="nav-link">Todas las Propiedades</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('agent.add.property') }}" class="nav-link">Añadir Propiedad</a>
+                            </li>
                         </ul>
                     </div>
 
                     {{-- Titulo de Menu - Editar Datos de Perfil --}}
                     <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false" aria-controls="emails">
-                        <i class="link-icon" data-feather="mail"></i>
+                        <i class="link-icon" data-feather="user"></i>
                         <span class="link-title">Perfil Agente</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
@@ -94,7 +97,7 @@
                 {{-- Ver mensajes que nos han enviado desde resources/views/frontend/property/property_details.blade.php --}}
                 <li class="nav-item">
                     <a href="{{ route('agent.property.message') }}" class="nav-link">
-                        <i data-feather="book-open"></i>
+                        <i data-feather="mail"></i>
                         <span class="link-title">Ver Mensajes</span>
                     </a>
                 </li>

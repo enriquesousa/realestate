@@ -8002,6 +8002,11 @@ En resources/views/frontend/property/property_type.blade.php
 ```
 Listo!
 ## 149. Update Header Menu
+Modificaciones al menu principal en resources/views/frontend/home/header.blade.php
+```php
+{{-- Home Inicio --}} 
+```
+Listo!
 
 
 
