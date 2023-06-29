@@ -8189,6 +8189,45 @@ buscamos el id de la tabla 'states' para buscar todas las incidencias en la tabl
 
 Listo!
 ## 161. Property Location Area in Frontend Part 2
+completar para desplegar 4 estados en frontend resources/views/frontend/home/place.blade.php
+```php
+@php
 
+    $skip_state_0 = App\Models\State::skip(0)->first();
+    $property_0 = App\Models\Property::where('state', $skip_state_0->id)->get();
+
+    $skip_state_1 = App\Models\State::skip(1)->first();
+    $property_1 = App\Models\Property::where('state', $skip_state_1->id)->get();
+
+    $skip_state_2 = App\Models\State::skip(2)->first();
+    $property_2 = App\Models\Property::where('state', $skip_state_2->id)->get();
+
+    $skip_state_3 = App\Models\State::skip(3)->first();
+    $property_3 = App\Models\Property::where('state', $skip_state_3->id)->get();
+
+@endphp
+...
+{{-- 3er Estado --}}
+<div
+    class="col-lg-4 col-md-6 col-sm-12 masonry-item small-column all illustration marketing logo">
+    <div class="place-block-one">
+        <div class="inner-box">
+            <figure class="image-box"><img src="{{ asset($skip_state_2->state_image) }}" alt="" style="width:370px; height:275px;">
+            </figure>
+            <div class="text">
+                <h4><a href="categories.html">{{ $skip_state_2->state_name }}</a></h4>
+                <p>{{ count($property_2) }}</p>
+            </div>
+        </div>
+    </div>
+</div> 
+...
+```
+Listo!
 ## 162. Property Location Area in Frontend Part 3
+
+
+
+
+
 
