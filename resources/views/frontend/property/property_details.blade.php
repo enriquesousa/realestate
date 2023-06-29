@@ -140,7 +140,7 @@
                         {{-- Dirección --}}
                         <ul class="info clearfix">
                             <li><span>Dirección: </span>{{ $property->address }}</li>
-                            <li><span>Estado: </span>{{ $property->state }}</li>
+                            <li><span>Estado: </span>{{ $property['r_estado']['state_name'] }}</li>
                             <li><span>Vecindario: </span>{{ $property->neighborhood }}</li>
                             <li><span>Código Postal: </span>{{ $property->postal_code }}</li>
                             <li><span>Ciudad: </span>{{ $property->city }}</li>
