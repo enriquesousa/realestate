@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\State;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\MultiImage;
@@ -31,9 +32,10 @@ class PropertyController extends Controller
     // Añadir Una Propiedad
     public function AddProperty(){
         $propertytype = PropertyType::latest()->get();
+        $estado = State::latest()->get();
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
-        return view('backend.property.add_property',compact('propertytype','amenities','activeAgent'));
+        return view('backend.property.add_property',compact('propertytype','amenities','activeAgent', 'estado'));
     }
 
     // Store Property, Almacenar una Propiedad a la DB
@@ -149,10 +151,11 @@ class PropertyController extends Controller
         $multiImage = MultiImage::where('property_id',$id)->get();
 
         $propertytype = PropertyType::latest()->get();
+        $estado = State::latest()->get();
         $amenities = Amenities::latest()->get();
         $activeAgent = User::where('status','active')->where('role','agent')->latest()->get();
 
-        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage', 'facilities'));
+        return view('backend.property.edit_property',compact('property','propertytype','amenities','activeAgent', 'property_ami', 'multiImage', 'facilities', 'estado'));
 
     }
 
