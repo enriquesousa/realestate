@@ -101,9 +101,25 @@ class StateController extends Controller
             return redirect()->route('all.state')->with($notification);
         }
 
-
-
-
     }
+
+    // DeleteState
+    public function DeleteState($id){
+
+         // Encontrar el registro en la tabla 'states' y eliminarlo con todo y foto de thumbnail
+         $state = State::findOrFail($id);
+         $image = $state->state_image;
+         unlink($image);
+
+         State::findOrFail($id)->delete(); // eliminar el registro de la tabla
+
+         $notification = array(
+            'message' => 'Estado eliminado con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.state')->with($notification);
+    }
+
 
 }
