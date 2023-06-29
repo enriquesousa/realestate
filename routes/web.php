@@ -62,6 +62,9 @@ Route::get('/buy/list/property', [IndexController::class, 'BuyListProperty'])->n
 // Para listar todas las propiedades por categoría, llamado de resources/views/frontend/home/category_todas.blade.php
 Route::get('/property/type/{id}', [IndexController::class, 'PropertyType'])->name('property.type');
 
+// Para listar todas las propiedades de un estado si dan click en frontend,  llamado de resources/views/frontend/home/place.blade.php
+Route::get('/state/details/{id}', [IndexController::class, 'StateDetails'])->name('state.details');
+
 
 
 

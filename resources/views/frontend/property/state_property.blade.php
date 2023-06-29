@@ -1,4 +1,5 @@
-{{-- LLamado por RentListProperty de app/Http/Controllers/Frontend/IndexController.php --}}
+{{-- Lista las propiedades de un estado en especifico --}}
+{{-- llamado de StateDetails en app/Http/Controllers/Frontend/IndexController.php --}}
 
 @extends('frontend.frontend_dashboard')
 @section('main')
@@ -12,10 +13,10 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>Lista de Propiedades</h1>
+            <h1>Propiedades en el estado de {{ $estado->state_name }}</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ route('casa') }}">Inicio</a></li>
-                <li>solo para renta</li>
+                <li>Lista de Propiedades por Estado</li>
             </ul>
         </div>
     </div>
@@ -230,7 +231,7 @@
 
                     {{-- pagination-wrapper --}}
                     <div class="pagination-wrapper">
-                        {{ $property->links('vendor.pagination.custom') }}
+                        {{-- {{ $property->links('vendor.pagination.custom') }} --}}
                     </div>
 
                 </div>

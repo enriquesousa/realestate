@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 use App\Models\Property;
@@ -192,6 +193,17 @@ class IndexController extends Controller
         $categoryType = PropertyType::where('id', $id)->first();
 
         return view('frontend.property.property_type', compact('property','rentaProperty','compraProperty', 'categoryType'));
+    }
+
+    // StateDetails
+    public function StateDetails($id){
+
+        $property = Property::where('status','1')->where('state',$id)->get();
+        $estado = State::where('id',$id)->first(); //para poder desplegar el nombre del estado en la vista
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
+
+        return view('frontend.property.state_property', compact('property', 'estado', 'rentaProperty', 'compraProperty'));
     }
 
 }

@@ -215,9 +215,9 @@ Kazi Ariyan
 ## 162. Property Location Area in Frontend Part 3
 
 # Sección 31 - Property Search Option In Home Page 
-- 163. Property Search Option in Home Page Part 1
-- 164. Property Search Option in Home Page Part 2
-- 165. Property Search Option in Home Page Part 3
+## 163. Property Search Option in Home Page Part 1
+## 164. Property Search Option in Home Page Part 2
+## 165. Property Search Option in Home Page Part 3
 
 # Sección 32 - Property Search Option In Category Page
 - 166. Property Search Option in Category Page
@@ -8225,9 +8225,20 @@ completar para desplegar 4 estados en frontend resources/views/frontend/home/pla
 ```
 Listo!
 ## 162. Property Location Area in Frontend Part 3
+Implemnetar el link para listar las propiedades de un estado
+En resources/views/frontend/home/place.blade.php
+```php
+<div class="text">
+    <h4><a href="{{ route('state.details', $skip_state_0->id ) }}">{{ $skip_state_0->state_name }}</a></h4>
+    <p>{{ count($property_0) }} Propiedades</p>
+</div> 
+```
+Listo!
 
+# Sección 31 - Property Search Option In Home Page 
+## 163. Property Search Option in Home Page Part 1
 
-
-
+## 164. Property Search Option in Home Page Part 2
+## 165. Property Search Option in Home Page Part 3
 
 
