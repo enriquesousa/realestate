@@ -26,10 +26,10 @@
             <li class="nav-item nav-category">Admin</li>
             <li class="nav-item">
 
-                {{-- Titulo de Menu - Tipos de Propiedad --}}
+                {{-- Tipos de Propiedad --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#tipos" role="button" aria-expanded="false"
                     aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
+                    <i class="link-icon" data-feather="home"></i>
                     <span class="link-title">Tipos de Propiedad</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -45,10 +45,29 @@
                     </ul>
                 </div>
 
-                {{-- Titulo de Menu - Comodidades --}}
+                {{-- Estados --}}
+                <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="map-pin"></i>
+                    <span class="link-title">Estados</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                {{-- Submenus --}}
+                <div class="collapse" id="state">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('all.state') }}" class="nav-link">Lista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.type') }}" class="nav-link">Añadir Estado</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {{-- Titulo de Menu - Comodidades, amenities --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#amenities" role="button" aria-expanded="false"
                     aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
+                    <i class="link-icon" data-feather="layers"></i>
                     <span class="link-title">Comodidades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -67,7 +86,7 @@
                 {{-- Titulo de Menu - Propiedades --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
                     aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
+                    <i class="link-icon" data-feather="map"></i>
                     <span class="link-title">Propiedades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -86,7 +105,7 @@
                 {{-- Titulo de Menu - Editar Datos de Perfil --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false"
                     aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
+                    <i class="link-icon" data-feather="user"></i>
                     <span class="link-title">Perfil Admin</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>

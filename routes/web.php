@@ -13,6 +13,7 @@ use App\Http\Controllers\Agent\AgentPropertyController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\CompareController;
+use App\Http\Controllers\Backend\StateController;
 
 require __DIR__.'/auth.php';
 
@@ -181,6 +182,13 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/update/agent', 'UpdateAgent')->name('update.agent');
         Route::get('/delete/agent/{id}', 'DeleteAgent')->name('delete.agent');
         Route::get('/changeStatus', 'changeStatus');
+
+    });
+
+    // Estado All Routes para crud de los estados (Entidad Federativa) donde esta ubicada la propiedad
+    Route::controller(StateController::class)->group(function(){
+
+        Route::get('/all/state', 'AllState')->name('all.state');
 
     });
 
