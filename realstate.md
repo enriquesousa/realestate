@@ -210,9 +210,9 @@ Kazi Ariyan
 ## 159. Update Agent Add and Edit Property for State
 
 # Sección 30 - Property Location Area In Frontend
-- 160. Property Location Area in Frontend Part 1
-- 161. Property Location Area in Frontend Part 2
-- 162. Property Location Area in Frontend Part 3
+## 160. Property Location Area in Frontend Part 1
+## 161. Property Location Area in Frontend Part 2
+## 162. Property Location Area in Frontend Part 3
 
 # Sección 31 - Property Search Option In Home Page 
 - 163. Property Search Option in Home Page Part 1
@@ -8160,5 +8160,35 @@ Listo!
 ## 159. Update Agent Add and Edit Property for State
 Listo!
 
+# Sección 30 - Property Location Area In Frontend
+## 160. Property Location Area in Frontend Part 1
+Vamos a usar la funcion skip() de laravel en resources/views/frontend/home/place.blade.php
+```php
+@php
+    $skip_state_0 = App\Models\State::skip(0)->first();
+    $skip_state_0 = App\Models\Property::where('state', $skip_state_0->id)->get();
+@endphp 
+...
+{{-- 1er propiedad --}}
+<div
+    class="col-lg-4 col-md-6 col-sm-12 masonry-item small-column all illustration brand marketing software">
+    <div class="place-block-one">
+        <div class="inner-box">
+            <figure class="image-box"><img src="{{ asset( $skip_state_0->state_image ) }}" alt="" style="width:370px; height:580px;">
+            </figure>
+            <div class="text">
+                <h4><a href="categories.html">{{ $skip_state_0->state_name }}</a></h4>
+                <p>{{ count($property_0) }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+```
+con skip() nos podemos mover al registro.
+buscamos el id de la tabla 'states' para buscar todas las incidencias en la tabla de 'properties'
 
+Listo!
+## 161. Property Location Area in Frontend Part 2
+
+## 162. Property Location Area in Frontend Part 3
 
