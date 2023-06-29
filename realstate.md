@@ -8123,14 +8123,38 @@ Listo!
 
 # Sección 29 - Work For Property Location By State In Admin 
 ## 153. Property Location By State in Admin Part 1
+Crear una tabla para los estados
+```php
+php artisan make:model State -m 
+```
+Y crear su controlador
+```php
+php artisan make:controller Backend/StateController
+```
+En database/migrations/2023_06_28_161749_create_states_table.php
+```php
+Schema::create('states', function (Blueprint $table) {
+    $table->id();
 
+    $table->string('state_name');
+    $table->string('state_image')->nullable();
 
-
-
-
-
+    $table->timestamps();
+}); 
+```
+Migrar:
+```php
+php artisan migrate 
+```
+Listo!
 ## 154. Property Location By State in Admin Part 2
+Listo!
 ## 155. Property Location By State in Admin Part 3
+
+
+
+
+
 ## 156. Property Location By State in Admin Part 4
 ## 157. Update Admin Add and Edit Property for State Part 1
 ## 158. Update Admin Add and Edit Property for State Part 2

@@ -59,12 +59,12 @@
                             <a href="{{ route('all.state') }}" class="nav-link">Lista</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.type') }}" class="nav-link">Añadir Estado</a>
+                            <a href="{{ route('add.state') }}" class="nav-link">Añadir Estado</a>
                         </li>
                     </ul>
                 </div>
 
-                {{-- Titulo de Menu - Comodidades, amenities --}}
+                {{-- Comodidades, amenities --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#amenities" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="layers"></i>

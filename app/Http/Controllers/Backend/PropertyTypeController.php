@@ -25,7 +25,6 @@ class PropertyTypeController extends Controller
 
     // Añadir un Property Type
     public function AddType(){
-
         return view('backend.type.add_type');
     }
 

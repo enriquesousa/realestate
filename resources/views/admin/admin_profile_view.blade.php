@@ -128,7 +128,7 @@
 
                             {{-- Seleccionar Photo --}}
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Photo</label>
+                                <label for="exampleInputEmail1" class="form-label">Imagen</label>
                                 <input type="file" class="form-control" name="photo" id="image">
                             </div>
 

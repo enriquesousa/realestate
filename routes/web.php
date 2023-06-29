@@ -123,7 +123,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 // Admin group middleware, Property Type, Amenities, and Property, All Routes
 Route::middleware(['auth','role:admin'])->group(function(){
 
-    // Property Type All Routes
+    // Property Type All Routes CRUD
     Route::controller(PropertyTypeController::class)->group(function(){
         Route::get('/all/type', 'AllType')->name('all.type');
         Route::get('/add/type', 'AddType')->name('add.type');
@@ -185,10 +185,12 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // Estado All Routes para crud de los estados (Entidad Federativa) donde esta ubicada la propiedad
+    // Estado All Routes para CRUD de los estados (Entidad Federativa) donde esta ubicada la propiedad
     Route::controller(StateController::class)->group(function(){
 
         Route::get('/all/state', 'AllState')->name('all.state');
+        Route::get('/add/state', 'AddState')->name('add.state');
+        Route::post('/store/state', 'StoreState')->name('store.state');
 
     });
 
