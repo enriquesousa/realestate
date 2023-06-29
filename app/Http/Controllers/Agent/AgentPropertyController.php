@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Agent;
 
 use App\Http\Controllers\Controller;
+use App\Models\State;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\MultiImage;
@@ -41,6 +42,7 @@ class AgentPropertyController extends Controller
 
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
+        $estado = State::latest()->get();
 
         $id = Auth::user()->id;
         $property_count = Property::where('agent_id', $id)->count();
@@ -51,7 +53,7 @@ class AgentPropertyController extends Controller
         if ($property_count >= $user_agent->max_credit ) {
             return redirect()->route('buy.package');
         }else{
-            return view('agent.property.add_property',compact('propertytype','amenities'));
+            return view('agent.property.add_property',compact('propertytype','amenities', 'estado'));
         }
 
     }
@@ -179,8 +181,9 @@ class AgentPropertyController extends Controller
 
         $propertytype = PropertyType::latest()->get();
         $amenities = Amenities::latest()->get();
+        $estado = State::latest()->get();
 
-        return view('agent.property.edit_property',compact('property','propertytype','amenities', 'property_ami', 'multiImage', 'facilities'));
+        return view('agent.property.edit_property',compact('property','propertytype','amenities', 'property_ami', 'multiImage', 'facilities', 'estado'));
 
     }
 
