@@ -37,7 +37,7 @@
                                     <td>{{ $item->state_name }}</td>
                                     <td><img src="{{ asset($item->state_image) }}" alt="" style="width:70px; height:40px;"></td>
                                     <td>
-                                        <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
                                         <a href="{{ route('delete.type',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
                                     </td>
                                 </tr>

@@ -48,5 +48,62 @@ class StateController extends Controller
         return redirect()->route('all.state')->with($notification);
     }
 
+    // EditState
+    public function EditState($id){
+        $state = State::findOrFail($id);
+        return view('backend.state.edit_state', compact('state'));
+    }
+
+    // UpdateState
+    public function UpdateState(Request $request){
+
+        $state_id = $request->id;
+
+        // Si hay imagen la salvamos
+        if ($request->file('state_image')) {
+
+            // Preparar imagen para guardarla
+            $image = $request->file('state_image');
+
+            // dd($request->store_image); // "upload/state/1770005990852197.png"
+            //regresa null si es la primera vez (si no hay foto)
+            if (!empty($request->state_image)) {
+                unlink(public_path($request->store_image)); // para borrar la imagen anterior
+            }
+
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // crear un unique id para la imagen
+            Image::make($image)->resize(370,275)->save('upload/state/'.$name_gen);
+            $save_url = 'upload/state/'.$name_gen;
+
+            State::findOrFail($state_id)->update([
+                'state_name' => $request->state_name,
+                'state_image' => $save_url,
+            ]);
+
+            $notification = array(
+                'message' => 'Estado con Imagen actualizado con éxito!',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.state')->with($notification);
+
+        }else{
+
+            State::findOrFail($state_id)->update([
+                'state_name' => $request->state_name,
+            ]);
+
+            $notification = array(
+                'message' => 'Estado sin Imagen actualizado con éxito!',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.state')->with($notification);
+        }
+
+
+
+
+    }
 
 }
