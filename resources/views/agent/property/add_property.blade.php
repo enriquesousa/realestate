@@ -151,7 +151,7 @@
                                 <div class="col-sm-3">
                                     <div class="mb-3">
                                         <label class="form-label text-warning">Código Postal</label>
-                                        <input type="text" name="postal_code" class="form-control">
+                                        <input type="text" name="postal_code" id="postal_code" class="form-control">
                                     </div>
                                 </div><!-- Col -->
 

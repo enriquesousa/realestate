@@ -220,7 +220,7 @@ Kazi Ariyan
 ## 165. Property Search Option in Home Page Part 3
 
 # Sección 32 - Property Search Option In Category Page
-- 166. Property Search Option in Category Page
+## 166. Property Search Option in Category Page
 
 # Sección 33 - Setup Testimonials From Admin Backend
 - 167. Setup Testimonials from Admin Part 1
@@ -8243,3 +8243,6 @@ Listo!
 ## 165. Property Search Option in Home Page Part 3
 Listo!
 
+# Sección 32 - Property Search Option In Category Page
+## 166. Property Search Option in Category Page
+Listo!

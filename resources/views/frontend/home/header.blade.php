@@ -84,8 +84,8 @@
                                 {{-- Propiedades --}}
                                 <li class="dropdown"><a href="#"><span>Propiedades</span></a>
                                     <ul>
-                                        <li><a href="{{ route('rent.list.property') }}">Propiedades para Renta</a></li>
-                                        <li><a href="{{ route('buy.list.property') }}">Propiedades para Compra</a></li>
+                                        <li><a href="{{ route('rent.list.property') }}">Para Renta</a></li>
+                                        <li><a href="{{ route('buy.list.property') }}">Para Compra</a></li>
                                     </ul>
                                 </li>
 

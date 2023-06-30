@@ -71,6 +71,9 @@ Route::post('/buy/property/search', [IndexController::class, 'BuyPropertySearch'
 // En pagina de inicio para formulario en resources/views/frontend/home/banner.blade.php, para búsqueda de propiedades solo para renta
 Route::post('/rent/property/search', [IndexController::class, 'RentPropertySearch'])->name('rent.property.search');
 
+// All Property Search Option para formulario en resources/views/frontend/property/rent_property.blade.php, para buscar propiedades
+Route::post('/all/property/search', [IndexController::class, 'AllPropertySearch'])->name('all.property.search');
+
 
 
 /******************************************************************

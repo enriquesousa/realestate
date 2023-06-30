@@ -232,9 +232,9 @@ class IndexController extends Controller
 
         if ($item_state == Null && $item_ptype_id == Null) {
             // Búsqueda solo por nombre
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')->where('property_status', 'compra')->get();
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')->where('property_status', 'compra')->get();
         }elseif ($item_state == Null && $item_ptype_id != Null){
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')
                         ->where('property_status', 'compra')
                         ->with('type')
                         ->whereHas('type', function($q) use($item_ptype_id){
@@ -242,7 +242,7 @@ class IndexController extends Controller
                                     })
                         ->get();
         }elseif ($item_state != Null && $item_ptype_id == Null){
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')
                         ->where('property_status', 'compra')
                         ->with('r_estado')
                         ->whereHas('r_estado', function($q) use($item_state){
@@ -251,7 +251,7 @@ class IndexController extends Controller
                         ->get();
         }else{
             // Búsqueda por los tres parámetros
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')
                         ->where('property_status', 'compra')
                         ->with('type', 'r_estado')
                         ->whereHas('r_estado', function($q) use($item_state){
@@ -288,9 +288,9 @@ class IndexController extends Controller
 
         if ($item_state == Null && $item_ptype_id == Null) {
             // Búsqueda solo por nombre
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')->where('property_status', 'renta')->get();
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')->where('property_status', 'renta')->get();
         }elseif ($item_state == Null && $item_ptype_id != Null){
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')
                         ->where('property_status', 'renta')
                         ->with('type')
                         ->whereHas('type', function($q) use($item_ptype_id){
@@ -298,7 +298,7 @@ class IndexController extends Controller
                                     })
                         ->get();
         }elseif ($item_state != Null && $item_ptype_id == Null){
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')
                         ->where('property_status', 'renta')
                         ->with('r_estado')
                         ->whereHas('r_estado', function($q) use($item_state){
@@ -307,7 +307,7 @@ class IndexController extends Controller
                         ->get();
         }else{
             // Búsqueda por los tres parámetros
-            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+            $property = Property::where('status','1')->where('property_name', 'like', '%' . $item_search . '%')
                         ->where('property_status', 'renta')
                         ->with('type', 'r_estado')
                         ->whereHas('r_estado', function($q) use($item_state){
@@ -324,4 +324,38 @@ class IndexController extends Controller
 
         return view('frontend.property.property_search', compact('property', 'rentaProperty', 'compraProperty'));
     }
+
+    /* AllPropertySearch
+    *  All Property Search Option para formulario en resources/views/frontend/property/rent_property.blade.php
+    *  para buscar propiedades
+    */
+    public function AllPropertySearch(Request $request){
+
+        // Tomar los parámetros de la forma
+        $property_status = $request->property_status;
+        $stype = $request->ptype_id;
+        $sstate = $request->state;
+        $bedrooms = $request->bedrooms;
+        $bathrooms = $request->bathrooms;
+
+        // Seleccionar propiedad(activa,)
+        // Como lo hace el maestro kazi solo te despliega la propiedad con todos los datos exactos
+        $property = Property::where('status','1')->where('bedrooms', $bedrooms)
+                    ->where('bathrooms', 'like', '%' . $bathrooms . '%')
+                    ->where('property_status', $property_status)
+                    ->with('type', 'r_estado')
+                    ->whereHas('r_estado', function($q) use($sstate){
+                                $q->where('state_name', 'like', '%' . $sstate . '%');
+                                })
+                    ->whereHas('type', function($q) use($stype){
+                                $q->where('type_name', 'like', '%' . $stype . '%');
+                                })
+                    ->get();
+
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
+
+        return view('frontend.property.property_search', compact('property', 'rentaProperty', 'compraProperty'));
+    }
+
 }
