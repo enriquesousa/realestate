@@ -40,8 +40,8 @@
                                         <select name="property_status" class="form-select"
                                             id="exampleFormControlSelect1">
                                             <option selected="" disabled="">Seleccionar Estatus</option>
-                                            <option value="rent" {{ $property->property_status == 'rent' ? 'selected' : '' }}>Para Renta</option>
-                                            <option value="buy" {{ $property->property_status == 'buy' ? 'selected' : '' }}>Para Compra</option>
+                                            <option value="renta" {{ $property->property_status == 'renta' ? 'selected' : '' }}>Para Renta</option>
+                                            <option value="compra" {{ $property->property_status == 'compra' ? 'selected' : '' }}>Para Compra</option>
                                         </select>
                                     </div>
                                 </div><!-- Col -->

@@ -102,6 +102,15 @@
                     </a>
                 </li>
 
+                {{-- * Agent Logout --}}
+                <li class="nav-item">
+                    <a href="{{ route('agent.logout') }}" class="nav-link">
+                        <i data-feather="log-out"></i>
+                        <span class="link-title">Cerrar Sesión</span>
+                    </a>
+                </li>
+
+
                 {{-- * COMPONENTS --}}
                 <li class="nav-item nav-category">Components</li>
 

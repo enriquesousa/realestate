@@ -34,6 +34,8 @@
 
                                 <div class="top-search">
                                     <form action="{{ route('buy.property.search') }}" method="post" class="search-form">
+                                    @csrf
+
                                         <div class="row clearfix">
 
                                             {{-- Search Property input field --}}
@@ -42,7 +44,7 @@
                                                     <label>Buscar Propiedad</label>
                                                     <div class="field-input">
                                                         <i class="fas fa-search"></i>
-                                                        <input type="search" name="search" placeholder="Buscar por nombre de propiedad, ubicación o punto de referencia..." required="">
+                                                        <input type="search" name="search" placeholder="Buscar por nombre, ubicación o tipo ..." required="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -54,7 +56,7 @@
                                                     <div class="select-box">
                                                         <i class="far fa-compass"></i>
                                                         <select name="state" class="wide">
-                                                            <option data-display="Input location">Entre Ubicación</option>
+                                                            <option data-display="Entre Ubicación"></option>
                                                             @foreach ($states as $item)
                                                                 <option value="{{ $item->state_name }}">{{ $item->state_name }}</option>
                                                             @endforeach
@@ -69,7 +71,7 @@
                                                     <label>Tipo de Propiedad</label>
                                                     <div class="select-box">
                                                         <select name="ptype_id" class="wide">
-                                                            <option data-display="All Type">Todos los tipos</option>
+                                                            <option data-display="Todos los Tipos"></option>
                                                             @foreach ($ptypes as $item)
                                                                 <option value="{{ $item->type_name }}">{{ $item->type_name }}</option>
                                                             @endforeach

@@ -143,6 +143,14 @@
                 </a>
             </li>
 
+            {{-- * Admin Logout --}}
+            <li class="nav-item">
+                <a href="{{ route('admin.logout') }}" class="nav-link">
+                    <i data-feather="log-out"></i>
+                    <span class="link-title">Cerrar Sesión</span>
+                </a>
+            </li>
+
 
 
             {{-- * COMPONENTS --}}
