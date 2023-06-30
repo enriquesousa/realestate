@@ -35,7 +35,7 @@
                     {{-- Property - sidebar-widget --}}
                     <div class="filter-widget sidebar-widget">
                         <div class="widget-title">
-                            <h5>Property</h5>
+                            <h5>Propiedad</h5>
                         </div>
 
                         @php

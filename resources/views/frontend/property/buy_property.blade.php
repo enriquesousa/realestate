@@ -30,68 +30,83 @@
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                 <div class="default-sidebar property-sidebar">
 
-                    {{-- Property - sidebar-widget --}}
+                   {{-- Property - sidebar-widget --}}
                     <div class="filter-widget sidebar-widget">
                         <div class="widget-title">
-                            <h5>Property</h5>
+                            <h5>Propiedad</h5>
                         </div>
-                        <div class="widget-content">
-                            <div class="select-box">
-                                <select class="wide">
-                                    <option data-display="All Type">All Type</option>
-                                    <option value="1">Villa</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Residential</option>
-                                </select>
+
+                        @php
+                        $states = App\Models\State::latest()->get();
+                        $ptypes = App\Models\PropertyType::latest()->get();
+                        @endphp
+
+                        <form action="{{ route('all.property.search') }}" method="post" class="search-form">
+                            @csrf
+
+                            <div class="widget-content">
+
+                                {{-- Estatus - Renta o Compra --}}
+                                <div class="select-box">
+                                    <select name="property_status" class="wide">
+                                        <option data-display="Selecciona Estatus">Estatus</option>
+                                        <option value="renta">Renta</option>
+                                        <option value="compra">Compra</option>
+                                    </select>
+                                </div>
+
+                                {{-- Selecciona Tipo de Propiedad --}}
+                                <div class="select-box">
+                                    <select name="ptype_id" class="wide">
+                                        <option data-display="Selecciona Tipo" selected="" disabled="">Selecciona Tipo</option>
+                                        @foreach ($ptypes as $item)
+                                        <option value="{{ $item->type_name }}">{{ $item->type_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Selecciona Estado --}}
+                                <div class="select-box">
+                                    <select name="state" class="wide">
+                                        <option data-display="Selecciona Estado" selected="" disabled="">Selecciona Estado</option>
+                                        @foreach ($states as $item)
+                                        <option value="{{ $item->state_name }}">{{ $item->state_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- Selecciona numero de Cuartos --}}
+                                <div class="select-box">
+                                    <select name="bedrooms" class="wide">
+                                        <option data-display="Cuartos">Cuartos</option>
+                                        <option value="1">1 Cuarto</option>
+                                        <option value="2">2 Cuartos</option>
+                                        <option value="3">3 Cuartos</option>
+                                        <option value="4">4 Cuartos</option>
+                                        <option value="5">5 Cuartos</option>
+                                    </select>
+                                </div>
+
+                                {{-- Selecciona numero de Baños --}}
+                                <div class="select-box">
+                                    <select name="bathrooms" class="wide">
+                                        <option data-display="Baños">Baños</option>
+                                        <option value="1">1 Baño</option>
+                                        <option value="2">2 Baños</option>
+                                        <option value="3">3 Baños</option>
+                                        <option value="4">4 Baños</option>
+                                        <option value="5">5 Baños</option>
+                                    </select>
+                                </div>
+
+                                <div class="filter-btn">
+                                    <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Filter</button>
+                                </div>
+
                             </div>
-                            <div class="select-box">
-                                <select class="wide">
-                                    <option data-display="Select Location">Select Location</option>
-                                    <option value="1">New York</option>
-                                    <option value="2">California</option>
-                                    <option value="3">London</option>
-                                    <option value="4">Maxico</option>
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select class="wide">
-                                    <option data-display="This Area Only">This Area Only</option>
-                                    <option value="1">New York</option>
-                                    <option value="2">California</option>
-                                    <option value="3">London</option>
-                                    <option value="4">Maxico</option>
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select class="wide">
-                                    <option data-display="All Type">Max Rooms</option>
-                                    <option value="1">2+ Rooms</option>
-                                    <option value="2">3+ Rooms</option>
-                                    <option value="3">4+ Rooms</option>
-                                    <option value="4">5+ Rooms</option>
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select class="wide">
-                                    <option data-display="Most Popular">Most Popular</option>
-                                    <option value="1">Villa</option>
-                                    <option value="2">Commercial</option>
-                                    <option value="3">Residential</option>
-                                </select>
-                            </div>
-                            <div class="select-box">
-                                <select class="wide">
-                                    <option data-display="All Type">Select Floor</option>
-                                    <option value="1">2x Floor</option>
-                                    <option value="2">3x Floor</option>
-                                    <option value="3">4x Floor</option>
-                                </select>
-                            </div>
-                            <div class="filter-btn">
-                                <button type="submit" class="theme-btn btn-one"><i
-                                        class="fas fa-filter"></i>&nbsp;Filter</button>
-                            </div>
-                        </div>
+
+                        </form>
+
                     </div>
 
                     {{-- Select Price Range --}}

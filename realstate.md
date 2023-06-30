@@ -223,10 +223,10 @@ Kazi Ariyan
 ## 166. Property Search Option in Category Page
 
 # Sección 33 - Setup Testimonials From Admin Backend
-- 167. Setup Testimonials from Admin Part 1
-- 168. Setup Testimonials from Admin Part 2
-- 169. Setup Testimonials from Admin Part 3
-- 170. Setup Testimonials in Frontend
+## 167. Setup Testimonials from Admin Part 1
+## 168. Setup Testimonials from Admin Part 2
+## 169. Setup Testimonials from Admin Part 3
+## 170. Setup Testimonials in Frontend
 
 # Sección 34 - Admin Blog Category Setup
 - 171. Advance Blog Category Setup Part 1
@@ -8246,3 +8246,13 @@ Listo!
 # Sección 32 - Property Search Option In Category Page
 ## 166. Property Search Option in Category Page
 Listo!
+
+# Sección 33 - Setup Testimonials From Admin Backend
+## 167. Setup Testimonials from Admin Part 1
+
+
+
+
+## 168. Setup Testimonials from Admin Part 2
+## 169. Setup Testimonials from Admin Part 3
+## 170. Setup Testimonials in Frontend
