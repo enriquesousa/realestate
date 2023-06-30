@@ -206,4 +206,10 @@ class IndexController extends Controller
         return view('frontend.property.state_property', compact('property', 'estado', 'rentaProperty', 'compraProperty'));
     }
 
+    // BuyPropertySearch
+    public function BuyPropertySearch(Request $request){
+
+
+
+    }
 }

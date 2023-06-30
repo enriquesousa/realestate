@@ -8237,8 +8237,9 @@ Listo!
 
 # Sección 31 - Property Search Option In Home Page 
 ## 163. Property Search Option in Home Page Part 1
-
+Listo!
 ## 164. Property Search Option in Home Page Part 2
+
 ## 165. Property Search Option in Home Page Part 3
 
 
