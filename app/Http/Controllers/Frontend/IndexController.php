@@ -17,6 +17,7 @@ use Illuminate\Support\Carbon;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PropertyMessage;
+use WithPagination;
 
 class IndexController extends Controller
 {
@@ -177,14 +178,17 @@ class IndexController extends Controller
     // RentListProperty - para listar todas las propiedades solo para compra
     public function BuyListProperty(){
 
-        $property = Property::where('status', '1')->where('property_status', 'compra')->get();
+        $property = Property::where('status', '1')->where('property_status', 'compra')->paginate(3);
         $rentaProperty = Property::where('property_status', 'renta')->get();
         $compraProperty = Property::where('property_status', 'compra')->get();
 
         return view('frontend.property.buy_property', compact('property','rentaProperty','compraProperty'));
     }
 
-    // PropertyType Lista todas las propiedades por categoría
+    /* PropertyType: Lista todas las propiedades por categoría
+    * Para listar todas las propiedades por categoría.
+    * llamado de resources/views/frontend/home/category_todas.blade.php
+    */
     public function PropertyType($id){
 
         $property = Property::where('status', '1')->where('ptype_id', $id)->get();
@@ -195,7 +199,10 @@ class IndexController extends Controller
         return view('frontend.property.property_type', compact('property','rentaProperty','compraProperty', 'categoryType'));
     }
 
-    // StateDetails
+    /* StateDetails
+    *  Para listar todas las propiedades de un estado si dan click en frontend.
+    *  llamado de resources/views/frontend/home/place.blade.php
+    */
     public function StateDetails($id){
 
         $property = Property::where('status','1')->where('state',$id)->get();
@@ -206,7 +213,10 @@ class IndexController extends Controller
         return view('frontend.property.state_property', compact('property', 'estado', 'rentaProperty', 'compraProperty'));
     }
 
-    // BuyPropertySearch
+    /* BuyPropertySearch
+    * En pagina de inicio para formulario en resources/views/frontend/home/banner.blade.php
+    * para búsqueda de propiedades solo para compra
+    */
     public function BuyPropertySearch(Request $request){
 
         $request->validate([
@@ -253,16 +263,65 @@ class IndexController extends Controller
                         ->get();
         }
 
-
-
-
-
-
         $rentaProperty = Property::where('property_status', 'renta')->get();
         $compraProperty = Property::where('property_status', 'compra')->get();
 
         return view('frontend.property.property_search', compact('property', 'rentaProperty', 'compraProperty'));
     }
 
+    /* RentPropertySearch
+    *  En pagina de inicio para formulario en resources/views/frontend/home/banner.blade.php
+    *  para búsqueda de propiedades solo para renta
+    */
+    public function RentPropertySearch(Request $request){
 
+        $request->validate([
+            'search' => 'required'
+        ]);
+
+        // Tomar las tres variables de la búsqueda
+        $item_search = $request->search;
+        $item_state = $request->state;
+        $item_ptype_id = $request->ptype_id;
+
+        // dd($item_state, $item_ptype_id);
+
+        if ($item_state == Null && $item_ptype_id == Null) {
+            // Búsqueda solo por nombre
+            $property = Property::where('property_name', 'like', '%' . $item_search . '%')->where('property_status', 'renta')->get();
+        }elseif ($item_state == Null && $item_ptype_id != Null){
+            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+                        ->where('property_status', 'renta')
+                        ->with('type')
+                        ->whereHas('type', function($q) use($item_ptype_id){
+                                    $q->where('type_name', 'like', '%' . $item_ptype_id . '%');
+                                    })
+                        ->get();
+        }elseif ($item_state != Null && $item_ptype_id == Null){
+            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+                        ->where('property_status', 'renta')
+                        ->with('r_estado')
+                        ->whereHas('r_estado', function($q) use($item_state){
+                                    $q->where('state_name', 'like', '%' . $item_state . '%');
+                                    })
+                        ->get();
+        }else{
+            // Búsqueda por los tres parámetros
+            $property = Property::where('property_name', 'like', '%' . $item_search . '%')
+                        ->where('property_status', 'renta')
+                        ->with('type', 'r_estado')
+                        ->whereHas('r_estado', function($q) use($item_state){
+                                    $q->where('state_name', 'like', '%' . $item_state . '%');
+                                    })
+                        ->whereHas('type', function($q) use($item_ptype_id){
+                                    $q->where('type_name', 'like', '%' . $item_ptype_id . '%');
+                                    })
+                        ->get();
+        }
+
+        $rentaProperty = Property::where('property_status', 'renta')->get();
+        $compraProperty = Property::where('property_status', 'compra')->get();
+
+        return view('frontend.property.property_search', compact('property', 'rentaProperty', 'compraProperty'));
+    }
 }

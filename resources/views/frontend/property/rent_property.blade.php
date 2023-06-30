@@ -228,7 +228,7 @@
 
                     </div>
 
-                    {{-- pagination-wrapper --}}
+                    {{-- pagination-wrapper usando custom pagination --}}
                     <div class="pagination-wrapper">
                         {{ $property->links('vendor.pagination.custom') }}
                     </div>

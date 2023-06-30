@@ -228,15 +228,21 @@
 
                     </div>
 
+                    {{-- pagination-wrapper usando custom pagination --}}
+                    {{-- No me funciono porque el request form viene de un post y tiene que ser get --}}
+                    {{-- <div class="pagination-wrapper">
+                        {{ $property->links('vendor.pagination.custom') }}
+                    </div> --}}
+
                     {{-- pagination-wrapper --}}
-                    <div class="pagination-wrapper">
+                    {{-- <div class="pagination-wrapper">
                         <ul class="pagination clearfix">
                             <li><a href="property-list.html" class="current">1</a></li>
                             <li><a href="property-list.html">2</a></li>
                             <li><a href="property-list.html">3</a></li>
                             <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

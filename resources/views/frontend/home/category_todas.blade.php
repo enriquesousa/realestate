@@ -1,9 +1,9 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
-
 @php
     $propertyType = App\Models\PropertyType::latest()->get(); //Todas las categorías
+    Config::set('custom.display_preload', false)
 @endphp
 
 <!--Page Title-->

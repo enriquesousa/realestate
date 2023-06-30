@@ -65,9 +65,11 @@ Route::get('/property/type/{id}', [IndexController::class, 'PropertyType'])->nam
 // Para listar todas las propiedades de un estado si dan click en frontend,  llamado de resources/views/frontend/home/place.blade.php
 Route::get('/state/details/{id}', [IndexController::class, 'StateDetails'])->name('state.details');
 
-// En pagina de inicio para formulario en resources/views/frontend/home/banner.blade.php
+// En pagina de inicio para formulario en resources/views/frontend/home/banner.blade.php, para búsqueda de propiedades solo para compra
 Route::post('/buy/property/search', [IndexController::class, 'BuyPropertySearch'])->name('buy.property.search');
 
+// En pagina de inicio para formulario en resources/views/frontend/home/banner.blade.php, para búsqueda de propiedades solo para renta
+Route::post('/rent/property/search', [IndexController::class, 'RentPropertySearch'])->name('rent.property.search');
 
 
 

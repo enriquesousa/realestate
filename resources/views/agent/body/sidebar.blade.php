@@ -1,7 +1,9 @@
 @php
     $id = Auth::user()->id;
     $status = Auth::user()->status;
+    $profileData = App\Models\User::find($id);
 @endphp
+
 
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar">
@@ -31,8 +33,8 @@
             @if ($status === 'active')
 
                 {{-- * Agente Menu --}}
-                <li class="nav-item nav-category">Agente</li>
-                <li class="nav-item">
+                <li class="nav-item nav-category">Agente <span><br>{{ $profileData->name }}</span></li>
+                <li class="nav-item mt-3">
 
                     {{-- Propiedades --}}
                     <a class="nav-link" data-bs-toggle="collapse" href="#propiedad" role="button" aria-expanded="false"

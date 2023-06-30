@@ -1,3 +1,5 @@
+{{-- LLamado por: resources/views/frontend/index.blade.php --}}
+
 @php
 
     $states = App\Models\State::latest()->get();
@@ -31,8 +33,8 @@
                         {{-- Tab-1 COMPRA --}}
                         <div class="tab active-tab" id="tab-1">
                             <div class="inner-box">
-
                                 <div class="top-search">
+
                                     <form action="{{ route('buy.property.search') }}" method="post" class="search-form">
                                     @csrf
 
@@ -82,11 +84,11 @@
 
                                         </div>
                                         <div class="search-btn">
-                                            <button type="submit"><i class="fas fa-search"></i>Search</button>
+                                            <button type="submit"><i class="fas fa-search"></i>Buscar</button>
                                         </div>
                                     </form>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
 
@@ -94,17 +96,19 @@
                         <div class="tab" id="tab-2">
                             <div class="inner-box">
                                 <div class="top-search">
-                                    <form action="index.html" method="post" class="search-form">
+
+                                    <form action="{{ route('rent.property.search') }}" method="post" class="search-form">
+                                        @csrf
+
                                         <div class="row clearfix">
 
-                                            {{-- Search Property --}}
+                                            {{-- Search Property input field --}}
                                             <div class="col-lg-4 col-md-12 col-sm-12 column">
                                                 <div class="form-group">
-                                                    <label>Search Property</label>
+                                                    <label>Buscar Propiedad</label>
                                                     <div class="field-input">
                                                         <i class="fas fa-search"></i>
-                                                        <input type="search" name="search-field"
-                                                            placeholder="Search by Property, Location or Landmark..."
+                                                        <input type="search" name="search" placeholder="Buscar por nombre, ubicación o tipo ..."
                                                             required="">
                                                     </div>
                                                 </div>
@@ -116,12 +120,11 @@
                                                     <label>Ubicación</label>
                                                     <div class="select-box">
                                                         <i class="far fa-compass"></i>
-                                                        <select class="wide">
-                                                            <option data-display="Input location">Entre Ubicación</option>
-                                                            <option value="1">New York</option>
-                                                            <option value="2">California</option>
-                                                            <option value="3">London</option>
-                                                            <option value="4">Maxico</option>
+                                                        <select name="state" class="wide">
+                                                            <option data-display="Entre Ubicación"></option>
+                                                            @foreach ($states as $item)
+                                                            <option value="{{ $item->state_name }}">{{ $item->state_name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -132,12 +135,11 @@
                                                 <div class="form-group">
                                                     <label>Tipo de Propiedad</label>
                                                     <div class="select-box">
-                                                        <select class="wide">
-                                                            <option data-display="All Type">Todos los tipos</option>
-                                                            <option value="1">Laxury</option>
-                                                            <option value="2">Classic</option>
-                                                            <option value="3">Modern</option>
-                                                            <option value="4">New</option>
+                                                        <select name="ptype_id" class="wide">
+                                                            <option data-display="Todos los Tipos"></option>
+                                                            @foreach ($ptypes as $item)
+                                                            <option value="{{ $item->type_name }}">{{ $item->type_name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
@@ -145,11 +147,11 @@
 
                                         </div>
                                         <div class="search-btn">
-                                            <button type="submit"><i class="fas fa-search"></i>Search</button>
+                                            <button type="submit"><i class="fas fa-search"></i>Buscar</button>
                                         </div>
                                     </form>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
 
