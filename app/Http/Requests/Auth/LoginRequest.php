@@ -39,6 +39,11 @@ class LoginRequest extends FormRequest
      * Attempt to authenticate the request's credentials.
      *
      * @throws \Illuminate\Validation\ValidationException
+     *
+     * Aquí es donde valida el usuario y contraseña para saber si son validos
+     * Se manda llamar de app/Http/Controllers/Auth/AuthenticatedSessionController.php linea 29
+     * Aquí puedo modificar si quiero que me lea como user el email, username, phone etc...
+     *
      */
     public function authenticate(): void
     {
@@ -47,6 +52,7 @@ class LoginRequest extends FormRequest
         $user = User::where('email', $this->login)
                     ->orWhere('name', $this->login)
                     ->orWhere('phone', $this->login)
+                    ->orWhere('username', $this->login)
                     ->first();
 
         if( !$user || !Hash::check($this->password, $user->password) ){

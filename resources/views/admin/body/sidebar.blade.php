@@ -13,7 +13,7 @@
     <div class="sidebar-body">
         <ul class="nav">
 
-            {{-- Main --}}
+            {{-- Main - Menu Principal Panel--}}
             <li class="nav-item nav-category">Menu Principal</li>
             <li class="nav-item">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
@@ -46,8 +46,7 @@
                 </div>
 
                 {{-- Estados --}}
-                <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false"
-                    aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="emails">
                     <i class="link-icon" data-feather="map-pin"></i>
                     <span class="link-title">Estados</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -102,7 +101,25 @@
                     </ul>
                 </div>
 
-                {{-- Titulo de Menu - Editar Datos de Perfil --}}
+                {{-- Testimoniales --}}
+                <a class="nav-link" data-bs-toggle="collapse" href="#testimonials" role="button" aria-expanded="false" aria-controls="emails">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Testimoniales</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                {{-- Submenus --}}
+                <div class="collapse" id="testimonials">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('all.testimonials') }}" class="nav-link">Lista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.state') }}" class="nav-link">Añadir Testimonial</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {{-- Editar Datos de Perfil --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="user"></i>
@@ -142,6 +159,7 @@
                     <span class="link-title">Ver Mensajes</span>
                 </a>
             </li>
+
 
             {{-- * Admin Logout --}}
             <li class="nav-item">

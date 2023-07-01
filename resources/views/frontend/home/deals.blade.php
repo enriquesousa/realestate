@@ -50,7 +50,8 @@ $property = App\Models\Property::where('status','1')->where('hot','1')->limit(3)
                                         @endif
 
                                     </div>
-                                    <div class="buy-btn pull-right"><a href="property-details.html">For {{ $item->property_status }}</a>
+                                    <div class="buy-btn pull-right">
+                                        <a href="property-details.html">Para {{ $item->property_status }}</a>
                                     </div>
                                 </div>
 
@@ -65,7 +66,7 @@ $property = App\Models\Property::where('status','1')->where('hot','1')->limit(3)
                                     {{-- Precio mas bajo --}}
                                     <div class="price-info pull-left">
                                         <h6>Inicia desde</h6>
-                                        <h4>$ {{ $item->lowest_price }}</h4>
+                                        <h4>$ @convert($item->lowest_price)</h4>
                                     </div>
 
                                     {{-- botones de comparar y favorito --}}

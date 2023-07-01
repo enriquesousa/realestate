@@ -14,6 +14,8 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\CompareController;
 use App\Http\Controllers\Backend\StateController;
+use App\Http\Controllers\Backend\TestimonialController;
+
 
 require __DIR__.'/auth.php';
 
@@ -200,6 +202,18 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(StateController::class)->group(function(){
 
         Route::get('/all/state', 'AllState')->name('all.state');
+        Route::get('/add/state', 'AddState')->name('add.state');
+        Route::post('/store/state', 'StoreState')->name('store.state');
+        Route::get('/edit/state/{id}', 'EditState')->name('edit.state');
+        Route::post('/update/state', 'UpdateState')->name('update.state');
+        Route::get('/delete/state/{id}', 'DeleteState')->name('delete.state');
+
+    });
+
+     // CRUD Testimonials
+     Route::controller(TestimonialController::class)->group(function(){
+
+        Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials');
         Route::get('/add/state', 'AddState')->name('add.state');
         Route::post('/store/state', 'StoreState')->name('store.state');
         Route::get('/edit/state/{id}', 'EditState')->name('edit.state');

@@ -62,7 +62,7 @@ class AgentController extends Controller
         return view('agent.agent_profile_view', compact('profileData'));
     }
 
-    // Agent Profile Store
+    // Agent Profile Store Salvar los cambios a tabla
     public function AgentProfileStore(Request $request)
     {
         $id = Auth::user()->id;
@@ -74,10 +74,13 @@ class AgentController extends Controller
         $data->phone = $request->phone;
         $data->address = $request->address;
 
+        // dd($request->file('photo'));
+
         if ($request->file('photo')) {
             $file = $request->file('photo');
 
             // dd($data->photo); //regresa null si es la primera vez (si no hay foto)
+
             if (!empty($data->photo)) {
                 unlink(public_path('upload/agent_images/' . $data->photo)); // para borrar la imagen anterior
             }

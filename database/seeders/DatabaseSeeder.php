@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(TopbarTableSeeder::class);
+        $this->call(StatesTableSeeder::class);
+        $this->call(TiposTableSeeder::class);
+        $this->call(ComodidadesTableSeeder::class);
+
         $this->call(UsersTableSeeder::class);
         \App\Models\User::factory(5)->create();
 

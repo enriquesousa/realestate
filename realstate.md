@@ -355,6 +355,155 @@ Kazi Ariyan
 
 
 # Sección 3 - Multi Auth with Breeze
+## 11. Seed Demo User Data Part 1
+Crear el user table seeder
+```php
+php artisan make:seeder UserTableSeeder 
+```
+Con esto se creo:
+database/seeders/UsersTableSeeder.php
+```php
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+use DB;
+use Illuminate\Support\Facades\Hash;
+
+class UsersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('users')->insert([
+
+           // Admin
+           [
+            'name' => 'Admin',
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('111'),
+            'role' => 'admin',
+            'status' => 'active',
+           ],
+
+           // Agent
+           [
+            'name' => 'Agent',
+            'username' => 'agent',
+            'email' => 'agent@gmail.com',
+            'password' => Hash::make('111'),
+            'role' => 'agent',
+            'status' => 'active',
+           ],
+
+           // User
+           [
+            'name' => 'User',
+            'username' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => Hash::make('111'),
+            'role' => 'user',
+            'status' => 'active',
+           ],
+
+        ]);
+    }
+} 
+```
+Y en database/factories/UserFactory.php
+Creamos el fake data que vamos a insertar
+```php
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ */
+class UserFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        // 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+        // por default el password es 'password'
+        return [
+
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', //password
+
+            'phone' => fake()->phoneNumber,
+            'address' => fake()->address,
+            'photo' => fake()->imageUrl('60', '60'),
+            'role' => fake()->randomElement(['admin', 'agent', 'user']),
+            'status' => fake()->randomElement(['active', 'inactive']),
+
+            'remember_token' => Str::random(10),
+        ];
+    }
+
+    /**
+     * Indicate that the model's email address should be unverified.
+     */
+    public function unverified(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'email_verified_at' => null,
+        ]);
+    }
+} 
+```
+Y en database/seeders/DatabaseSeeder.php
+```php
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Database\Seeders\UsersTableSeeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        $this->call(UsersTableSeeder::class);
+        \App\Models\User::factory(5)->create();
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+    }
+} 
+```
+Ahora para migrar estos seeders
+```php
+php artisan migrate:fresh --seed 
+```
+
+
+
+
+
 ## 13. Laravel Multi Auth with Breeze Part 1
 ## 14. Laravel Multi Auth with Breeze Part 2
 - Para ver la lista de routes:
@@ -8249,7 +8398,12 @@ Listo!
 
 # Sección 33 - Setup Testimonials From Admin Backend
 ## 167. Setup Testimonials from Admin Part 1
-
+Min. 7:50
+Hice un
+```php
+php artisan migrate:refresh 
+```
+Y perdi todos los datos!
 
 
 

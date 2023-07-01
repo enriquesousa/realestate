@@ -112,7 +112,7 @@
                             <li>Tamaño Cochera: <span>{{ $property->garage_size }} m²</span></li>
                             <li>Tipo de Propiedad: <span>{{ $property->type->type_name }}</span></li>
                             <li>Baños: <span>{{ $property->bathrooms }}</span></li>
-                            <li>Estatus: <span>For {{ $property->property_status }}</span></li>
+                            <li>Estatus: <span>Para {{ $property->property_status }}</span></li>
                             <li>Dimensiones: <span>{{ $property->property_size }}</span></li>
                             <li>Cocheras: <span>{{ $property->garage }}</span></li>
                         </ul>
