@@ -18,43 +18,43 @@ class StatesTableSeeder extends Seeder
             // Aguascalientes
             [
              'state_name' => 'Aguascalientes',
-             'state_image' => 'upload/state/aguascalientes.png',
+             'state_image' => 'upload/state/aguascalientes.jpg',
             ],
 
-            // baja_california
+            // baja california norte
             [
                 'state_name' => 'Baja California',
-                'state_image' => 'upload/state/baja_california.png',
+                'state_image' => 'upload/state/bcn.jpg',
             ],
 
-            // baja_california_sur
+            // baja california sur
             [
-                'state_name' => 'Baja California',
-                'state_image' => 'upload/state/baja_california_sur.png',
+                'state_name' => 'Baja California Sur',
+                'state_image' => 'upload/state/bcs.jpg',
             ],
 
             // campeche
             [
                 'state_name' => 'Campeche',
-                'state_image' => 'upload/state/campeche.png',
+                'state_image' => 'upload/state/campeche.jpg',
             ],
 
             // chiapas
             [
                 'state_name' => 'Chiapas',
-                'state_image' => 'upload/state/chiapas.png',
+                'state_image' => 'upload/state/chiapas.jpg',
             ],
 
             // chihuahua
             [
                 'state_name' => 'Chihuahua',
-                'state_image' => 'upload/state/chihuahua.png',
+                'state_image' => 'upload/state/chihuahua.jpg',
             ],
 
             // coahuila
             [
                 'state_name' => 'Coahuila',
-                'state_image' => 'upload/state/coahuila.png',
+                'state_image' => 'upload/state/coahuila.jpg',
             ],
 
             // colima
@@ -66,19 +66,25 @@ class StatesTableSeeder extends Seeder
             // durango
             [
                 'state_name' => 'Durango',
-                'state_image' => 'upload/state/durango.png',
+                'state_image' => 'upload/state/durango.jpg',
             ],
 
             // guanajuato
             [
                 'state_name' => 'Guanajuato',
-                'state_image' => 'upload/state/guanajuato.png',
+                'state_image' => 'upload/state/guanajuato.jpg',
+            ],
+
+            // Guerrero
+            [
+                'state_name' => 'Guerrero',
+                'state_image' => 'upload/state/guerrero.jpg',
             ],
 
             // hidalgo
             [
                 'state_name' => 'Hidalgo',
-                'state_image' => 'upload/state/hidalgo.png',
+                'state_image' => 'upload/state/hidalgo.jpg',
             ],
 
 

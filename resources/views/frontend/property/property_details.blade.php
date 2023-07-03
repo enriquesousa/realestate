@@ -62,7 +62,7 @@
                         <li><a href="property-details.html">Para {{ $property->property_status }}</a></li>
                     </ul>
                     <div class="price-box pull-right">
-                        <h3>${{ $property->lowest_price }}</h3>
+                        <h3>$ @convert($property->lowest_price)</h3>
                     </div>
                 </div>
                 <ul class="other-option pull-right clearfix">
@@ -110,10 +110,10 @@
                             <li>Property ID: <span>{{ $property->property_code }}</span></li>
                             <li>Cuartos: <span>{{ $property->bedrooms }}</span></li>
                             <li>Tamaño Cochera: <span>{{ $property->garage_size }} m²</span></li>
-                            <li>Tipo de Propiedad: <span>{{ $property->type->type_name }}</span></li>
+                            <li>Tipo: <span>{{ $property->type->type_name }}</span></li>
                             <li>Baños: <span>{{ $property->bathrooms }}</span></li>
                             <li>Estatus: <span>Para {{ $property->property_status }}</span></li>
-                            <li>Dimensiones: <span>{{ $property->property_size }}</span></li>
+                            <li>Dimensiones: <span>{{ $property->property_size }} m²</span></li>
                             <li>Cocheras: <span>{{ $property->garage }}</span></li>
                         </ul>
                     </div>

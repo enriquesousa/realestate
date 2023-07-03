@@ -82,7 +82,26 @@
                     </ul>
                 </div>
 
-                {{-- Titulo de Menu - Propiedades --}}
+                {{-- Usuarios Lista --}}
+                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                    aria-controls="emails">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Usuarios</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                {{-- Submenus - Lista, Añadir --}}
+                <div class="collapse" id="property">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.all.users') }}" class="nav-link">Lista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.property') }}" class="nav-link">Añadir</a>
+                        </li>
+                    </ul>
+                </div>
+
+                {{-- Propiedades --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="map"></i>

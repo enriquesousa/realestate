@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\CompareController;
 use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\TestimonialController;
+use App\Http\Controllers\Backend\UsersController;
 
 
 require __DIR__.'/auth.php';
@@ -210,8 +211,13 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-     // CRUD Testimonials
-     Route::controller(TestimonialController::class)->group(function(){
+    // CRUD Users - Lista Todos los usuarios
+    Route::controller(UsersController::class)->group(function () {
+        Route::get('/admin/all/users', 'AdminAllUsers')->name('admin.all.users');
+    });
+
+    // CRUD Testimonials
+    Route::controller(TestimonialController::class)->group(function () {
 
         Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials');
         Route::get('/add/state', 'AddState')->name('add.state');
