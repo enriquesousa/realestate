@@ -229,10 +229,10 @@ Kazi Ariyan
 ## 170. Setup Testimonials in Frontend
 
 # Sección 34 - Admin Blog Category Setup
-- 171. Advance Blog Category Setup Part 1
-- 172. Advance Blog Category Setup Part 2
-- 173. Advance Blog Category Setup Part 3
-- 174. Advance Blog Category Setup Part 4
+## 171. Advance Blog Category Setup Part 1
+## 172. Advance Blog Category Setup Part 2
+## 173. Advance Blog Category Setup Part 3
+## 174. Advance Blog Category Setup Part 4
 
 # Sección 35 - Admin Blog Management Setup
 - 175. Blog Post Setup Part 1
@@ -8415,6 +8415,18 @@ Listo!
 ## 169. Setup Testimonials from Admin Part 3
 Listo!
 ## 170. Setup Testimonials in Frontend
+Listo!
+
+# Sección 34 - Admin Blog Category Setup
+## 171. Advance Blog Category Setup Part 1
 
 
+
+
+
+
+
+## 172. Advance Blog Category Setup Part 2
+## 173. Advance Blog Category Setup Part 3
+## 174. Advance Blog Category Setup Part 4
 
