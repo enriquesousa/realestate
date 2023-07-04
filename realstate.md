@@ -8398,6 +8398,7 @@ Listo!
 
 # Sección 33 - Setup Testimonials From Admin Backend
 ## 167. Setup Testimonials from Admin Part 1
+30/junio/23
 Min. 7:50
 Hice un
 ```php
@@ -8405,8 +8406,17 @@ php artisan migrate:refresh
 ```
 Y perdi todos los datos!
 
-
-
+4/julio/23
+Ya crie todos los seeders necesarios para regenerar la base de datos!
+Listo!
 ## 168. Setup Testimonials from Admin Part 2
+
+
+
+
+
+
+
+
 ## 169. Setup Testimonials from Admin Part 3
 ## 170. Setup Testimonials in Frontend

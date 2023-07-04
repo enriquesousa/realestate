@@ -34,21 +34,25 @@
                         <a href="{{ route('user.logout') }}" class="pl-3"><i class="fas fa-user"></i>Cerrar Sesión</a>
                     </div>
                 @else
-                    <div class="sign-box">
+                    {{-- <div class="sign-box">
                         <label for="">Iniciar Sesión: </label>
-                    </div>
+                    </div> --}}
+
+                    {{-- User Login --}}
                     <div class="sign-box">
                         {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
                         {{-- redirige a iniciar sesión en resources/views/auth/login.blade.php --}}
                         {{-- Si login es correcto lo redirige a resources/views/dashboard.blade.php  --}}
-                        <a href="{{ route('login') }}" class="pl-2">User<i class="fas fa-user"></i> </a>
+                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-user"></i> Iniciar Sesión</a>
                     </div>
-                    <div class="sign-box">
+
+                    {{-- <div class="sign-box">
                         <a href="{{ route('agent.login') }}" class="pl-2">Agent<i class="fas fa-user"></i> </a>
                     </div>
                     <div class="sign-box">
                         <a href="{{ route('admin.login') }}">Admin<i class="fas fa-user"> </i></a>
-                    </div>
+                    </div> --}}
+
                 @endauth
 
             </div>
@@ -90,7 +94,13 @@
                                 </li>
 
                                 {{-- Agente --}}
-                                <li class=""><a href="{{ url('/') }}"><span>Agente</span></a></li>
+                                <li class="dropdown">
+                                    <a href="#"><span>Agente</span></a>
+                                    <ul>
+                                        <li><a href="{{ route('agent.login') }}">Agente Login</a></li>
+                                        <li><a href="{{ route('admin.login') }}">Admin Login</a></li>
+                                    </ul>
+                                </li>
 
                                 {{-- Blog --}}
                                 <li class=""><a href="{{ url('/') }}"><span>Blog</span></a></li>

@@ -83,14 +83,14 @@
                 </div>
 
                 {{-- Usuarios Lista --}}
-                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                <a class="nav-link" data-bs-toggle="collapse" href="#usuarios" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Usuarios</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 {{-- Submenus - Lista, Añadir --}}
-                <div class="collapse" id="property">
+                <div class="collapse" id="usuarios">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('admin.all.users') }}" class="nav-link">Lista</a>

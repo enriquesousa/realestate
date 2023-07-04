@@ -23,8 +23,8 @@
                                 <tr>
                                     <th>Serie</th>
                                     <th>Nombre</th>
+                                    <th>Posición</th>
                                     <th>Imagen</th>
-                                    <th>Mensaje</th>
                                     <th>Acción</th>
                                 </tr>
 
@@ -36,7 +36,9 @@
                                 <tr>
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->position }}</td>
                                     <td><img src="{{ asset($item->image) }}" alt="" style="width:70px; height:40px;"></td>
+
                                     <td>
                                         <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
                                         <a href="{{ route('delete.state',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
