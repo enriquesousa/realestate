@@ -8430,9 +8430,104 @@ php artisan make:model BlogCategory -m
 Vamos a usar otra tecnica de una sola pagina para este CRUD
 Listo!
 ## 172. Advance Blog Category Setup Part 2
-Vamos a usar otra tecnica de una sola pagina para este CRUD
+Vamos a usar otra la tecnica de ventana modal para no salir de la pagina, para este CRUD
+utilizando JS que ay viene con nuestra plantilla en la pagina:
+```php
+/home/enrique/Sites/recursos/udemy/Laravel 10 - Build Real Estate Property Listing Project A-Z/Course+Excise+Files/Course Excise Files/Backend Theme/Main/pages/ui-components/modal.html 
+```
+Lauch Demo Modal
+```php
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> 
+```
+En resources/views/backend/category/blog_category.blade.php
+```php
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-inverse-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Añadir Categoría
+</button> 
+```
+Y al final de los div ponemos el codigo para la ventana modal en resources/views/backend/category/blog_category.blade.php
+```php
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir Categoría</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+            </div>
 
+            <div class="modal-body">
 
+                <form method="POST" action="{{ route('store.blog.category') }}" class="forms-sample">
+                @csrf
+
+                    {{-- Nombre Categoría Blog --}}
+                    <div class="form-group mb-3">
+                        <label for="category_name" class="form-label">Nombre</label>
+                        <input type="text" name="category_name" class="form-control">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div> 
+```
+En el controlador app/Http/Controllers/Backend/BlogController.php
+```php
+public function StoreBlogCategory(Request $request){
+
+    BlogCategory::insert([
+        'category_name' => $request->category_name,
+        'category_slug' => strtolower(str_replace(' ', '-', $request->category_name)),
+    ]);
+
+    $notification = array(
+        'message' => 'Categoría de Blog Creada con éxito!',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->route('all.blog.category')->with($notification);
+
+} 
+```
+Listo!
 ## 173. Advance Blog Category Setup Part 3
+
+
+
+
+
+
+
 ## 174. Advance Blog Category Setup Part 4
 
