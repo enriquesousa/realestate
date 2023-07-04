@@ -8413,9 +8413,8 @@ Listo!
 Implemente tambien el Seeder database/seeders/TestimonialsTableSeeder.php
 Listo!
 ## 169. Setup Testimonials from Admin Part 3
-
-
-
-
-
+Listo!
 ## 170. Setup Testimonials in Frontend
+
+
+

@@ -52,4 +52,81 @@ class TestimonialController extends Controller
         return redirect()->route('all.testimonials')->with($notification);
     }
 
+    // EditTestimonial
+    public function EditTestimonial($id){
+        $testimonial = Testimonial::findOrFail($id);
+        return view('backend.testimonials.edit_testimonial', compact('testimonial'));
+    }
+
+    // UpdateTestimonial
+    public function UpdateTestimonial(Request $request){
+
+        $testimonial_id = $request->id;
+
+        // Si hay imagen la salvamos
+        if ($request->file('image')) {
+
+            // Preparar imagen para guardarla
+            $image = $request->file('image');
+
+            //dd($request->image_original, $image); // "upload/testimonials/pt1.jpg" y $image="62.png" la nueva imagen
+            //regresa null si es la primera vez (si no hay foto)
+            if (!empty($request->image_original)) {
+                unlink(public_path($request->image_original)); // para borrar la imagen anterior
+            }
+
+            // Preparar imagen para guardarla
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension(); // crear un unique id para la imagen
+            Image::make($image)->resize(100, 100)->save('upload/testimonials/' . $name_gen);
+            $save_url = 'upload/testimonials/' . $name_gen;
+
+            Testimonial::findOrFail($testimonial_id)->update([
+                'name' => $request->name,
+                'position' => $request->position,
+                'message' => $request->message,
+                'image' => $save_url,
+            ]);
+
+            $notification = array(
+                'message' => 'Testimonial actualizado con éxito!',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.testimonials')->with($notification);
+
+        }else{
+
+            Testimonial::findOrFail($testimonial_id)->update([
+                'name' => $request->name,
+                'position' => $request->position,
+                'message' => $request->message,
+            ]);
+
+            $notification = array(
+                'message' => 'Testimonial actualizado con éxito!',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('all.testimonials')->with($notification);
+        }
+    }
+
+    // DeleteTestimonial
+    public function DeleteTestimonial($id){
+
+        $testimonial = Testimonial::findOrFail($id);
+        $image = $testimonial->image;
+        unlink($image);
+
+        Testimonial::findOrFail($id)->delete(); // eliminar el registro de la tabla
+
+        $notification = array(
+           'message' => 'Testimonio eliminado con éxito!',
+           'alert-type' => 'success'
+       );
+
+       return redirect()->route('all.testimonials')->with($notification);
+
+    }
+
 }
