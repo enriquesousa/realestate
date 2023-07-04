@@ -15,6 +15,8 @@ class PropertiesTableSeeder extends Seeder
     {
         DB::table('properties')->insert([
 
+
+
             // Propiedad 1 - para Agent 4
             [
                 'ptype_id' => '1',
@@ -151,6 +153,73 @@ class PropertiesTableSeeder extends Seeder
                 'created_at' => '2023-07-03 12:53:34',
             ],
 
+            // Propiedad 5 - para Agent 2 (Agent)
+            [
+                'ptype_id' => '1',
+                'amenities_id' => 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball',
+                'property_name' => 'Golf',
+                'property_slug' => 'golf',
+                'property_code' => 'PC005',
+                'property_status' => 'compra',
+                'lowest_price' => '18250000',
+                'max_price' => '18500000',
+                'property_thambnail' => 'upload/property/thambnail/p5t.png',
+                'short_descp' => 'Casa en venta chapultepec, tijuana, baja california 5 recámaras 5 baños 478 m tipo de vivienda: casa tipo de operación: venta superficie total: 408 m $ 18,000,000 mxn descripción casa en venta en una de las zonas más exclusivas y con ubicación privilegiada dentro del corazón de la ciudad de tijuana. esta propiedad ofrece un diseño con un concepto de unidad, espacios abiertos y luminosos que permiten la facilidad de convivencia e integración familiar, así como la funcionalidad de movilidad para personas que tengan dicha necesidad o adultos mayores.',
+                'long_descp' => '<p>Casa en venta chapultepec, tijuana, baja california 5 recámaras 5 baños 478 m tipo de vivienda: casa tipo de operación: venta superficie total: 408 m $ 18,000,000 mxn descripción casa en venta en una de las zonas más exclusivas y con ubicación privilegiada dentro del corazón de la ciudad de tijuana. esta propiedad ofrece un diseño con un concepto de unidad, espacios abiertos y luminosos que permiten la facilidad de convivencia e integración familiar, así como la funcionalidad de movilidad para personas que tengan dicha necesidad o adultos mayores. la casa consta de dos plantas, elevador para trasladarse al segundo piso, cuarto de visitas independiente con un baño completo, área de lavado y cuarto de servicio, espacios para almacenamiento en el interior y exterior. esta casa cuenta con espacios muy cómodos y excelentes acabados. planta baja. recibidor, sala, comedor con chimenea. cocina integral equipada. estudio. 1 recamara amplia con baño completo. planta alta 3 recámaras, dos baños completos así como un vestidor en la recámara principal. cuenta con un patio de tamaño mediano. instalaciones especiales como son: aire acondicionado paneles solares cisterna con una capacidad de 12 m3. sistema de purificación y tratamiento de agua. la casa cuenta con: terreno 408 m2 construcción 478 m2 se muestra previa cita. la casa se vende equipada y con el mobiliario mostrado en las fotografías. califica para venta de contado y crédito bancario. informes whatsapp</p>',
+                'bedrooms' => '4',
+                'bathrooms' => '3',
+                'garage' => '1',
+                'garage_size' => '155',
+                'property_size' => '650',
+                'property_video' => null,
+                'address' => 'Avenida Buenaventura 394 #394, Colonia Campo de Golf, C.P. 22020 ',
+                'city' => 'Tijuana',
+                'state' => '2',
+                'postal_code' => '22020',
+                'neighborhood' => 'Avenida Buenaventura',
+                'latitude' => '32.506417',
+                'longitude' => '-117.006866',
+                'google_map' => null,
+                'featured' => '1',
+                'hot' => '1',
+                'agent_id' => '2',
+                'status' => '1',
+                'created_at' => '2023-07-01 12:53:34',
+            ],
+
+            // Propiedad 6 - para Agent 2 (Agent)
+            [
+                'ptype_id' => '1',
+                'amenities_id' => 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball',
+                'property_name' => 'Cumbre Rubí',
+                'property_slug' => 'cumbre-rubi',
+                'property_code' => 'PC006',
+                'property_status' => 'compra',
+                'lowest_price' => '3250000',
+                'max_price' => '3380000',
+                'property_thambnail' => 'upload/property/thambnail/p6t.png',
+                'short_descp' => 'De la tierra 5424 tejamen 22635 tijuana b. ubicadas en tijuana b. en la colonia tejamen. amplias y modernas casas de 2 y 3 recamaras a 5 minutos de zona río y 10 minutos de la garita de san ysidro. privada con acceso controlado. solo 7 casa listas para habitar. entrega en mayo de 2022.',
+                'long_descp' => '<p>De la tierra 5424 tejamen 22635 tijuana b. ubicadas en tijuana b. en la colonia tejamen. amplias y modernas casas de 2 y 3 recamaras a 5 minutos de zona río y 10 minutos de la garita de san ysidro. privada con acceso controlado. solo 7 casa listas para habitar. entrega en mayo de 2022. acceso controlado portón y puerta peatonal eléctricos sistema de video vigilancia servicios subterráneos alumbrado público y área verde. ubicadas en calle san ramón de la tierra col. tejamen por blvd. cuauhtémoc sur a 100 metros del colegio juan bosco. se pide 10% de enganchepuede apartar con tan solo $20000 pesos!listas para entregarse! casa de 2 recamaras recamara principal con walkin closet sala comedor y cocina balcón en sala y recamara principal 3 niveles con garaje techado 1 baño completo y 2 medios baños área de lavado boiler y basura patio techado y espacio para asador superficie de 55 m2 de terreno y 117 m2 de construcción requisitos generales cumplir con la edad mínima de 25 y máxima de 65 años. mantener una relación laboral estable (más de un año). tener comprobantes de ingresos. disponer de un historial de crédito positivo. contar con documentación oficial para identificación personal y de domicilio contratar seguro de vida y de daños al inmueble. extranjeros acreditar residencia legal en méxico obtener autorización de la ser constitución de un fideicomiso o sociedad mexicana doble nacionalidad o compra con un familiar mexicano notaria y bancos1.- antecedente de propiedad plano (deslinde catastral) régimen de condominio terminación de obra (c4) *** avalúo libertad de gravámenes fiscales libertad de gravámenes rppc las imágenes mostradas pueden variar a las del producto original. los precios publicados están sujetos a cambio sin previo aviso. el precio publicado no incluye los gastos de escrituración. ¡te llevo a conocerla espero tu llamada!</p>',
+                'bedrooms' => '4',
+                'bathrooms' => '3',
+                'garage' => '1',
+                'garage_size' => '155',
+                'property_size' => '650',
+                'property_video' => null,
+                'address' => 'Cumbres del Rubí, Colonia Cumbres del Rubí, C.P. 22635',
+                'city' => 'Tijuana',
+                'state' => '2',
+                'postal_code' => '22635',
+                'neighborhood' => 'Cumbres del Rubí',
+                'latitude' => '32.484149',
+                'longitude' => '-117.022857',
+                'google_map' => null,
+                'featured' => '1',
+                'hot' => '1',
+                'agent_id' => '2',
+                'status' => '1',
+                'created_at' => '2023-07-01 12:53:34',
+            ],
 
 
          ]);

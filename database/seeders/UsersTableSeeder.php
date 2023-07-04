@@ -28,7 +28,8 @@ class UsersTableSeeder extends Seeder
                 'phone' => '(562) 456-6723',
                 'address' => 'SALAMANCA ESQ AV CANAL SN NO. S/N, CIUDAD INDUSTRIAL, 36541',
                 'photo' => 'admin.jpg',
-                'credit' => '1',
+                'credit' => '0',
+                'max_credit' => '0',
             ],
 
             // Agent (2)
@@ -42,7 +43,8 @@ class UsersTableSeeder extends Seeder
                 'phone' => '(555) 156-6734',
                 'address' => 'CARR. TAMPICO MANTE KM 11.5 SN, NIÑOS HEROES, 89359',
                 'photo' => 'agent.jpg',
-                'credit' => '1',
+                'credit' => '2',  // las casa que ya tengo asignadas con el seeder
+                'max_credit' => '4',
             ],
 
             // User (3)
@@ -57,6 +59,7 @@ class UsersTableSeeder extends Seeder
                 'address' => ' AV TEHUACAN SUR NO. 124, LA PAZ, 72160',
                 'photo' => 'user.jpg',
                 'credit' => '0',
+                'max_credit' => '0',
             ],
 
             // Agent - Shaniya Conroy - Agent (4)
@@ -71,6 +74,7 @@ class UsersTableSeeder extends Seeder
                 'address' => '20183 Gibson Fork Suite 809Beierfurt, AZ 99581-6291',
                 'photo' => 'agent4.jpg',
                 'credit' => '1',
+                'max_credit' => '1',
             ],
 
             // Julia Sandoval - Agent (5)
@@ -85,6 +89,7 @@ class UsersTableSeeder extends Seeder
                 'address' => 'Carrer Gallardo, 08, 2º E',
                 'photo' => 'agent5.jpg',
                 'credit' => '1',
+                'max_credit' => '1',
             ],
 
             // Anna R Stone - Agent (6)
@@ -99,6 +104,7 @@ class UsersTableSeeder extends Seeder
                 'address' => 'HERIBERTO FRIAS NO. 1404, CENTRO, 82000',
                 'photo' => 'agent6.jpg',
                 'credit' => '1',
+                'max_credit' => '1',
             ],
 
             // Robert M Edwards - Agent (7)
@@ -113,6 +119,7 @@ class UsersTableSeeder extends Seeder
                 'address' => '439 Arron Smith Drive',
                 'photo' => 'agent7.jpg',
                 'credit' => '1',
+                'max_credit' => '1',
             ],
 
             // Miranda S Bauer - User (8)
@@ -127,6 +134,7 @@ class UsersTableSeeder extends Seeder
                 'address' => '6 DE ABRIL PTE NO. 408, CIUDAD OBREGON CENTRO, 85000',
                 'photo' => 'user8.jpg',
                 'credit' => '0',
+                'max_credit' => '0',
             ],
 
             // Tracy J Martin - User (9)
@@ -141,6 +149,7 @@ class UsersTableSeeder extends Seeder
                 'address' => 'PORFIRIO DIAZ 321, REFORMA, 68050',
                 'photo' => 'user9.jpg',
                 'credit' => '0',
+                'max_credit' => '0',
             ],
 
             // Alex T Schmidt - User (10)
@@ -155,6 +164,7 @@ class UsersTableSeeder extends Seeder
                 'address' => 'RUFINO TAMAYO 26, ACAPATZINGO, 62440',
                 'photo' => 'user10.jpg',
                 'credit' => '0',
+                'max_credit' => '0',
             ],
 
 

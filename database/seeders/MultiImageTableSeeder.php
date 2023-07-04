@@ -99,6 +99,48 @@ class MultiImageTableSeeder extends Seeder
                 'photo_name' => 'upload/property/multi-image/m4p4.png',
             ],
 
+            // 4 Multi Image para Property 5
+            [
+                'property_id' => '5',
+                'photo_name' => 'upload/property/multi-image/m1p5.png',
+            ],
+
+            [
+                'property_id' => '5',
+                'photo_name' => 'upload/property/multi-image/m2p5.png',
+            ],
+
+            [
+                'property_id' => '5',
+                'photo_name' => 'upload/property/multi-image/m3p5.png',
+            ],
+
+            [
+                'property_id' => '5',
+                'photo_name' => 'upload/property/multi-image/m4p5.png',
+            ],
+
+            // 4 Multi Image para Property 6
+            [
+                'property_id' => '6',
+                'photo_name' => 'upload/property/multi-image/m1p6.png',
+            ],
+
+            [
+                'property_id' => '6',
+                'photo_name' => 'upload/property/multi-image/m2p6.png',
+            ],
+
+            [
+                'property_id' => '6',
+                'photo_name' => 'upload/property/multi-image/m3p6.png',
+            ],
+
+            [
+                'property_id' => '6',
+                'photo_name' => 'upload/property/multi-image/m4p6.png',
+            ],
+
 
          ]);
     }

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PropertiesTableSeeder::class);
         $this->call(MultiImageTableSeeder::class);
         $this->call(FacilitiesTableSeeder::class);
+        $this->call(PackagePlanTableSeeder::class);
 
         // \App\Models\User::factory(5)->create();
 
