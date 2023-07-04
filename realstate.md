@@ -8410,13 +8410,12 @@ Y perdi todos los datos!
 Ya crie todos los seeders necesarios para regenerar la base de datos!
 Listo!
 ## 168. Setup Testimonials from Admin Part 2
-
-
-
-
-
-
-
-
+Implemente tambien el Seeder database/seeders/TestimonialsTableSeeder.php
+Listo!
 ## 169. Setup Testimonials from Admin Part 3
+
+
+
+
+
 ## 170. Setup Testimonials in Frontend

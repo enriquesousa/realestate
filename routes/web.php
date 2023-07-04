@@ -220,8 +220,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(TestimonialController::class)->group(function () {
 
         Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials');
-        Route::get('/add/state', 'AddState')->name('add.state');
-        Route::post('/store/state', 'StoreState')->name('store.state');
+        Route::get('/add/testimonial', 'AddTestimonial')->name('add.testimonial');
+        Route::post('/store/testimonial', 'StoreTestimonial')->name('store.testimonial');
         Route::get('/edit/state/{id}', 'EditState')->name('edit.state');
         Route::post('/update/state', 'UpdateState')->name('update.state');
         Route::get('/delete/state/{id}', 'DeleteState')->name('delete.state');
