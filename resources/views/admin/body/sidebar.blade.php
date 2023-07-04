@@ -96,7 +96,7 @@
                             <a href="{{ route('admin.all.users') }}" class="nav-link">Lista</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.property') }}" class="nav-link">Añadir</a>
+                            <a href="#" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>
