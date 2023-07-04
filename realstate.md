@@ -8419,14 +8419,20 @@ Listo!
 
 # Sección 34 - Admin Blog Category Setup
 ## 171. Advance Blog Category Setup Part 1
-
-
-
-
-
-
-
+Crear otro controlador
+```php
+php artisan make:controller Backend/BlogController 
+```
+Y Crear modelo y tabla de migracion
+```php
+php artisan make:model BlogCategory -m 
+```
+Vamos a usar otra tecnica de una sola pagina para este CRUD
+Listo!
 ## 172. Advance Blog Category Setup Part 2
+Vamos a usar otra tecnica de una sola pagina para este CRUD
+
+
 ## 173. Advance Blog Category Setup Part 3
 ## 174. Advance Blog Category Setup Part 4
 

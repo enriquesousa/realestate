@@ -213,6 +213,23 @@
                 </div>
             </li>
 
+            {{-- Blog Categorías --}}
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#blogCategory" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="bold"></i>
+                    <span class="link-title">Categorías Blog</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="blogCategory">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('all.blog.category') }}" class="nav-link">Todas las Categorías</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
             {{-- Advanced UI --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
