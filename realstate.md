@@ -8522,12 +8522,29 @@ public function StoreBlogCategory(Request $request){
 ```
 Listo!
 ## 173. Advance Blog Category Setup Part 3
-
-
-
-
-
-
-
+En resources/views/backend/category/blog_category.blade.php
+```php
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#catEdit"
+    id="{{ $item->id }}" onclick="categoryEdit(this.id)">
+    Editar
+</button> 
+```
+En routes/web.php
+```php
+Route::get('/blog/category/{id}', 'EditBlogCategory'); 
+```
+En app/Http/Controllers/Backend/BlogController.php
+```php
+public function EditBlogCategory($id){
+    $categories = BlogCategory::findOrFail($id);
+    return response()->json($categories);
+} 
+```
+Listo!
 ## 174. Advance Blog Category Setup Part 4
+
+
+
+
 
