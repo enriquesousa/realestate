@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\BlogCategory;
+use App\Models\BlogPost;
+
 use App\Models\User;
+use Intervention\Image\Facades\Image;
+
 use Carbon\Carbon;
 
 
@@ -74,4 +78,14 @@ class BlogController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    /* Para CRUD de los Post en Admin */
+
+    // AllPost
+    public function AllPost(){
+        $post = BlogPost::latest()->get();
+        return view('backend.post.all_post', compact('post'));
+    }
+
+
 }

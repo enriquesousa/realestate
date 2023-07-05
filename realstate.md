@@ -8590,10 +8590,36 @@ Listo!
 
 # Sección 35 - Admin Blog Management Setup
 ## 175. Blog Post Setup Part 1
+Crear otro modelo para Post 
+```php
+php artisan make:model BlogPost -m 
+```
+En database/migrations/2023_07_05_092842_create_blog_posts_table.php
+```php
+Schema::create('blog_posts', function (Blueprint $table) {
+    $table->id();
 
+    $table->integer('blogcat_id');
+    $table->integer('user_id')->nullable();
+    $table->string('post_title')->nullable();
+    $table->string('post_slug')->nullable();
+    $table->string('post_image')->nullable();
+    $table->text('short_descp')->nullable();
+    $table->text('long_descp')->nullable();
+    $table->string('post_tags')->nullable();
 
-
+    $table->timestamps();
+}); 
+```
+Migrar
+```php
+php artisan migrate 
+```
+Listo!
 ## 176. Blog Post Setup Part 2
+
+
+
 ## 177. Blog Post Setup Part 3
 ## 178. Blog Post Setup Part 4
 
