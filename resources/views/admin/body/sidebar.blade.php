@@ -248,7 +248,7 @@
 
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.blog.category') }}" class="nav-link">Añadir Post</a>
+                            <a href="{{ route('add.post') }}" class="nav-link">Añadir Post</a>
                         </li>
                     </ul>
 
