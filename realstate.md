@@ -235,10 +235,10 @@ Kazi Ariyan
 ## 174. Advance Blog Category Setup Part 4
 
 # Sección 35 - Admin Blog Management Setup
-- 175. Blog Post Setup Part 1
-- 176. Blog Post Setup Part 2
-- 177. Blog Post Setup Part 3
-- 178. Blog Post Setup Part 4
+## 175. Blog Post Setup Part 1
+## 176. Blog Post Setup Part 2
+## 177. Blog Post Setup Part 3
+## 178. Blog Post Setup Part 4
 
 # Sección 36 - Show Blog In Front Page
 - 179. Show Blog in Frontend Page Part 1
@@ -8543,8 +8543,57 @@ public function EditBlogCategory($id){
 ```
 Listo!
 ## 174. Advance Blog Category Setup Part 4
+En resources/views/backend/category/blog_category.blade.php
+```php
+<a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a> 
+```
+Update y Delete en routes/web.php
+```php
+Route::post('/update/blog/category', 'UpdateBlogCategory')->name('update.blog.category');
+Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category'); 
+```
+En app/Http/Controllers/Backend/BlogController.php
+```php
+// UpdateBlogCategory
+public function UpdateBlogCategory(Request $request){
+
+    $cat_id = $request->cat_id;
+
+    BlogCategory::findOrFail($cat_id)->update([
+        'category_name' => $request->category_name,
+        'category_slug' => strtolower(str_replace(' ', '-', $request->category_name)),
+    ]);
+
+    $notification = array(
+        'message' => 'Categoría de Blog Actualizada con éxito!',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->route('all.blog.category')->with($notification);
+
+}
+
+// DeleteBlogCategory
+public function DeleteBlogCategory($id){
+
+    BlogCategory::findOrFail($id)->delete(); // eliminar el registro de la tabla
+
+    $notification = array(
+        'message' => 'Categoría de Blog eliminada con éxito!',
+        'alert-type' => 'success'
+    );
+
+    return redirect()->back()->with($notification);
+} 
+```
+Listo!
+
+# Sección 35 - Admin Blog Management Setup
+## 175. Blog Post Setup Part 1
 
 
 
-
+## 176. Blog Post Setup Part 2
+## 177. Blog Post Setup Part 3
+## 178. Blog Post Setup Part 4
 

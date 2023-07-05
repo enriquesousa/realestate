@@ -50,7 +50,8 @@
                                         </button>
 
 
-                                        <a href="{{ route('delete.amenities',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+                                        <a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -109,7 +110,7 @@
 
             <div class="modal-body">
 
-                <form method="POST" action="{{ route('store.blog.category') }}" class="forms-sample">
+                <form method="POST" action="{{ route('update.blog.category') }}" class="forms-sample">
                 @csrf
 
                     <input type="hidden" name="cat_id" id="cat_id">

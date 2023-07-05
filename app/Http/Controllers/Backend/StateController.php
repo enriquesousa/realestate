@@ -104,16 +104,17 @@ class StateController extends Controller
     }
 
     // DeleteState
-    public function DeleteState($id){
+    public function DeleteState($id)
+    {
 
-         // Encontrar el registro en la tabla 'states' y eliminarlo con todo y foto de thumbnail
-         $state = State::findOrFail($id);
-         $image = $state->state_image;
-         unlink($image);
+        // Encontrar el registro en la tabla 'states' y eliminarlo con todo y foto de thumbnail
+        $state = State::findOrFail($id);
+        $image = $state->state_image;
+        unlink($image);
 
-         State::findOrFail($id)->delete(); // eliminar el registro de la tabla
+        State::findOrFail($id)->delete(); // eliminar el registro de la tabla
 
-         $notification = array(
+        $notification = array(
             'message' => 'Estado eliminado con éxito!',
             'alert-type' => 'success'
         );
