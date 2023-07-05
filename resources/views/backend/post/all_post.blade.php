@@ -45,8 +45,8 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.state',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+                                        <a href="{{ route('edit.post',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        <a href="{{ route('delete.post',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
                                     </td>
                                 </tr>
                                 @endforeach

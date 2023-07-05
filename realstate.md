@@ -241,9 +241,9 @@ Kazi Ariyan
 ## 178. Blog Post Setup Part 4
 
 # Sección 36 - Show Blog In Front Page
-- 179. Show Blog in Frontend Page Part 1
-- 180. Show Blog in Frontend Page Part 2
-- 181. Show Blog in Frontend Page Part 3
+## 179. Show Blog in Frontend Page Part 1
+## 180. Show Blog in Frontend Page Part 2
+## 181. Show Blog in Frontend Page Part 3
 
 # Sección 37 - Category Wise Blog List Page
 - 182. Show Blog Category List Page
@@ -8621,4 +8621,10 @@ Listo!
 ## 177. Blog Post Setup Part 3
 Listo!
 ## 178. Blog Post Setup Part 4
+Listo!
 
+# Sección 36 - Show Blog In Front Page
+## 179. Show Blog in Frontend Page Part 1
+
+## 180. Show Blog in Frontend Page Part 2
+## 181. Show Blog in Frontend Page Part 3
