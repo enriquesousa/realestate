@@ -8617,9 +8617,8 @@ php artisan migrate
 ```
 Listo!
 ## 176. Blog Post Setup Part 2
-
-
-
+Listo!
 ## 177. Blog Post Setup Part 3
+Listo!
 ## 178. Blog Post Setup Part 4
 

@@ -18,7 +18,7 @@
 
                         <h6 class="card-title">Añadir un Post</h6>
 
-                        <form method="POST" action="{{ route('store.state') }}" class="forms-sample" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('store.post') }}" class="forms-sample" enctype="multipart/form-data">
                         @csrf
 
 
@@ -28,7 +28,10 @@
                                 <div class="col-sm-6">
                                     <div class="form-group mb-3">
                                         <label class="form-label text-warning">Titulo</label>
-                                        <input type="text" name="post_title" class="form-control">
+                                        <input type="text" name="post_title" class="form-control @error('post_title') is-invalid @enderror">
+                                        @error('post_title')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div><!-- Col -->
 
