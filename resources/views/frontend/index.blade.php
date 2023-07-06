@@ -27,13 +27,13 @@
 <!-- place-section -->
 @include('frontend.home.place')
 
-<!-- team-section -->
+<!-- team-section AGENTES -->
 @include('frontend.home.team')
 
 <!-- cta-section -->
 @include('frontend.home.cta')
 
-<!-- news-section -->
+<!-- news-section BLOG -->
 @include('frontend.home.news')
 
 
