@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PackagePlanTableSeeder::class);
         $this->call(TestimonialsTableSeeder::class);
         $this->call(BlogCategoriesTableSeeder::class);
+        $this->call(BlogPostTableSeeder::class);
 
 
         // \App\Models\User::factory(5)->create();

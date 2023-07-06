@@ -8626,5 +8626,7 @@ Listo!
 # Sección 36 - Show Blog In Front Page
 ## 179. Show Blog in Frontend Page Part 1
 
+
+
 ## 180. Show Blog in Frontend Page Part 2
 ## 181. Show Blog in Frontend Page Part 3

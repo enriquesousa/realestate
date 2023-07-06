@@ -15,7 +15,7 @@ class BlogCategoriesTableSeeder extends Seeder
     {
         DB::table('blog_categories')->insert([
 
-            // Blog Category 1
+            // Blog Category 1 id=1
             [
                 'category_name' => 'Bienes inmuebles',
                 'category_slug' => 'bienes-inmuebles',
@@ -37,6 +37,12 @@ class BlogCategoriesTableSeeder extends Seeder
             [
                 'category_name' => 'Mejora del Hogar',
                 'category_slug' => 'mejora-del-hogar',
+            ],
+
+             // Blog Category 5 id=5
+             [
+                'category_name' => 'Estados',
+                'category_slug' => 'estados',
             ],
 
          ]);
