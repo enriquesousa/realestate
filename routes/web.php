@@ -87,7 +87,8 @@ Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
 Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
 // Blog List - llamado de resources/views/frontend/home/header.blade.php
 Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog.list');
-
+// Blog Almacenar comentario - llamado de resources/views/frontend/blog/blog_details.blade.php
+Route::post('/store/comment', [BlogController::class, 'StoreComment'])->name('store.comment');
 
 
 

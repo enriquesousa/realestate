@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('parent_id')->unsinged()->nullable();
             $table->text('subject');
             $table->text('message');
+            $table->boolean('aprobado');
 
             $table->timestamps();
         });

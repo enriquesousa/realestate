@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
+use App\Models\Comment;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -247,5 +248,28 @@ class BlogController extends Controller
 
         return view('frontend.blog.blog_list', compact('blog','blog_categories','recent_posts'));
     }
+
+    // StoreComment
+    public function StoreComment(Request $request){
+
+        $pid = $request->post_id;
+
+        Comment::insert([
+                    'user_id' => Auth::user()->id,
+                    'post_id' => $pid,
+                    'parent_id' => null,
+                    'subject' => $request->subject,
+                    'message' => $request->message,
+                    'aprobado' => false, // default false hasta que apruebe el Administrator
+                    'created_at' => Carbon::now(),
+                ]);
+
+        $notification = array(
+            'message' => 'Comentario agregado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 
 }

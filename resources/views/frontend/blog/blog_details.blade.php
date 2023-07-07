@@ -2,6 +2,10 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+@php
+    Config::set('custom.display_preload', false)
+@endphp
+
  <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">
     <div class="pattern-layer">
@@ -129,7 +133,11 @@
 
                         {{-- si el user esta login podemos mostrar la forma para dejar comentario --}}
                         @auth
-                            <form action="blog-details.html" method="post" class="comment-form default-form">
+                            <form action="{{ route('store.comment') }}" method="post" class="comment-form default-form">
+                            @csrf
+
+                                <input type="hidden" name="post_id" value="{{ $blog->id }}">
+
                                 <div class="row">
 
                                     {{-- Subject --}}
@@ -147,6 +155,7 @@
                                     </div>
 
                                 </div>
+
                             </form>
                         @else
                             <p><b>Para dejar un comentario primero tienes que iniciar sesión:  <a class="ml-2" href="{{ route('login') }}">Iniciar Sesión aquí</a></b></p>
