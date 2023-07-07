@@ -78,11 +78,17 @@ Route::post('/rent/property/search', [IndexController::class, 'RentPropertySearc
 // All Property Search Option para formulario en resources/views/frontend/property/rent_property.blade.php, para buscar propiedades
 Route::post('/all/property/search', [IndexController::class, 'AllPropertySearch'])->name('all.property.search');
 
+
+/* Blog Rutas */
+
 // Blog Details - Ver Detalles de Artículos y Noticias, llamado de resources/views/frontend/home/news.blade.php
 Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
-
 // Blog Details - Lista por categoría, llamado de resources/views/frontend/blog/blog_details.blade.php
 Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
+// Blog List - llamado de resources/views/frontend/home/header.blade.php
+Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog.list');
+
+
 
 
 

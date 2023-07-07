@@ -103,7 +103,7 @@
                                 </li>
 
                                 {{-- Blog --}}
-                                <li class=""><a href="{{ url('/') }}"><span>Blog</span></a></li>
+                                <li class=""><a href="{{ route('blog.list') }}"><span>Blog</span></a></li>
 
                                 {{-- Contact --}}
                                 <li><a href="#"><span>Contáctanos</span></a></li>

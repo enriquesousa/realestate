@@ -8635,6 +8635,7 @@ Listo!
 ## 182. Show Blog Category List Page
 Listo!
 ## 183. Show Blog List Page
+Listo!
 
 # Sección 38 - Blog Comment Function Frontend Page
 ## 184. Show Blog Comment in Frontend Page Part 1

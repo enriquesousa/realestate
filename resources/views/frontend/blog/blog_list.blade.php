@@ -10,10 +10,10 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>{{ $categoría->category_name }}</h1>
+            <h1>Blogs</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ route('casa') }}">Inicio</a></li>
-                <li>Listo de Blog por Categoría</li>
+                <li>Blogs</li>
             </ul>
         </div>
     </div>
@@ -72,15 +72,6 @@
                     <div class="pagination-wrapper">
                         {{ $blog->links('vendor.pagination.custom') }}
                     </div>
-
-                    {{-- <div class="pagination-wrapper">
-                        <ul class="pagination clearfix">
-                            <li><a href="blog-1.html" class="current">1</a></li>
-                            <li><a href="blog-1.html">2</a></li>
-                            <li><a href="blog-1.html">3</a></li>
-                            <li><a href="blog-1.html"><i class="fas fa-angle-right"></i></a></li>
-                        </ul>
-                    </div> --}}
 
                 </div>
 

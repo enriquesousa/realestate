@@ -215,7 +215,6 @@ class BlogController extends Controller
        return redirect()->back()->with($notification);
     }
 
-
     // BlogDetails
     public function BlogDetails($slug){
 
@@ -230,17 +229,23 @@ class BlogController extends Controller
         return view('frontend.blog.blog_details', compact('blog','all_tags','blog_categories','recent_posts'));
     }
 
-
     // BlogCatList
     public function BlogCatList($id){
-
         $blog = BlogPost::where('blogcat_id',$id)->paginate(4); //get all
         $categoría = BlogCategory::where('id',$id)->first();
-
         $blog_categories = BlogCategory::latest()->get();
         $recent_posts = BlogPost::latest()->limit(3)->get();
 
         return view('frontend.blog.blog_cat_list', compact('blog','categoría','blog_categories','recent_posts'));
+    }
+
+    // BlogList
+    public function BlogList(){
+        $blog = BlogPost::latest()->paginate(4); //get all
+        $blog_categories = BlogCategory::latest()->get();
+        $recent_posts = BlogPost::latest()->limit(3)->get();
+
+        return view('frontend.blog.blog_list', compact('blog','blog_categories','recent_posts'));
     }
 
 }
