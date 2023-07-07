@@ -271,5 +271,10 @@ class BlogController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // AdminBlogComments
+    public function AdminBlogComments(){
+        $comments = Comment::where('parent_id', null)->latest()->get();
+        return view('backend.comment.comment_all', compact('comments'));
+    }
 
 }

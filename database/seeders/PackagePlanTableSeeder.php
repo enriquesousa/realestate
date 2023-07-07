@@ -22,6 +22,7 @@ class PackagePlanTableSeeder extends Seeder
                 'invoice' => 'ERS76104096',
                 'package_credits' => '3',
                 'package_amount' => '20.00',
+                'created_at' => '2023-07-06 07:56:20',
             ],
 
 

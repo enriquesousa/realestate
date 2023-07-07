@@ -142,12 +142,12 @@
 
                                     {{-- Subject --}}
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="subject" placeholder="Subject" required="">
+                                        <input type="text" name="subject" placeholder="Tema" required="">
                                     </div>
 
                                     {{-- Your message --}}
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <textarea name="message" placeholder="Your message"></textarea>
+                                        <textarea name="message" placeholder="Tu mensaje"></textarea>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
