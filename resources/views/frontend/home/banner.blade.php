@@ -7,6 +7,8 @@
 
 @endphp
 
+{{-- Banner para fotos oficiales:  asset('frontend/assets/images/banner/banner-fo.jpg') --}}
+{{-- Banner para Inmuebles:  asset('frontend/assets/images/banner/banner-1.jpg') --}}
 <!-- banner-section -->
 <section class="banner-section" style="background-image: url({{ asset('frontend/assets/images/banner/banner-1.jpg') }});">
     <div class="auto-container">

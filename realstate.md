@@ -254,9 +254,9 @@ Kazi Ariyan
 ## 185. Show Blog Comment in Frontend Page Part 2
 
 # Sección 39 - Blog Comment Function Backend With Replay
-- 186. Comment Function Backend With Replay Part 1
-- 187. Comment Function Backend With Replay Part 2
-- 188. Comment Function Backend With Replay Part 3
+## 186. Comment Function Backend With Replay Part 1
+## 187. Comment Function Backend With Replay Part 2
+## 188. Comment Function Backend With Replay Part 3
 
 # Sección 40 - Schedule a Tour Setup for Property
 - 189. Property Schedule a Tour Setup Part 1
@@ -8642,3 +8642,9 @@ Listo!
 Listo!
 ## 185. Show Blog Comment in Frontend Page Part 2
 Listo!
+
+# Sección 39 - Blog Comment Function Backend With Replay
+## 186. Comment Function Backend With Replay Part 1
+
+## 187. Comment Function Backend With Replay Part 2
+## 188. Comment Function Backend With Replay Part 3

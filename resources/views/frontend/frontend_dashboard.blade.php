@@ -50,6 +50,7 @@
         <!-- preloader -->
         @if (Config::get('custom.display_preload'))
             @include('frontend.home.preload_inmuebles')
+            {{-- @include('frontend.home.preload_fotos') --}}
         @endif
 
         <!-- main header -->
