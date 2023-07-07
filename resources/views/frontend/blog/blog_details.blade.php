@@ -122,31 +122,36 @@
 
                     {{-- Dejar un Comentario --}}
                     <div class="comments-form-area">
+
                         <div class="group-title">
-                            <h4>Leave a Comment</h4>
+                            <h4>Dejar un comentario</h4>
                         </div>
-                        <form action="blog-details.html" method="post" class="comment-form default-form">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="name" placeholder="Your name" required="">
+
+                        {{-- si el user esta login podemos mostrar la forma para dejar comentario --}}
+                        @auth
+                            <form action="blog-details.html" method="post" class="comment-form default-form">
+                                <div class="row">
+
+                                    {{-- Subject --}}
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <input type="text" name="subject" placeholder="Subject" required="">
+                                    </div>
+
+                                    {{-- Your message --}}
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <textarea name="message" placeholder="Your message"></textarea>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                        <button type="submit" class="theme-btn btn-one">Mandar ahora</button>
+                                    </div>
+
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="email" name="email" placeholder="Your email" required>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="phone" placeholder="Phone number" required="">
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
-                                    <input type="text" name="subject" placeholder="Subject" required="">
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                    <textarea name="message" placeholder="Your message"></textarea>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
-                                    <button type="submit" class="theme-btn btn-one">Submit Now</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        @else
+                            <p><b>Para dejar un comentario primero tienes que iniciar sesión:  <a class="ml-2" href="{{ route('login') }}">Iniciar Sesión aquí</a></b></p>
+                        @endauth
+
                     </div>
 
                 </div>
