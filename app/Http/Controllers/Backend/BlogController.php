@@ -218,8 +218,17 @@ class BlogController extends Controller
 
     // BlogDetails
     public function BlogDetails($slug){
+
         $blog = BlogPost::where('post_slug',$slug)->first();
-        return view('frontend.blog.blog_details', compact('blog'));
+
+        $tags = $blog->post_tags;
+        $all_tags = explode(',', $tags);
+
+        $blog_categories = BlogCategory::latest()->get();
+
+        $recent_posts = BlogPost::latest()->limit(3)->get();
+
+        return view('frontend.blog.blog_details', compact('blog','all_tags','blog_categories','recent_posts'));
     }
 
 

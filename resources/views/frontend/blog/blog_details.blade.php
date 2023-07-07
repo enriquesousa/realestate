@@ -56,9 +56,10 @@
                                 <div class="post-tags">
                                     <ul class="tags-list clearfix">
                                         <li><h5>Tags:</h5></li>
-                                        <li><a href="blog-details.html">Real Estate</a></li>
-                                        <li><a href="blog-details.html">Interior</a></li>
-                                        <li><a href="blog-details.html">Rent Home</a></li>
+                                        @foreach ($all_tags as $tag)
+                                            <li><a href="#">{{ ucwords($tag) }}</a></li>
+                                        @endforeach
+                                        {{-- ucwords() funcion de php que capitaliza la primer letra --}}
                                     </ul>
                                 </div>
                             </div>
@@ -119,7 +120,7 @@
                         </div>
                     </div>
 
-                    {{-- Dejarm un Comentario --}}
+                    {{-- Dejar un Comentario --}}
                     <div class="comments-form-area">
                         <div class="group-title">
                             <h4>Leave a Comment</h4>
@@ -155,6 +156,8 @@
             {{-- Segunda Columna --}}
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                 <div class="blog-sidebar">
+
+                    {{-- Search --}}
                     <div class="sidebar-widget search-widget">
                         <div class="widget-title">
                             <h4>Search</h4>
@@ -168,6 +171,8 @@
                             </form>
                         </div>
                     </div>
+
+                    {{-- Follow Us On facebook, google, twitter etc.. --}}
                     <div class="sidebar-widget social-widget">
                         <div class="widget-title">
                             <h4>Follow Us On</h4>
@@ -180,72 +185,43 @@
                             <li><a href="blog-1.html"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
+
+                    {{-- Category --}}
                     <div class="sidebar-widget category-widget">
                         <div class="widget-title">
                             <h4>Category</h4>
                         </div>
                         <div class="widget-content">
                             <ul class="category-list clearfix">
-                                <li><a href="blog-details.html">Home improvement<span>(9)</span></a></li>
-                                <li><a href="blog-details.html">Architecture<span>(5)</span></a></li>
-                                <li><a href="blog-details.html">Tips and advice<span>(2)</span></a></li>
-                                <li><a href="blog-details.html">Interior<span>(7)</span></a></li>
-                                <li><a href="blog-details.html">Real Estate<span>(3)</span></a></li>
+                                @foreach ($blog_categories as $item)
+                                    @php
+                                        $cat_id = \App\Models\BlogPost::where('blogcat_id',$item->id)->get();
+                                    @endphp
+                                    <li><a href="blog-details.html">{{ $item->category_name }}<span>({{ count($cat_id) }})</span></a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
+
+                    {{-- Recent Posts --}}
                     <div class="sidebar-widget post-widget">
                         <div class="widget-title">
                             <h4>Recent Posts</h4>
                         </div>
                         <div class="post-inner">
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/news/post-1.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">Best interior design idea for your home.</a></h5>
-                                <span class="post-date">April 10, 2020</span>
-                            </div>
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/news/post-2.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">A digital prescription for the industry.</a></h5>
-                                <span class="post-date">April 09, 2020</span>
-                            </div>
-                            <div class="post">
-                                <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/news/post-3.jpg" alt=""></a></figure>
-                                <h5><a href="blog-details.html">Strategic & commercial approach with issues.</a></h5>
-                                <span class="post-date">April 08, 2020</span>
-                            </div>
+
+                            @foreach ($recent_posts as $item)
+                                <div class="post">
+                                    <figure class="post-thumb"><a href="#"><img src="{{ asset($item->post_image) }}" alt=""></a></figure>
+                                    <h5><a href="#">{{ $item->post_title }}</a></h5>
+                                    <span class="post-date">{{ $item->created_at->format('d M Y') }}</span>
+                                </div>
+                            @endforeach
+
                         </div>
                     </div>
-                    <div class="sidebar-widget category-widget">
-                        <div class="widget-title">
-                            <h4>Archives</h4>
-                        </div>
-                        <div class="widget-content">
-                            <ul class="category-list clearfix">
-                                <li><a href="blog-details.html">November 2016<span>(9)</span></a></li>
-                                <li><a href="blog-details.html">November 2017<span>(5)</span></a></li>
-                                <li><a href="blog-details.html">November 2018<span>(2)</span></a></li>
-                                <li><a href="blog-details.html">November 2019<span>(7)</span></a></li>
-                                <li><a href="blog-details.html">November 2020<span>(3)</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget tags-widget">
-                        <div class="widget-title">
-                            <h4>Popular Tags</h4>
-                        </div>
-                        <div class="widget-content">
-                            <ul class="tags-list clearfix">
-                                <li><a href="blog-details.html">Real Estate</a></li>
-                                <li><a href="blog-details.html">HouseHunting</a></li>
-                                <li><a href="blog-details.html">Architecture</a></li>
-                                <li><a href="blog-details.html">Interior</a></li>
-                                <li><a href="blog-details.html">Sale</a></li>
-                                <li><a href="blog-details.html">Rent Home</a></li>
-                                <li><a href="blog-details.html">Listing</a></li>
-                            </ul>
-                        </div>
-                    </div>
+
+
                 </div>
             </div>
 
