@@ -81,6 +81,8 @@ Route::post('/all/property/search', [IndexController::class, 'AllPropertySearch'
 // Blog Details - Ver Detalles de Artículos y Noticias, llamado de resources/views/frontend/home/news.blade.php
 Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
 
+// Blog Details - Lista por categoría, llamado de resources/views/frontend/blog/blog_details.blade.php
+Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
 
 
 

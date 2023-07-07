@@ -8633,8 +8633,9 @@ Listo!
 
 # Sección 37 - Category Wise Blog List Page
 ## 182. Show Blog Category List Page
-
+Listo!
 ## 183. Show Blog List Page
+
 # Sección 38 - Blog Comment Function Frontend Page
 ## 184. Show Blog Comment in Frontend Page Part 1
 ## 185. Show Blog Comment in Frontend Page Part 2
