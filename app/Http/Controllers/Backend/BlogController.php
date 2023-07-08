@@ -277,4 +277,49 @@ class BlogController extends Controller
         return view('backend.comment.comment_all', compact('comments'));
     }
 
+    // AdminCommentReply
+    public function AdminCommentReply($id){
+        $comment = Comment::where('id', $id)->first();
+        return view('backend.comment.comment_reply', compact('comment'));
+    }
+
+    // ReplyMessage
+    public function ReplyMessage(Request $request){
+
+        $id = $request->id;
+        $user_id = $request->user_id;
+        $post_id = $request->post_id;
+
+        if ($request->aprobar == 'si') {
+            $aprobado = true;
+        } else {
+            $aprobado = false;
+        }
+
+        // dd($request->aprobar);
+
+        Comment::insert([
+            'user_id' => $user_id,
+            'post_id' => $post_id,
+            'parent_id' => $id,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'aprobado' => $aprobado,
+            'created_at' => Carbon::now(),
+        ]);
+
+        // Guardar la bandera de $aprobado a registro padre $id
+        Comment::where('id', $id)->update([
+            'aprobado' => $aprobado,
+        ]);
+
+
+        $notification = array(
+            'message' => 'Contestación agregada con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
+    }
+
 }

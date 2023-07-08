@@ -91,6 +91,10 @@ Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog.list');
 Route::post('/store/comment', [BlogController::class, 'StoreComment'])->name('store.comment');
 // Blog Comments - llamado de resources/views/admin/body/sidebar.blade.php
 Route::get('/admin/blog/comments', [BlogController::class, 'AdminBlogComments'])->name('admin.blog.comments');
+// Blog Comment Reply - llamado de resources/views/backend/comment/comment_all.blade.php
+Route::get('/admin/comment/reply/{id}', [BlogController::class, 'AdminCommentReply'])->name('admin.comment.reply');
+// Blog Replay Message - llamado de resources/views/backend/comment/comment_reply.blade.php
+Route::post('/reply/message', [BlogController::class, 'ReplyMessage'])->name('reply.message');
 
 
 
