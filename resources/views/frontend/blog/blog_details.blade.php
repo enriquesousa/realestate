@@ -70,57 +70,71 @@
                         </div>
                     </div>
 
+
+                    @php
+                        $comment = App\Models\Comment::where('post_id', $blog->id)->where('parent_id', null)->limit(5)->get();
+                    @endphp
+
                     {{-- Area de Comentarios --}}
                     <div class="comments-area">
+
+                        {{-- Numero de Comentarios --}}
                         <div class="group-title">
                             <h4>3 Comments</h4>
                         </div>
+
+                        {{-- Comentarios --}}
                         <div class="comment-box">
-                            <div class="comment">
-                                <figure class="thumb-box">
-                                    <img src="assets/images/news/comment-1.jpg" alt="">
-                                </figure>
-                                <div class="comment-inner">
-                                    <div class="comment-info clearfix">
-                                        <h5>Rebeka Dawson</h5>
-                                        <span>April 10, 2020</span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nos trud exerc.</p>
-                                        <a href="blog-details.html"><i class="fas fa-share"></i>Reply</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comment replay-comment">
-                                <figure class="thumb-box">
-                                    <img src="assets/images/news/comment-2.jpg" alt="">
-                                </figure>
-                                <div class="comment-inner">
-                                    <div class="comment-info clearfix">
-                                        <h5>Elizabeth Winstead</h5>
-                                        <span>April 10, 2020</span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nos</p>
-                                        <a href="blog-details.html"><i class="fas fa-share"></i>Reply</a>
+
+
+                            @foreach ($comment as $item)
+
+                                {{-- Comentario --}}
+                                <div class="comment">
+                                    <figure class="thumb-box">
+                                        <img src="{{ (!empty($item->user->photo)) ? url('upload/user_images/'.$item->user->photo) : url('upload/no_image.jpg') }}" alt="">
+                                    </figure>
+                                    <div class="comment-inner">
+                                        <div class="comment-info clearfix">
+                                            <h5>{{ $item->user->name }}</h5>
+                                            <span>{{ $item->created_at->format('d M Y') }}</span>
+                                        </div>
+                                        <div class="text">
+                                            <h6>{{ $item->subject }}</h6>
+                                            <p>{{ $item->message }}</p>
+                                            <a href="blog-details.html"><i class="fas fa-share"></i>Responder</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="comment">
-                                <figure class="thumb-box">
-                                    <img src="assets/images/news/comment-3.jpg" alt="">
-                                </figure>
-                                <div class="comment-inner">
-                                    <div class="comment-info clearfix">
-                                        <h5>Benedict Cumbatch</h5>
-                                        <span>April 10, 2020</span>
+
+                                @php
+                                    $reply = App\Models\Comment::where('parent_id', $item->id)->get();
+                                @endphp
+
+                                @foreach ($reply as $rep)
+
+                                    {{-- Respuesta a Comentario --}}
+                                    <div class="comment replay-comment">
+                                        <figure class="thumb-box">
+                                            <img src="{{ url('upload/admin_images/admin.jpg') }}" alt="">
+                                        </figure>
+                                        <div class="comment-inner">
+                                            <div class="comment-info clearfix">
+                                                <h5>{{ $rep->subject }}</h5>
+                                                <span>{{ $rep->created_at->format('d M Y') }}</span>
+                                            </div>
+                                            <div class="text">
+                                                <p>{{ $rep->message }}</p>
+                                                <a href="blog-details.html"><i class="fas fa-share"></i>Responder</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nos trud exerc.</p>
-                                        <a href="blog-details.html"><i class="fas fa-share"></i>Reply</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                                @endforeach
+
+                            @endforeach
+
+
                         </div>
                     </div>
 

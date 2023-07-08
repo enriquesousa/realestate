@@ -259,8 +259,8 @@ Kazi Ariyan
 ## 188. Comment Function Backend With Replay Part 3
 
 # Sección 40 - Schedule a Tour Setup for Property
-- 189. Property Schedule a Tour Setup Part 1
-- 190. Property Schedule a Tour Setup Part 2
+## 189. Property Schedule a Tour Setup Part 1
+## 190. Property Schedule a Tour Setup Part 2
 
 # Sección 41 - Schedule a Tour Setup In Admin With Email
 - 191. Schedule a Tour in Admin With Email Part 1
@@ -8649,3 +8649,12 @@ Listo!
 ## 187. Comment Function Backend With Replay Part 2
 Listo!
 ## 188. Comment Function Backend With Replay Part 3
+Listo!
+
+# Sección 40 - Schedule a Tour Setup for Property
+## 189. Property Schedule a Tour Setup Part 1
+
+## 190. Property Schedule a Tour Setup Part 2
+
+
+
