@@ -147,7 +147,7 @@
                     {{-- Barra titulo y búsqueda Search Results --}}
                     <div class="item-shorting clearfix">
                         <div class="left-column pull-left">
-                            <h5>Resultados de la búsqueda: <span>Mostrando {{ count($property) }} propiedades</span></h5>
+                            <h5>Resultados de la búsqueda: <span>Mostrando {{ count($property) }} de {{ $property->total() }} propiedades</span></h5>
                         </div>
                     </div>
 

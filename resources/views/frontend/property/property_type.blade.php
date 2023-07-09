@@ -1,3 +1,5 @@
+{{-- Llamado por: PropertyType en app/Http/Controllers/Frontend/IndexController.php --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
 
@@ -130,7 +132,7 @@
                     {{-- Barra titulo y búsqueda Search Results --}}
                     <div class="item-shorting clearfix">
                         <div class="left-column pull-left">
-                            <h5>Resultados Categoría: {{ $categoryType->type_name }} <span> Mostrando {{ count($property) }} propiedades</span></h5>
+                            <h5>Resultados Categoría: {{ $categoryType->type_name }} <span> Mostrando {{ count($property) }} de {{ $property->total() }} propiedades</span></h5>
                         </div>
                     </div>
 
@@ -231,15 +233,21 @@
 
                     </div>
 
-                    {{-- pagination-wrapper --}}
+                    {{-- pagination-wrapper usando custom pagination --}}
                     <div class="pagination-wrapper">
+                        {{ $property->links('vendor.pagination.custom') }}
+                    </div>
+
+
+                    {{-- pagination-wrapper --}}
+                    {{-- <div class="pagination-wrapper">
                         <ul class="pagination clearfix">
                             <li><a href="property-list.html" class="current">1</a></li>
                             <li><a href="property-list.html">2</a></li>
                             <li><a href="property-list.html">3</a></li>
                             <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

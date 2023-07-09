@@ -11,12 +11,103 @@
 
         <!-- wrapper derecha datos para editar -->
         <div class="col-md-8 col-xl-8 middle-wrapper">
+
+            {{-- Detalles del Comentario --}}
             <div class="row">
 
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title text-warning">Contestar Comentario</h6>
+                        <h6 class="card-title text-warning">Detalles del Comentario</h6>
+                        <hr>
+
+                        {{-- Usuario --}}
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <label for="defaultconfig" class="col-form-label">Usuario:</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" maxlength="25" name="defaultconfig" id="defaultconfig" type="text" value="{{ $comment->user->name }}" readonly>
+                            </div>
+                        </div>
+
+                        {{-- Titulo del Comentario --}}
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <label for="defaultconfig-2" class="col-form-label">Titulo:</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" maxlength="35" name="defaultconfig-2" id="defaultconfig-2" type="text" value="{{ $comment->post->post_title }}" readonly>
+                            </div>
+                        </div>
+
+                        {{-- Tema del Comentario --}}
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <label for="defaultconfig-2" class="col-form-label">Tema:</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <input class="form-control" maxlength="35" name="defaultconfig-2" id="defaultconfig-2" type="text" value="{{ $comment->subject }}" readonly>
+                            </div>
+                        </div>
+
+                        {{-- Mensaje del Comentario --}}
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="defaultconfig-4" class="col-form-label">Mensaje:</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <textarea id="maxlength-textarea" class="form-control" id="defaultconfig-4" maxlength="100" rows="4" readonly>{{ $comment->message }}</textarea>
+                            </div>
+                        </div>
+
+                            {{-- Aprobar comentario --}}
+                            <div class="row p-2">
+                            <div class="col-lg-3">
+                                <label for="defaultconfig-4" class="col-form-label">Guardar Banderas:</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="row">
+
+                                    {{-- Aprobar Checkbox --}}
+                                    <div class="col">
+
+                                        <input type="checkbox" onclick="chkap('{{ $comment->id }}')" class="form-check-input" id="checkApprove" {{ $comment->aprobado ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="exampleCheck1">Aprobar</label>
+
+                                    </div>
+
+                                    {{-- Mensaje leído --}}
+                                    <div class="col">
+
+                                        <input type="checkbox" onclick="leidochk('{{ $comment->id }}')" class="form-check-input" id="checkLeido" {{ $comment->leido ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="exampleCheck1">Leído</label>
+
+                                    </div>
+
+                                    {{-- Botón Guardar Aprobación --}}
+                                    {{-- <div class="col d-flex justify-content-end">
+                                        <a href="{{ route('update.comment.approved', [$comment->id,'true']) }}" class="btn btn-inverse-info"><i class="btn-icon-prepend" data-feather="save"></i> Guardar Aprobación</a>
+                                    </div> --}}
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            {{-- Respuestas --}}
+            <div class="row mt-2">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        {{-- Contestación --}}
+                        <h6 class="card-title text-warning">Respuestas</h6>
+                        <hr>
 
                         <form method="POST" action="{{ route('reply.message') }}" class="forms-sample">
                         @csrf
@@ -24,84 +115,6 @@
                             <input type="hidden" name="id" value="{{ $comment->id }}">
                             <input type="hidden" name="user_id" value="{{ $comment->user_id }}">
                             <input type="hidden" name="post_id" value="{{ $comment->post_id }}">
-
-                            {{-- Usuario --}}
-                            <div class="row mb-3">
-                                <div class="col-lg-3">
-                                    <label for="defaultconfig" class="col-form-label">Usuario:</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <input class="form-control" maxlength="25" name="defaultconfig" id="defaultconfig" type="text" value="{{ $comment->user->name }}" readonly>
-                                </div>
-                            </div>
-
-                            {{-- Titulo del Comentario --}}
-                            <div class="row mb-3">
-                                <div class="col-lg-3">
-                                    <label for="defaultconfig-2" class="col-form-label">Titulo:</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <input class="form-control" maxlength="35" name="defaultconfig-2" id="defaultconfig-2" type="text" value="{{ $comment->post->post_title }}" readonly>
-                                </div>
-                            </div>
-
-                            {{-- Tema del Comentario --}}
-                            <div class="row mb-3">
-                                <div class="col-lg-3">
-                                    <label for="defaultconfig-2" class="col-form-label">Tema:</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <input class="form-control" maxlength="35" name="defaultconfig-2" id="defaultconfig-2" type="text" value="{{ $comment->subject }}" readonly>
-                                </div>
-                            </div>
-
-                            {{-- Mensaje del Comentario --}}
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <label for="defaultconfig-4" class="col-form-label">Mensaje:</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <textarea id="maxlength-textarea" class="form-control" id="defaultconfig-4" maxlength="100" rows="4" readonly>{{ $comment->message }}</textarea>
-                                </div>
-                            </div>
-
-                             {{-- Aprobar comentario --}}
-                             <div class="row p-2">
-                                <div class="col-lg-3">
-                                    <label for="defaultconfig-4" class="col-form-label">Guardar Banderas:</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    <div class="row">
-
-                                        {{-- Aprobar Checkbox --}}
-                                        <div class="col">
-
-                                            <input type="checkbox" onclick="chkap('{{ $comment->id }}')" class="form-check-input" id="checkApprove" {{ $comment->aprobado ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="exampleCheck1">Aprobar</label>
-
-                                        </div>
-
-                                        {{-- Mensaje leído --}}
-                                        <div class="col">
-
-                                            <input type="checkbox" onclick="leidochk('{{ $comment->id }}')" class="form-check-input" id="checkLeido" {{ $comment->leido ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="exampleCheck1">Leído</label>
-
-                                        </div>
-
-                                        {{-- Botón Guardar Aprobación --}}
-                                        {{-- <div class="col d-flex justify-content-end">
-                                            <a href="{{ route('update.comment.approved', [$comment->id,'true']) }}" class="btn btn-inverse-info"><i class="btn-icon-prepend" data-feather="save"></i> Guardar Aprobación</a>
-                                        </div> --}}
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            {{-- Contestación --}}
-                            <hr>
-                            <h6 class="card-title text-warning">Respuestas</h6>
 
                             {{-- Contestar - Tema --}}
                             <div class="mb-3">
@@ -115,30 +128,6 @@
                                 <textarea name="message" class="form-control" id="message" rows="3"></textarea>
                             </div>
 
-                            {{-- Aprobar Mensaje --}}
-                            <div class="mb-3">
-                                <label class="form-label">Aprobar</label>
-                                <div>
-
-                                    {{-- Si --}}
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="aprobar" id="gender1" value="si" checked="checked">
-                                        <label class="form-check-label" for="gender1">
-                                            Si
-                                        </label>
-                                    </div>
-
-                                    {{-- No --}}
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" name="aprobar" id="gender2" value="no">
-                                        <label class="form-check-label" for="gender2">
-                                            No
-                                        </label>
-                                    </div>
-
-                                </div>
-                            </div>
-
                             <button type="submit" class="btn btn-primary me-2">Contestar Comentario</button>
 
                         </form>
@@ -147,6 +136,7 @@
                 </div>
 
             </div>
+
         </div>
 
     </div>
@@ -181,29 +171,32 @@
               success: function(data){
                 //    console.log(data.success)
 
-                  // Start Message
-                  const Toast = Swal.mixin({
-                      toast: true,
-                      position: 'top-end',
-                      icon: 'success',
-                      showConfirmButton: false,
-                      timer: 3000
-                  })
-                  if ($.isEmptyObject(data.error)) {
-                          Toast.fire({
-                          type: 'success',
-                          title: data.success,
-                          })
-                  }else{
-                          Toast.fire({
-                          type: 'error',
-                          title: data.error,
-                          })
-                  }
-                  // End Message
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 2000,
+                })
+                if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                        type: 'success',
+                        title: data.success,
+                        timer: 2000,
+                        })
+                }else{
+                        Toast.fire({
+                        type: 'error',
+                        title: data.error,
+                        timer: 2000,
+                        })
+                }
+                // End Message
 
-                  // para refrescar la ventana
-                  window.location.reload();
+                // para refrescar la ventana
+                //   window.location.reload();
+
               }
           });
     }
@@ -238,23 +231,25 @@
                     position: 'top-end',
                     icon: 'success',
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 2000,
                 })
                 if ($.isEmptyObject(data.error)) {
                         Toast.fire({
                         type: 'success',
                         title: data.success,
+                        timer: 2000,
                         })
                 }else{
                         Toast.fire({
                         type: 'error',
                         title: data.error,
+                        timer: 2000,
                         })
                 }
                 // End Message
 
                 // para refrescar la ventana
-                window.location.reload();
+                // window.location.reload();
             }
         });
     }

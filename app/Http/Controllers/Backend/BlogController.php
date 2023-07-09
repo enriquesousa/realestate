@@ -261,6 +261,7 @@ class BlogController extends Controller
                     'subject' => $request->subject,
                     'message' => $request->message,
                     'aprobado' => false, // default false hasta que apruebe el Administrator
+                    'leido' => false, // default false hasta que apruebe el Administrator
                     'created_at' => Carbon::now(),
                 ]);
 
@@ -335,7 +336,7 @@ class BlogController extends Controller
         $comment->aprobado = $aprobado;
         $comment->save();
 
-        return response()->json(['success' => $comment->aprobado]);
+        return response()->json(['success' => 'Registro actualizado con éxito!']);
 
     }
 
@@ -352,7 +353,7 @@ class BlogController extends Controller
         $comment->leido = $leido;
         $comment->save();
 
-        return response()->json(['success' => $comment->leido]);
+        return response()->json(['success' => 'Registro actualizado con éxito!']);
 
     }
 }

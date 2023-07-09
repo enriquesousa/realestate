@@ -13,7 +13,7 @@
             <h1>Lista de Propiedades</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ route('casa') }}">Inicio</a></li>
-                <li>solo para compra</li>
+                <li>todas las propiedades</li>
             </ul>
         </div>
     </div>

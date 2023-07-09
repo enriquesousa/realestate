@@ -90,6 +90,7 @@
                                     <ul>
                                         <li><a href="{{ route('rent.list.property') }}">Para Renta</a></li>
                                         <li><a href="{{ route('buy.list.property') }}">Para Compra</a></li>
+                                        <li><a href="{{ route('all.list.property') }}">Todas</a></li>
                                     </ul>
                                 </li>
 

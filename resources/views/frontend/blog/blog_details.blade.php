@@ -72,7 +72,7 @@
 
 
                     @php
-                        $comment = App\Models\Comment::where('post_id', $blog->id)->where('parent_id', null)->limit(5)->get();
+                        $comment = App\Models\Comment::where('post_id', $blog->id)->where('parent_id', null)->where('aprobado', true)->limit(5)->get();
                     @endphp
 
                     {{-- Area de Comentarios --}}
@@ -80,7 +80,7 @@
 
                         {{-- Numero de Comentarios --}}
                         <div class="group-title">
-                            <h4>3 Comments</h4>
+                            <h4>{{ $comment->count() }} Comentarios</h4>
                         </div>
 
                         {{-- Comentarios --}}
