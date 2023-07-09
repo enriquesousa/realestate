@@ -81,7 +81,7 @@ class BlogController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    /* Para CRUD de los Post en Admin */
+    /* Para CRUD de los Blog Post en Admin */
 
     // AllPost
     public function AllPost(){
@@ -322,4 +322,37 @@ class BlogController extends Controller
 
     }
 
+    // UpdateCommentApproved
+    public function UpdateCommentApproved(Request $request){
+
+        if ($request->approve_status == 'true') {
+            $aprobado = true;
+        }else{
+            $aprobado = false;
+        }
+
+        $comment = Comment::find($request->comment_id);
+        $comment->aprobado = $aprobado;
+        $comment->save();
+
+        return response()->json(['success' => $comment->aprobado]);
+
+    }
+
+     // UpdateCommentLeido
+     public function UpdateCommentLeido(Request $request){
+
+        if ($request->leido_status == 'true') {
+            $leido = true;
+        }else{
+            $leido = false;
+        }
+
+        $comment = Comment::find($request->comment_id);
+        $comment->leido = $leido;
+        $comment->save();
+
+        return response()->json(['success' => $comment->leido]);
+
+    }
 }

@@ -153,10 +153,10 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::post('/admin/topbar/store', [AdminController::class, 'AdminTopbarStore'])->name('admin.topbar.store');
 });
 
-// Admin group middleware, Property Type, Amenities, and Property, All Routes
+// Admin group middleware, Property Type, Amenities, Property CRUD etc...
 Route::middleware(['auth','role:admin'])->group(function(){
 
-    // Property Type All Routes CRUD
+    // CRUD Property Type - tabla 'property_types'
     Route::controller(PropertyTypeController::class)->group(function(){
         Route::get('/all/type', 'AllType')->name('all.type');
         Route::get('/add/type', 'AddType')->name('add.type');
@@ -166,7 +166,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
     });
 
-    // Amenities All Routes
+    // CRUD Amenities - tabla 'amenities'
     Route::controller(PropertyTypeController::class)->group(function(){
         Route::get('/all/amenities', 'AllAmenities')->name('all.amenities');
         Route::get('/add/amenities', 'AddAmenities')->name('add.amenities');
@@ -176,7 +176,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/amenities/{id}', 'DeleteAmenities')->name('delete.amenities');
     });
 
-    // Property All Routes
+    // CRUD Property - tabla 'properties', 'multi_images', 'package_plans', 'property_messages'
     Route::controller(PropertyController::class)->group(function(){
 
         Route::get('/all/property', 'AllProperty')->name('all.property');
@@ -205,7 +205,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // Agent All Routes desde Admin
+    // CRUD Agent - tabla 'users' role 'agent'
     Route::controller(AdminController::class)->group(function(){
 
         Route::get('/all/agent', 'AllAgent')->name('all.agent');
@@ -218,7 +218,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // Estado All Routes para CRUD de los estados (Entidad Federativa) donde esta ubicada la propiedad
+    // CRUD estados (Entidad Federativa) - tabla 'states'
     Route::controller(StateController::class)->group(function(){
 
         Route::get('/all/state', 'AllState')->name('all.state');
@@ -230,12 +230,12 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // CRUD Users - Lista Todos los usuarios
+    // CRUD Users - Lista Todos los usuarios tabla 'users'
     Route::controller(UsersController::class)->group(function () {
         Route::get('/admin/all/users', 'AdminAllUsers')->name('admin.all.users');
     });
 
-    // CRUD Testimonials
+    // CRUD Testimonials - tabla 'testimonials'
     Route::controller(TestimonialController::class)->group(function () {
         Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials');
         Route::get('/add/testimonial', 'AddTestimonial')->name('add.testimonial');
@@ -245,7 +245,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
     });
 
-    // CRUD Blog Category
+    // CRUD Blog Category - tabla 'blog_categories'
     Route::controller(BlogController::class)->group(function(){
         Route::get('/all/blog/category', 'AllBlogCategory')->name('all.blog.category');
         Route::post('/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
@@ -254,7 +254,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
     });
 
-    // CRUD Post
+    // CRUD Blog Post - tabla 'blog_posts'
     Route::controller(BlogController::class)->group(function () {
         Route::get('/all/post', 'AllPost')->name('all.post');
         Route::get('/add/post', 'AddPost')->name('add.post');
@@ -262,6 +262,14 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/edit/post/{id}', 'EditPost')->name('edit.post');
         Route::post('/update/post', 'UpdatePost')->name('update.post');
         Route::get('/delete/post/{id}', 'DeletePost')->name('delete.post');
+    });
+
+     // CRUD Blog Comments - tabla 'comments'
+     Route::controller(BlogController::class)->group(function () {
+
+        Route::get('/changeStatusApproved', 'UpdateCommentApproved');
+        Route::get('/changeStatusLeido', 'UpdateCommentLeido');
+
     });
 
 });

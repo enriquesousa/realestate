@@ -25,6 +25,8 @@
                                     <th>Titulo</th>
                                     <th>Usuario</th>
                                     <th>Tema</th>
+                                    <th>Aprobado</th>
+                                    <th>Leído</th>
                                     <th>Acción</th>
                                 </tr>
 
@@ -38,8 +40,25 @@
                                     <td>{{ $item->post->post_title }}</td>
                                     <td>{{ $item->user->name }}</td>
                                     <td>{{ $item->subject }}</td>
+
                                     <td>
-                                        <a href="{{ route('admin.comment.reply',$item->id) }}" class="btn btn-inverse-warning">Contestar</a>
+                                        @if ($item->aprobado == true)
+                                            <span class="badge rounded-pill bg-success"><i data-feather="user-check"></i></span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger"><i data-feather="user-x"></i></span>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        @if ($item->leido == true)
+                                            <span class="badge rounded-pill bg-success"><i data-feather="user-check"></i></span>
+                                        @else
+                                            <span class="badge rounded-pill bg-danger"><i data-feather="user-x"></i></span>
+                                        @endif
+                                    </td>
+
+                                    <td>
+                                        <a href="{{ route('admin.comment.reply',$item->id) }}" class="btn btn-inverse-warning">Detalles</a>
                                     </td>
                                 </tr>
                                 @endforeach

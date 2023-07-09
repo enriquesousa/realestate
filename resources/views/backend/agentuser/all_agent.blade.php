@@ -73,7 +73,7 @@
 
 </div>
 
-{{-- JS para el botón de toggle de active o inactive agent --}}
+{{-- JS para el botón de toggle de active o inactive agent - Cambiar ESTATUS --}}
 <script type="text/javascript">
   $(function() {
     $('.toggle-class').change(function() {
