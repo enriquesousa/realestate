@@ -86,7 +86,6 @@
                         {{-- Comentarios --}}
                         <div class="comment-box">
 
-
                             @foreach ($comment as $item)
 
                                 {{-- Comentario --}}
@@ -102,11 +101,12 @@
                                         <div class="text">
                                             <h6>{{ $item->subject }}</h6>
                                             <p>{{ $item->message }}</p>
-                                            <a href="blog-details.html"><i class="fas fa-share"></i>Responder</a>
+                                            {{-- <a href="blog-details.html"><i class="fas fa-share"></i>Responder</a> --}}
                                         </div>
                                     </div>
                                 </div>
 
+                                {{-- Respuesta del Comentario --}}
                                 @php
                                     $reply = App\Models\Comment::where('parent_id', $item->id)->get();
                                 @endphp
@@ -125,7 +125,7 @@
                                             </div>
                                             <div class="text">
                                                 <p>{{ $rep->message }}</p>
-                                                <a href="blog-details.html"><i class="fas fa-share"></i>Responder</a>
+                                                {{-- <a href="blog-details.html"><i class="fas fa-share"></i>Responder</a> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -134,8 +134,8 @@
 
                             @endforeach
 
-
                         </div>
+
                     </div>
 
                     {{-- Dejar un Comentario --}}

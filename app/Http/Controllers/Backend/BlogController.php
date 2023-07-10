@@ -351,4 +351,42 @@ class BlogController extends Controller
         return response()->json(['success' => 'Registro actualizado con éxito!']);
 
     }
+
+    // EditCommentResponse
+    public function EditCommentResponse($id){
+        $response = Comment::findOrFail($id);
+        return response()->json($response);
+    }
+
+    // UpdateCommentsResponse
+    public function UpdateCommentsResponse(Request $request){
+
+        $id = $request->com_id;
+
+        Comment::findOrFail($id)->update([
+            'subject' => $request->com_subject,
+            'message' => $request->com_message,
+        ]);
+
+        $notification = array(
+            'message' => 'Respuesta Actualizada con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
+     // DeleteCommentResponse
+     public function DeleteCommentResponse($id){
+
+        Comment::findOrFail($id)->delete(); // eliminar el registro de la tabla
+
+        $notification = array(
+            'message' => 'Respuesta eliminada con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+
 }

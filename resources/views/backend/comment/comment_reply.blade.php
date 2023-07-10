@@ -164,11 +164,8 @@
             <div class="row mt-4">
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
-
                         <div class="card-body">
-
                             <h6 class="card-title text-warning">Todas las Respuestas</h6>
-
                             <div class="table-responsive">
                                 <table id="dataTableExample" class="table">
 
@@ -178,10 +175,9 @@
                                             <th>Serie</th>
                                             <th>Foto</th>
                                             <th>Nombre</th>
+                                            <th>Fecha</th>
                                             <th>Tema</th>
-                                            <th>fecha</th>
-                                            <th>Aprobado</th>
-                                            <th>Leído</th>
+                                            <th>Mensaje</th>
                                             <th>Acción</th>
                                         </tr>
 
@@ -219,37 +215,40 @@
                                             {{-- nombre usuario --}}
                                             <td>{{ $item->user->name }}</td>
 
-                                            {{-- Tema --}}
-                                            <td>{{ $item->subject }}</td>
-
                                             {{-- fecha --}}
                                             <td>{{ $item->created_at->format('d M Y') }}</td>
 
+                                            {{-- Tema --}}
+                                            <td>{{ $item->subject }}</td>
+
+                                            {{-- Mensaje --}}
+                                            <td>{{ $item->message }}</td>
+
                                             {{-- aprobado --}}
-                                            <td>
+                                            {{-- <td>
                                                 @if ($item->aprobado == true)
                                                     <span class="badge rounded-pill bg-success"><i data-feather="user-check"></i></span>
                                                 @else
                                                     <span class="badge rounded-pill bg-danger"><i data-feather="user-x"></i></span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
 
                                             {{-- leido --}}
-                                            <td>
+                                            {{-- <td>
                                                 @if ($item->leido == true)
                                                     <span class="badge rounded-pill bg-success"><i data-feather="user-check"></i></span>
                                                 @else
                                                     <span class="badge rounded-pill bg-danger"><i data-feather="user-x"></i></span>
                                                 @endif
-                                            </td>
+                                            </td> --}}
 
                                             <td>
 
-                                                <a href="{{ route('details.property',$item->id) }}" class="btn btn-inverse-info" title="Detalles"><i data-feather="eye"></i></a>
+                                                {{-- trigger modal - Edit --}}
+                                                <a href="" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#comEdit" id="{{ $item->id }}" onclick="commentEdit(this.id)" title="Editar"><i data-feather="edit"></i></a>
 
-                                                <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
-
-                                                <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+                                                {{-- delete --}}
+                                                <a href="{{ route('delete.comment.response',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
 
                                             </td>
 
@@ -259,9 +258,7 @@
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -272,6 +269,93 @@
 
 </div>
 
+
+<!-- Modal - para botón Editar -->
+<div class="modal fade" id="comEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Respuesta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <form method="POST" action="{{ route('update.comments.response') }}" class="forms-sample">
+                @csrf
+
+                    <input type="hidden" name="com_id" id="com_id">
+
+                    {{-- Tema --}}
+                    <div class="form-group mb-3">
+                        <label for="subject" class="form-label">Tema</label>
+                        <input type="text" name="com_subject" class="form-control" id="com_subject">
+                    </div>
+
+                    {{-- Mensaje --}}
+                    <div class="form-group mb-3">
+                        <label for="message" class="form-label">Mensaje</label>
+                        <input type="text" name="com_message" class="form-control" id="com_message">
+                    </div>
+
+                    {{-- Esto de ver las variables Aprobar y Leido lo dejo pendiente --}}
+                    {{-- Hasta saber como puedo leer variables que me pase desde JS --}}
+
+                    {{-- Aprobar Checkbox --}}
+                    {{-- <div class="col">
+                        <input type="checkbox" name="aprobado" class="form-check-input" id="com_aprobado" {{ ($this.id) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="exampleCheck1">Aprobar</label>
+                    </div> --}}
+
+                    {{-- Leído Checkbox --}}
+                    {{-- <div class="col">
+                        <input type="checkbox" name="leido" class="form-check-input" id="com_leido" {{ ($this.id) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="exampleCheck1">Leído</label>
+                    </div> --}}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{-- JS para Editar respuesta commentEdit(id) --}}
+<script type="text/javascript">
+
+    function commentEdit(id) {
+
+        $.ajax({
+            type: "GET",
+            url: '/comment/edit/response/'+id,
+            dataType: "json",
+
+            success: function(data){
+                // console.log(data) // solo me funciona en Chrome
+
+                // Capturar los datos en las variables #cat_name y #cat_id
+                $('#com_id').val(data.id);
+                $('#com_user_id').val(data.user_id);
+                $('#com_post_id').val(data.post_id);
+                $('#com_parent_id').val(data.parent_id);
+                $('#com_parent_id').val(data.parent_id);
+                $('#com_subject').val(data.subject);
+                $('#com_message').val(data.message);
+                $('#com_aprobado').val(data.aprobado);
+                $('#com_leido').val(data.leido);
+
+            }
+        });
+
+    }
+
+</script>
 
 {{-- JS para el botón de checkbox id='checkApprove' --}}
 <script type="text/javascript">

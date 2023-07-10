@@ -1,3 +1,5 @@
+{{-- Llamado por: AllBlogCategory en app/Http/Controllers/Backend/BlogController.php  --}}
+
 @extends('admin.admin_dashboard')
 @section('admin')
 
@@ -44,13 +46,15 @@
                                     <td>
 
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#catEdit"
-                                            id="{{ $item->id }}" onclick="categoryEdit(this.id)">
+                                        {{-- <button type="button" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#catEdit" id="{{ $item->id }}" onclick="categoryEdit(this.id)">
                                             Editar
-                                        </button>
+                                        </button> --}}
 
+                                        {{-- trigger modal - Edit --}}
+                                        <a href="" class="btn btn-inverse-warning" data-bs-toggle="modal" data-bs-target="#catEdit" id="{{ $item->id }}" onclick="categoryEdit(this.id)" title="Editar"><i data-feather="edit"></i></a>
 
-                                        <a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+                                        {{-- delete --}}
+                                        <a href="{{ route('delete.blog.category',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
 
                                     </td>
                                 </tr>

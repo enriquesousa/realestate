@@ -272,6 +272,9 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
         Route::get('/changeStatusApproved', 'UpdateCommentApproved');
         Route::get('/changeStatusLeido', 'UpdateCommentLeido');
+        Route::get('/comment/edit/response/{id}', 'EditCommentResponse');
+        Route::post('/update/comments/response', 'UpdateCommentsResponse')->name('update.comments.response');
+        Route::get('/delete/comment/response/{id}', 'DeleteCommentResponse')->name('delete.comment.response');
 
     });
 

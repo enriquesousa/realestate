@@ -5,7 +5,19 @@
 
     <ul class="category-list ">
 
-        <li class="current"> <a href="{{ route('dashboard') }}"><i class="fab fa fa-envelope "></i> Panel</a></li>
+
+        @if ($userData->role == 'admin')
+            <li class="current"> <a href="{{ route('admin.dashboard') }}"><i class="fab fa fa-envelope "></i> Panel</a></li>
+        @endif
+
+        @if ($userData->role == 'agent')
+            <li class="current"> <a href="{{ route('agent.dashboard') }}"><i class="fab fa fa-envelope "></i> Panel</a></li>
+        @endif
+
+        @if ($userData->role == 'user')
+            <li class="current"> <a href="{{ route('dashboard') }}"><i class="fab fa fa-envelope "></i> Panel</a></li>
+        @endif
+
 
         <li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
 
