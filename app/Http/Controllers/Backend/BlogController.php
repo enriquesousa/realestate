@@ -291,27 +291,22 @@ class BlogController extends Controller
         $user_id = $request->user_id;
         $post_id = $request->post_id;
 
-        if ($request->aprobar == 'si') {
-            $aprobado = true;
-        } else {
-            $aprobado = false;
-        }
-
         // dd($request->aprobar);
 
         Comment::insert([
-            'user_id' => $user_id,
+            'user_id' => (int)$user_id,
             'post_id' => $post_id,
             'parent_id' => $id,
             'subject' => $request->subject,
             'message' => $request->message,
-            'aprobado' => $aprobado,
+            'aprobado' => $request->aprobado,
+            'leido' => $request->leido,
             'created_at' => Carbon::now(),
         ]);
 
         // Guardar la bandera de $aprobado a registro padre $id
         Comment::where('id', $id)->update([
-            'aprobado' => $aprobado,
+            'aprobado' => $request->aprobado,
         ]);
 
 
