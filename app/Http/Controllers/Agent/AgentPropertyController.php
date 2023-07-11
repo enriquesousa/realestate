@@ -579,4 +579,21 @@ class AgentPropertyController extends Controller
 
      }
 
+     // AgentUpdateSchedule
+     public function AgentUpdateSchedule(Request $request){
+
+        $schedule_id = $request->id;
+
+        Schedule::findOrFail($schedule_id)->update([
+            'status' => '1',
+        ]);
+
+        $notification = array(
+            'message' => 'Cita confirmada con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('agent.schedule.request')->with($notification);
+
+     }
+
 }

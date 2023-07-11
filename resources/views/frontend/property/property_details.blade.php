@@ -281,7 +281,7 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12 column">
                                         <div class="form-group">
                                             <i class="far fa-clock"></i>
-                                            <input type="text" name="tour_time" placeholder="Ingrese hora">
+                                            <input type="time" name="tour_time" placeholder="Ingrese hora">
                                         </div>
                                     </div>
 

@@ -19,8 +19,10 @@
                 <div class="card-body">
                     <h6 class="card-title">Detalles de la solicitud</h6>
 
-                    <form method="POST" action="{{ route('store.professional.plan') }}">
+                    <form method="POST" action="{{ route('agent.update.schedule') }}">
                     @csrf
+
+                        <input type="hidden" name="id" value="{{ $schedule->id   }}">
 
                         <div class="table-responsive pt-3">
                             <table class="table table-bordered">
