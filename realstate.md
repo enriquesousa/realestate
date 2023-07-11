@@ -263,11 +263,11 @@ Kazi Ariyan
 ## 190. Property Schedule a Tour Setup Part 2
 
 # Sección 41 - Schedule a Tour Setup In Admin With Email
-- 191. Schedule a Tour in Admin With Email Part 1
-- 192. Schedule a Tour in Admin With Email Part 2
-- 193. Schedule a Tour in Admin With Email Part 3
-- 194. Schedule a Tour in Admin With Email Part 4
-- 195. Schedule a Tour in Admin With Email Part 5
+## 191. Schedule a Tour in Admin With Email Part 1
+## 192. Schedule a Tour in Admin With Email Part 2
+## 193. Schedule a Tour in Admin With Email Part 3
+## 194. Schedule a Tour in Admin With Email Part 4
+## 195. Schedule a Tour in Admin With Email Part 5
 
 # Sección 42 - Dynamic Email Configuration In Laravel Edit env
 - 196. Dynamic Email Configuration Part 1
@@ -8675,6 +8675,15 @@ Schema::create('schedules', function (Blueprint $table) {
 ```
 Listo!
 ## 190. Property Schedule a Tour Setup Part 2
+Listo!
+
+# Sección 41 - Schedule a Tour Setup In Admin With Email
+## 191. Schedule a Tour in Admin With Email Part 1
 
 
+
+## 192. Schedule a Tour in Admin With Email Part 2
+## 193. Schedule a Tour in Admin With Email Part 3
+## 194. Schedule a Tour in Admin With Email Part 4
+## 195. Schedule a Tour in Admin With Email Part 5
 

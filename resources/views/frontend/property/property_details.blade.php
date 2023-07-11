@@ -1,7 +1,11 @@
+{{-- From: PropertyDetails app/Http/Controllers/Frontend/IndexController.php --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
 
-{{-- From: PropertyDetails app/Http/Controllers/Frontend/IndexController.php --}}
+@php
+    Config::set('custom.display_preload', false)
+@endphp
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">
@@ -247,7 +251,7 @@
                     <div class="schedule-box content-widget">
 
                         <div class="title-box">
-                            <h4>Calendariza una visita</h4>
+                            <h4>Calendariza una cita</h4>
                         </div>
 
                         <div class="form-inner">

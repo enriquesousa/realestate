@@ -374,8 +374,38 @@ class IndexController extends Controller
     // StoreSchedule
     public function StoreSchedule(Request $request){
 
+        $agent_id = $request->agent_id;
+        $property_id = $request->property_id;
 
+        if (Auth::check()) {
 
+            Schedule::insert([
+
+                'user_id' => Auth::user()->id,
+                'property_id' => $property_id,
+                'agent_id' => $agent_id,
+                'tour_date' => $request->tour_date,
+                'tour_time' => $request->tour_time,
+                'message' => $request->message,
+                'created_at' => Carbon::now(),
+
+            ]);
+
+            $notification = array(
+                'message' => 'Mensaje enviado con éxito!',
+                'alert-type' => 'success',
+            );
+            return redirect()->back()->with($notification);
+
+        }else{
+
+            $notification = array(
+                'message' => 'Favor primero iniciar sesión!',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+
+        }
     }
 
 }
