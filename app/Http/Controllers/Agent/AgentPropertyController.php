@@ -19,7 +19,7 @@ use DB;
 use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
-
+use App\Models\Schedule;
 
 class AgentPropertyController extends Controller
 {
@@ -560,6 +560,15 @@ class AgentPropertyController extends Controller
 
         return view('agent.message.message_details', compact('userMessage','msgDetails'));
 
+     }
+
+     // AgentScheduleRequest
+     public function AgentScheduleRequest(){
+
+        $id = Auth::user()->id;
+        $user_message = Schedule::where('agent_id',$id)->get();
+
+        return view('agent.message.schedule_request', compact('user_message'));
      }
 
 }

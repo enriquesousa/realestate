@@ -322,6 +322,9 @@ Route::middleware(['auth','role:agent'])->group(function(){
         Route::get('/agent/property/message', 'AgentPropertyMessage')->name('agent.property.message');
         Route::get('/agent/message/details/{id}', 'AgentMessageDetails')->name('agent.message.details');
 
+        // Schedule Request, llamado de resources/views/agent/body/sidebar.blade.php
+        Route::get('/agent/schedule/request', 'AgentScheduleRequest')->name('agent.schedule.request');
+
     });
 
     // Agent Grupo de Rutas (AgentPropertyController) - Buy Package

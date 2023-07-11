@@ -1,6 +1,6 @@
 {{-- Cargar solo los agentes que están activos y limitarlos a 5 --}}
 @php
-    $agents = App\Models\User::where('status','active')->where('role','agent')->orderBy('id','DESC')->limit(5)->get();
+    $agents = App\Models\User::where('status','active')->where('role','agent')->orderBy('id','DESC')->limit(10)->get();
 @endphp
 
 <!-- team-section -->

@@ -43,7 +43,7 @@
                         <span class="link-title">Propiedades</span>
                         <i class="link-arrow" data-feather="chevron-down"></i>
                     </a>
-                    {{-- Submenus - Todas las Propiedades --}}
+                    {{-- Submenus --}}
                     <div class="collapse" id="propiedad">
                         <ul class="nav sub-menu">
                             <li class="nav-item">
@@ -55,7 +55,23 @@
                         </ul>
                     </div>
 
-                    {{-- Titulo de Menu - Editar Datos de Perfil --}}
+                    {{-- Citas --}}
+                    <a class="nav-link" data-bs-toggle="collapse" href="#citas" role="button" aria-expanded="false"
+                        aria-controls="emails">
+                        <i class="link-icon" data-feather="calendar"></i>
+                        <span class="link-title">Citas</span>
+                        <i class="link-arrow" data-feather="chevron-down"></i>
+                    </a>
+                    {{-- Submenus --}}
+                    <div class="collapse" id="citas">
+                        <ul class="nav sub-menu">
+                            <li class="nav-item">
+                                <a href="{{ route('agent.schedule.request') }}" class="nav-link">Todas las Citas</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {{-- Perfil Agente --}}
                     <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false" aria-controls="emails">
                         <i class="link-icon" data-feather="user"></i>
                         <span class="link-title">Perfil Agente</span>
@@ -75,6 +91,8 @@
                             </li>
                         </ul>
                     </div>
+
+
 
                 </li>
 

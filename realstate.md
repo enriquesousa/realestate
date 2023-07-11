@@ -8679,10 +8679,9 @@ Listo!
 
 # Sección 41 - Schedule a Tour Setup In Admin With Email
 ## 191. Schedule a Tour in Admin With Email Part 1
-
-
-
+Listo!
 ## 192. Schedule a Tour in Admin With Email Part 2
+
 ## 193. Schedule a Tour in Admin With Email Part 3
 ## 194. Schedule a Tour in Admin With Email Part 4
 ## 195. Schedule a Tour in Admin With Email Part 5
