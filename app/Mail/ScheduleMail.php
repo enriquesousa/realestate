@@ -36,11 +36,11 @@ class ScheduleMail extends Mailable
      */
     public function content(): Content
     {
-        $schedule = $this.data;
+        $schedule = $this->data;
 
         return new Content(
             view: 'mail.schedule_mail',
-            with: [ 'schedule' => $this.data],
+            with: [ 'schedule' => $this->data],
         );
     }
 

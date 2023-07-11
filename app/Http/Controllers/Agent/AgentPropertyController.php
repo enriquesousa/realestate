@@ -596,6 +596,7 @@ class AgentPropertyController extends Controller
         $data = [
             'tour_date' => $sendMail->tour_date,
             'tour_time' => $sendMail->tour_time,
+            'nombre' => $sendMail->user->name,
         ];
         Mail::to($request->email)->send(new ScheduleMail($data));
         // End Enviar correo
