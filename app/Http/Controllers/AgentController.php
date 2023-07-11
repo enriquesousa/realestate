@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Validation\Rule;
 
 
 class AgentController extends Controller
@@ -65,6 +66,24 @@ class AgentController extends Controller
     // Agent Profile Store Salvar los cambios a tabla
     public function AgentProfileStore(Request $request)
     {
+        // Validación en Update: Llamada de resources/views/agent/agent_profile_view.blade.php
+        // Validación para lso campos username y email para que sean únicos, ignora este mismo record
+        // para poder dejar los mismos datos y que no afecte la validación, se requiere Illuminate\Validation\Rule;
+        // Validation
+        $request->validate([
+
+            'username' => [
+                'required',
+                Rule::unique('users')->ignore(Auth::user()->id),
+            ],
+
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore(Auth::user()->id),
+            ],
+
+        ]);
+
         $id = Auth::user()->id;
         $data = User::find($id);
 

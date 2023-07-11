@@ -68,8 +68,13 @@
 
                             {{-- username --}}
                             <div class="mb-3">
+
                                 <label for="exampleInputUsername1" class="form-label">Username</label>
-                                <input type="text" name="username" class="form-control" id="exampleInputUsername1" autocomplete="off" value="{{ $profileData->username }}">
+                                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="exampleInputUsername1" autocomplete="off" value="{{ $profileData->username }}">
+                                @error('username')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+
                             </div>
 
                             {{-- Name --}}
@@ -80,8 +85,13 @@
 
                             {{-- Email --}}
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputUsername1" autocomplete="off" value="{{ $profileData->email }}">
+
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" autocomplete="off" value="{{ $profileData->email }}">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+
                             </div>
 
                             {{-- Phone --}}
