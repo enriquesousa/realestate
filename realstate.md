@@ -8653,7 +8653,27 @@ Listo!
 
 # Sección 40 - Schedule a Tour Setup for Property
 ## 189. Property Schedule a Tour Setup Part 1
+Crear nuevo modelo con su tabla
+```php
+php artisan make:model Schedule -m 
+```
+Esquema:
+```php
+Schema::create('schedules', function (Blueprint $table) {
+    $table->id();
 
+    $table->integer('user_id')->nullable();
+    $table->integer('property_id')->nullable();
+    $table->string('agent_id')->nullable();
+    $table->string('tour_date')->nullable();
+    $table->string('tour_time')->nullable();
+    $table->text('message')->nullable();
+    $table->string('status')->default(0);
+
+    $table->timestamps();
+}); 
+```
+Listo!
 ## 190. Property Schedule a Tour Setup Part 2
 
 

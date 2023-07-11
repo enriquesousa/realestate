@@ -121,7 +121,7 @@
                     {{-- Amenities --}}
                     <div class="amenities-box content-widget">
                         <div class="title-box">
-                            <h4>Amenities</h4>
+                            <h4>Comodidades</h4>
                         </div>
                         <ul class="list clearfix">
                             @foreach ($property_amenities as $item)
@@ -243,55 +243,63 @@
                         @endif
                     </div>
 
-                    {{-- Schedule A Tour --}}
+                    {{-- Schedule A Tour - Calendariza una visita --}}
                     <div class="schedule-box content-widget">
+
                         <div class="title-box">
-                            <h4>Schedule A Tour</h4>
+                            <h4>Calendariza una visita</h4>
                         </div>
+
                         <div class="form-inner">
-                            <form action="property-details.html" method="post">
+
+                            <form action="{{ route('store.schedule') }}" method="post">
+                            @csrf
                                 <div class="row clearfix">
+
+                                    <input type="hidden" name="property_id" value="{{ $property->id }}">
+
+                                    @if ($property->agent_id == Null)
+                                        <input type="hidden" name="agent_id" value="">
+                                    @else
+                                        <input type="hidden" name="agent_id" value="{{ $property->agent_id }}">
+                                    @endif
+
+
+                                    {{-- Fecha - Tour Date --}}
                                     <div class="col-lg-6 col-md-12 col-sm-12 column">
                                         <div class="form-group">
                                             <i class="far fa-calendar-alt"></i>
-                                            <input type="text" name="date" placeholder="Tour Date"
-                                                id="datepicker">
+                                            <input type="text" name="tour_date" placeholder="Dia de Cita" id="datepicker">
                                         </div>
                                     </div>
+
+                                    {{-- Hora - Any Time --}}
                                     <div class="col-lg-6 col-md-12 col-sm-12 column">
                                         <div class="form-group">
                                             <i class="far fa-clock"></i>
-                                            <input type="text" name="time" placeholder="Any Time">
+                                            <input type="text" name="tour_time" placeholder="Ingrese hora">
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-12 col-sm-12 column">
-                                        <div class="form-group">
-                                            <input type="text" name="name" placeholder="Your Name" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 col-sm-12 column">
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Your Email"
-                                                required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12 col-sm-12 column">
-                                        <div class="form-group">
-                                            <input type="tel" name="phone" placeholder="Your Phone" required="">
-                                        </div>
-                                    </div>
+
+
+                                    {{-- Mensaje --}}
                                     <div class="col-lg-12 col-md-12 col-sm-12 column">
                                         <div class="form-group">
-                                            <textarea name="message" placeholder="Your message"></textarea>
+                                            <textarea name="message" placeholder="Tu mensaje"></textarea>
                                         </div>
                                     </div>
+
+
+                                    {{-- Botón Submit - Mandar Ahora --}}
                                     <div class="col-lg-12 col-md-12 col-sm-12 column">
                                         <div class="form-group message-btn">
-                                            <button type="submit" class="theme-btn btn-one">Submit Now</button>
+                                            <button type="submit" class="theme-btn btn-one">Mandar ahora</button>
                                         </div>
                                     </div>
+
                                 </div>
                             </form>
+
                         </div>
                     </div>
 
@@ -412,7 +420,7 @@
 
                     </div>
 
-                    {{-- Calculadora de Costos - calculator-widget sidebar-widget --}}
+                    {{-- Mortgage Calculator - Calculadora de Costos - calculator-widget sidebar-widget --}}
                     <div class="calculator-widget sidebar-widget">
                         <div class="calculate-inner">
                             <div class="widget-title">

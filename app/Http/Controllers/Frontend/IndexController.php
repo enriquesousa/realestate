@@ -13,10 +13,12 @@ use App\Models\Amenities;
 use App\Models\PropertyType;
 use App\Models\User;
 use App\Models\PackagePlan;
+use App\Models\PropertyMessage;
+use App\Models\Schedule;
+
 use Illuminate\Support\Carbon;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
-use App\Models\PropertyMessage;
 use WithPagination;
 
 class IndexController extends Controller
@@ -366,6 +368,14 @@ class IndexController extends Controller
         $compraProperty = Property::where('property_status', 'compra')->get();
 
         return view('frontend.property.property_search', compact('property', 'rentaProperty', 'compraProperty'));
+    }
+
+
+    // StoreSchedule
+    public function StoreSchedule(Request $request){
+
+
+
     }
 
 }

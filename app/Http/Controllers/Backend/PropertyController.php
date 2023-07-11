@@ -40,6 +40,7 @@ class PropertyController extends Controller
 
     // Store Property, Almacenar una Propiedad a la DB
     public function StoreProperty(Request $request){
+
         $amen = $request->amenities_id;
         // dd($amen);
         $comodidades_str = implode(",", $amen);

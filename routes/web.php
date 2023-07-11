@@ -81,6 +81,10 @@ Route::post('/rent/property/search', [IndexController::class, 'RentPropertySearc
 // All Property Search Option para formulario en resources/views/frontend/property/rent_property.blade.php, para buscar propiedades
 Route::post('/all/property/search', [IndexController::class, 'AllPropertySearch'])->name('all.property.search');
 
+// Schedule Message Request - llamado de resources/views/frontend/property/property_details.blade.php
+Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name('store.schedule');
+
+
 
 /* Blog Rutas */
 
