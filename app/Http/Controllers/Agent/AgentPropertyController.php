@@ -20,6 +20,9 @@ use App\Models\PackagePlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PropertyMessage;
 use App\Models\Schedule;
+use App\Mail\ScheduleMail;
+use Illuminate\Support\Facades\Mail;
+
 
 class AgentPropertyController extends Controller
 {
@@ -587,6 +590,15 @@ class AgentPropertyController extends Controller
         Schedule::findOrFail($schedule_id)->update([
             'status' => '1',
         ]);
+
+        // Enviar correo electrónico, send mail
+        $sendMail = Schedule::findOrFail($schedule_id);
+        $data = [
+            'tour_date' => $sendMail->tour_date,
+            'tour_time' => $sendMail->tour_time,
+        ];
+        Mail::to($request->email)->send(new ScheduleMail($data));
+        // End Enviar correo
 
         $notification = array(
             'message' => 'Cita confirmada con éxito!',

@@ -8685,6 +8685,27 @@ Listo!
 ## 193. Schedule a Tour in Admin With Email Part 3
 Listo!
 ## 194. Schedule a Tour in Admin With Email Part 4
-
+Configuracioni del Email con mailtrap
+en .env
+```php
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=************e4
+MAIL_PASSWORD=************64
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="soporte@easyweb.com"
+MAIL_FROM_NAME="${APP_NAME}" 
+```
+Crear el modelo de mail con
+```php
+php artisan make:mail ScheduleMail
+```
+Pasar el email desde resources/views/agent/message/schedule_details.blade.php
+```php
+<input type="hidden" name="email" value="{{ $schedule->user->email   }}">
+```
+Listo!
 ## 195. Schedule a Tour in Admin With Email Part 5
+
 
