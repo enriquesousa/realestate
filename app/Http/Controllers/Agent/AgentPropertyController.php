@@ -571,4 +571,12 @@ class AgentPropertyController extends Controller
         return view('agent.message.schedule_request', compact('user_message'));
      }
 
+     // AgentDetailsSchedule
+     public function AgentDetailsSchedule($id){
+
+        $schedule = Schedule::findOrFail($id);
+        return view('agent.message.schedule_details', compact('schedule'));
+
+     }
+
 }

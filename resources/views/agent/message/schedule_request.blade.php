@@ -73,7 +73,7 @@
 
                                     {{-- Acción --}}
                                     <td>
-                                        <a href="{{ route('agent.details.property',$item->id) }}" class="btn btn-inverse-info" title="Detalles"><i data-feather="eye"></i></a>
+                                        <a href="{{ route('agent.details.schedule',$item->id) }}" class="btn btn-inverse-info" title="Detalles"><i data-feather="eye"></i></a>
                                         <a href="{{ route('agent.delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
                                     </td>
 

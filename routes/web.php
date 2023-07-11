@@ -324,6 +324,7 @@ Route::middleware(['auth','role:agent'])->group(function(){
 
         // Schedule Request, llamado de resources/views/agent/body/sidebar.blade.php
         Route::get('/agent/schedule/request', 'AgentScheduleRequest')->name('agent.schedule.request');
+        Route::get('/agent/details/schedule/{id}', 'AgentDetailsSchedule')->name('agent.details.schedule');
 
     });
 
