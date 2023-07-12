@@ -10,7 +10,7 @@
         <div class="content-box clearfix">
             <h1>Perfil de Usuario</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li>Perfil de Usuario<li>
             </ul>
         </div>

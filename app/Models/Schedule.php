@@ -23,4 +23,9 @@ class Schedule extends Model
         return $this->belongsTo(Property::class,'property_id','id');
     }
 
+    // Relación del campo 'agent_id' con el 'id' de la tabla 'users'
+    public function agent(){
+        return $this->belongsTo(User::class,'agent_id','id');
+    }
+
 }

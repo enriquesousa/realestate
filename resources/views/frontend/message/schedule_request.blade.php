@@ -25,76 +25,96 @@
         <div class="row clearfix">
 
             @php
-                // Recuperamos al user que esta login
-                $id = Auth::user()->id;
-                $userData = App\Models\User::find($id);
+            $id = Auth::user()->id;
+            $userData = App\Models\User::find($id);
             @endphp
 
+            {{-- sidebar-side --}}
             <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-
                 <div class="blog-sidebar">
 
-                    {{-- Datos de Perfil de Usuario --}}
+                    {{-- User Profile --}}
                     <div class="sidebar-widget post-widget">
-
                         <div class="widget-title">
-                            <h4>Cambiar Contraseña</h4>
+                            <h4>Perfil de Usuario</h4>
                         </div>
-
                         <div class="post-inner">
                             <div class="post">
-                                <figure class="post-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo) : url('upload/no_image.jpg') }}" alt="">
-                                    </a>
-                                </figure>
-                                <h5><a href="blog-details.html">{{ $userData->name }}</a></h5>
-                                <p>{{ $userData->email }}</p>
+                                <figure class="post-thumb"><a href="blog-details.html">
+                                        <img src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo) : url('upload/no_image.jpg') }}"
+                                            alt=""></a></figure>
+                                <h5><a href="blog-details.html">{{ $userData->name }} </a></h5>
+                                <p>{{ $userData->email }} </p>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="sidebar-widget category-widget">
-
-                        {{-- Titulo del menu del sidebar --}}
                         <div class="widget-title">
 
                         </div>
-
-                        {{-- Menu del sidebar --}}
                         @include('frontend.dashboard.dashboard_sidebar')
-
                     </div>
 
                 </div>
             </div>
 
-            {{-- content-side aquí ponemos el formulario para cambiar contraseña --}}
+            {{-- content-side --}}
             <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-
                 <div class="blog-details-content">
                     <div class="news-block-one">
                         <div class="inner-box">
-
                             <div class="lower-content">
 
-                            Lista de Citas
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Propiedad</th>
+                                            <th scope="col">Agente</th>
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Hora</th>
+                                            <th scope="col">Mensaje</th>
+                                            <th scope="col">Estatus</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($citas_user as $key => $item)
+                                            <tr>
+                                                <th scope="row">{{ $key+1 }}</th>
+                                                <td>{{ $item->property->property_name }}</td>
+                                                <td>{{ $item->agent->name }}</td>
+
+                                                <td>{{ date('d-M-y', strtotime($item->tour_date)) }}</td>
+
+                                                <td>{{ $item->tour_time }}</td>
+                                                <td>{{ $item->message }}</td>
+                                                {{-- Agendado - Estatus Flag --}}
+                                                <td>
+                                                    @if ($item->status == 1)
+                                                        <span class="badge rounded-pill bg-success">Confirmada</span>
+                                                    @else
+                                                        <span class="badge rounded-pill bg-danger">Pendiente</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
 
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
 
         </div>
     </div>
 </section>
 <!-- sidebar-page-container -->
+
+
+
 
 <!-- subscribe-section -->
 @include('frontend.home.subscribe')

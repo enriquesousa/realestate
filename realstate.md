@@ -279,10 +279,10 @@ Kazi Ariyan
 ## 200. Schedule in User Dashboard Part 2
 
 # Sección 44 - Site Setting Option Update
-- 201. Site Setting Option Part 1
-- 202. Site Setting Option Part 2
-- 203. Site Setting Option Part 3
-- 204. Update Custom Title
+## 201. Site Setting Option Part 1
+## 202. Site Setting Option Part 2
+## 203. Site Setting Option Part 3
+## 204. Update Custom Title
 
 # Sección 45 - Setup User Permission
 - 205. User Permission Introduction
@@ -8731,3 +8731,11 @@ Listo!
 Trabajar sobra resources/views/frontend/message/schedule_request.blade.php
 Listo!
 ## 200. Schedule in User Dashboard Part 2
+Listo!
+
+# Sección 44 - Site Setting Option Update
+## 201. Site Setting Option Part 1
+
+## 202. Site Setting Option Part 2
+## 203. Site Setting Option Part 3
+## 204. Update Custom Title

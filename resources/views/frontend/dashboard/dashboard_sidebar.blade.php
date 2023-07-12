@@ -25,7 +25,9 @@
 
         <li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
 
-        <li><a href="{{ route('user.schedule.request') }}"><i class="fas fa-calendar-day" aria-hidden="true"></i> Citas<span class="badge badge-info">( )</span></a></li>
+        {{-- <li><a href="{{ route('user.schedule.request') }}"><i class="fas fa-calendar-day" aria-hidden="true"></i> Citas<span class="badge badge-info"> ({{ $citas_user->count() }}) </span></a></li> --}}
+
+        <li><a href="{{ route('user.schedule.request') }}"><i class="fas fa-calendar-day" aria-hidden="true"></i> Citas</li>
 
         <li><a href="{{ route('user.compare') }}"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Comparativo</a></li>
 
