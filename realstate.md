@@ -8723,5 +8723,7 @@ Listo!
 ## 197. Dynamic Email Configuration Part 2
 Listo!
 ## 198. Dynamic Email Configuration Part 3
+Pasar la configuracion de smtp a app/Providers/AppServiceProvider.php
+Listo!
 
 
