@@ -275,8 +275,8 @@ Kazi Ariyan
 ## 198. Dynamic Email Configuration Part 3
 
 # Sección 43 - Property Schedule in User Dashboard
-- 199. Schedule in User Dashboard Part 1
-- 200. Schedule in User Dashboard Part 2
+## 199. Schedule in User Dashboard Part 1
+## 200. Schedule in User Dashboard Part 2
 
 # Sección 44 - Site Setting Option Update
 - 201. Site Setting Option Part 1
@@ -8726,4 +8726,8 @@ Listo!
 Pasar la configuracion de smtp a app/Providers/AppServiceProvider.php
 Listo!
 
-
+# Sección 43 - Property Schedule in User Dashboard
+## 199. Schedule in User Dashboard Part 1
+Trabajar sobra resources/views/frontend/message/schedule_request.blade.php
+Listo!
+## 200. Schedule in User Dashboard Part 2

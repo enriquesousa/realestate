@@ -1,5 +1,9 @@
 {{-- Llamado de: resources/views/dashboard.blade.php  --}}
 
+@php
+    Config::set('custom.display_preload', false)
+@endphp
+
 {{-- Menu del sidebar --}}
 <div class="widget-content">
 
@@ -21,7 +25,7 @@
 
         <li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
 
-        <li><a href="blog-details.html"><i class="fa fa-credit-card" aria-hidden="true"></i> Buy credits<span class="badge badge-info">(10 credits)</span></a></li>
+        <li><a href="{{ route('user.schedule.request') }}"><i class="fas fa-calendar-day" aria-hidden="true"></i> Citas<span class="badge badge-info">( )</span></a></li>
 
         <li><a href="{{ route('user.compare') }}"><i class="fa fa-list-alt" aria-hidden="true"></i></i> Comparativo</a></li>
 

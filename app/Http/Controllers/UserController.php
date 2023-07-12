@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Schedule;
 
 class UserController extends Controller
 {
@@ -131,6 +132,17 @@ class UserController extends Controller
     //  Ver todas las categorías
      public function CategoryAll(){
         return view('frontend.home.category_todas');
+     }
+
+     // UserScheduleRequest
+     public function UserScheduleRequest(){
+
+        $id = Auth::user()->id;
+        $userData = User::find($id);
+        $citas_user = Schedule::where('user_id', $id)->get();
+
+        return view('frontend.message.schedule_request', compact('userData','citas_user'));
+
      }
 
 }

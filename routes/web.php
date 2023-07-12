@@ -82,8 +82,12 @@ Route::post('/rent/property/search', [IndexController::class, 'RentPropertySearc
 // All Property Search Option para formulario en resources/views/frontend/property/rent_property.blade.php, para buscar propiedades
 Route::post('/all/property/search', [IndexController::class, 'AllPropertySearch'])->name('all.property.search');
 
+
+/* Citas */
+
 // Schedule Message Request - llamado de resources/views/frontend/property/property_details.blade.php
 Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name('store.schedule');
+
 
 
 
@@ -124,6 +128,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
+
+    // Ver citas desde user dashboard - llamado de resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+    Route::get('/user/schedule/request', [UserController::class, 'UserScheduleRequest'])->name('user.schedule.request');
+
 
     // User Wishlist All Routes
     Route::controller(WishlistController::class)->group(function(){
