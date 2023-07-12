@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(TopbarTableSeeder::class);
+        $this->call(SiteSettingsTableSeeder::class);
         $this->call(StatesTableSeeder::class);
         $this->call(TiposTableSeeder::class);
         $this->call(ComodidadesTableSeeder::class);
@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogPostTableSeeder::class);
         $this->call(CommentsTableSeeder::class);
         $this->call(SmtpSettingsTableSeeder::class);
+
+
 
 
         // \App\Models\User::factory(5)->create();
