@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 use App\Models\SmtpSetting;
+use App\Models\SiteSetting;
 
 class SettingController extends Controller
 {
@@ -40,6 +41,12 @@ class SettingController extends Controller
 
         return redirect()->back()->with($notification);
 
+    }
+
+    // SiteSetting
+    public function SiteSetting(){
+        $site_setting = SiteSetting::find(1);
+        return view('backend.setting.site_update',compact('site_setting'));
     }
 
 }

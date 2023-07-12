@@ -8735,7 +8735,12 @@ Listo!
 
 # Sección 44 - Site Setting Option Update
 ## 201. Site Setting Option Part 1
-
+Crear nueva tabla
+```php
+php artisan make:model SiteSetting -m
+```
+Listo!
 ## 202. Site Setting Option Part 2
+
 ## 203. Site Setting Option Part 3
 ## 204. Update Custom Title

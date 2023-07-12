@@ -290,6 +290,12 @@
                         </li>
                     </ul>
 
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('site.setting') }}" class="nav-link">Config. Sitio</a>
+                        </li>
+                    </ul>
+
                 </div>
             </li>
 

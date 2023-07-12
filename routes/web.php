@@ -182,7 +182,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
     });
 
-    // CRUD Amenities - tabla 'amenities'
+    // Admin CRUD Amenities - tabla 'amenities'
     Route::controller(PropertyTypeController::class)->group(function(){
         Route::get('/all/amenities', 'AllAmenities')->name('all.amenities');
         Route::get('/add/amenities', 'AddAmenities')->name('add.amenities');
@@ -192,7 +192,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/amenities/{id}', 'DeleteAmenities')->name('delete.amenities');
     });
 
-    // CRUD Property - tabla 'properties', 'multi_images', 'package_plans', 'property_messages'
+    // Admin CRUD Property - tabla 'properties', 'multi_images', 'package_plans', 'property_messages'
     Route::controller(PropertyController::class)->group(function(){
 
         Route::get('/all/property', 'AllProperty')->name('all.property');
@@ -221,7 +221,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // CRUD Agent - tabla 'users' role 'agent'
+    // Admin CRUD Agent - tabla 'users' role 'agent'
     Route::controller(AdminController::class)->group(function(){
 
         Route::get('/all/agent', 'AllAgent')->name('all.agent');
@@ -234,7 +234,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // CRUD estados (Entidad Federativa) - tabla 'states'
+    // Admin CRUD estados (Entidad Federativa) - tabla 'states'
     Route::controller(StateController::class)->group(function(){
 
         Route::get('/all/state', 'AllState')->name('all.state');
@@ -246,12 +246,12 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // CRUD Users - Lista Todos los usuarios tabla 'users'
+    // Admin CRUD Users - Lista Todos los usuarios tabla 'users'
     Route::controller(UsersController::class)->group(function () {
         Route::get('/admin/all/users', 'AdminAllUsers')->name('admin.all.users');
     });
 
-    // CRUD Testimonials - tabla 'testimonials'
+    // Admin CRUD Testimonials - tabla 'testimonials'
     Route::controller(TestimonialController::class)->group(function () {
         Route::get('/all/testimonials', 'AllTestimonials')->name('all.testimonials');
         Route::get('/add/testimonial', 'AddTestimonial')->name('add.testimonial');
@@ -261,7 +261,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/testimonial/{id}', 'DeleteTestimonial')->name('delete.testimonial');
     });
 
-    // CRUD Blog Category - tabla 'blog_categories'
+    // Admin CRUD Blog Category - tabla 'blog_categories'
     Route::controller(BlogController::class)->group(function(){
         Route::get('/all/blog/category', 'AllBlogCategory')->name('all.blog.category');
         Route::post('/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
@@ -270,7 +270,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
     });
 
-    // CRUD Blog Post - tabla 'blog_posts'
+    // Admin CRUD Blog Post - tabla 'blog_posts'
     Route::controller(BlogController::class)->group(function () {
         Route::get('/all/post', 'AllPost')->name('all.post');
         Route::get('/add/post', 'AddPost')->name('add.post');
@@ -280,7 +280,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/post/{id}', 'DeletePost')->name('delete.post');
     });
 
-     // CRUD Blog Comments - tabla 'comments'
+     // Admin CRUD Blog Comments - tabla 'comments'
      Route::controller(BlogController::class)->group(function () {
 
         Route::get('/changeStatusApproved', 'UpdateCommentApproved');
@@ -291,12 +291,16 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
-    // CRUD Settings - tabla 'smtp_settings'
+    // Admin CRUD Smtp Settings - tabla 'smtp_settings'
     Route::controller(SettingController::class)->group(function () {
-
         Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
         Route::post('/update/smtp/setting', 'UpdateSmtpSetting')->name('update.smtp.setting');
+    });
 
+    // Admin CRUD Site Settings - tabla 'site_settings'
+    Route::controller(SettingController::class)->group(function () {
+        Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+        Route::post('/update/smtp/setting', 'UpdateSmtpSetting')->name('update.smtp.setting');
     });
 
 });
