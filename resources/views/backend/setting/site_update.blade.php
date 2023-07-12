@@ -17,7 +17,7 @@
 
                         <h6 class="card-title">Actualizar Configuración Sitio</h6>
 
-                        <form id="myForm" method="POST" action="{{ route('update.smtp.setting') }}" class="forms-sample">
+                        <form id="myForm" method="POST" action="{{ route('update.site.setting') }}" class="forms-sample" enctype="multipart/form-data">
                         @csrf
 
                             <input type="hidden" name="id" value="{{ $site_setting->id }}">
@@ -32,12 +32,6 @@
                             <div class="form-group mb-3">
                                 <label for="company_address" class="form-label">Dirección</label>
                                 <input type="text" name="company_address" class="form-control" value="{{ $site_setting->company_address }}">
-                            </div>
-
-                            {{-- support_phone --}}
-                            <div class="form-group mb-3">
-                                <label for="support_phone" class="form-label">Teléfono de Empresa</label>
-                                <input type="text" name="support_phone" class="form-control" value="{{ $site_setting->support_phone }}">
                             </div>
 
                             {{-- email  --}}

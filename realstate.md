@@ -8741,6 +8741,6 @@ php artisan make:model SiteSetting -m
 ```
 Listo!
 ## 202. Site Setting Option Part 2
-
+Listo!
 ## 203. Site Setting Option Part 3
 ## 204. Update Custom Title
