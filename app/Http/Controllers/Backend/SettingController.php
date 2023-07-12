@@ -68,6 +68,7 @@ class SettingController extends Controller
             SiteSetting::findOrFail($site_id)->update([
                 'support_phone' => $request->support_phone,
                 'company_address' => $request->company_address,
+                'horario' => $request->horario,
                 'email' => $request->email,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
@@ -87,6 +88,7 @@ class SettingController extends Controller
             SiteSetting::findOrFail($site_id)->update([
                 'support_phone' => $request->support_phone,
                 'company_address' => $request->company_address,
+                'horario' => $request->horario,
                 'email' => $request->email,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,

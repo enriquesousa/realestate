@@ -1,3 +1,8 @@
+@php
+    // Recuperamos datos de site settings de la tabla 'site_settings'
+    $settings = App\Models\SiteSetting::find(1);
+@endphp
+
 <!-- main header -->
 <header class="main-header">
 
@@ -5,24 +10,21 @@
     <div class="header-top">
         <div class="top-inner clearfix">
 
-            @php
-                // Recuperamos datos de tabla topbar_data
-                $topbarData = App\Models\TopbarData::find(1);
-            @endphp
+
 
             <div class="left-column pull-left">
                 <ul class="info clearfix">
-                    <li><i class="far fa-map-marker-alt"></i>{{ $topbarData->address }}</li>
-                    <li><i class="far fa-clock"></i>{{ $topbarData->horario }}</li>
-                    <li><i class="far fa-phone"></i><a href="tel:2512353256">{{ $topbarData->phone }}</a></li>
+                    <li><i class="far fa-map-marker-alt"></i>{{ $settings->company_address }}</li>
+                    <li><i class="far fa-clock"></i>{{ $settings->horario }}</li>
+                    <li><i class="far fa-phone"></i><a href="tel:2512353256">{{ $settings->support_phone }}</a></li>
                 </ul>
             </div>
 
             <div class="right-column pull-right">
 
                 <ul class="social-links clearfix">
-                    <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="{{ $settings->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="{{ $settings->twitter }}"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="index.html"><i class="fab fa-pinterest-p"></i></a></li>
                     <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
                     <li><a href="index.html"><i class="fab fa-vimeo-v"></i></a></li>
@@ -41,8 +43,6 @@
                     {{-- User Login --}}
                     <div class="sign-box">
                         {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
-                        {{-- redirige a iniciar sesión en resources/views/auth/login.blade.php --}}
-                        {{-- Si login es correcto lo redirige a resources/views/dashboard.blade.php  --}}
                         <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-user"></i> Iniciar Sesión</a>
                     </div>
 
@@ -65,7 +65,7 @@
         <div class="outer-box">
             <div class="main-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="{{ route('casa') }}"><img src="{{ asset('frontend/assets/images/logo.png') }}" alt=""></a>
+                    <figure class="logo"><a href="{{ route('casa') }}"><img src="{{ asset($settings->logo) }}" alt=""></a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">
@@ -128,7 +128,7 @@
         <div class="outer-box">
             <div class="main-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="{{ route('casa') }}"><img src="{{ asset('frontend/assets/images/logo.png') }}" alt=""></a>
+                    <figure class="logo"><a href="{{ route('casa') }}"><img src="{{ asset($settings->logo) }}" alt=""></a>
                     </figure>
                 </div>
                 <div class="menu-area clearfix">
@@ -137,7 +137,7 @@
                     </nav>
                 </div>
                 <div class="btn-box">
-                    <a href="index.html" class="theme-btn btn-one"><span>+</span>Add Listing</a>
+                    <a href="{{ route('agent.login') }}" class="theme-btn btn-one"><span>+</span>Agregar Propiedad</a>
                 </div>
             </div>
         </div>

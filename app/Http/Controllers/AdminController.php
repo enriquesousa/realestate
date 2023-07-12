@@ -51,9 +51,8 @@ class AdminController extends Controller
     {
         $id = Auth::user()->id;
         $profileData = User::find($id);
-        $topbarData = TopbarData::find(1);
 
-        return view('admin.admin_profile_view', compact('profileData','topbarData'));
+        return view('admin.admin_profile_view', compact('profileData'));
     }
 
     // Admin Profile Store

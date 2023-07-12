@@ -34,6 +34,12 @@
                                 <input type="text" name="company_address" class="form-control" value="{{ $site_setting->company_address }}">
                             </div>
 
+                            {{-- Horario --}}
+                            <div class="form-group mb-3">
+                                <label for="horario" class="form-label">Horario</label>
+                                <input type="text" name="horario" class="form-control" value="{{ $site_setting->horario }}">
+                            </div>
+
                             {{-- email  --}}
                             <div class="form-group mb-3">
                                 <label for="email" class="form-label">Correo Electrónico</label>
