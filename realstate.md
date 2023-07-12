@@ -8711,6 +8711,15 @@ Listo!
 
 # Sección 42 - Dynamic Email Configuration In Laravel Edit env
 ## 196. Dynamic Email Configuration Part 1
-
+Crear un nuevo controlador para los settings
+```php
+php artisan make:controller Backend/SettingController
+```
+Crear nueva tabla
+```php
+php artisan make:model SmtpSetting -m
+```
+Listo!
 ## 197. Dynamic Email Configuration Part 2
+
 ## 198. Dynamic Email Configuration Part 3

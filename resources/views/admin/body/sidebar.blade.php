@@ -274,6 +274,24 @@
                 </div>
             </li>
 
+            {{-- System Settings --}}
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#settings" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="settings"></i>
+                    <span class="link-title">Configuración</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="settings">
+
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('smtp.setting') }}" class="nav-link">Config. SMTP</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </li>
 
 
             {{-- Advanced UI --}}

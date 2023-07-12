@@ -17,11 +17,12 @@ use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\SettingController;
 
 
 require __DIR__.'/auth.php';
 
-/***************************
+/**** TODOS *****************
 * Acceso para todos frontend
 ****************************/
 
@@ -105,7 +106,7 @@ Route::post('/reply/message', [BlogController::class, 'ReplyMessage'])->name('re
 
 
 
-/******************************************************************
+/**** USER ********************************************************
 * User
 * Pagina de inicio de sesión: resources/views/auth/login.blade.php
 *******************************************************************/
@@ -143,7 +144,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-/************************************************************************
+/**** ADMIN ***************************************************************
 * Admin
 * Pagina de inicio de sesión: resources/views/admin/admin_login.blade.php
 **************************************************************************/
@@ -282,10 +283,17 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     });
 
+    // CRUD Settings - tabla 'smtp_settings'
+    Route::controller(SettingController::class)->group(function () {
+
+        Route::get('/smtp/setting', 'SmtpSetting')->name('smtp.setting');
+
+    });
+
 });
 
 
-/************************************************************************
+/**** AGENT **************************************************************
 * Agent
 * Pagina de inicio de sesión: resources/views/agent/agent_login.blade.php
 *************************************************************************/
