@@ -8721,5 +8721,7 @@ php artisan make:model SmtpSetting -m
 ```
 Listo!
 ## 197. Dynamic Email Configuration Part 2
-
+Listo!
 ## 198. Dynamic Email Configuration Part 3
+
+

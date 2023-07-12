@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('mailer')->nullable();
             $table->string('host')->nullable();
-            $table->string('post')->nullable();
+            $table->string('port')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
             $table->string('encryption')->nullable();
