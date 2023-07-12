@@ -326,6 +326,7 @@ Route::middleware(['auth','role:agent'])->group(function(){
         Route::get('/agent/schedule/request', 'AgentScheduleRequest')->name('agent.schedule.request');
         Route::get('/agent/details/schedule/{id}', 'AgentDetailsSchedule')->name('agent.details.schedule');
         Route::post('/agent/update/schedule', 'AgentUpdateSchedule')->name('agent.update.schedule');
+        Route::get('/agent/delete/schedule/{id}', 'AgentDeleteSchedule')->name('agent.delete.schedule');
 
     });
 

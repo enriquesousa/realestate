@@ -609,4 +609,18 @@ class AgentPropertyController extends Controller
 
      }
 
+     // AgentDeleteSchedule
+     public function AgentDeleteSchedule($id){
+
+        Schedule::findOrFail($id)->delete(); // eliminar el registro de la tabla
+
+        $notification = array(
+            'message' => 'Cita eliminada con éxito!',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+     }
+
 }

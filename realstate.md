@@ -270,9 +270,9 @@ Kazi Ariyan
 ## 195. Schedule a Tour in Admin With Email Part 5
 
 # Sección 42 - Dynamic Email Configuration In Laravel Edit env
-- 196. Dynamic Email Configuration Part 1
-- 197. Dynamic Email Configuration Part 2
-- 198. Dynamic Email Configuration Part 3
+## 196. Dynamic Email Configuration Part 1
+## 197. Dynamic Email Configuration Part 2
+## 198. Dynamic Email Configuration Part 3
 
 # Sección 43 - Property Schedule in User Dashboard
 - 199. Schedule in User Dashboard Part 1
@@ -8709,3 +8709,8 @@ Listo!
 ## 195. Schedule a Tour in Admin With Email Part 5
 Listo!
 
+# Sección 42 - Dynamic Email Configuration In Laravel Edit env
+## 196. Dynamic Email Configuration Part 1
+
+## 197. Dynamic Email Configuration Part 2
+## 198. Dynamic Email Configuration Part 3
