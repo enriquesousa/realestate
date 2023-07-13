@@ -1,6 +1,12 @@
-{{-- Llamado por: public function BlogDetails($slug) en app/Http/Controllers/Backend/BlogController.php --}}
+{{-- get('/blog/details/{slug}') Frontend --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
+
+{{-- Titulo: Noticias Detalle (Blog) - get('/blog/details/{slug}') Frontend --}}
+@section('title')
+    Noticias Detalle
+@endsection
 
 @php
     Config::set('custom.display_preload', false)
@@ -217,7 +223,7 @@
                     {{-- Category --}}
                     <div class="sidebar-widget category-widget">
                         <div class="widget-title">
-                            <h4>Category</h4>
+                            <h4>Categorías</h4>
                         </div>
                         <div class="widget-content">
                             <ul class="category-list clearfix">
@@ -234,7 +240,7 @@
                     {{-- Recent Posts --}}
                     <div class="sidebar-widget post-widget">
                         <div class="widget-title">
-                            <h4>Recent Posts</h4>
+                            <h4>Noticias Recientes</h4>
                         </div>
                         <div class="post-inner">
 

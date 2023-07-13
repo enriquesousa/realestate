@@ -1,7 +1,12 @@
-{{-- From: PropertyDetails app/Http/Controllers/Frontend/IndexController.php --}}
+{{-- From: Get: '/property/details/{id}/{slug}' Frontend --}}
 
 @extends('frontend.frontend_dashboard')
 @section('main')
+
+{{-- Titulo: Detalles de la Propiedad - Get: '/property/details/{id}/{slug}' Frontend --}}
+@section('title')
+    Detalles de la Propiedad | {{ $property->property_name }}
+@endsection
 
 @php
     Config::set('custom.display_preload', false)

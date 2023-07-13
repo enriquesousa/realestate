@@ -1,6 +1,12 @@
+{{-- Route: name('buy.list.property') Frontend --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Titulo: Propiedades para Compra - Frontend --}}
+@section('title')
+    Propiedades para Compra
+@endsection
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">

@@ -1,8 +1,12 @@
-{{-- Llamado por BuyPropertySearch en app/Http/Controllers/Frontend/IndexController.php --}}
+{{-- Route: name('buy.property.search') Frontend --}}
 
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Titulo: Resultado de búsqueda de Propiedades - Route: name('buy.property.search') Frontend --}}
+@section('title')
+    Resultados solo para Compra
+@endsection
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">

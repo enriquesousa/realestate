@@ -3,6 +3,11 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Titulo: Inmobiliaria Fácil - Frontend Pagina Principal--}}
+@section('title')
+    Inmobiliaria Fácil
+@endsection
+
 <!-- banner-section -->
 @include('frontend.home.banner')
 

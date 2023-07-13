@@ -285,11 +285,11 @@ Kazi Ariyan
 ## 204. Update Custom Title
 
 # Sección 45 - Setup User Permission
-- 205. User Permission Introduction
-- 206. Install Laravel Spatie Permission
-- 207. Setup User Permission Part 1
-- 208. Setup User Permission Part 2
-- 209. Setup User Permission Part 3
+## 205. User Permission Introduction
+## 206. Install Laravel Spatie Permission
+## 207. Setup User Permission Part 1
+## 208. Setup User Permission Part 2
+## 209. Setup User Permission Part 3
 
 # Sección 46 - Permission Import and Export From Excel File
 - 210. Install Laravel Excel Package in Project
@@ -8745,3 +8745,14 @@ Listo!
 ## 203. Site Setting Option Part 3
 Listo!
 ## 204. Update Custom Title
+Cambiar el Titulo a cada una de nuestras paginas
+Solo se las cambie a las propiedades y blog del frontend
+Listo!
+
+# Sección 45 - Setup User Permission
+## 205. User Permission Introduction
+
+## 206. Install Laravel Spatie Permission
+## 207. Setup User Permission Part 1
+## 208. Setup User Permission Part 2
+## 209. Setup User Permission Part 3

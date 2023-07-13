@@ -1,6 +1,12 @@
+{{-- Route: name('all.list.property') Frontend --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Titulo: Todas las Propiedades - Route: name('all.list.property') Frontend --}}
+@section('title')
+    Agentes - Todas las Propiedades
+@endsection
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">

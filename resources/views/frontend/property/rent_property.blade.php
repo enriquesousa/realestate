@@ -1,8 +1,12 @@
-{{-- LLamado por RentListProperty de app/Http/Controllers/Frontend/IndexController.php --}}
+{{-- Route: name('rent.list.property') Frontend --}}
 
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Titulo: Propiedades para Renta - Frontend --}}
+@section('title')
+    Propiedades para Renta
+@endsection
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">

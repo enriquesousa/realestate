@@ -1,6 +1,13 @@
-{{-- Llamado por: BlogCatList en app/Http/Controllers/Backend/BlogController.php --}}
+{{-- get('/blog/cat/list/{id}') Frontend --}}
+
 @extends('frontend.frontend_dashboard')
 @section('main')
+
+{{-- Titulo: Lista por categoría (BLOG) - get('/blog/cat/list/{id}') Frontend --}}
+@section('title')
+    Categoría: {{ $categoría->category_name }}
+@endsection
+
 
  <!--Page Title-->
  <section class="page-title-two bg-color-1 centred">
@@ -124,7 +131,7 @@
                      {{-- Category --}}
                      <div class="sidebar-widget category-widget">
                         <div class="widget-title">
-                            <h4>Category</h4>
+                            <h4>Categoría</h4>
                         </div>
                         <div class="widget-content">
                             <ul class="category-list clearfix">
@@ -141,7 +148,7 @@
                     {{-- Recent Posts --}}
                     <div class="sidebar-widget post-widget">
                         <div class="widget-title">
-                            <h4>Recent Posts</h4>
+                            <h4>Noticias Recientes</h4>
                         </div>
                         <div class="post-inner">
 
