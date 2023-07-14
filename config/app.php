@@ -158,10 +158,14 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+
         /*
          * Package Service Providers...
+         * Aquí podemos agregar los paquetes de proveedores de servicios para nuestro sistema!
          */
         Intervention\Image\ImageServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -171,6 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
     ])->toArray(),
 
     /*

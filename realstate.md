@@ -8755,7 +8755,58 @@ Vamos a implementar el sistema de Roles y Perisos del sistema
 Vamos a uitilizar un paquete laravel llamdo Spatie.
 Liso! 
 ## 206. Install Laravel Spatie Permission
+Install Laravel Spatie Permission
+https://spatie.be/docs/laravel-permission/v5/installation-laravel
 
+You can install the package via composer:
+```php
+composer require spatie/laravel-permission
+```
+
+Optional: The service provider will automatically get registered. Or you may manually add the service provider in your config/app.php file:
+```php
+'providers' => [
+    // ...
+    Spatie\Permission\PermissionServiceProvider::class,
+];    
+```
+
+You should publish the migration and the config/permission.php config file with:
+```php
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+Se crearon:
+- config/permission.php
+- database/migrations/2023_07_13_182932_create_permission_tables.php
+
+Clear your config cache. This package requires access to the permission config. Generally it's bad practice to do config-caching in a development environment. If you've been caching configurations locally, clear your config cache with either of these commands:
+```php
+php artisan optimize:clear
+```
+
+Se van a crear 5 tablas nuevas:
+```php
+['role_has_permissions']
+['model_has_roles']
+['model_has_permissions']
+['roles']
+['permissions']
+```
+
+Run the migrations: After the config and migration have been published and configured, you can create the tables for this package by running:
+```php
+php artisan migrate
+```
+
+Add the necessary trait to your User model:
+```php
+// The User model requires this trait
+use HasRoles;
+```
+Listo!
 ## 207. Setup User Permission Part 1
+
+
+
 ## 208. Setup User Permission Part 2
 ## 209. Setup User Permission Part 3
