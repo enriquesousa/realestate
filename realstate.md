@@ -8811,5 +8811,49 @@ group_name Varchar 255 Nullable
 ```
 Listo!
 ## 208. Setup User Permission Part 2
+Grupos
+```php
+Menus
+- Tipos de Propiedad
+- Estados
+- Comodidades
+- Usuarios
+- Propiedades
+- Testimoniales
+- Perfil
+- Historial de Pagos
+- Ver Mensajes
+- Agentes
 
+Noticias (BLOG)
+- Categorias Noticias
+- Lista Noticias
+- Comentarios Noticias
+
+Configuracion
+- Configuracion SMTP
+- Configuracion Sitio
+- Roles y Permisos
+
+Tipos de Propiedad
+-------------------
+- type.menu
+- all.type
+- add.type
+- edit.type
+- delete.type
+
+Estados
+-------------------
+- state.menu
+- all.state
+- add.state
+- edit.state
+- delete.state
+```
+Listo!
 ## 209. Setup User Permission Part 3
+
+
+
+
