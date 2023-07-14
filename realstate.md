@@ -292,10 +292,10 @@ Kazi Ariyan
 ## 209. Setup User Permission Part 3
 
 # Sección 46 - Permission Import and Export From Excel File
-- 210. Install Laravel Excel Package in Project
-- 211. How to Import and Export Permission Part 1
-- 212. How to Import and Export Permission Part 2
-- 213. How to Import and Export Permission Part 3
+## 210. Install Laravel Excel Package in Project
+## 211. How to Import and Export Permission Part 1
+## 212. How to Import and Export Permission Part 2
+## 213. How to Import and Export Permission Part 3
 
 # Sección 47 - Setup User Roles 
 - 214. Setup User Roles Part 1
@@ -8853,7 +8853,14 @@ Estados
 ```
 Listo!
 ## 209. Setup User Permission Part 3
+Listo!
 
+# Sección 46 - Permission Import and Export From Excel File
+## 210. Install Laravel Excel Package in Project
+
+## 211. How to Import and Export Permission Part 1
+## 212. How to Import and Export Permission Part 2
+## 213. How to Import and Export Permission Part 3
 
 
 

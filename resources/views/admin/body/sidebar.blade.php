@@ -18,7 +18,13 @@
             <li class="nav-item">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Panel</span>
+                    <span class="link-title">Panel Admin</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('casa') }}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Pagina Principal</span>
                 </a>
             </li>
 
@@ -325,7 +331,7 @@
             {{-- * ROLES Y PERMISOS DEL SISTEMA --}}
             <li class="nav-item nav-category">Roles y Permisos</li>
 
-            {{-- Agentes --}}
+            {{-- Roles y Permisos --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#rolesypermisos" role="button" aria-expanded="false"
                     aria-controls="rolesypermisos">
