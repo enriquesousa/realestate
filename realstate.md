@@ -8857,8 +8857,39 @@ Listo!
 
 # Sección 46 - Permission Import and Export From Excel File
 ## 210. Install Laravel Excel Package in Project
+Laravel Excel Export and Import Package 
+https://docs.laravel-excel.com/3.1/getting-started/
 
+Require this package in the composer.json of your Laravel project. This will download the package and PhpSpreadsheet:
+```php
+composer require maatwebsite/excel
+```
+
+If you want to register it yourself, add the ServiceProvider in config/app.php:
+```php
+'providers' => [
+    /*
+     * Package Service Providers...
+     */
+    Maatwebsite\Excel\ExcelServiceProvider::class,
+]
+```
+
+If you want to add it manually, add the Facade in config/app.php:
+```php
+'aliases' => [
+    ...
+    'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+]
+```
+
+To publish the config, run the vendor publish command:
+```php
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
+```
+Listo!
 ## 211. How to Import and Export Permission Part 1
+
 ## 212. How to Import and Export Permission Part 2
 ## 213. How to Import and Export Permission Part 3
 
