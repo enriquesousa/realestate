@@ -9,7 +9,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{ route('add.permission') }}" class="btn btn-inverse-danger"><i data-feather="download-cloud"></i>&nbsp;&nbsp; Bajar Datos a Archivo Excel</a>
+            <a href="{{ route('export') }}" class="btn btn-inverse-danger"><i data-feather="download-cloud"></i>&nbsp;&nbsp; Bajar Datos a Archivo Excel</a>
         </ol>
     </nav>
 

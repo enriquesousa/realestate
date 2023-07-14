@@ -8891,7 +8891,101 @@ Listo!
 ## 211. How to Import and Export Permission Part 1
 Listo!
 ## 212. How to Import and Export Permission Part 2
+Laravel Excel
+5 minute quick start.
+Create an export class in app/Exports
+You may do this by using the make:export command:
+```php
+php artisan make:export UsersExport --model=User
+```
+
+En nuestro caso:
+Tomamos el modelo de Spatie\Permission\Models\Permission;
+```php
+php artisan make:export PermissionExport --model=Permission
+```
+Se crea:
+app/Exports/PermissionExport.php
+
+Hay que importar manualmente a:
+use Spatie\Permission\Models\Permission; en app/Exports/PermissionExport.php
+```php
+<?php
+
+namespace App\Exports;
+
+use Spatie\Permission\Models\Permission;
+use Maatwebsite\Excel\Concerns\FromCollection;
+
+class PermissionExport implements FromCollection
+{
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function collection()
+    {
+        return Permission::all();
+    }
+}
+```
+
+In your controller you can call this export now:
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+class UsersController extends Controller 
+{
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+}
+```
+
+And finally add a route to be able to access the export:
+```php
+Route::get('users/export/', [UsersController::class, 'export']);
+```
+
+En app/Exports/PermissionExport.php
+Podemos custmizar que datos queremos que baje, por omision son todos:
+```php
+<?php
+
+namespace App\Exports;
+
+use Spatie\Permission\Models\Permission;
+use Maatwebsite\Excel\Concerns\FromCollection;
+
+class PermissionExport implements FromCollection
+{
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function collection()
+    {
+        return Permission::all();
+    }
+}
+```
+
+Pero podemos customizar a que baje solo los campos name y group_name por ejemplo
+```php
+public function collection()
+{
+    return Permission::select('name','group_name')->get();
+}
+```
+Listo!
 ## 213. How to Import and Export Permission Part 3
+
+
+
 
 
 
