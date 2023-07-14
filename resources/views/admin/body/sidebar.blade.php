@@ -345,7 +345,7 @@
                             <a href="{{ route('all.permission') }}" class="nav-link">Todos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.agent') }}" class="nav-link">Añadir</a>
+                            <a href="{{ route('add.permission') }}" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>
