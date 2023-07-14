@@ -190,8 +190,8 @@
 
 
 
-            {{-- * COMPONENTS --}}
-            <li class="nav-item nav-category">Funciones para Usuario</li>
+            {{-- * FUNCIONES DEL SISTEMA --}}
+            <li class="nav-item nav-category">Funciones del Sistema</li>
 
             {{-- Agentes --}}
             <li class="nav-item">
@@ -319,6 +319,33 @@
                     </ul>
                 </div>
             </li>
+
+
+
+            {{-- * ROLES Y PERMISOS DEL SISTEMA --}}
+            <li class="nav-item nav-category">Roles y Permisos</li>
+
+            {{-- Agentes --}}
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#rolesypermisos" role="button" aria-expanded="false"
+                    aria-controls="rolesypermisos">
+                    <i class="link-icon" data-feather="key"></i>
+                    <span class="link-title">Roles y Permisos</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="rolesypermisos">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('all.permission') }}" class="nav-link">Todos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.agent') }}" class="nav-link">Añadir</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
 
             {{-- * DOCS --}}
             <li class="nav-item nav-category">Docs</li>

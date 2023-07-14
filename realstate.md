@@ -8805,8 +8805,11 @@ use HasRoles;
 ```
 Listo!
 ## 207. Setup User Permission Part 1
-
-
-
+Manualmente agregamos un nuevo campo a tabla 'permissions'
+```php
+group_name Varchar 255 Nullable
+```
+Listo!
 ## 208. Setup User Permission Part 2
+
 ## 209. Setup User Permission Part 3
