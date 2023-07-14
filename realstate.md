@@ -8751,8 +8751,11 @@ Listo!
 
 # Sección 45 - Setup User Permission
 ## 205. User Permission Introduction
-
+Vamos a implementar el sistema de Roles y Perisos del sistema
+Vamos a uitilizar un paquete laravel llamdo Spatie.
+Liso! 
 ## 206. Install Laravel Spatie Permission
+
 ## 207. Setup User Permission Part 1
 ## 208. Setup User Permission Part 2
 ## 209. Setup User Permission Part 3

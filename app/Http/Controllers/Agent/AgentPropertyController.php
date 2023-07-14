@@ -601,6 +601,21 @@ class AgentPropertyController extends Controller
         Mail::to($request->email)->send(new ScheduleMail($data));
         // End Enviar correo
 
+        /* Enviar Mensaje de WhatsUp */
+
+        $url = "`https://graph.facebook.com/v17.0/102952322873460/messages `
+        -H 'Authorization: Bearer EAAELeKuZAlaQBANO2Sz2p08So1OADTpPIezdDPENYIlVt6QFE6G57NAJicKbniZAq4f9NEeUyq6FLtLIzz9hfLtBHgkMxhynkmIoptwVrgHOgsbLHv7gXvwaKZAVmUTXolnubWRpz6XDczWaiqLkVWn6mrnc1da1wwe2sVCCfwzuur1JnuZAT9v9MdtBZCWDvuSGkMuzaCQZDZD' `
+        -H 'Content-Type: application/json' `
+        -d '{ \"messaging_product\": \"whatsapp\", \"to\": \"526641880604\", \"type\": \"template\", \"template\": { \"name\": \"hello_world\", \"language\": { \"code\": \"en_US\" } } }'";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response, true);
+
+        /* End - Enviar Mensaje de WhatsUp */
+
         $notification = array(
             'message' => 'Cita confirmada con éxito!',
             'alert-type' => 'success'
