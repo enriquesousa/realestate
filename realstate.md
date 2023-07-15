@@ -8850,6 +8850,17 @@ Estados
 - add.state
 - edit.state
 - delete.state
+
+Comodidades (amenities)
+-------------------
+- amenities.menu
+- all.amenities
+- add.amenities
+- edit.amenities
+- delete.amenities
+
+
+
 ```
 Listo!
 ## 209. Setup User Permission Part 3
@@ -8983,9 +8994,62 @@ public function collection()
 ```
 Listo!
 ## 213. How to Import and Export Permission Part 3
+Ahora para importar un archivo excel
+https://docs.laravel-excel.com/3.1/imports/
 
+Create an import class in app/Imports
+You may do this by using the make:import command.
+```php
+php artisan make:import UsersImport --model=User
+```
 
+Para nuestro caso:
+```php
+php artisan make:import PermissionImport --model=Permission
+```
 
+Crea el modelo:
+```php
+app/Imports/PermissionImport.php
+```
+
+En app/Http/Controllers/Backend/RoleController.php
+```php
+public function Import(Request $request){
+    Excel::import(new PermissionImport, $request->file('import_file'));
+    $notification = array(
+        'message' => 'Permisos Importados con éxito!',
+        'alert-type' => 'success'
+    );
+    return redirect()->back()->with($notification);
+}
+```
+
+En app/Imports/PermissionImport.php
+```php
+<?php
+
+namespace App\Imports;
+
+use Spatie\Permission\Models\Permission;
+use Maatwebsite\Excel\Concerns\ToModel;
+
+class PermissionImport implements ToModel
+{
+    /**
+    * @param array $row
+    *
+    * @return \Illuminate\Database\Eloquent\Model|null
+    */
+    public function model(array $row)
+    {
+        return new Permission([
+            'name' => $row[0],
+            'group_name' => $row[1],
+        ]);
+    }
+}
+```
 
 
 

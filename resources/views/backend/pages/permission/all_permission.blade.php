@@ -6,8 +6,8 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <a href="{{ route('add.permission') }}" class="btn btn-inverse-info">Añadir Permiso</a>&nbsp;&nbsp;&nbsp;
-            <a href="{{ route('import.permission') }}" class="btn btn-inverse-warning">Importar</a>&nbsp;&nbsp;&nbsp;
-            <a href="{{ route('add.permission') }}" class="btn btn-inverse-danger">Exportar</a>
+            <a href="{{ route('import.permission') }}" class="btn btn-inverse-warning"><i data-feather="upload-cloud"></i>&nbsp;&nbsp;Importar</a>&nbsp;&nbsp;&nbsp;
+            <a href="{{ route('export') }}" class="btn btn-inverse-danger"><i data-feather="download-cloud"></i>&nbsp;&nbsp;Exportar</a>
         </ol>
     </nav>
 

@@ -25,7 +25,7 @@
 
                         <h6 class="card-title">Importar Permisos</h6>
 
-                        <form id="myForm" method="POST" action="{{ route('store.permission') }}" class="forms-sample">
+                        <form id="myForm" method="POST" action="{{ route('import') }}" class="forms-sample" enctype="multipart/form-data">
                         @csrf
 
                             {{-- Importar Archivo Excel --}}
