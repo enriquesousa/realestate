@@ -249,7 +249,10 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
     // Admin CRUD Users - Lista Todos los usuarios tabla 'users'
     Route::controller(UsersController::class)->group(function () {
+
         Route::get('/admin/all/users', 'AdminAllUsers')->name('admin.all.users');
+        Route::get('/admin/add/user', 'AdminAddUser')->name('admin.add.user');
+
     });
 
     // Admin CRUD Testimonials - tabla 'testimonials'

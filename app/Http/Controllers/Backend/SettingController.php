@@ -73,6 +73,8 @@ class SettingController extends Controller
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
                 'copyright' => $request->copyright,
+                'company_webpage' => $request->company_webpage,
+                'company_name' => $request->company_name,
                 'logo' => $save_url,
             ]);
 
@@ -93,6 +95,8 @@ class SettingController extends Controller
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
                 'copyright' => $request->copyright,
+                'company_webpage' => $request->company_webpage,
+                'company_name' => $request->company_name,
             ]);
 
             $notification = array(

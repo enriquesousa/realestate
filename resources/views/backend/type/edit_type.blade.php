@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Editar Property Type</h6>
+                        <h6 class="card-title">Editar Tipo de Propiedad</h6>
 
                         <form method="POST" action="{{ route('update.type') }}" class="forms-sample">
                         @csrf
@@ -25,7 +25,7 @@
 
                             {{-- Type Name --}}
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Type Name</label>
+                                <label for="type_name" class="form-label">Type Name</label>
                                 <input type="text" name="type_name" class="form-control @error('type_name') is-invalid @enderror" value="{{ $types->type_name }}">
                                 @error('type_name')
                                     <span class="text-danger">{{ $message }}</span>
@@ -34,7 +34,7 @@
 
                             {{-- Type Icon --}}
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Type Icon</label>
+                                <label for="type_icon" class="form-label">Type Icon</label>
                                 <input type="text" name="type_icon" class="form-control @error('type_icon') is-invalid @enderror" value="{{ $types->type_icon }}">
                                 @error('type_icon')
                                     <span class="text-danger">{{ $message }}</span>

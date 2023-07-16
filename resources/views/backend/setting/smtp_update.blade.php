@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Actualizar Configuración SMTP</h6>
+                        <h6 class="card-title text-warning">Actualizar Configuración SMTP</h6>
 
                         <form id="myForm" method="POST" action="{{ route('update.smtp.setting') }}" class="forms-sample">
                         @csrf

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PropertyType;
 use App\Models\Amenities;
+use Illuminate\Validation\Rule;
+
 
 class PropertyTypeController extends Controller
 {
@@ -64,6 +66,22 @@ class PropertyTypeController extends Controller
 
         $pid = $request->id;
 
+        // Validación en Update (Validate on Update): Llamada de resources/views/backend/type/edit_type.blade.php
+        $request->validate([
+
+            'type_name' => [
+                'required',
+                Rule::unique('property_types')->ignore(PropertyType::findOrFail($pid)->id),
+            ],
+
+            'type_icon' => [
+                'required',
+                Rule::unique('property_types')->ignore(PropertyType::findOrFail($pid)->id),
+            ],
+
+        ]);
+
+        // Update
         PropertyType::findOrFail($pid)->update([
             'type_name' => $request->type_name,
             'type_icon' => $request->type_icon,

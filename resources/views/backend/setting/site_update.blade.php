@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Actualizar Configuración Sitio</h6>
+                        <h6 class="card-title text-warning">Actualizar Configuración Sitio</h6>
 
                         <form id="myForm" method="POST" action="{{ route('update.site.setting') }}" class="forms-sample" enctype="multipart/form-data">
                         @csrf
@@ -58,6 +58,18 @@
                                 <input type="text" name="twitter" class="form-control" value="{{ $site_setting->twitter }}">
                             </div>
 
+                            {{-- company web page --}}
+                            <div class="form-group mb-3">
+                                <label for="company_webpage" class="form-label">Pagina Web</label>
+                                <input type="text" name="company_webpage" class="form-control" value="{{ $site_setting->company_webpage }}">
+                            </div>
+
+                             {{-- company name --}}
+                             <div class="form-group mb-3">
+                                <label for="company_name" class="form-label">Nombre Compañía</label>
+                                <input type="text" name="company_name" class="form-control" value="{{ $site_setting->company_name }}">
+                            </div>
+
                              {{-- copyright --}}
                              <div class="form-group mb-3">
                                 <label for="copyright" class="form-label">Copyright</label>
@@ -73,7 +85,7 @@
                             {{-- Desplegar Photo --}}
                             <div class="mb-3">
                                 <label for="logo_display" class="form-label"></label>
-                                <img id="showImage" class="wd-80 rounded-circle" src="{{ asset($site_setting->logo) }}" alt="logo 1500x386 px">
+                                <img id="showImage" class="wd-100 rounded-circle" src="{{ asset($site_setting->logo) }}" alt="logo 1500x386 px">
                             </div>
 
                             <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>

@@ -28,7 +28,7 @@
                                 <input type="text" name="name" class="form-control">
                             </div>
 
-                            {{-- Grupo Permiso --}}
+                            {{-- Grupo Select Permiso --}}
                             <div class="form-group mb-3">
                                 <label for="group_name" class="form-label">Grupo</label>
                                 <select name="group_name" class="form-select"

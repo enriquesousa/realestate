@@ -5,7 +5,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="#" class="btn btn-inverse-info">Añadir un Usuario</a>
+            <a href="{{ route('admin.add.user') }}" class="btn btn-inverse-info">Añadir un Usuario</a>
         </ol>
     </nav>
 
@@ -37,15 +37,12 @@
 
                                 @foreach ($usuarios as $key => $item)
                                 <tr>
+
+                                    {{-- Serie --}}
                                     <td>{{ $key+1 }}</td>
 
+                                    {{-- Foto --}}
                                     <td>
-
-                                        {{-- @php
-                                            $foto =  public_path('upload/admin_images/' . $item->photo);
-                                        @endphp --}}
-                                        {{-- @dd($foto) --}}
-
 
                                         @if ($item->role == 'admin')
                                             <img src="{{ asset('upload/admin_images/'.$item->photo) }}" alt="" style="width:60px; height:60px;"></td>
@@ -59,14 +56,19 @@
 
                                     </td>
 
+                                    {{-- Nombre --}}
                                     <td>{{ $item->name }}</td>
 
+                                    {{-- Username --}}
                                     <td>{{ $item->username }}</td>
 
+                                    {{-- Correo --}}
                                     <td>{{ $item->email }}</td>
 
+                                    {{-- Role --}}
                                     <td>{{ $item->role }}</td>
 
+                                    {{-- Desplegar Estatus Activo - Inactivo --}}
                                     <td>
                                         @if ($item->status == 'active')
                                             <span class="badge rounded-pill bg-success">Activo</span>
@@ -75,12 +77,12 @@
                                         @endif
                                     </td>
 
+
+                                    {{-- Acción Editar - Eliminar--}}
                                     <td>
                                         <a href="#" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="#" class="btn btn-inverse-danger" id="delete">Borrar</a>
+                                        <a href="#" class="btn btn-inverse-danger" id="delete">Eliminar</a>
                                     </td>
-
-
 
                                 </tr>
                                 @endforeach

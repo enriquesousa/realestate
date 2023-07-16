@@ -38,11 +38,20 @@
 
                                 @foreach ($allAgents as $key => $item)
                                 <tr>
+
+                                    {{-- Serie --}}
                                     <td>{{ $key+1 }}</td>
-                                    <td><img src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" style="width: 70px; height: 40px;"></td>
+
+                                    {{-- Foto --}}
+                                    <td><img src="{{ (!empty($item->photo)) ? url('upload/agent_images/'.$item->photo) : url('upload/no_image.jpg') }}" style="width: 60px; height: 60px;"></td>
+
+                                    {{-- Nombre --}}
                                     <td>{{ $item->name }}</td>
+
+                                    {{-- Role --}}
                                     <td>{{ $item->role }}</td>
 
+                                    {{-- Desplegar Status Activo - Inactivo --}}
                                     <td>
                                         @if ($item->status == 'active')
                                             <span class="badge rounded-pill bg-success">Activo</span>
@@ -51,10 +60,12 @@
                                         @endif
                                     </td>
 
+                                    {{-- Botón Cambiar Status Activo - Inactivo --}}
                                     <td>
                                         <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger"  data-toggle="toggle" data-on="ESTATUS" data-off="ESTATUS" {{ $item->status ? 'checked' : '' }} >
                                     </td>
 
+                                    {{-- Acción Botones Editar - Eliminar --}}
                                     <td>
                                         <a href="{{ route('edit.agent',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
                                         <a href="{{ route('delete.agent',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>

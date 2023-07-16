@@ -67,7 +67,7 @@ class AgentController extends Controller
     public function AgentProfileStore(Request $request)
     {
         // Validación en Update: Llamada de resources/views/agent/agent_profile_view.blade.php
-        // Validación para lso campos username y email para que sean únicos, ignora este mismo record
+        // Validación para los campos username y email para que sean únicos, ignora este mismo record
         // para poder dejar los mismos datos y que no afecte la validación, se requiere Illuminate\Validation\Rule;
         // Validation
         $request->validate([
