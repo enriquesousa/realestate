@@ -42,8 +42,13 @@
 
                     {{-- User Login --}}
                     <div class="sign-box">
+
                         {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
                         <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-user"></i> Iniciar Sesión</a>
+
+                        {{-- Para usar ventana modal incluir @include('partials.login') --}}
+                        {{-- <a class="nav-link" style="cursor: pointer" data-toggle="modal" data-target="#loginModal"><i class="fas fa-user"></i> Iniciar Sesión</a> --}}
+
                     </div>
 
                     {{-- <div class="sign-box">
@@ -145,3 +150,6 @@
 
 </header>
 <!-- main-header end -->
+
+{{-- Ventana modal para Login --}}
+@include('partials.login')

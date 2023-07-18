@@ -77,7 +77,8 @@ class UserController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect('/login')->with($notification);
+        // return redirect('/login')->with($notification);
+        return redirect(route('casa'))->with($notification);
 
     }
 

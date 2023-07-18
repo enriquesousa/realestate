@@ -106,9 +106,6 @@
                 email: {
                     required : true,
                 },
-                phone: {
-                    required : true,
-                },
                 password: {
                     required : true,
                 },
@@ -123,9 +120,6 @@
                 },
                 email: {
                     required : 'Favor entrar correo, campo requerido',
-                },
-                phone: {
-                    required : 'Favor entrar teléfono, campo requerido',
                 },
                 password: {
                     required : 'Favor entrar contraseña, campo requerido',

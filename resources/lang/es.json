@@ -39,6 +39,9 @@
     "Thursday": "Jueves",
     "Friday": "Viernes",
     "Saturday": "Sábado",
-    "Sunday": "Domingo"
+    "Sunday": "Domingo",
+    "Remember me": "Recuérdeme",
+    "Forgot your password?": "Olvidaste la contraseña?",
+    "Log in": "Acceder"
 
 }
