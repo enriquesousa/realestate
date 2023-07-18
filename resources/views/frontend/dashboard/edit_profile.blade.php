@@ -98,7 +98,10 @@
                                     {{-- Email --}}
                                     <div class="form-group">
                                         <label>Correo Electrónico</label>
-                                        <input type="email" name="email" value="{{ $userData->email }}">
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $userData->email }}">
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     {{-- Phone --}}
@@ -164,6 +167,16 @@
         });
     });
 
+</script>
+
+{{-- Format phone number --}}
+<script type="text/javascript">
+    // Format phone number
+    // https://stackoverflow.com/questions/17980061/how-to-change-phone-number-format-in-input-as-you-type
+    $("input[name='phone']").keyup(function() {
+        // $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{2})(\d+)$/, "($1) $2-$3-$4"));
+        $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{4})$/, "($1) $2-$3"));
+    });
 </script>
 
 @endsection

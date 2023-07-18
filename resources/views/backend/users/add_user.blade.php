@@ -144,7 +144,8 @@
     // Format phone number
     // https://stackoverflow.com/questions/17980061/how-to-change-phone-number-format-in-input-as-you-type
     $("input[name='phone']").keyup(function() {
-        $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{2})(\d+)$/, "($1) $2-$3-$4"));
+        // $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{2})(\d+)$/, "($1) $2-$3-$4"));
+        $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{4})$/, "($1) $2-$3"));
     });
 
 </script>

@@ -43,6 +43,11 @@ class UserController extends Controller
                 Rule::unique('users')->ignore(User::findOrFail($id)->id),
             ],
 
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore(User::findOrFail($id)->id),
+            ],
+
         ]);
 
 
