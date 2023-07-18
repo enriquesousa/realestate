@@ -38,6 +38,8 @@
             </label>
         </div>
 
+
+
         {{-- Forgot your password? --}}
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
@@ -49,6 +51,17 @@
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        {{-- Si  aun no te registras, puedes hacerlo aquí --}}
+        <div>
+            <label for="" class="text-sm text-gray-600">Si  aun no te registras, puedes hacerlo</label>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('user.register') }}">
+                aquí
+            </a>
         </div>
 
     </form>

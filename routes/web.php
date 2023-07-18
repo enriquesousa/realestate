@@ -30,6 +30,7 @@ require __DIR__.'/auth.php';
 // Home User Frontend All Route
 Route::get('/', [UserController::class, 'index'])->name('casa');
 Route::get('/category/all', [UserController::class, 'CategoryAll'])->name('category.all');
+Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
 
 // Login and Register
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);

@@ -16,10 +16,10 @@
     </div>
     <div class="auto-container">
         <div class="content-box clearfix">
-            <h1>Blogs</h1>
+            <h1>Noticias</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="{{ route('casa') }}">Inicio</a></li>
-                <li>Blogs</li>
+                <li>Noticias</li>
             </ul>
         </div>
     </div>

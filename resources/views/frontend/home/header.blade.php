@@ -46,7 +46,7 @@
                         {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
                         <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-sign-in-alt"></i> Entrar</a>
 
-                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-user-plus"></i> Registrarse</a>
+                        <a href="{{ route('user.register') }}" class="pl-2"><i class="fas fa-user-plus"></i> Registrarse</a>
 
 
                         {{-- Para usar ventana modal incluir @include('partials.login') --}}
@@ -112,7 +112,7 @@
                                 </li>
 
                                 {{-- Blog --}}
-                                <li class=""><a href="{{ route('blog.list') }}"><span>Blog</span></a></li>
+                                <li class=""><a href="{{ route('blog.list') }}"><span>Noticias</span></a></li>
 
                                 {{-- Contact --}}
                                 <li><a href="#"><span>Contáctanos</span></a></li>

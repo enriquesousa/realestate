@@ -162,4 +162,10 @@ class UserController extends Controller
 
      }
 
+
+     // UserRegister
+     public function UserRegister(){
+        return view('frontend.user.user_register');
+     }
+
 }
