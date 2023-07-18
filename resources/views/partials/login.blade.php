@@ -2,6 +2,7 @@
 {{-- https://blog.quickadminpanel.com/laravel-login-and-register-forms-in-modal-bootstrap-popups/ --}}
 {{-- Llamado por: resources/views/frontend/home/header.blade.php --}}
 {{-- otra forma de validar con bootstrap5 https://www.laravelia.com/post/laravel-10-bootstrap-5-modal-form-validation-tutorial --}}
+{{-- https://www.laravelia.com/post/laravel-10-bootstrap-5-form-validation-tutorial --}}
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog" role="document">

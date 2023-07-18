@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Schedule;
+use Illuminate\Validation\Rule;
+
 
 class UserController extends Controller
 {
@@ -34,6 +36,15 @@ class UserController extends Controller
 
         $id = Auth::user()->id;
         $data = User::find($id);
+
+        $request->validate([
+
+            'username' => [
+                Rule::unique('users')->ignore(User::findOrFail($id)->id),
+            ],
+
+        ]);
+
 
         $data->username = $request->username;
         $data->name = $request->name;

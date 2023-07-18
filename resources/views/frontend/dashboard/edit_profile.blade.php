@@ -83,7 +83,10 @@
                                     {{-- Username --}}
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" name="username" value="{{ $userData->username }}">
+                                        <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" value="{{ $userData->username }}">
+                                        @error('username')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     {{-- Name --}}

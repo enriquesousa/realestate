@@ -32,8 +32,8 @@
 
                 @auth
                     <div class="sign-box">
-                        <a href="{{ route('dashboard') }}"><i class="fas fa-user"></i>Panel</a>
-                        <a href="{{ route('user.logout') }}" class="pl-3"><i class="fas fa-user"></i>Cerrar Sesión</a>
+                        <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i>Panel</a>
+                        <a href="{{ route('user.logout') }}" class="pl-3"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                     </div>
                 @else
                     {{-- <div class="sign-box">
@@ -44,7 +44,10 @@
                     <div class="sign-box">
 
                         {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
-                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+
+                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-user-plus"></i> Registrarse</a>
+
 
                         {{-- Para usar ventana modal incluir @include('partials.login') --}}
                         {{-- <a class="nav-link" style="cursor: pointer" data-toggle="modal" data-target="#loginModal"><i class="fas fa-user"></i> Iniciar Sesión</a> --}}

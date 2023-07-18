@@ -49,6 +49,7 @@
                                 @endphp
 
                                 <h4>Inicia Sesión Agente</h4>
+
                                 <form action="{{ route('login') }}" method="post" class="default-form">
                                 @csrf
 
@@ -70,6 +71,7 @@
                                     </div>
 
                                 </form>
+
                                 <div class="othre-text">
                                     <p>No tienes una cuenta? <a href="#">Da Click en pestaña de Regístrate</a></p>
                                 </div>
