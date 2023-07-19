@@ -49,4 +49,10 @@ class User extends Authenticatable
         return $permission_groups;
     }
 
+    // Tomar los nombre y ids de cada grupo de permisos
+    public static function getPermissionByGroupName($group_name){
+        $permissions = DB::table('permissions')->select('name','id')->where('group_name',$group_name)->get();
+        return $permissions;
+    }
+
 }
