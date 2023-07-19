@@ -136,6 +136,40 @@ class RoleController extends Controller
 
     }
 
+    // EditRol
+    public function EditRol($id){
+        $rol = Role::findOrFail($id);
+        return view('backend.pages.roles.edit_rol',compact('rol'));
+    }
+
+    // UpdateRol
+    public function UpdateRol(Request $request){
+
+        $rol_id = $request->id;
+
+        Role::findOrFail($rol_id)->update([
+            'name' => $request->name,
+        ]);
+
+        $notification = array(
+            'message' => 'Rol actualizado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.roles')->with($notification);
+
+    }
+
+    // DeleteRol
+    public function DeleteRol($id){
+        Role::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Rol eliminado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 
 
 }

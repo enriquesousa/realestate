@@ -330,10 +330,9 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/all/roles', 'AllRoles')->name('all.roles');
         Route::get('/add/roles', 'AddRoles')->name('add.roles');
         Route::post('/store/rol', 'StoreRol')->name('store.rol');
-
-        Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
-        Route::post('/update/permission', 'UpdatePermission')->name('update.permission');
-        Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');
+        Route::get('/edit/rol/{id}', 'EditRol')->name('edit.rol');
+        Route::post('/update/rol', 'UpdateRol')->name('update.rol');
+        Route::get('/delete/rol/{id}', 'DeleteRol')->name('delete.rol');
 
     });
 

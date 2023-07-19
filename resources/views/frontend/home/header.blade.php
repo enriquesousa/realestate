@@ -44,7 +44,7 @@
                     <div class="sign-box">
 
                         {{-- app/Http/Controllers/Auth/AuthenticatedSessionController.php --}}
-                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-sign-in-alt"></i> Acceder</a>
 
                         <a href="{{ route('user.register') }}" class="pl-2"><i class="fas fa-user-plus"></i> Registrarse</a>
 

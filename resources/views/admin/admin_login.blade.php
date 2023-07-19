@@ -57,23 +57,29 @@
             <div class="page-content d-flex align-items-center justify-content-center">
 
                 <div class="row w-100 mx-0 auth-page">
+
                     <div class="col-md-8 col-xl-6 mx-auto">
+
                         <div class="card">
+
                             <div class="row">
 
                                 {{-- Side Image --}}
                                 <div class="col-md-4 pe-md-0">
+
                                     <div class="authlogin-side-wrapper">
 
                                     </div>
+
                                 </div>
 
                                 {{-- Formulario de login --}}
                                 <div class="col-md-8 ps-md-0">
+
                                     <div class="auth-form-wrapper px-4 py-5">
 
                                         <a href="#"
-                                            class="noble-ui-logo logo-light d-block mb-2">Fotos<span>Oficiales</span></a>
+                                            class="noble-ui-logo logo-light d-block mb-2">Admin<span>Panel</span></a>
                                         <h5 class="text-muted fw-normal mb-4">¡Bienvenido <span class="text-white">Admin!</span> Ingrese a su cuenta.</h5>
 
                                         <form class="forms-sample" method="POST" action="{{ route('login') }}">
@@ -114,11 +120,15 @@
                                         </form>
 
                                     </div>
+
                                 </div>
 
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
 
             </div>

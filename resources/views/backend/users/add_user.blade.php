@@ -58,8 +58,9 @@
 
                             {{-- Phone --}}
                             <div class="form-group mb-3">
-                                <label for="phone" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Formato (664) 123-45-67">Teléfono &nbsp;&nbsp;<i data-feather="help-circle" style="width:15px; height:15px;"></i></label>
-                                <input type="text" name="phone" class="form-control" >
+                                <label for="phone" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" title="Formato (664) 123-12-34">Teléfono &nbsp;&nbsp;<i data-feather="help-circle" style="width:15px; height:15px;"></i></label>
+                                <i class="fa fa-phone"></i>
+                                <input type="text" name="phone" class="form-control" data-inputmask="'mask':[ '(999) 999-9999']" data-mask="">
                             </div>
 
                             {{-- Address --}}
@@ -143,10 +144,10 @@
 
     // Format phone number
     // https://stackoverflow.com/questions/17980061/how-to-change-phone-number-format-in-input-as-you-type
-    $("input[name='phone']").keyup(function() {
+    // $("input[name='phone']").keyup(function() {
         // $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{2})(\d+)$/, "($1) $2-$3-$4"));
-        $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{4})$/, "($1) $2-$3"));
-    });
+    //     $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d{4})$/, "($1) $2-$3"));
+    // });
 
 </script>
 

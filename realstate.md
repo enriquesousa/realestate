@@ -9056,6 +9056,8 @@ Listo!
 ## 214. Setup User Roles Part 1
 Listo!
 ## 215. Setup User Roles Part 2
+Botones de Editar y Eliminar
+Listo!
 ## 216. Add Roles in Permission Part 1
 ## 217. Add Roles in Permission Part 2
 ## 218. Add Roles in Permission Part 3
