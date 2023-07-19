@@ -5,13 +5,10 @@
 
 {{-- Contenido del profile form html --}}
 <div class="page-content">
-
     <div class="row profile-body">
-
         <!-- wrapper derecha datos para editar -->
         <div class="col-md-12 col-xl-12 middle-wrapper">
             <div class="row">
-
                 <div class="card">
                     <div class="card-body">
 
@@ -40,7 +37,35 @@
                                 </label>
                             </div>
 
+                            <hr>
 
+                            @foreach ($permission_groups as $group)
+                            <div class="row">
+
+                                <div class="col-3">
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="checkDefault">
+                                        <label class="form-check-label" for="checkDefault">
+                                            {{ $group->group_name }}
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-9">
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="checkDefault">
+                                        <label class="form-check-label" for="checkDefault">
+                                            Todos los Permisos
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            @endforeach
 
                             <button type="submit" class="btn btn-primary me-2">Guardar Cambios</button>
 
@@ -48,12 +73,9 @@
 
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-
 </div>
 
 
