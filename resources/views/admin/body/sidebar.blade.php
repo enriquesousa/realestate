@@ -353,6 +353,9 @@
                         <li class="nav-item">
                             <a href="{{ route('add.roles') }}" class="nav-link">Añadir Rol</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.roles.permission') }}" class="nav-link">Rol en Permisos</a>
+                        </li>
                     </ul>
                 </div>
             </li>

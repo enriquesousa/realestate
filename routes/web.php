@@ -334,6 +334,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/update/rol', 'UpdateRol')->name('update.rol');
         Route::get('/delete/rol/{id}', 'DeleteRol')->name('delete.rol');
 
+        Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
+
     });
 
 
