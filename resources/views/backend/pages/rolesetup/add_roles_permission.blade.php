@@ -3,6 +3,12 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<style type="text/css">
+    .form-check-label{
+        text-transform: capitalize;
+    }
+</style>
+
 {{-- Contenido del profile form html --}}
 <div class="page-content">
     <div class="row profile-body">
@@ -31,8 +37,8 @@
 
                             {{-- CheckBox --}}
                             <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="checkDefault">
-                                <label class="form-check-label" for="checkDefault">
+                                <input type="checkbox" class="form-check-input" id="checkDefaultMain">
+                                <label class="form-check-label" for="checkDefaultMain">
                                     Todos los Permisos
                                 </label>
                             </div>
@@ -86,5 +92,17 @@
     </div>
 </div>
 
+{{-- Si seleccionamos checkbox 'Todos los Permisos', seleccionamos todos los input checkboxes a true de la forma --}}
+<script type="text/javascript">
+
+    $('#checkDefaultMain').click(function(){
+      if ($(this).is(':checked')) {
+        $('input[ type= checkbox]').prop('checked',true);
+      }else{
+         $('input[ type= checkbox]').prop('checked',false);
+      }
+    });
+
+</script>
 
 @endsection
