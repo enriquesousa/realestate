@@ -21,6 +21,8 @@
                         @csrf
 
                             <input type="hidden" name="id" value="{{ $site_setting->id }}">
+                            {{-- Enviar también la imagen vieja para poder borrarla --}}
+                            <input type="hidden" name="old_img" value="{{ $site_setting->logo }}">
 
                             {{-- support_phone --}}
                             <div class="form-group mb-3">

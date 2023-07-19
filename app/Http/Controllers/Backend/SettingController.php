@@ -54,12 +54,18 @@ class SettingController extends Controller
     public function UpdateSiteSetting(Request $request){
 
         $site_id = $request->id;
+        $oldImage = $request->old_img;
 
         // Si hay imagen la salvamos
         if ($request->file('logo')) {
 
             // Preparar imagen para guardarla
             $image = $request->file('logo');
+
+            // Remover la imagen anterior
+            if (file_exists($oldImage)) {
+                unlink($oldImage);
+            }
 
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension(); // crear un unique id para la imagen
             Image::make($image)->resize(1500,386)->save('upload/logo/'.$name_gen);
