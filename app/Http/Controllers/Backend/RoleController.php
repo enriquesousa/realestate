@@ -14,6 +14,11 @@ use App\Imports\PermissionImport;
 
 class RoleController extends Controller
 {
+
+    /***** Permission *******
+    * Métodos de los Permisos
+    *************************/
+
     // AllPermission
     public function AllPermission(){
         $permissions = Permission::all();
@@ -100,5 +105,37 @@ class RoleController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    /***** Roles *******
+    * Métodos de los Roles
+    *************************/
+
+    // AllRoles
+    public function AllRoles(){
+        $roles = Role::all();
+        return view('backend.pages.roles.all_roles',compact('roles'));
+    }
+
+    // AddRoles
+    public function AddRoles(){
+        return view('backend.pages.roles.add_rol');
+    }
+
+    // StoreRol
+    public function StoreRol(Request $request){
+
+        Role::create([
+            'name' => $request->name,
+        ]);
+
+        $notification = array(
+            'message' => 'Rol creado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.roles')->with($notification);
+
+    }
+
+
 
 }

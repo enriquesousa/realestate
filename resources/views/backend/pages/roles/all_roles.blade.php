@@ -5,9 +5,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{ route('add.permission') }}" class="btn btn-inverse-info">Añadir Permiso</a>&nbsp;&nbsp;&nbsp;
-            <a href="{{ route('import.permission') }}" class="btn btn-inverse-warning"><i data-feather="upload-cloud"></i>&nbsp;&nbsp;Importar</a>&nbsp;&nbsp;&nbsp;
-            <a href="{{ route('export') }}" class="btn btn-inverse-danger"><i data-feather="download-cloud"></i>&nbsp;&nbsp;Exportar</a>
+            <a href="{{ route('add.roles') }}" class="btn btn-inverse-info">Añadir Role</a>
         </ol>
     </nav>
 
@@ -15,7 +13,7 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title text-warning">Todos los Permisos</h6>
+                    <h6 class="card-title text-warning">Todos los Roles</h6>
 
                     <div class="table-responsive">
                         <table id="dataTableExample" class="table">
@@ -25,7 +23,6 @@
                                 <tr>
                                     <th>Serie</th>
                                     <th>Nombre</th>
-                                    <th>Grupo</th>
                                     <th>Acción</th>
                                 </tr>
 
@@ -33,11 +30,10 @@
 
                             <tbody>
 
-                                @foreach ($permissions as $key => $item)
+                                @foreach ($roles as $key => $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->group_name }}</td>
                                     <td>
                                         <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
                                         <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>

@@ -308,7 +308,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/update/site/setting', 'UpdateSiteSetting')->name('update.site.setting');
     });
 
-    // CRUD Permission y Roles - tabla 'permissions'
+    // CRUD Permission - tabla 'permissions'
     Route::controller(RoleController::class)->group(function () {
 
         Route::get('/all/permission', 'AllPermission')->name('all.permission');
@@ -322,8 +322,22 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/export', 'Export')->name('export');
         Route::post('/import', 'Import')->name('import');
 
+    });
+
+    // CRUD Roles - tabla 'roles'
+    Route::controller(RoleController::class)->group(function () {
+
+        Route::get('/all/roles', 'AllRoles')->name('all.roles');
+        Route::get('/add/roles', 'AddRoles')->name('add.roles');
+        Route::post('/store/rol', 'StoreRol')->name('store.rol');
+
+        Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        Route::post('/update/permission', 'UpdatePermission')->name('update.permission');
+        Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');
 
     });
+
+
 
 });
 

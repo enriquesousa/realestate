@@ -342,10 +342,16 @@
                 <div class="collapse" id="rolesypermisos">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.permission') }}" class="nav-link">Todos</a>
+                            <a href="{{ route('all.permission') }}" class="nav-link">Lista Permisos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.permission') }}" class="nav-link">Añadir</a>
+                            <a href="{{ route('add.permission') }}" class="nav-link">Añadir Permiso</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('all.roles') }}" class="nav-link">Lista Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.roles') }}" class="nav-link">Añadir Rol</a>
                         </li>
                     </ul>
                 </div>

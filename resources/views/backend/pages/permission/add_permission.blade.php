@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Añadir Permiso</h6>
+                        <h6 class="card-title text-warning">Añadir Permiso</h6>
 
                         <form id="myForm" method="POST" action="{{ route('store.permission') }}" class="forms-sample">
                         @csrf
@@ -25,7 +25,7 @@
                             {{-- Nombre Permiso --}}
                             <div class="form-group mb-3">
                                 <label for="name" class="form-label">Nombre</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" autofocus>
                             </div>
 
                             {{-- Grupo Select Permiso --}}

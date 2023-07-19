@@ -298,17 +298,17 @@ Kazi Ariyan
 ## 213. How to Import and Export Permission Part 3
 
 # Sección 47 - Setup User Roles 
-- 214. Setup User Roles Part 1
-- 215. Setup User Roles Part 2
-- 216. Add Roles in Permission Part 1
-- 217. Add Roles in Permission Part 2
-- 218. Add Roles in Permission Part 3
-- 219. Add Roles in Permission Part 4
-- 220. Add Roles in Permission Part 5
-- 221. Add Roles in Permission Part 6
-- 222. Edit Roles in Permission Part 1
-- 223. Edit Roles in Permission Part 2
-- 224. Delete Roles in Permission
+## 214. Setup User Roles Part 1
+## 215. Setup User Roles Part 2
+## 216. Add Roles in Permission Part 1
+## 217. Add Roles in Permission Part 2
+## 218. Add Roles in Permission Part 3
+## 219. Add Roles in Permission Part 4
+## 220. Add Roles in Permission Part 5
+## 221. Add Roles in Permission Part 6
+## 222. Edit Roles in Permission Part 1
+## 223. Edit Roles in Permission Part 2
+## 224. Delete Roles in Permission
 
 # Sección 48 - Multi Admin For Store 
 - 225. Multi Admin Setup Part 1
@@ -9050,6 +9050,18 @@ class PermissionImport implements ToModel
     }
 }
 ```
+Listo!
 
-
-
+# Sección 47 - Setup User Roles 
+## 214. Setup User Roles Part 1
+Listo!
+## 215. Setup User Roles Part 2
+## 216. Add Roles in Permission Part 1
+## 217. Add Roles in Permission Part 2
+## 218. Add Roles in Permission Part 3
+## 219. Add Roles in Permission Part 4
+## 220. Add Roles in Permission Part 5
+## 221. Add Roles in Permission Part 6
+## 222. Edit Roles in Permission Part 1
+## 223. Edit Roles in Permission Part 2
+## 224. Delete Roles in Permission
