@@ -306,28 +306,6 @@
             </li>
 
 
-            {{-- Advanced UI --}}
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
-                    aria-controls="advancedUI">
-                    <i class="link-icon" data-feather="anchor"></i>
-                    <span class="link-title">Advanced UI</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="advancedUI">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="pages/advanced-ui/cropper.html" class="nav-link">Cropper</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Owl carousel</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-
-
             {{-- * ROLES Y PERMISOS DEL SISTEMA --}}
             <li class="nav-item nav-category">Roles y Permisos</li>
 
@@ -354,7 +332,10 @@
                             <a href="{{ route('add.roles') }}" class="nav-link">Añadir Rol</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.roles.permission') }}" class="nav-link">Rol en Permisos</a>
+                            <a href="{{ route('add.roles.permission') }}" class="nav-link">Asignar Rol con Permisos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('all.roles.permission') }}" class="nav-link">Lista Roles y Permisos</a>
                         </li>
                     </ul>
                 </div>
