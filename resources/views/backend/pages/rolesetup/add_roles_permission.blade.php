@@ -20,7 +20,7 @@
 
                         <h6 class="card-title text-warning">Añadir Rol en Permisos</h6>
 
-                        <form id="myForm" method="POST" action="{{ route('store.rol') }}" class="forms-sample">
+                        <form id="myForm" method="POST" action="{{ route('role.permission.store') }}" class="forms-sample">
                         @csrf
 
 
@@ -28,7 +28,7 @@
                             <div class="form-group mb-3">
                                 <label for="name" class="form-label">Seleccionar un Rol</label>
                                 <select name="rol_id" class="form-select" id="exampleFormControlSelect1">
-                                    <option selected="" disabled="">Seleccionar Grupo</option>
+                                    <option selected="" disabled="">Seleccionar Rol</option>
                                     @foreach ($roles as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
@@ -66,12 +66,12 @@
                                     @endphp
 
                                     @foreach ($permissions as $permission)
-                                    <div class="form-check mb-2">
-                                        <input type="checkbox" class="form-check-input" name="permission[]" id="checkDefault{{ $permission->id }}" value="{{ $permission->id }}">
-                                        <label class="form-check-label" for="checkDefault{{ $permission->id }}">
-                                            {{ $permission->name }}
-                                        </label>
-                                    </div>
+                                        <div class="form-check mb-2">
+                                            <input type="checkbox" class="form-check-input" name="permission[]" id="checkDefault{{ $permission->id }}" value="{{ $permission->id }}">
+                                            <label class="form-check-label" for="checkDefault{{ $permission->id }}">
+                                                {{ $permission->name }}
+                                            </label>
+                                        </div>
                                     @endforeach
                                     <br>
 

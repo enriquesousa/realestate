@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PermissionExport;
 use App\Imports\PermissionImport;
 use App\Models\User;
+use DB;
 
 
 class RoleController extends Controller
@@ -183,6 +184,27 @@ class RoleController extends Controller
         $permission_groups = User::getPermissionGroups();
 
         return view('backend.pages.rolesetup.add_roles_permission',compact('roles', 'permissions', 'permission_groups'));
+    }
+
+    // RolePermissionStore
+    public function RolePermissionStore(Request $request){
+
+        $data = array();
+        $permissions = $request->permission;
+
+        foreach ($permissions as $key => $item) {
+            $data['role_id'] = $request->rol_id;
+            $data['permission_id'] = $item;
+
+            DB::table('role_has_permissions')->insert($data);
+        }
+
+        $notification = array(
+            'message' => 'Roles y Permisos insertados con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
     }
 
 
