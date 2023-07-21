@@ -242,5 +242,23 @@ class RoleController extends Controller
 
     }
 
+    // AdminDeleteRol
+    public function AdminDeleteRol($id){
+
+        $role = Role::findOrFail($id);
+
+        // $role->delete() lo elimina tanto de la tabla de 'roles' como la tabla de 'role_has_permissions'
+        // es un método que ya viene con spatie!
+        if (!is_null($role)) {
+            $role->delete();
+        }
+
+        $notification = array(
+            'message' => 'Rol y Permisos eliminados con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
 
 }

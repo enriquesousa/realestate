@@ -311,10 +311,10 @@ Kazi Ariyan
 ## 224. Delete Roles in Permission
 
 # Sección 48 - Multi Admin For Store 
-- 225. Multi Admin Setup Part 1
-- 226. Multi Admin Setup Part 2
-- 227. Multi Admin Setup Part 3
-- 228. Multi Admin Setup Part 4
+## 225. Multi Admin Setup Part 1
+## 226. Multi Admin Setup Part 2
+## 227. Multi Admin Setup Part 3
+## 228. Multi Admin Setup Part 4
 
 # Sección 49 - Add Role And Permission in Sidebar
 - 229. Add Role and Permission for Admin User Part 1
@@ -9075,3 +9075,11 @@ Listo!
 ## 223. Edit Roles in Permission Part 2
 Listo!
 ## 224. Delete Roles in Permission
+Listo!
+
+# Sección 48 - Multi Admin For Store 
+## 225. Multi Admin Setup Part 1
+
+## 226. Multi Admin Setup Part 2
+## 227. Multi Admin Setup Part 3
+## 228. Multi Admin Setup Part 4
