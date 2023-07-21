@@ -20,7 +20,7 @@
 
                         <h6 class="card-title text-warning">Editar Permisos para Rol</h6>
 
-                        <form id="myForm" method="POST" action="{{ route('role.permission.store') }}" class="forms-sample">
+                        <form id="myForm" method="POST" action="{{ route('admin.roles.update', $role->id) }}" class="forms-sample">
                         @csrf
 
 

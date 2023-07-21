@@ -224,5 +224,23 @@ class RoleController extends Controller
 
     }
 
+    // AdminRolesUpdate
+    public function AdminRolesUpdate(Request $request, $id){
+
+        $role = Role::findOrFail($id);
+        $permissions = $request->permission;
+
+        if (!empty($permissions)) {
+            $role->syncPermissions($permissions);
+        }
+
+        $notification = array(
+            'message' => 'Roles y Permisos actualizados con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.roles.permission')->with($notification);
+
+    }
+
 
 }

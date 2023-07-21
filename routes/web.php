@@ -340,6 +340,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/role/permission/store', 'RolePermissionStore')->name('role.permission.store');
         Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission');
         Route::get('/admin/edit/rol/{id}', 'AdminEditRol')->name('admin.edit.rol');
+        Route::post('/admin/roles/update/{id}', 'AdminRolesUpdate')->name('admin.roles.update');
 
     });
 
