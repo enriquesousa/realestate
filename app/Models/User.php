@@ -55,4 +55,20 @@ class User extends Authenticatable
         return $permissions;
     }
 
+    // Lo manda llamar resources/views/backend/pages/rolesetup/edit_roles_permission.blade.php
+    // para saber que permisos tiene el usuario
+    public static function rolHasPermissions($role, $permissions){
+
+        $hasPermission = true;
+
+        foreach ($permissions as $permission) {
+            // hasPermissionTo es una propiedad que ya viene con spatie
+            if (!$role->hasPermissionTo($permission->name)) {
+                $hasPermission = false;
+            }
+            return $hasPermission;
+        }
+
+    }
+
 }
