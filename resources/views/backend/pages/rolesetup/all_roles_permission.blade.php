@@ -3,17 +3,11 @@
 
 <div class="page-content">
 
-    <nav class="page-breadcrumb">
-        <ol class="breadcrumb">
-            <a href="{{ route('add.roles') }}" class="btn btn-inverse-info">Lista todos los Roles y Permisos</a>
-        </ol>
-    </nav>
-
     <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title text-warning">Todos los Roles</h6>
+                    <h6 class="card-title text-warning">Lista todos los Roles y Permisos</h6>
 
                     <div class="table-responsive">
                         <table  class="table">
@@ -22,8 +16,8 @@
 
                                 <tr>
                                     <th style="width:5%">Serie</th>
-                                    <th>Rol</th>
-                                    <th>Permisos</th>
+                                    <th style="width:20%">Rol</th>
+                                    <th style="width:65%">Permisos</th>
                                     <th style="width:10%">Acción</th>
                                 </tr>
 
@@ -37,9 +31,21 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->name }}</td>
 
+                                    @php
+                                        $lb = 0;
+                                    @endphp
                                     <td>
                                         @foreach ($item->permissions as $permiso)
                                             <span class="badge bg-success">{{ $permiso->name }}</span>
+                                            @php
+                                                $lb++;
+                                            @endphp
+                                            @if ($lb > 4)
+                                                @php
+                                                    $lb = 0;
+                                                @endphp
+                                                <br>
+                                            @endif
                                         @endforeach
                                     </td>
 

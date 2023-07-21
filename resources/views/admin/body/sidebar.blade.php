@@ -13,7 +13,7 @@
     <div class="sidebar-body">
         <ul class="nav">
 
-            {{-- Main - Menu Principal Panel--}}
+            {{-- Main - Menu Principal Panel Admin --}}
             <li class="nav-item nav-category">Menu Principal</li>
             <li class="nav-item">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
@@ -29,7 +29,7 @@
             </li>
 
             {{-- * Admin Menu --}}
-            <li class="nav-item nav-category">Admin</li>
+            <li class="nav-item nav-category">Admin Propiedades</li>
             <li class="nav-item">
 
                 {{-- Tipos de Propiedad --}}
@@ -88,25 +88,6 @@
                     </ul>
                 </div>
 
-                {{-- Usuarios Lista --}}
-                <a class="nav-link" data-bs-toggle="collapse" href="#usuarios" role="button" aria-expanded="false"
-                    aria-controls="emails">
-                    <i class="link-icon" data-feather="users"></i>
-                    <span class="link-title">Usuarios</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                {{-- Submenus - Lista, Añadir --}}
-                <div class="collapse" id="usuarios">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.all.users') }}" class="nav-link">Lista</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Añadir</a>
-                        </li>
-                    </ul>
-                </div>
-
                 {{-- Propiedades --}}
                 <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
                     aria-controls="emails">
@@ -126,84 +107,35 @@
                     </ul>
                 </div>
 
-                {{-- Testimoniales --}}
-                <a class="nav-link" data-bs-toggle="collapse" href="#testimonials" role="button" aria-expanded="false" aria-controls="emails">
-                    <i class="link-icon" data-feather="users"></i>
-                    <span class="link-title">Testimoniales</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                {{-- Submenus --}}
-                <div class="collapse" id="testimonials">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('all.testimonials') }}" class="nav-link">Lista</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('add.state') }}" class="nav-link">Añadir Testimonial</a>
-                        </li>
-                    </ul>
-                </div>
-
-                {{-- Editar Datos de Perfil --}}
-                <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false"
-                    aria-controls="emails">
-                    <i class="link-icon" data-feather="user"></i>
-                    <span class="link-title">Perfil Admin</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                {{-- Submenus - Editar Perfil, Cambiar Contraseña, Lista, Cerrar Sesión --}}
-                <div class="collapse" id="perfil">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.profile') }}" class="nav-link">Editar Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.change.password') }}" class="nav-link">Cambiar Contraseña</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.logout') }}" class="nav-link">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
-
             </li>
 
             {{-- * Historial de Pagos --}}
             <li class="nav-item">
                 <a href="{{ route('admin.package.history') }}" class="nav-link">
-                    {{-- <i class="link-icon" data-feather="calendar"></i> --}}
-                    <i data-feather="book-open"></i>
+                    {{-- <i data-feather="book-open"></i> --}}
+                    <i class="link-icon" data-feather="list"></i>
                     <span class="link-title">Historial de Pagos</span>
                 </a>
             </li>
 
-            {{-- * Mensajes de las Propiedades --}}
+            {{-- * Ver Mensajes de las Propiedades --}}
             <li class="nav-item">
                 <a href="{{ route('admin.property.message') }}" class="nav-link">
-                    <i data-feather="mail"></i>
+                    {{-- <i data-feather="mail"></i> --}}
+                    <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Ver Mensajes</span>
                 </a>
             </li>
 
 
-            {{-- * Admin Logout --}}
-            <li class="nav-item">
-                <a href="{{ route('admin.logout') }}" class="nav-link">
-                    <i data-feather="log-out"></i>
-                    <span class="link-title">Cerrar Sesión</span>
-                </a>
-            </li>
-
-
-
             {{-- * FUNCIONES DEL SISTEMA --}}
-            <li class="nav-item nav-category">Funciones del Sistema</li>
+            <li class="nav-item nav-category">Admin Sistema</li>
 
             {{-- Agentes --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="feather"></i>
+                    <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Agentes</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -219,62 +151,98 @@
                 </div>
             </li>
 
-            {{-- Blog Categorías --}}
+            {{-- Usuarios --}}
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#blogCategory" role="button" aria-expanded="false"
+                <a class="nav-link" data-bs-toggle="collapse" href="#usuarios" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="bold"></i>
-                    <span class="link-title">Categorías Blog</span>
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Usuarios</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="blogCategory">
+                <div class="collapse" id="usuarios">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('all.blog.category') }}" class="nav-link">Todas las Categorías</a>
+                            <a href="{{ route('admin.all.users') }}" class="nav-link">Lista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Añadir</a>
                         </li>
                     </ul>
                 </div>
             </li>
 
-            {{-- Blog Post --}}
+            {{-- Testimoniales --}}
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#testimonials" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Testimoniales</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="testimonials">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('all.testimonials') }}" class="nav-link">Lista</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.state') }}" class="nav-link">Añadir Testimonial</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+             {{-- Perfil Admin --}}
+             <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Perfil Admin</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="perfil">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.profile') }}" class="nav-link">Editar Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.change.password') }}" class="nav-link">Cambiar Contraseña</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.logout') }}" class="nav-link">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            {{-- Noticias - Blog --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#post" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="bold"></i>
-                    <span class="link-title">Blog Post</span>
+                    <i class="link-icon" data-feather="activity"></i>
+                    <span class="link-title">Noticias - Blog</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="post">
 
                     <ul class="nav sub-menu">
+
                         <li class="nav-item">
-                            <a href="{{ route('all.post') }}" class="nav-link">Todos los Post</a>
+                            <a href="{{ route('all.post') }}" class="nav-link">Noticias</a>
                         </li>
-                    </ul>
 
-                    <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('add.post') }}" class="nav-link">Añadir Post</a>
+                            <a href="{{ route('add.post') }}" class="nav-link">Añadir Noticia</a>
                         </li>
-                    </ul>
 
-                </div>
-            </li>
-
-            {{-- Blog Comments --}}
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#blog_comments" role="button" aria-expanded="false"
-                    aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="bold"></i>
-                    <span class="link-title">Blog Comentarios</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="blog_comments">
-
-                    <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog.comments') }}" class="nav-link">Todos</a>
+                            <a href="{{ route('all.blog.category') }}" class="nav-link">Categorías</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.blog.comments') }}" class="nav-link">Comentarios</a>
+                        </li>
+
                     </ul>
 
                 </div>
@@ -323,13 +291,7 @@
                             <a href="{{ route('all.permission') }}" class="nav-link">Lista Permisos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('add.permission') }}" class="nav-link">Añadir Permiso</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('all.roles') }}" class="nav-link">Lista Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('add.roles') }}" class="nav-link">Añadir Rol</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('add.roles.permission') }}" class="nav-link">Asignar Rol con Permisos</a>
@@ -342,13 +304,24 @@
             </li>
 
 
+            {{-- * Sistema Admin y Ayuda --}}
+            <li class="nav-item nav-category">Sistema Admin</li>
 
-            {{-- * DOCS --}}
-            <li class="nav-item nav-category">Docs</li>
+            {{-- Documentación --}}
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
-                    <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Documentation</span>
+                {{-- si queremos que se abar en otra ventana agregar target="_blank" --}}
+                <a href="{{ route('admin.docs') }}" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title">Documentación</span>
+                </a>
+            </li>
+
+            {{-- * Admin Logout --}}
+            <li class="nav-item">
+                <a href="{{ route('admin.logout') }}" class="nav-link">
+                    {{-- <i data-feather="log-out"></i> --}}
+                    <i class="link-icon" data-feather="log-out"></i>
+                    <span class="link-title">Cerrar Sesión</span>
                 </a>
             </li>
 

@@ -234,6 +234,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/delete/agent/{id}', 'DeleteAgent')->name('delete.agent');
         Route::get('/changeStatus', 'changeStatus');
 
+        Route::get('/admin/docs', 'AdminDocs')->name('admin.docs');
+
     });
 
     // Admin CRUD estados (Entidad Federativa) - tabla 'states'

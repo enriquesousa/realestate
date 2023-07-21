@@ -32,6 +32,10 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/core/core.css') }}">
     <!-- endinject -->
 
+    <!-- Plugin css for this page para wizard docs -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/jquery-steps/jquery.steps.css') }}">
+    <!-- End plugin css for this page -->
+
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.css') }}">
     <!-- End plugin css for this page -->
@@ -81,6 +85,14 @@
     <!-- core:js -->
     <script src="{{ asset('backend/assets/vendors/core/core.js') }}"></script>
     <!-- endinject -->
+
+    <!-- Plugin js for this page para wizard docs -->
+    <script src="{{ asset('backend/assets/vendors/jquery-steps/jquery.steps.min.js') }}"></script>
+    <!-- End plugin js for this page -->
+
+    <!-- Custom js for this page para wizard docs -->
+    <script src="{{ asset('backend/assets/js/wizard.js') }}"></script>
+    <!-- End custom js for this page -->
 
     <!-- Plugin js for this page -->
     <script src="{{ asset('backend/assets/vendors/flatpickr/flatpickr.min.js') }}"></script>
@@ -153,6 +165,7 @@
 
     {{-- Para el botón de toggle en resources/views/backend/agentuser/all_agent.blade.php --}}
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script
+
 
 </body>
 

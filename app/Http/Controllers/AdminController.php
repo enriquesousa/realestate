@@ -157,6 +157,12 @@ class AdminController extends Controller
 
     }
 
+    // AdminDocs Ver Documentación del sistema
+    public function AdminDocs(){
+       return view('backend.pages.docs.documentacion');
+    }
+
+
     /******
     * Agent
     *******/
