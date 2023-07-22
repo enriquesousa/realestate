@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\TopbarData;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 
 class AdminController extends Controller
@@ -226,6 +228,7 @@ class AdminController extends Controller
     // Delete Agent
     public function DeleteAgent($id){
         User::findOrFail($id)->delete();
+
         $notification = array(
             'message' => 'Agente Eliminado con éxito!',
             'alert-type' => 'success'
@@ -252,6 +255,40 @@ class AdminController extends Controller
     public function AllAdmin(){
         $allAdmin = User::where('role','admin')->get();
         return view('backend.pages.admin.all_admin',  compact('allAdmin'));
+    }
+
+    // AddAdmin
+    public function AddAdmin(){
+        $roles = Role::all();
+        return view('backend.pages.admin.add_admin', compact('roles'));
+    }
+
+    // StoreAdmin
+    public function StoreAdmin(Request $request){
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->password = Hash::make($request->password);
+        $user->role = 'admin';
+        $user->status = 'active';
+        $user->save();
+
+        // para poder asignarle un rol a este usuarios en tabla 'model_has_roles'
+        // usamos un método de spatie
+        if ($request->roles) {
+            $user->assignRole($request->roles);
+        }
+
+        $notification = array(
+            'message' => 'Nuevo Admin Agregado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.admin')->with($notification);
+
     }
 
 

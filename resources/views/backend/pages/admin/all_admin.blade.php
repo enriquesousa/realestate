@@ -8,7 +8,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{ route('add.agent') }}" class="btn btn-inverse-info">Agregar Admin</a>
+            <a href="{{ route('add.admin') }}" class="btn btn-inverse-info">Agregar Admin</a>
         </ol>
     </nav>
 
@@ -55,7 +55,12 @@
                                     <td>{{ $item->phone }}</td>
 
                                     {{-- Role --}}
-                                    <td>Role</td>
+                                    <td>
+                                        {{-- $item->roles método que viene de spatie --}}
+                                        @foreach ($item->roles as $role)
+                                            <span class="badge badge-pill bg-danger">{{ $role->name }}</span>
+                                        @endforeach
+                                    </td>
 
 
                                     {{-- Acción Botones Editar - Eliminar --}}

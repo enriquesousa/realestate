@@ -322,7 +322,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('all.roles') }}" class="nav-link">Agregar Admin</a>
+                            <a href="{{ route('add.admin') }}" class="nav-link">Agregar Admin</a>
                         </li>
 
                     </ul>
