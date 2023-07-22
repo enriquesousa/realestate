@@ -291,5 +291,46 @@ class AdminController extends Controller
 
     }
 
+    // EditAdmin
+    public function EditAdmin($id){
+
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+
+        return view('backend.pages.admin.edit_admin', compact('user', 'roles'));
+
+    }
+
+    // UpdateAdmin
+    public function UpdateAdmin(Request $request, $id){
+
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->role = 'admin';
+        $user->status = 'active';
+        $user->save();
+
+        // $user->roles()->detach(); método de spatie.
+        // para poder borrar primero los datos en tabla 'model_has_roles'
+        $user->roles()->detach();
+
+        // Ya podemos asignarle un rol a este usuarios en tabla 'model_has_roles'
+        // usamos un método de spatie
+        if ($request->roles) {
+            $user->assignRole($request->roles);
+        }
+
+        $notification = array(
+            'message' => 'Admin Actualizado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.admin')->with($notification);
+
+    }
+
 
 }

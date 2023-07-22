@@ -9079,8 +9079,12 @@ Listo!
 
 # Sección 48 - Multi Admin For Store 
 ## 225. Multi Admin Setup Part 1
+Add
 Listo!
 ## 226. Multi Admin Setup Part 2
+Edit
 Listo!
 ## 227. Multi Admin Setup Part 3
+Update
+Listo!
 ## 228. Multi Admin Setup Part 4
