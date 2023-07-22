@@ -332,5 +332,24 @@ class AdminController extends Controller
 
     }
 
+    // DeleteAdmin
+    public function DeleteAdmin($id){
+
+        $user = User::findOrFail($id);
+
+        // si hay datos, eliminar
+        // al usar $user->delete() spatie automáticamente elimina el rol en tabla 'model_has_roles'
+        if (!is_null($user)) {
+            $user->delete();
+        }
+
+        $notification = array(
+            'message' => 'Admin Eliminado con éxito!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
+    }
+
 
 }

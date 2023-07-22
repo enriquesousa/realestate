@@ -317,8 +317,8 @@ Kazi Ariyan
 ## 228. Multi Admin Setup Part 4
 
 # Sección 49 - Add Role And Permission in Sidebar
-- 229. Add Role and Permission for Admin User Part 1
-- 230. Add Role and Permission for Admin User Part 2
+## 229. Add Role and Permission for Admin User Part 1
+## 230. Add Role and Permission for Admin User Part 2
 
 # Sección 50 - Create 404 and 403 Page
 - 231. How to Create 404 Page
@@ -9088,3 +9088,10 @@ Listo!
 Update
 Listo!
 ## 228. Multi Admin Setup Part 4
+Delete
+Listo!
+
+# Sección 49 - Add Role And Permission in Sidebar
+## 229. Add Role and Permission for Admin User Part 1
+
+## 230. Add Role and Permission for Admin User Part 2
