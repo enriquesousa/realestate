@@ -37,8 +37,15 @@
                                     <td>{{ $item->state_name }}</td>
                                     <td><img src="{{ asset($item->state_image) }}" alt="" style="width:70px; height:40px;"></td>
                                     <td>
-                                        <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.state',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+
+                                        @if (Auth::user()->can('edit.state'))
+                                            <a href="{{ route('edit.state',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.state'))
+                                            <a href="{{ route('delete.state',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach

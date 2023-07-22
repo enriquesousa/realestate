@@ -19,9 +19,7 @@ class PropertyTypeController extends Controller
 
     // Tomar todos los datos de la tabla property_types
     public function AllType(){
-
         $types = PropertyType::latest()->get();
-
         return view('backend.type.all_type', compact('types'));
     }
 

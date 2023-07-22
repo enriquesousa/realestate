@@ -24,7 +24,7 @@
                                     <th>Serie</th>
                                     <th>Type Name</th>
                                     <th>Type Icon</th>
-                                    <th>Action</th>
+                                    <th>Acción</th>
                                 </tr>
 
                             </thead>
@@ -37,8 +37,15 @@
                                     <td>{{ $item->type_name }}</td>
                                     <td>{{ $item->type_icon }}</td>
                                     <td>
-                                        <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.type',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+
+                                        @if (Auth::user()->can('edit.type'))
+                                            <a href="{{ route('edit.type',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.type'))
+                                            <a href="{{ route('delete.type',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach

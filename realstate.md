@@ -9093,5 +9093,14 @@ Listo!
 
 # Sección 49 - Add Role And Permission in Sidebar
 ## 229. Add Role and Permission for Admin User Part 1
+Proteger los menus por roles
+Empezar a proteger lso menus en resources/views/admin/body/sidebar.blade.php
+```php
+{{-- spatie Auth::user()->can() es un método para permitir el acceso según permisos de spatie --}}
 
+{{-- Tipos de Propiedad - type.menu --}}
+@if (Auth::user()->can('type.menu'))
+```
+Hay que hacerlo para todos los demas menus!
+Listo!
 ## 230. Add Role and Permission for Admin User Part 2

@@ -34,53 +34,74 @@
 
             {{-- * Admin Menu --}}
             <li class="nav-item nav-category">Admin Propiedades</li>
-            <li class="nav-item">
 
-                {{-- Tipos de Propiedad --}}
+            {{-- spatie Auth::user()->can() es un método para permitir el acceso según permisos de spatie --}}
+
+            {{-- Tipos de Propiedad - type.menu --}}
+            @if (Auth::user()->can('type.menu'))
+            <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#tipos" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="home"></i>
                     <span class="link-title">Tipos de Propiedad</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                {{-- Submenus - Lista, Añadir un tipo --}}
                 <div class="collapse" id="tipos">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('all.type') }}" class="nav-link">Lista</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('add.type') }}" class="nav-link">Añadir un tipo</a>
-                        </li>
+
+                        @if (Auth::user()->can('all.type'))
+                            <li class="nav-item">
+                                <a href="{{ route('all.type') }}" class="nav-link">Lista</a>
+                            </li>
+                        @endif
+
+                        @if (Auth::user()->can('add.type'))
+                            <li class="nav-item">
+                                <a href="{{ route('add.type') }}" class="nav-link">Añadir un tipo</a>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
+            </li>
+            @endif
 
-                {{-- Estados --}}
+            {{-- Estados --}}
+            @if (Auth::user()->can('state.menu'))
+            <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="emails">
                     <i class="link-icon" data-feather="map-pin"></i>
                     <span class="link-title">Estados</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                {{-- Submenus --}}
                 <div class="collapse" id="state">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('all.state') }}" class="nav-link">Lista</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('add.state') }}" class="nav-link">Añadir Estado</a>
-                        </li>
+
+                        @if (Auth::user()->can('all.state'))
+                            <li class="nav-item">
+                                <a href="{{ route('all.state') }}" class="nav-link">Lista</a>
+                            </li>
+                        @endif
+
+                        @if (Auth::user()->can('add.state'))
+                            <li class="nav-item">
+                                <a href="{{ route('add.state') }}" class="nav-link">Añadir Estado</a>
+                            </li>
+                        @endif
+
                     </ul>
                 </div>
+            </li>
+            @endif
 
-                {{-- Comodidades, amenities --}}
+            {{-- Comodidades, amenities --}}
+            <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#amenities" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="layers"></i>
                     <span class="link-title">Comodidades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                {{-- Submenus - Lista, Añadir --}}
                 <div class="collapse" id="amenities">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
@@ -91,15 +112,16 @@
                         </li>
                     </ul>
                 </div>
+            </li>
 
-                {{-- Propiedades --}}
+            {{-- Propiedades --}}
+            <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
                     aria-controls="emails">
                     <i class="link-icon" data-feather="map"></i>
                     <span class="link-title">Propiedades</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                {{-- Submenus - Lista, Añadir --}}
                 <div class="collapse" id="property">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
@@ -110,8 +132,8 @@
                         </li>
                     </ul>
                 </div>
-
             </li>
+
 
             {{-- * Historial de Pagos --}}
             <li class="nav-item">
