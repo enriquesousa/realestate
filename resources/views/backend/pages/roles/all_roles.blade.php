@@ -21,9 +21,9 @@
                             <thead>
 
                                 <tr>
-                                    <th>Serie</th>
+                                    <th style="width:5%">Serie</th>
                                     <th>Nombre</th>
-                                    <th>Acción</th>
+                                    <th style="width:10%">Acción</th>
                                 </tr>
 
                             </thead>

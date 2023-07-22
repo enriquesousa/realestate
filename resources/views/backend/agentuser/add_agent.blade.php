@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h6 class="card-title">Añadir Agente</h6>
+                        <h6 class="card-title text-warning">Añadir Agente</h6>
 
                         <form id="myForm" method="POST" action="{{ route('store.agent') }}" class="forms-sample">
                         @csrf

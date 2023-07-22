@@ -24,8 +24,8 @@
 
                                 <tr>
                                     <th style="width:5%">Serie</th>
-                                    <th>Nombre</th>
-                                    <th>Grupo</th>
+                                    ta<th class="text-center">Nombre</th>
+                                    <th class="text-center">Grupo</th>
                                     <th style="width:10%">Acción</th>
                                 </tr>
 
@@ -36,8 +36,8 @@
                                 @foreach ($permissions as $key => $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->group_name }}</td>
+                                    <td class="text-center">{{ $item->name }}</td>
+                                    <td class="text-center">{{ $item->group_name }}</td>
                                     <td>
                                         <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
                                         <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>

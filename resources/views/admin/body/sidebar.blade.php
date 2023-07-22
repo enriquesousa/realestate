@@ -13,14 +13,18 @@
     <div class="sidebar-body">
         <ul class="nav">
 
-            {{-- Main - Menu Principal Panel Admin --}}
-            <li class="nav-item nav-category">Menu Principal</li>
+            {{-- * Main - Paneles --}}
+            <li class="nav-item nav-category">Paneles</li>
+
+            {{-- Panel Admin --}}
             <li class="nav-item">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Panel Admin</span>
                 </a>
             </li>
+
+            {{-- Pagina Principal --}}
             <li class="nav-item">
                 <a href="{{ route('casa') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
@@ -193,8 +197,7 @@
 
              {{-- Perfil Admin --}}
              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false"
-                    aria-controls="uiComponents">
+                <a class="nav-link" data-bs-toggle="collapse" href="#perfil" role="button" aria-expanded="false" aria-controls="uiComponents">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Perfil Admin</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -217,14 +220,12 @@
 
             {{-- Noticias - Blog --}}
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#post" role="button" aria-expanded="false"
-                    aria-controls="uiComponents">
+                <a class="nav-link" data-bs-toggle="collapse" href="#post" role="button" aria-expanded="false" aria-controls="uiComponents">
                     <i class="link-icon" data-feather="activity"></i>
                     <span class="link-title">Noticias - Blog</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="post">
-
                     <ul class="nav sub-menu">
 
                         <li class="nav-item">
@@ -244,7 +245,6 @@
                         </li>
 
                     </ul>
-
                 </div>
             </li>
 
@@ -279,30 +279,55 @@
 
             {{-- Roles y Permisos --}}
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#rolesypermisos" role="button" aria-expanded="false"
-                    aria-controls="rolesypermisos">
+                <a class="nav-link" data-bs-toggle="collapse" href="#rolesPermissions" role="button" aria-expanded="false" aria-controls="uiComponents">
                     <i class="link-icon" data-feather="key"></i>
                     <span class="link-title">Roles y Permisos</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="rolesypermisos">
+                <div class="collapse" id="rolesPermissions">
                     <ul class="nav sub-menu">
+
                         <li class="nav-item">
                             <a href="{{ route('all.permission') }}" class="nav-link">Lista Permisos</a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('all.roles') }}" class="nav-link">Lista Roles</a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('add.roles.permission') }}" class="nav-link">Asignar Rol con Permisos</a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('all.roles.permission') }}" class="nav-link">Lista Roles y Permisos</a>
                         </li>
+
                     </ul>
                 </div>
             </li>
 
+            {{-- Config Administradores --}}
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#configAdmins" role="button" aria-expanded="false" aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="key"></i>
+                    <span class="link-title">Config Admins</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="configAdmins">
+                    <ul class="nav sub-menu">
+
+                        <li class="nav-item">
+                            <a href="{{ route('all.admin') }}" class="nav-link">Lista Admins</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('all.roles') }}" class="nav-link">Agregar Admin</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
 
             {{-- * Sistema Admin y Ayuda --}}
             <li class="nav-item nav-category">Sistema Admin</li>

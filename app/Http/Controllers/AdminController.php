@@ -244,4 +244,15 @@ class AdminController extends Controller
     }
 
 
+    /***********************************
+    * Configuración de Administradores
+    ***********************************/
+
+    // AllAdmin - Desplegar todos los Administradores
+    public function AllAdmin(){
+        $allAdmin = User::where('role','admin')->get();
+        return view('backend.pages.admin.all_admin',  compact('allAdmin'));
+    }
+
+
 }
