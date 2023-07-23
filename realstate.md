@@ -9359,8 +9359,10 @@ Listo!
 
 # Sección 51 - Live Chat Application System For User and Agent
 ## 233. Live Chat Application Introduction
-
+Introduccion al Live Chat entre un User y un Agente.
+Listo!
 ## 234. Live Chat Application Part 1
+
 ## 235. Live Chat Application Part 2
 ## 236. Live Chat Application Part 3
 ## 237. Live Chat Application Part 4
