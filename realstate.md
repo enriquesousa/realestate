@@ -321,26 +321,26 @@ Kazi Ariyan
 ## 230. Add Role and Permission for Admin User Part 2
 
 # Sección 50 - Create 404 and 403 Page
-- 231. How to Create 404 Page
-- 232. How to Create 403 Page
+## 231. How to Create 404 Page
+## 232. How to Create 403 Page
 
 # Sección 51 - Live Chat Application System For User and Agent
-- 233. Live Chat Application Introduction
-- 234. Live Chat Application Part 1
-- 235. Live Chat Application Part 2
-- 236. Live Chat Application Part 3
-- 237. Live Chat Application Part 4
-- 238. Live Chat Application Part 5
-- 239. Live Chat Application In User Page Part 1
-- 240. Live Chat Application In User Page Part 2
-- 241. Live Chat Application In User Page Part 3
-- 242. Live Chat Application In User Page Part 4
-- 243. Live Chat Application In User Page Part 5
-- 244. Live Chat Application In User Page Part 6
-- 245. Live Chat Application In User Page Part 7
-- 246. Update Date Format With Moment
-- 247. Live Chat Application for Agent Part 1
-- 248. Live Chat Application for Agent Part 2
+## 233. Live Chat Application Introduction
+## 234. Live Chat Application Part 1
+## 235. Live Chat Application Part 2
+## 236. Live Chat Application Part 3
+## 237. Live Chat Application Part 4
+## 238. Live Chat Application Part 5
+## 239. Live Chat Application In User Page Part 1
+## 240. Live Chat Application In User Page Part 2
+## 241. Live Chat Application In User Page Part 3
+## 242. Live Chat Application In User Page Part 4
+## 243. Live Chat Application In User Page Part 5
+## 244. Live Chat Application In User Page Part 6
+## 245. Live Chat Application In User Page Part 7
+## 246. Update Date Format With Moment
+## 247. Live Chat Application for Agent Part 1
+## 248. Live Chat Application for Agent Part 2
 
 
 ***
@@ -9104,3 +9104,89 @@ Empezar a proteger lso menus en resources/views/admin/body/sidebar.blade.php
 Hay que hacerlo para todos los demas menus!
 Listo!
 ## 230. Add Role and Permission for Admin User Part 2
+Proteger las rutas con middleware de spatie!
+
+This package comes with RoleMiddleware, PermissionMiddleware and RoleOrPermissionMiddleware middleware. You can add them inside your app/Http/Kernel.php file.
+Note the differences between Laravel 10 and older versions of Laravel is the name of the protected property:
+En laravel 10
+```php
+protected $middlewareAliases = [
+    // ...
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+];
+```
+
+En app/Http/Kernel.php
+```php
+protected $middlewareAliases = [
+    ...
+    'roles' => \App\Http\Middleware\Role::class,
+    ...
+
+    // middleware spatie
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+    'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+
+];
+```
+Nota tenemos que cambiar el nombre de 'role' a 'roles' en 'role' => \App\Http\Middleware\Role::class,
+para no tener conflicto con el 'role' de spatie.
+Por lo tanto tenemos que cambiar tambien el nombre a 'roles' en:
+routes/web.php
+```php
+...
+// Admin group middleware, Dashboard, profile, logout, change password, All Routes
+Route::middleware(['auth','roles:agent'])->group(function(){ 
+...
+// Admin group middleware, Dashboard, profile, logout, change password, All Routes
+Route::middleware(['auth','roles:admin'])->group(function(){
+...
+// Admin group middleware, Property Type, Amenities, Property CRUD etc...
+Route::middleware(['auth','roles:admin'])->group(function(){
+...
+// Agent group middleware
+Route::middleware(['auth','roles:agent'])->group(function(){
+```
+
+En routes/web.php
+```php
+// CRUD Property Type - tabla 'property_types'
+Route::controller(PropertyTypeController::class)->group(function(){
+
+    Route::get('/all/type', 'AllType')->name('all.type')->middleware('permission:all.type');
+    Route::get('/add/type', 'AddType')->name('add.type')->middleware('permission:add.type');
+    Route::post('/store/type', 'StoreType')->name('store.type');
+    Route::get('/edit/type/{id}', 'EditType')->name('edit.type')->middleware('permission:edit.type');
+    Route::post('/update/type', 'UpdateType')->name('update.type');
+    Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type')->middleware('permission:delete.type');
+
+});
+```
+Listo!
+
+# Sección 50 - Create 404 and 403 Page
+## 231. How to Create 404 Page
+
+## 232. How to Create 403 Page
+
+# Sección 51 - Live Chat Application System For User and Agent
+## 233. Live Chat Application Introduction
+
+## 234. Live Chat Application Part 1
+## 235. Live Chat Application Part 2
+## 236. Live Chat Application Part 3
+## 237. Live Chat Application Part 4
+## 238. Live Chat Application Part 5
+## 239. Live Chat Application In User Page Part 1
+## 240. Live Chat Application In User Page Part 2
+## 241. Live Chat Application In User Page Part 3
+## 242. Live Chat Application In User Page Part 4
+## 243. Live Chat Application In User Page Part 5
+## 244. Live Chat Application In User Page Part 6
+## 245. Live Chat Application In User Page Part 7
+## 246. Update Date Format With Moment
+## 247. Live Chat Application for Agent Part 1
+## 248. Live Chat Application for Agent Part 2

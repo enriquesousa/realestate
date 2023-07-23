@@ -160,7 +160,7 @@ Route::middleware('auth')->group(function () {
 **************************************************************************/
 
 // Admin group middleware, Dashboard, profile, logout, change password, All Routes
-Route::middleware(['auth','role:admin'])->group(function(){
+Route::middleware(['auth','roles:admin'])->group(function(){
 
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
@@ -172,16 +172,18 @@ Route::middleware(['auth','role:admin'])->group(function(){
 });
 
 // Admin group middleware, Property Type, Amenities, Property CRUD etc...
-Route::middleware(['auth','role:admin'])->group(function(){
+Route::middleware(['auth','roles:admin'])->group(function(){
 
     // CRUD Property Type - tabla 'property_types'
     Route::controller(PropertyTypeController::class)->group(function(){
-        Route::get('/all/type', 'AllType')->name('all.type');
-        Route::get('/add/type', 'AddType')->name('add.type');
+
+        Route::get('/all/type', 'AllType')->name('all.type')->middleware('permission:all.type');
+        Route::get('/add/type', 'AddType')->name('add.type')->middleware('permission:add.type');
         Route::post('/store/type', 'StoreType')->name('store.type');
-        Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
+        Route::get('/edit/type/{id}', 'EditType')->name('edit.type')->middleware('permission:edit.type');
         Route::post('/update/type', 'UpdateType')->name('update.type');
-        Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
+        Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type')->middleware('permission:delete.type');
+
     });
 
     // Admin CRUD Amenities - tabla 'amenities'
@@ -366,7 +368,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
 *************************************************************************/
 
 // Agent group middleware
-Route::middleware(['auth','role:agent'])->group(function(){
+Route::middleware(['auth','roles:agent'])->group(function(){
 
     // Agent group middleware (AgentController) - Dashboard, Logout, Profile, Change Password
     Route::controller(AgentController::class)->group(function(){
