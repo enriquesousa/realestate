@@ -4,9 +4,9 @@
 <div class="page-content">
 
     <nav class="page-breadcrumb">
-        <ol class="breadcrumb">
+        {{-- <ol class="breadcrumb">
             <a href="{{ route('admin.add.user') }}" class="btn btn-inverse-info">Añadir un Usuario</a>
-        </ol>
+        </ol> --}}
     </nav>
 
     <div class="row">
@@ -80,8 +80,8 @@
 
                                     {{-- Acción Editar - Eliminar--}}
                                     <td>
-                                        <a href="#" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="#" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+                                        {{-- <a href="#" class="btn btn-inverse-warning">Editar</a>
+                                        <a href="#" class="btn btn-inverse-danger" id="delete">Eliminar</a> --}}
                                     </td>
 
                                 </tr>

@@ -83,11 +83,16 @@
                                     </td>
 
                                     <td>
+
                                         <a href="{{ route('details.property',$item->id) }}" class="btn btn-inverse-info" title="Detalles"><i data-feather="eye"></i></a>
 
-                                        <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
+                                        @if (Auth::user()->can('edit.property'))
+                                            <a href="{{ route('edit.property',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
+                                        @endif
 
-                                        <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+                                        @if (Auth::user()->can('delete.property'))
+                                            <a href="{{ route('delete.property',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+                                        @endif
 
                                     </td>
 

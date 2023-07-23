@@ -45,11 +45,10 @@
                                     <option value="message" {{ $permission->group_name == 'message' ? 'selected' : '' }}>Ver Mensajes</option>
                                     <option value="agent" {{ $permission->group_name == 'agent' ? 'selected' : '' }}>Agentes</option>
                                     <option value="category" {{ $permission->group_name == 'category' ? 'selected' : '' }}>Categorías Noticias</option>
-                                    <option value="post" {{ $permission->group_name == 'post' ? 'selected' : '' }}>Lista Noticias</option>
+                                    <option value="post" {{ $permission->group_name == 'post' ? 'selected' : '' }}>Noticias (posts)</option>
                                     <option value="comment" {{ $permission->group_name == 'comment' ? 'selected' : '' }}>Comentarios Noticias</option>
-                                    <option value="smtp" {{ $permission->group_name == 'smtp' ? 'selected' : '' }}>Configuración SMTP</option>
-                                    <option value="site" {{ $permission->group_name == 'site' ? 'selected' : '' }}>Configuración Sitio</option>
-                                    <option value="role" {{ $permission->group_name == 'role' ? 'selected' : '' }}>Roles y Permisos</option>
+                                    <option value="config" {{ $permission->group_name == 'config' ? 'selected' : '' }}>Configuración</option>
+                                    <option value="rolesypermisos" {{ $permission->group_name == 'rolesypermisos' ? 'selected' : '' }}>Roles y Permisos</option>
                                 </select>
                             </div>
 

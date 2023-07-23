@@ -40,8 +40,15 @@
                                     <td><img src="{{ asset($item->image) }}" alt="" style="width:70px; height:70px;"></td>
 
                                     <td>
-                                        <a href="{{ route('edit.testimonial',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.testimonial',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+
+                                        @if (Auth::user()->can('edit.testimonials'))
+                                            <a href="{{ route('edit.testimonial',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.testimonials'))
+                                            <a href="{{ route('delete.testimonial',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach

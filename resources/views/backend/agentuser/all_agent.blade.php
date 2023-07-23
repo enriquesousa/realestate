@@ -67,8 +67,15 @@
 
                                     {{-- Acción Botones Editar - Eliminar --}}
                                     <td>
-                                        <a href="{{ route('edit.agent',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
-                                        <a href="{{ route('delete.agent',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+
+                                        @if (Auth::user()->can('edit.agente'))
+                                            <a href="{{ route('edit.agent',$item->id) }}" class="btn btn-inverse-warning" title="Editar"><i data-feather="edit"></i></a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.agente'))
+                                            <a href="{{ route('delete.agent',$item->id) }}" class="btn btn-inverse-danger" id="delete" title="Eliminar"><i data-feather="trash-2"></i></a>
+                                        @endif
+
                                     </td>
 
                                 </tr>

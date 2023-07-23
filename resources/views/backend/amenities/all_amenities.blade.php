@@ -23,7 +23,7 @@
                                 <tr>
                                     <th>Serie</th>
                                     <th>Amenities Name</th>
-                                    <th>Action</th>
+                                    <th>Acción</th>
                                 </tr>
 
                             </thead>
@@ -35,8 +35,15 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->amenities_name }}</td>
                                     <td>
-                                        <a href="{{ route('edit.amenities',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.amenities',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+
+                                        @if (Auth::user()->can('edit.amenities'))
+                                            <a href="{{ route('edit.amenities',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.amenities'))
+                                            <a href="{{ route('delete.amenities',$item->id) }}" class="btn btn-inverse-danger" id="delete">Borrar</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach

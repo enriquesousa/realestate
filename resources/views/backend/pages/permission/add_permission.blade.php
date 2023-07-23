@@ -45,11 +45,10 @@
                                     <option value="message">Ver Mensajes</option>
                                     <option value="agent">Agentes</option>
                                     <option value="category">Categorías Noticias</option>
-                                    <option value="post">Lista Noticias</option>
+                                    <option value="post">Noticias (posts)</option>
                                     <option value="comment">Comentarios Noticias</option>
-                                    <option value="smtp">Configuración SMTP</option>
-                                    <option value="site">Configuración Sitio</option>
-                                    <option value="role">Roles y Permisos</option>
+                                    <option value="config">Configuración</option>
+                                    <option value="rolesypermisos">Roles y Permisos</option>
                                 </select>
                             </div>
 

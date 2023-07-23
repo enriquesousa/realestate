@@ -4,9 +4,11 @@
 <div class="page-content">
 
     <nav class="page-breadcrumb">
-        <ol class="breadcrumb">
-            <a href="{{ route('add.roles') }}" class="btn btn-inverse-info">Añadir Role</a>
-        </ol>
+        @if (Auth::user()->can('add.rol'))
+            <ol class="breadcrumb">
+                <a href="{{ route('add.roles') }}" class="btn btn-inverse-info">Añadir Role</a>
+            </ol>
+        @endif
     </nav>
 
     <div class="row">
@@ -35,8 +37,15 @@
                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>
-                                        <a href="{{ route('edit.rol',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.rol',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+
+                                        @if (Auth::user()->can('edit.rol'))
+                                            <a href="{{ route('edit.rol',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.rol'))
+                                            <a href="{{ route('delete.rol',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach

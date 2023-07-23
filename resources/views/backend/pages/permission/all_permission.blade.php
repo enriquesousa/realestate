@@ -4,11 +4,13 @@
 <div class="page-content">
 
     <nav class="page-breadcrumb">
-        <ol class="breadcrumb">
-            <a href="{{ route('add.permission') }}" class="btn btn-inverse-info">Añadir Permiso</a>&nbsp;&nbsp;&nbsp;
-            <a href="{{ route('import.permission') }}" class="btn btn-inverse-warning"><i data-feather="upload-cloud"></i>&nbsp;&nbsp;Importar</a>&nbsp;&nbsp;&nbsp;
-            <a href="{{ route('export') }}" class="btn btn-inverse-danger"><i data-feather="download-cloud"></i>&nbsp;&nbsp;Exportar</a>
-        </ol>
+        @if (Auth::user()->can('add.permiso'))
+            <ol class="breadcrumb">
+                <a href="{{ route('add.permission') }}" class="btn btn-inverse-info">Añadir Permiso</a>&nbsp;&nbsp;&nbsp;
+                <a href="{{ route('import.permission') }}" class="btn btn-inverse-warning"><i data-feather="upload-cloud"></i>&nbsp;&nbsp;Importar</a>&nbsp;&nbsp;&nbsp;
+                <a href="{{ route('export') }}" class="btn btn-inverse-danger"><i data-feather="download-cloud"></i>&nbsp;&nbsp;Exportar</a>
+            </ol>
+        @endif
     </nav>
 
     <div class="row">
@@ -39,8 +41,15 @@
                                     <td class="text-center">{{ $item->name }}</td>
                                     <td class="text-center">{{ $item->group_name }}</td>
                                     <td>
-                                        <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
-                                        <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+
+                                        @if (Auth::user()->can('edit.permiso'))
+                                            <a href="{{ route('edit.permission',$item->id) }}" class="btn btn-inverse-warning">Editar</a>
+                                        @endif
+
+                                        @if (Auth::user()->can('delete.permiso'))
+                                            <a href="{{ route('delete.permission',$item->id) }}" class="btn btn-inverse-danger" id="delete">Eliminar</a>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @endforeach
