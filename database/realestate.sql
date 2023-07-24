@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 19, 2023 at 03:12 PM
+-- Generation Time: Jul 24, 2023 at 05:51 PM
 -- Server version: 8.0.33-0ubuntu0.20.04.2
 -- PHP Version: 8.2.8
 
@@ -269,6 +269,15 @@ CREATE TABLE `model_has_roles` (
   `model_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `model_has_roles`
+--
+
+INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
+(1, 'App\\Models\\User', 1),
+(4, 'App\\Models\\User', 17),
+(2, 'App\\Models\\User', 19);
+
 -- --------------------------------------------------------
 
 --
@@ -382,11 +391,58 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `group_name`, `created_at
 (8, 'add.state', 'web', 'state', '2023-07-14 16:37:03', '2023-07-14 16:37:03'),
 (9, 'edit.state', 'web', 'state', '2023-07-14 16:37:14', '2023-07-14 16:37:14'),
 (12, 'delete.state', 'web', 'state', '2023-07-14 17:25:48', '2023-07-14 17:25:48'),
-(13, 'amenities.menu', 'web', 'amenities', '2023-07-15 14:43:54', '2023-07-15 14:43:54'),
-(14, 'all.amenities', 'web', 'amenities', '2023-07-15 14:43:54', '2023-07-15 14:43:54'),
-(15, 'add.amenities', 'web', 'amenities', '2023-07-15 14:43:54', '2023-07-15 14:43:54'),
-(16, 'edit.amenities', 'web', 'amenities', '2023-07-15 14:43:54', '2023-07-15 14:43:54'),
-(17, 'delete.amenities', 'web', 'amenities', '2023-07-15 14:43:54', '2023-07-15 14:43:54');
+(19, 'amenities.menu', 'web', 'amenities', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(20, 'all.amenities', 'web', 'amenities', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(21, 'add.amenities', 'web', 'amenities', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(22, 'edit.amenities', 'web', 'amenities', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(23, 'delete.amenities', 'web', 'amenities', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(24, 'usuarios.menu', 'web', 'usuarios', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(29, 'property.menu', 'web', 'property', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(30, 'all.property', 'web', 'property', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(31, 'add.property', 'web', 'property', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(32, 'edit.property', 'web', 'property', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(33, 'delete.property', 'web', 'property', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(34, 'testimonials.menu', 'web', 'testimonials', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(35, 'all.testimonials', 'web', 'testimonials', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(36, 'add.testimonials', 'web', 'testimonials', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(37, 'edit.testimonials', 'web', 'testimonials', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(38, 'delete.testimonials', 'web', 'testimonials', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(39, 'edit.perfil', 'web', 'perfil', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(40, 'cambiarpassword.perfil', 'web', 'perfil', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(41, 'pagos.menu', 'web', 'pagos', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(42, 'mensajes.menu', 'web', 'mensajes', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(43, 'agente.menu', 'web', 'agente', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(44, 'all.agente', 'web', 'agente', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(45, 'add.agente', 'web', 'agente', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(46, 'edit.agente', 'web', 'agente', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(47, 'delete.agente', 'web', 'agente', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(48, 'categorias.menu', 'web', 'noticias', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(49, 'post.menu', 'web', 'noticias', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(50, 'comentarios.menu', 'web', 'noticias', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(51, 'smtp.setting', 'web', 'config', '2023-07-19 18:11:37', '2023-07-23 14:42:12'),
+(52, 'config.menu', 'web', 'config', '2023-07-19 18:11:37', '2023-07-23 14:41:52'),
+(53, 'rolesypermisos.menu', 'web', 'rolesypermisos', '2023-07-19 18:11:37', '2023-07-23 14:51:45'),
+(54, 'add.permiso', 'web', 'rolesypermisos', '2023-07-19 18:11:37', '2023-07-23 14:52:32'),
+(55, 'all.rol', 'web', 'rolesypermisos', '2023-07-19 18:11:37', '2023-07-23 14:54:04'),
+(56, 'add.rol', 'web', 'rolesypermisos', '2023-07-19 18:11:37', '2023-07-19 18:11:37'),
+(57, 'perfil.menu', 'web', 'perfil', '2023-07-23 00:28:23', '2023-07-23 00:28:23'),
+(58, 'add.post', 'web', 'post', '2023-07-23 00:43:03', '2023-07-23 00:43:03'),
+(59, 'all.post', 'web', 'post', '2023-07-23 00:43:47', '2023-07-23 00:43:47'),
+(60, 'edit.post', 'web', 'post', '2023-07-23 00:44:04', '2023-07-23 00:44:04'),
+(61, 'delete.post', 'web', 'post', '2023-07-23 00:44:17', '2023-07-23 00:44:17'),
+(62, 'site.setting', 'web', 'config', '2023-07-23 14:43:15', '2023-07-23 14:45:06'),
+(63, 'all.permiso', 'web', 'rolesypermisos', '2023-07-23 14:53:27', '2023-07-23 14:53:27'),
+(64, 'edit.permiso', 'web', 'rolesypermisos', '2023-07-23 14:55:22', '2023-07-23 14:55:22'),
+(65, 'delete.permiso', 'web', 'rolesypermisos', '2023-07-23 14:55:35', '2023-07-23 14:55:35'),
+(66, 'edit.rol', 'web', 'rolesypermisos', '2023-07-23 14:56:04', '2023-07-23 14:56:04'),
+(67, 'delete.rol', 'web', 'rolesypermisos', '2023-07-23 14:56:15', '2023-07-23 14:56:15'),
+(68, 'asignar.rolesypermisos', 'web', 'rolesypermisos', '2023-07-23 14:58:13', '2023-07-23 14:58:13'),
+(69, 'lista.rolesypermisos', 'web', 'rolesypermisos', '2023-07-23 14:58:29', '2023-07-23 14:58:29'),
+(70, 'configadmins.menu', 'web', 'config', '2023-07-23 15:17:04', '2023-07-23 15:17:04'),
+(71, 'all.configadmins', 'web', 'config', '2023-07-23 15:17:30', '2023-07-23 15:17:30'),
+(72, 'add.configadmins', 'web', 'config', '2023-07-23 15:17:56', '2023-07-23 15:17:56'),
+(73, 'edit.configadmins', 'web', 'config', '2023-07-23 15:18:18', '2023-07-23 15:18:18'),
+(74, 'delete.configadmins', 'web', 'config', '2023-07-23 15:18:37', '2023-07-23 15:18:37');
 
 -- --------------------------------------------------------
 
@@ -480,6 +536,13 @@ CREATE TABLE `property_messages` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `property_messages`
+--
+
+INSERT INTO `property_messages` (`id`, `user_id`, `agent_id`, `property_id`, `msg_name`, `msg_email`, `msg_phone`, `message`, `created_at`, `updated_at`) VALUES
+(1, 3, '6', 3, 'User', 'user@gmail.com', '(542) 836-2745', 'Mensaje para Anna R Stone de User mi correo es user@gmail.com', '2023-07-23 22:51:48', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -530,7 +593,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 (1, 'SuperAdmin', 'web', '2023-07-19 03:25:17', '2023-07-19 03:25:17'),
-(2, 'Manager', 'web', '2023-07-19 03:26:41', '2023-07-19 03:26:41'),
+(2, 'Manager', 'web', '2023-07-19 03:26:41', '2023-07-19 16:54:45'),
 (3, 'Admin', 'web', '2023-07-19 03:27:09', '2023-07-19 03:27:09'),
 (4, 'Ventas', 'web', '2023-07-19 03:30:19', '2023-07-19 03:30:19');
 
@@ -544,6 +607,96 @@ CREATE TABLE `role_has_permissions` (
   `permission_id` bigint UNSIGNED NOT NULL,
   `role_id` bigint UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `role_has_permissions`
+--
+
+INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(12, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1),
+(29, 1),
+(30, 1),
+(31, 1),
+(32, 1),
+(33, 1),
+(34, 1),
+(35, 1),
+(36, 1),
+(37, 1),
+(38, 1),
+(39, 1),
+(40, 1),
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
+(47, 1),
+(48, 1),
+(49, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1),
+(56, 1),
+(57, 1),
+(58, 1),
+(59, 1),
+(60, 1),
+(61, 1),
+(62, 1),
+(63, 1),
+(64, 1),
+(65, 1),
+(66, 1),
+(67, 1),
+(68, 1),
+(69, 1),
+(70, 1),
+(71, 1),
+(72, 1),
+(73, 1),
+(74, 1),
+(19, 2),
+(20, 2),
+(21, 2),
+(22, 2),
+(29, 3),
+(30, 3),
+(31, 3),
+(32, 3),
+(33, 3),
+(1, 4),
+(2, 4),
+(4, 4),
+(6, 4),
+(7, 4),
+(8, 4),
+(9, 4),
+(12, 4),
+(19, 4),
+(20, 4),
+(21, 4),
+(22, 4),
+(23, 4);
 
 -- --------------------------------------------------------
 
@@ -738,7 +891,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `photo`, `phone`, `address`, `description`, `role`, `status`, `credit`, `max_credit`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$Aayb3DoZpGyllZ5kRzMxS.90KA5aDbN7.X3orHzyQaA0B2CXILdWK', 'admin.jpg', '(562) 456-6723', 'SALAMANCA ESQ AV CANAL SN NO. S/N, CIUDAD INDUSTRIAL, 36541', NULL, 'admin', 'active', '0', '0', 'YLkCqfCZS2gkkB5ruGcZXKGvVFTwvnGmffYGsEG5KjT61EUzKlswvv0deLom', NULL, NULL),
+(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$Aayb3DoZpGyllZ5kRzMxS.90KA5aDbN7.X3orHzyQaA0B2CXILdWK', 'admin.jpg', '(562) 456-6723', 'SALAMANCA ESQ AV CANAL SN NO. S/N, CIUDAD INDUSTRIAL, 36541', NULL, 'admin', 'active', '0', '0', 'vva7Eu8RPWBkTN0PVlsMfHFe3xaOuC9hYtxMlMX95jirvwN9wSAkFXMcz9z8', NULL, NULL),
 (2, 'Agent', 'agent', 'agent@gmail.com', NULL, '$2y$10$KSgdoL5ckM6gjb7VmLZ/E.2SM6v8M6yhUvnKktOfOz95wJLIwRDSe', 'agent.jpg', '(555) 156-6734', 'CARR. TAMPICO MANTE KM 11.5 SN, NIÑOS HEROES, 89359', 'Descripción para Agente \'Agent\'', 'agent', 'active', '2', '4', NULL, NULL, '2023-07-15 16:42:25'),
 (3, 'User', 'user', 'user@gmail.com', NULL, '$2y$10$0Nz.oBrfeUNy/DlSWSlkDe7Lf//yXWiNR8xB7dYxt5hzKOhxlVlaa', 'user.jpg', '(542) 836-2745', 'AV TEHUACAN SUR NO. 124, LA PAZ, 72160', NULL, 'user', 'active', '0', '0', NULL, NULL, '2023-07-18 18:06:14'),
 (4, 'Shaniya Conroy', 'conroy', 'medhurst.elvis@example.com', NULL, '$2y$10$3CVYcaj1Z4qo/eQuBHB4XukC154.TesVKF2mV9fKZf.UAy3GrHkaG', 'agent4.jpg', '(341) 537-3097', '20183 Gibson Fork Suite 809Beierfurt, AZ 99581-6291', NULL, 'agent', 'active', '1', '1', NULL, NULL, NULL),
@@ -752,7 +905,9 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `pa
 (12, 'Vincent Walton', 'vincent', 'likar@mailinator.com', NULL, '$2y$10$7WEcRoGzLvzi7wh/finFDuQj4RjEFcdJ28pZucheg3n6SZTZqY.CS', '202307110810L2.PNG', '+1 (744) 423-9738', 'Dolor similique volu.', NULL, 'agent', 'active', '0', '1', NULL, NULL, '2023-07-11 15:10:26'),
 (13, 'Simone Sullivan', 'simone', 'ruxene@mailinator.com', NULL, '$2y$10$oDIJLE07yVDm9/saTlBB/u6V/t8mXROFrUOrhqa/30ozGNy7TOYUm', '202307110811L5.jpg', '+1 (265) 165-2699', 'Tempor autem sunt, n.', NULL, 'agent', 'active', '0', '1', NULL, NULL, '2023-07-11 15:11:20'),
 (14, 'Carol Dorsey', 'carol', 'carolar@mailinator.com', NULL, '$2y$10$X6XAiUj/cMi.KQ6wqxdu3Ozf25FX3hT0.3t9Mp0am67nPLE60K6dC', '202307110811L4.jpg', '+1 (343) 981-3316', 'Hic sed dolorem labo.', NULL, 'agent', 'active', '0', '1', NULL, NULL, '2023-07-11 15:52:55'),
-(16, 'user2', 'user2', 'user2@gmail.com', NULL, '$2y$10$pPxLvJHnXngKwP.SZbqnke9KH8p.8I32/0zyGJD0F5RXhYy37RJle', '20230718130892.jpg', '(664) 188-0604', 'Privada Esmeralda #3', NULL, 'user', 'active', '0', '1', NULL, '2023-07-18 20:04:33', '2023-07-18 20:08:06');
+(16, 'user2', 'user2', 'user2@gmail.com', NULL, '$2y$10$pPxLvJHnXngKwP.SZbqnke9KH8p.8I32/0zyGJD0F5RXhYy37RJle', '20230718130892.jpg', '(664) 188-0604', 'Privada Esmeralda #3', NULL, 'user', 'active', '0', '1', NULL, '2023-07-18 20:04:33', '2023-07-18 20:08:06'),
+(17, 'Udemy', 'udemy', 'udemy@gmail.com', NULL, '$2y$10$W9i9Z50LUQVUtiaUXubDrOsKgBuFyLHOYvaIA3jejDvw1CS2q8rAe', NULL, '(664) 345-7654', 'Direccion de udemy', NULL, 'admin', 'active', '0', '1', NULL, '2023-07-22 16:48:06', '2023-07-22 20:27:19'),
+(19, 'Enrique', 'enrique', 'enrique.sousa@gmail.com', NULL, '$2y$10$YuzBhVRdK7.VZzOb0pSZYuR1lUU.GOyDLVFaOdsn/ljXPO/fI2IXK', NULL, '(664) 188-0604', 'Direccion de Enrique', NULL, 'admin', 'active', '0', '1', NULL, '2023-07-22 20:26:12', '2023-07-22 20:26:12');
 
 -- --------------------------------------------------------
 
@@ -1017,7 +1172,7 @@ ALTER TABLE `package_plans`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1035,7 +1190,7 @@ ALTER TABLE `properties`
 -- AUTO_INCREMENT for table `property_messages`
 --
 ALTER TABLE `property_messages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `property_types`
@@ -1047,7 +1202,7 @@ ALTER TABLE `property_types`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `schedules`
@@ -1089,7 +1244,7 @@ ALTER TABLE `topbar_data`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `wishlists`

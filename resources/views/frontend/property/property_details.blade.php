@@ -345,7 +345,14 @@
                                         <li><i class="fas fa-map-marker-alt"></i>{{ $property->user->address }}</li>
                                         <li><i class="fas fa-phone"></i><a href="tel:{{ $property->user->phone }}">{{ $property->user->phone }}</a></li>
                                     </ul>
-                                    <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div>
+
+                                    {{-- Desplegar componente de vue --}}
+                                    <div id="app">
+                                        <send-message></send-message>
+                                    </div>
+
+                                    {{-- <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div> --}}
+
                                 </div>
                             @endif
 

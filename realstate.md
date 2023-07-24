@@ -9362,8 +9362,151 @@ Listo!
 Introduccion al Live Chat entre un User y un Agente.
 Listo!
 ## 234. Live Chat Application Part 1
+Hacer backup del proyecto y de la base de datos.
+Los guarde en 24/JUL/23:
+```php
+/media/enrique/ADATA/BackUps/Sites/realestate
+```
+Hacer el custom backup con phpMyadmin
+Activando:
+IF NOT EXISTS (less efficient as indexes will be generated during table creation)
 
+Instarlar Vue JS
+```php
+npm install vue@next vue-loader@next
+```
+Luego install
+```php
+npm install
+```
+
+ahora podemos ver dos dependencias de vue en package.json
+```php
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.2",
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.5",
+        "postcss": "^8.4.6",
+        "tailwindcss": "^3.1.0",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "vue": "^3.2.36",
+        "vue-loader": "^17.0.1"
+    }
+}
+```
+
+Ahora configurar vite.config.js
+```php
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig({
+    plugins: [
+
+        laravel({
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+            ],
+            refresh: true,
+        }),
+
+        vue({
+            template:{
+                transformAssetUrls:{
+                    base:null,
+                    includeAbsolute: false,
+                },
+            },
+        })
+
+    ],
+});
+```
+
+Ahora en resources/js/app.js tenemos que agregar esto:
+```php
+import { createApp } from 'vue/dist/vue.esm-bundler.js'; 
+
+import SendMessage from './components/SendMessage.vue'  
+const app=createApp({
+	components:{
+		SendMessage, 
+	}
+}); 
+app.mount('#app'); 
+```
+
+queda asi:
+```php
+import './bootstrap';
+import { createApp } from 'vue/dist/vue.esm-bundler.js';
+
+import SendMessage from './components/SendMessage.vue'
+const app=createApp({
+	components:{
+		SendMessage,
+	}
+});
+app.mount('#app');
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
+
+```
+
+Y crear el archivo:
+```php
+resources/js/components/SendMessage.vue
+```
+
+Ahora para soportar el nuevo componente de vue en nuestro frontend, agregar!
+En resources/views/frontend/frontend_dashboard.blade.php
+```php
+ {{-- Para soportar en nuestro frontend el nuevo componente de vue components/SendMessage.vue--}}
+@vite(['resources/js/app.js'])
+```
+
+Mandar llamar el componente desde el frontend en resources/views/frontend/property/property_details.blade.php
+```php
+{{-- Desplegar componente de vue --}}
+<div id="app">
+    <send-message></send-message>
+</div>
+```
+
+Instalar @vitejs/plugin-vue
+```php
+npm i @vitejs/plugin-vue
+```
+
+Correr:
+```php
+npm run dev
+```
+
+Si queremos compilar:
+```php
+npm run build
+```
+Listo!
 ## 235. Live Chat Application Part 2
+
 ## 236. Live Chat Application Part 3
 ## 237. Live Chat Application Part 4
 ## 238. Live Chat Application Part 5

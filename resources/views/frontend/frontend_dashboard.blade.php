@@ -9,6 +9,9 @@
 
     <title>@yield('title')</title>
 
+    {{-- Para soportar en nuestro frontend el nuevo componente de vue components/SendMessage.vue--}}
+    @vite(['resources/js/app.js'])
+
     <!-- Fav Icon -->
     <link rel="icon" href="{{ asset('frontend/assets/images/favicon.ico') }}" type="image/x-icon">
 
