@@ -9505,9 +9505,80 @@ Si queremos compilar:
 npm run build
 ```
 Listo!
-## 235. Live Chat Application Part 2
+## 235. Live Chat Application Part 2 - preparamos la ventana modal del chat
+Usar ventana modal de Bootstrap 5.3 (https://getbootstrap.com/docs/5.3/components/modal/)
+En resources/js/components/SendMessage.vue
+```php
+<template>
+<div>
 
+    <!-- Ventana Modal de Bootstrap 5.3 ver docs (https://getbootstrap.com/docs/5.3/components/modal/) -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Chat en Vivo
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+</template>
+```
+
+Para soportar la ventana modal de bootstrap 5.3 tenemos que incluir los drivers despues de <!-- main-js -->
+En resources/views/frontend/frontend_dashboard.blade.php:
+```php
+ <!-- main-js -->
+<script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+
+{{-- Para Ventana Modal de Bootstrap 5.3 - llamada en resources/js/components/SendMessage.vue --}}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+```
+Ya funciona la ventana modal!
+
+En resources/js/components/SendMessage.vue, preparamos la forma.
+```php
+<form action="">
+
+    <!-- body - textarea para el escribir el mensaje -->
+    <div class="modal-body">
+        <div class="form-group">
+            <textarea class="form-control" name="" id="" rows="3" placeholder="Escribe tu mensaje ..."></textarea>
+        </div>
+    </div>
+
+    <!-- Botón Cerrar y mandar Mensaje -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success">Mandar Mensaje</button>
+    </div>
+
+</form>
+```
+Listo!
 ## 236. Live Chat Application Part 3
+Crear una tabla nueva para los mensajes
+```php
+
+```
+
 ## 237. Live Chat Application Part 4
 ## 238. Live Chat Application Part 5
 ## 239. Live Chat Application In User Page Part 1
