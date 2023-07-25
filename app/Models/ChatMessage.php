@@ -11,5 +11,14 @@ class ChatMessage extends Model
 
     protected $guarded = [];
 
+    // Relación del campo 'sender_id' con el 'id' de tabla 'users'
+    public function sender(){
+        return $this->belongsTo(User::class, 'sender_id', 'id');
+    }
+
+    // Relación del campo 'receiver_id' con el 'id' de tabla 'users'
+    public function receiver(){
+        return $this->belongsTo(User::class, 'receiver_id', 'id');
+    }
 
 }

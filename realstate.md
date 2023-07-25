@@ -9784,7 +9784,240 @@ Listo!
 ## 240. Live Chat Application In User Page Part 2
 Listo!
 ## 241. Live Chat Application In User Page Part 3
+En app/Http/Controllers/Backend/ChatController.php
+```php
+public function GetAllUsers(){
+
+    $chats = ChatMessage::orderBy('id','DESC')
+                ->where('sender_id',auth()->id())
+                ->orWhere('receiver_id',auth()->id())
+                ->get();
+
+    $users = $chats->flatMap(function($chat){
+        if ($chat->sender_id === auth()->id()) {
+            return [$chat->sender, $chat->receiver];
+        }
+        return [$chat->receiver, $chat->sender];
+    });
+
+    // Para probar visitando http://realestate.test/user-all
+    // return $chats;
+    return $users;
+}
+```
+Si visitamos http://realestate.test/user-all
+nos regresa:
+```php
+0	
+id	10
+name	"Alex T Schmidt"
+username	"alex"
+email	"alex23@yahoo.com"
+email_verified_at	null
+photo	"user10.jpg"
+phone	"(936) 378-9918"
+address	"RUFINO TAMAYO 26, ACAPATZINGO, 62440"
+description	null
+role	"user"
+status	"active"
+credit	"0"
+max_credit	"0"
+created_at	null
+updated_at	null
+
+1	
+id	6
+name	"Anna R Stone"
+username	"anna"
+email	"kenton1973@yahoo.com"
+email_verified_at	null
+photo	"agent6.jpg"
+phone	"(951) 903-7916"
+address	"HERIBERTO FRIAS NO. 1404, CENTRO, 82000"
+description	null
+role	"agent"
+status	"active"
+credit	"1"
+max_credit	"1"
+created_at	null
+updated_at	null
+
+2	
+id	10
+name	"Alex T Schmidt"
+username	"alex"
+email	"alex23@yahoo.com"
+email_verified_at	null
+photo	"user10.jpg"
+phone	"(936) 378-9918"
+address	"RUFINO TAMAYO 26, ACAPATZINGO, 62440"
+description	null
+role	"user"
+status	"active"
+credit	"0"
+max_credit	"0"
+created_at	null
+updated_at	null
+
+3	
+id	6
+name	"Anna R Stone"
+username	"anna"
+email	"kenton1973@yahoo.com"
+email_verified_at	null
+photo	"agent6.jpg"
+phone	"(951) 903-7916"
+address	"HERIBERTO FRIAS NO. 1404, CENTRO, 82000"
+description	null
+role	"agent"
+status	"active"
+credit	"1"
+max_credit	"1"
+created_at	null
+updated_at	null
+
+4	
+id	10
+name	"Alex T Schmidt"
+username	"alex"
+email	"alex23@yahoo.com"
+email_verified_at	null
+photo	"user10.jpg"
+phone	"(936) 378-9918"
+address	"RUFINO TAMAYO 26, ACAPATZINGO, 62440"
+description	null
+role	"user"
+status	"active"
+credit	"0"
+max_credit	"0"
+created_at	null
+updated_at	null
+
+5	
+id	6
+name	"Anna R Stone"
+username	"anna"
+email	"kenton1973@yahoo.com"
+email_verified_at	null
+photo	"agent6.jpg"
+phone	"(951) 903-7916"
+address	"HERIBERTO FRIAS NO. 1404, CENTRO, 82000"
+description	null
+role	"agent"
+status	"active"
+credit	"1"
+max_credit	"1"
+created_at	null
+updated_at	null
+```
+Si le agregamos unique() a:
+En app/Http/Controllers/Backend/ChatController.php
+```php
+public function GetAllUsers(){
+
+    $chats = ChatMessage::orderBy('id','DESC')
+                ->where('sender_id',auth()->id())
+                ->orWhere('receiver_id',auth()->id())
+                ->get();
+
+    $users = $chats->flatMap(function($chat){
+        if ($chat->sender_id === auth()->id()) {
+            return [$chat->sender, $chat->receiver];
+        }
+        return [$chat->receiver, $chat->sender];
+    })->unique();
+
+    // Para probar visitando http://realestate.test/user-all
+    // return $chats;
+    return $users;
+}
+```
+ahora ya nos regresa solo a los dos usuarios chatenado!
+```php
+0	
+id	10
+name	"Alex T Schmidt"
+username	"alex"
+email	"alex23@yahoo.com"
+email_verified_at	null
+photo	"user10.jpg"
+phone	"(936) 378-9918"
+address	"RUFINO TAMAYO 26, ACAPATZINGO, 62440"
+description	null
+role	"user"
+status	"active"
+credit	"0"
+max_credit	"0"
+created_at	null
+updated_at	null
+
+1	
+id	6
+name	"Anna R Stone"
+username	"anna"
+email	"kenton1973@yahoo.com"
+email_verified_at	null
+photo	"agent6.jpg"
+phone	"(951) 903-7916"
+address	"HERIBERTO FRIAS NO. 1404, CENTRO, 82000"
+description	null
+role	"agent"
+status	"active"
+credit	"1"
+max_credit	"1"
+created_at	null
+updated_at	null
+```
+
+Con esto ya podemos pasar los datos $users a resources/js/components/ChatMessage.vue
+```php
+...
+<ul class="user">
+    <strong>Lista Chat</strong>
+    <hr />
+    <li>
+        <a href="">
+            <img
+                src="/frontend/avatar-1.png"
+                alt="UserImage"
+                class="userImg"
+            />
+            <span class="username text-center">{{ users }}</span>
+        </a>
+    </li>
+</ul>
+...
+<script>
+    export default {
+
+        data(){
+            return {
+                users: {},
+            }
+        },
+
+        // Este método se ejecuta al hacer refresh de la pagina
+        created(){
+            this.getAllUser();
+        },
+
+        methods:{
+            getAllUser(){
+                axios.get('/user-all')
+                .then((res) => {
+                    this.users = res.data;
+                }).catch((err) => {
+
+                })
+            }
+        },
+
+    };
+</script>
+```
+Listo!
 ## 242. Live Chat Application In User Page Part 4
+
 ## 243. Live Chat Application In User Page Part 5
 ## 244. Live Chat Application In User Page Part 6
 ## 245. Live Chat Application In User Page Part 7

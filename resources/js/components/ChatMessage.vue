@@ -12,7 +12,7 @@
                             alt="UserImage"
                             class="userImg"
                         />
-                        <span class="username text-center">users</span>
+                        <span class="username text-center">{{ users }}</span>
                     </a>
                 </li>
             </ul>
@@ -118,6 +118,7 @@
 
         // Este método se ejecuta al hacer refresh de la pagina
         created(){
+            this.getAllUser();
         },
 
         methods:{
