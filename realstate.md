@@ -10017,8 +10017,26 @@ Con esto ya podemos pasar los datos $users a resources/js/components/ChatMessage
 ```
 Listo!
 ## 242. Live Chat Application In User Page Part 4
+Correr in for loop en vue en resources/js/components/ChatMessage.vue
+```php
+...
+<li v-for="(user, index) in users" :key="index">
+    <a href="">
 
+        <!-- imagen si es user -->
+        <img v-if="user.role === 'user'" :src="'/upload/user_images/'+user.photo" alt="UserImage" class="userImg"/>
+
+        <!-- else usa agent image -->
+        <img v-else :src="'/upload/agent_images/'+user.photo" alt="UserImage" class="userImg"/>
+
+        <span class="username text-center">{{ user.name }}</span>
+    </a>
+</li>
+...
+```
+Listo!
 ## 243. Live Chat Application In User Page Part 5
+
 ## 244. Live Chat Application In User Page Part 6
 ## 245. Live Chat Application In User Page Part 7
 ## 246. Update Date Format With Moment

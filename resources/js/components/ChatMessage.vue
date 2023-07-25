@@ -1,22 +1,31 @@
 <template>
 
     <div class="row" style="width: 873px">
+
+        <!-- side izquierdo -->
         <div class="col-md-2 myUser">
             <ul class="user">
                 <strong>Lista Chat</strong>
                 <hr />
-                <li>
+
+                <li v-for="(user, index) in users" :key="index">
                     <a href="">
-                        <img
-                            src="/frontend/avatar-1.png"
-                            alt="UserImage"
-                            class="userImg"
-                        />
-                        <span class="username text-center">{{ users }}</span>
+
+                        <!-- imagen si es user -->
+                        <img v-if="user.role === 'user'" :src="'/upload/user_images/'+user.photo" alt="UserImage" class="userImg"/>
+
+                        <!-- else usa agent image -->
+                        <img v-else :src="'/upload/agent_images/'+user.photo" alt="UserImage" class="userImg"/>
+
+                        <span class="username text-center">{{ user.name }}</span>
                     </a>
                 </li>
+
+
             </ul>
         </div>
+
+        <!-- side derecho -->
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header text-center myrow">
@@ -103,6 +112,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 </template>
