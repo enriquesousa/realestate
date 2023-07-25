@@ -33,6 +33,8 @@
 
         <li><a href="{{ route('user.wishlist') }}"><i class="fa fa-indent" aria-hidden="true"></i> Lista de Deseos</a></li>
 
+        <li><a href="{{ route('live.chat') }}"><i class="fas fa-comments"></i>&nbsp;&nbsp; Chat en Vivo</a></li>
+
         <li><a href="{{ route('user.change.password') }}"><i class="fa fa-key" aria-hidden="true"></i> Cambiar Contraseña</a></li>
 
         <li><a href="{{ route('user.logout') }}"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i> Cerrar Sesión</a></li>

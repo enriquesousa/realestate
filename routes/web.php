@@ -128,14 +128,22 @@ Route::get('/dashboard', function () {
 // User group middleware, profile, logout, change password, Wishlist, Compare
 Route::middleware('auth')->group(function () {
 
-    Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
-    Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
-    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
-    Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
-    Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
+    // User Routes
+    Route::controller(UserController::class)->group(function(){
 
-    // Ver citas desde user dashboard - llamado de resources/views/frontend/dashboard/dashboard_sidebar.blade.php
-    Route::get('/user/schedule/request', [UserController::class, 'UserScheduleRequest'])->name('user.schedule.request');
+        Route::get('/user/profile', 'UserProfile')->name('user.profile');
+        Route::post('/user/profile/store', 'UserProfileStore')->name('user.profile.store');
+        Route::get('/user/logout', 'UserLogout')->name('user.logout');
+        Route::get('/user/change/password', 'UserChangePassword')->name('user.change.password');
+        Route::post('/user/password/update', 'UserPasswordUpdate')->name('user.password.update');
+
+        // Ver citas desde user dashboard - llamado de resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+        Route::get('/user/schedule/request', 'UserScheduleRequest')->name('user.schedule.request');
+
+        // Live Chat llamado por resources/views/frontend/dashboard/dashboard_sidebar.blade.php
+        Route::get('/live/chat', 'LiveChat')->name('live.chat');
+
+    });
 
 
     // User Wishlist All Routes

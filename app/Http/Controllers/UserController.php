@@ -168,4 +168,15 @@ class UserController extends Controller
         return view('frontend.user.user_register');
      }
 
+     // LiveChat
+     public function LiveChat(){
+
+          // Recuperamos al user que esta login
+          $id = Auth::user()->id;
+          $userData = User::find($id);
+
+          return view('frontend.dashboard.live_chat', compact('userData'));
+
+     }
+
 }
