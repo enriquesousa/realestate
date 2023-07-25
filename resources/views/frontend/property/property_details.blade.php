@@ -346,10 +346,15 @@
                                         <li><i class="fas fa-phone"></i><a href="tel:{{ $property->user->phone }}">{{ $property->user->phone }}</a></li>
                                     </ul>
 
-                                    {{-- Desplegar componente de vue --}}
-                                    <div id="app">
-                                        <send-message></send-message>
-                                    </div>
+                                    {{-- Si hay user Login podemos desplegar el botón del live chat --}}
+                                    @auth
+                                        {{-- Desplegar componente de vue --}}
+                                        <div id="app">
+                                            <send-message></send-message>
+                                        </div>
+                                    @else
+                                        <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-comments"></i>&nbsp;&nbsp; | &nbsp;<span class="text-danger">Para Live Chat! debes de iniciar sesión primero.</span>&nbsp;&nbsp;<i class="fas fa-sign-in-alt"></i></a>
+                                    @endauth
 
                                     {{-- <div class="btn-box"><a href="agents-details.html">Lista de Propiedades</a></div> --}}
 

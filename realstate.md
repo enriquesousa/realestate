@@ -9573,13 +9573,18 @@ En resources/js/components/SendMessage.vue, preparamos la forma.
 </form>
 ```
 Listo!
-## 236. Live Chat Application Part 3
-Crear una tabla nueva para los mensajes
+## 236. Live Chat Application Part 3 - crear nuevo modelo tabla y controller 
+Crear un nuevo modelo con su tabla nueva para los mensajes
 ```php
-
+php artisam make:model ChatMessage -m
 ```
-
+Crear su controlador
+```php
+php artisan make:controller Backend/ChatController
+```
+Listo!
 ## 237. Live Chat Application Part 4
+
 ## 238. Live Chat Application Part 5
 ## 239. Live Chat Application In User Page Part 1
 ## 240. Live Chat Application In User Page Part 2

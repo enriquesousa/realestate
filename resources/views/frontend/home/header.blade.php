@@ -30,8 +30,10 @@
                     <li><a href="index.html"><i class="fab fa-vimeo-v"></i></a></li>
                 </ul>
 
+                {{-- Si user esta login --}}
                 @auth
                     <div class="sign-box">
+                        <span class="text-white"><i class="fas fa-user"></i>&nbsp;{{ Auth::user()->name }}&nbsp;&nbsp;</span>
                         <a href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i>Panel</a>
                         <a href="{{ route('user.logout') }}" class="pl-3"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
                     </div>
