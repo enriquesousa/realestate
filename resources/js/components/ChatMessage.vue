@@ -108,7 +108,30 @@
 </template>
 
 <script>
-    export default {};
+    export default {
+
+        data(){
+            return {
+                users: {},
+            }
+        },
+
+        // Este método se ejecuta al hacer refresh de la pagina
+        created(){
+        },
+
+        methods:{
+            getAllUser(){
+                axios.get('/user-all')
+                .then((res) => {
+                    this.users = res.data;
+                }).catch((err) => {
+
+                })
+            }
+        },
+
+    };
 </script>
 
 <style>
@@ -212,8 +235,5 @@
         float: right;
     }
 
-    .clearfix {
-        clear: both;
-    }
 
 </style>

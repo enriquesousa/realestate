@@ -27,4 +27,16 @@ class ChatController extends Controller
         return response()->json(['message' => 'Mensaje enviado con éxito']);
 
     }
+
+    // GetAllUsers
+    public function GetAllUsers(){
+
+        $chats = ChatMessage::orderBy('id','DESC')
+                    ->where('sender_id',auth()->id())
+                    ->orWhere('receiver_id',auth()->id())
+                    ->get();
+
+        return $chats;
+    }
+
 }
