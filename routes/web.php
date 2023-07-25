@@ -94,6 +94,7 @@ Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name(
 // Chat Post Request - llamado de resources/js/components/SendMessage.vue
 Route::post('/send-message', [ChatController::class, 'SendMessage'])->name('send.msg');
 Route::get('/user-all', [ChatController::class, 'GetAllUsers']);
+Route::get('/user-message/{id}', [ChatController::class, 'UserMessageById']);
 
 
 

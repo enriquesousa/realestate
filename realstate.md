@@ -10036,8 +10036,93 @@ Correr in for loop en vue en resources/js/components/ChatMessage.vue
 ```
 Listo!
 ## 243. Live Chat Application In User Page Part 5
+En resources/js/components/ChatMessage.vue
+```php
+<script>
+    export default {
 
+        data(){
+            return {
+                users: {},
+                allMessages: {},
+                selectedUser: '',
+            }
+        },
+
+        // Este método se ejecuta al hacer refresh de la pagina
+        created(){
+            this.getAllUser();
+        },
+
+        methods:{
+
+            getAllUser(){
+                axios.get('/user-all')
+                .then((res) => {
+                    this.users = res.data;
+                }).catch((err) => {
+
+                })
+            },
+
+            userMessage(userId){
+                axios.get('/user-message/'+userId)
+                .then((res) => {
+                    this.allMessages = res.data;
+                    this.selectedUsers = userId;
+                }).catch((err) => {
+
+                })
+            },
+
+        },
+
+    };
+</script>
+```
+
+En routes/web.php
+```php
+Route::get('/user-message/{id}', [ChatController::class, 'UserMessageById']);
+```
+
+En app/Http/Controllers/Backend/ChatController.php
+```php
+public function UserMessageById($userId){
+
+    $user = User::find($userId);
+    if ($user) {
+
+        $messages = ChatMessage::where(function($q) use($userId){
+            $q->where('sender_id', auth()->id());
+            $q->where('receiver_id', $userId);
+        })->orWhere(function($q) use($userId){
+            $q->where('sender_id', $userId);
+            $q->where('receiver_id', auth()->id());
+        })->with('user')->get();
+
+        return response()->json([
+            'user' => $user,
+            'messages' => $messages,
+        ]);
+
+    }else{
+        abort(404);
+    }
+
+}
+```
+
+En app/Models/ChatMessage.php
+```php
+// Relación del campo 'sender_id' con el 'id' de tabla 'users' lo usa 'UserMessageById' en app/Http/Controllers/Backend/ChatController.php ->with('user')->get()
+public function user(){
+    return $this->belongsTo(User::class, 'sender_id', 'id');
+}
+```
+Listo!
 ## 244. Live Chat Application In User Page Part 6
+
 ## 245. Live Chat Application In User Page Part 7
 ## 246. Update Date Format With Moment
 ## 247. Live Chat Application for Agent Part 1

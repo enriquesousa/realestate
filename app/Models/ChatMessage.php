@@ -21,4 +21,9 @@ class ChatMessage extends Model
         return $this->belongsTo(User::class, 'receiver_id', 'id');
     }
 
+    // Relación del campo 'sender_id' con el 'id' de tabla 'users' lo usa 'UserMessageById' en app/Http/Controllers/Backend/ChatController.php ->with('user')->get()
+    public function user(){
+        return $this->belongsTo(User::class, 'sender_id', 'id');
+    }
+
 }
