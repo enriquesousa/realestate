@@ -350,7 +350,9 @@
                                     @auth
                                         {{-- Desplegar componente de vue --}}
                                         <div id="app">
-                                            <send-message></send-message>
+                                            <send-message :receptor_id="{{ $property->agent_id }}" receptor_name="{{ $property->user->name }}" >
+
+                                            </send-message>
                                         </div>
                                     @else
                                         <a href="{{ route('login') }}" class="pl-2"><i class="fas fa-comments"></i>&nbsp;&nbsp; | &nbsp;<span class="text-danger">Para Live Chat! debes de iniciar sesión primero.</span>&nbsp;&nbsp;<i class="fas fa-sign-in-alt"></i></a>

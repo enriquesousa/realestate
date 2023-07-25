@@ -12,23 +12,23 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title fs-5" id="exampleModalLabel">Chat con </h5>
+            <h5 class="modal-title fs-5" id="exampleModalLabel">Chat With {{ receptor_id }} {{ receptor_name }} </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form action="">
+        <form @submit.prevent="sendMsg()">
 
             <!-- body - textarea para el escribir el mensaje -->
             <div class="modal-body">
                 <div class="form-group">
-                    <textarea class="form-control" name="" id="" rows="3" placeholder="Escribe tu mensaje ..."></textarea>
+                    <textarea class="form-control" v-model="form.msg" name="" id="" rows="3" placeholder="Escribe tu mensaje ..."></textarea>
                 </div>
             </div>
 
             <!-- Botón Cerrar y mandar Mensaje -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success">Mandar Mensaje</button>
+                <button type="submit" class="btn btn-success">Mandar Mensaje</button>
             </div>
 
         </form>
@@ -39,3 +39,24 @@
 
 </div>
 </template>
+
+<!-- Aquí recibimos los parámetros -->
+<script>
+export default {
+	props: ['receptor_id','receptor_name'],
+
+	data(){
+		return{
+			form: {
+				msg:""
+			}
+		}
+	},
+
+	methods: {
+		sendMsg(){
+			alert(this.form.msg)
+		}
+	}
+}
+</script>
