@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\ChatController;
 
 
 require __DIR__.'/auth.php';
@@ -86,10 +87,12 @@ Route::post('/all/property/search', [IndexController::class, 'AllPropertySearch'
 
 
 /* Citas */
-
 // Schedule Message Request - llamado de resources/views/frontend/property/property_details.blade.php
 Route::post('/store/schedule', [IndexController::class, 'StoreSchedule'])->name('store.schedule');
 
+/* Live Chat */
+// Chat Post Request - llamado de resources/js/components/SendMessage.vue
+Route::post('/send-message', [ChatController::class, 'SendMessage'])->name('send.msg');
 
 
 
