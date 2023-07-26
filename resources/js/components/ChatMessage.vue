@@ -93,14 +93,9 @@
                 <!-- card-footer -->
                 <div class="card-footer">
                     <div class="input-group">
-                        <input
-                            id="btn-input"
-                            type="text"
-                            class="form-control input-sm"
-                            placeholder="Entre su mensaje aquí..."
-                        />
+                        <input id="btn-input" type="text" v-model="msg" class="form-control input-sm" placeholder="Entre su mensaje aquí..."/>
                         <span class="input-group-btn">
-                            <button class="btn btn-primary"><i class="fas fa-paper-plane"></i>&nbsp;Enviar</button>
+                            <button class="btn btn-primary" @click.prevent="sendMsg()"><i class="fas fa-paper-plane"></i>&nbsp;Enviar</button>
                         </span>
                     </div>
                 </div>
@@ -120,6 +115,7 @@
                 users: {},
                 allMessages: {},
                 selectedUser: '',
+			    msg:'',
             }
         },
 
@@ -143,10 +139,21 @@
                 axios.get('/user-message/'+userId)
                 .then((res) => {
                     this.allMessages = res.data;
-                    this.selectedUsers = userId;
+                    this.selectedUser = userId;
                 }).catch((err) => {
 
                 });
+            },
+
+            sendMsg(){
+                axios.post('/send-message',{ receiver_id:this.selectedUser,msg:this.msg })
+                .then((res) => {
+                    this.msg = "";
+                    this.userMessage(this.selectedUser);
+                    console.log(res.data);
+                }).catch((err) => {
+                    this.errors = err.response.data.errors;
+                })
             },
 
         },

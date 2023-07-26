@@ -10209,7 +10209,8 @@ En resources/js/components/ChatMessage.vue
 ```
 Listo!
 ## 245. Live Chat Application In User Page Part 7
-
+Listo!
 ## 246. Update Date Format With Moment
+
 ## 247. Live Chat Application for Agent Part 1
 ## 248. Live Chat Application for Agent Part 2
