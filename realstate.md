@@ -10250,5 +10250,46 @@ En resources/js/components/ChatMessage.vue
 ```
 Listo!
 ## 247. Live Chat Application for Agent Part 1
+No olvidar soportar el componente de Vue en resources/views/agent/agent_dashboard.blade.php
+```php
+<title>Panel Agente - Real State</title>
 
+{{-- Para soportar en nuestro frontend el nuevo componente de vue components/SendMessage.vue--}}
+@vite(['resources/js/app.js'])
+```
+
+En resources/views/agent/body/sidebar.blade.php
+```php
+<li class="nav-item">
+    <a href="{{ route('agent.live.chat') }}" class="nav-link">
+        <i data-feather="shuffle"></i>
+        <span class="link-title">Live Chat</span>
+    </a>
+</li>
+```
+
+En routes/web.php, en el grupo de Agent!
+```php
+ // Live Chat
+Route::controller(ChatController::class)->group(function(){
+    Route::get('/agent/live/chat', 'AgentLiveChat')->name('agent.live.chat');
+});
+```
+
+En app/Http/Controllers/Backend/ChatController.php
+```php
+public function AgentLiveChat(){
+    return view('agent.message.live_chat');
+}
+```
+
+En resources/views/agent/message/live_chat.blade.php
+```php
+{{-- Desplegar componente de vue --}}
+<div id="app">
+    <chat-message></chat-message>
+</div>
+```
+listo!
 ## 248. Live Chat Application for Agent Part 2
+

@@ -14,6 +14,9 @@
 
     <title>Panel Agente - Real State</title>
 
+    {{-- Para soportar en nuestro frontend el nuevo componente de vue components/SendMessage.vue--}}
+    @vite(['resources/js/app.js'])
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

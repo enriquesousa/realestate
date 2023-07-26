@@ -135,7 +135,7 @@
                 <li class="nav-item nav-category">Components</li>
 
                 {{-- UI Kit --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                         aria-controls="uiComponents">
                         <i class="link-icon" data-feather="feather"></i>
@@ -152,26 +152,13 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
 
-                {{-- Advanced UI --}}
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
-                        aria-controls="advancedUI">
-                        <i class="link-icon" data-feather="anchor"></i>
-                        <span class="link-title">Advanced UI</span>
-                        <i class="link-arrow" data-feather="chevron-down"></i>
+                    <a href="{{ route('agent.live.chat') }}" class="nav-link">
+                        <i data-feather="shuffle"></i>
+                        <span class="link-title">Live Chat</span>
                     </a>
-                    <div class="collapse" id="advancedUI">
-                        <ul class="nav sub-menu">
-                            <li class="nav-item">
-                                <a href="pages/advanced-ui/cropper.html" class="nav-link">Cropper</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Owl carousel</a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
 
