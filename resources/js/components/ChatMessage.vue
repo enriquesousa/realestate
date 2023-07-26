@@ -126,6 +126,11 @@
         // Este método se ejecuta al hacer refresh de la pagina
         created(){
             this.getAllUser();
+
+            // Refresca componente cada segundo
+            setInterval(() => {
+                  this.userMessage(this.selectedUser);
+                },1000);
         },
 
         methods:{

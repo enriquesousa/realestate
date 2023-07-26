@@ -10292,4 +10292,20 @@ En resources/views/agent/message/live_chat.blade.php
 ```
 listo!
 ## 248. Live Chat Application for Agent Part 2
+Por ultimo para que se refresque el componente de ChatMessage Automatico cada segundo.
+En resources/js/components/ChatMessage.vue
+```php
+// Este método se ejecuta al hacer refresh de la pagina
+created(){
+    this.getAllUser();
+
+    // Refresca componente cada segundo
+    setInterval(() => {
+            this.userMessage(this.selectedUser);
+        },1000);
+},
+```
+Listo!
+Solo falto como desplegar las photo en Agent Live Chat!
+
 
