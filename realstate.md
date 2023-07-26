@@ -10122,8 +10122,94 @@ public function user(){
 ```
 Listo!
 ## 244. Live Chat Application In User Page Part 6
+En resources/js/components/ChatMessage.vue
+```php
+ <!-- side derecho -->
+<div class="col-md-10" v-if="allMessages.user">
+    <div class="card">
 
+        <!-- card-header text-center -->
+        <div class="card-header text-center myrow">
+            <!-- Usuario seleccionado -->
+            <strong> {{ allMessages.user.name }} </strong>
+        </div>
+
+        <!-- card-body chat-msg -->
+        <div class="card-body chat-msg">
+            <ul class="chat" v-for="(msg,index) in allMessages.messages" :key="index">
+
+                <!-- agent chat -->
+                <li class="sender clearfix" v-if="allMessages.user.id === msg.sender_id">
+
+                    <!-- agent chat-img -->
+                    <span class="chat-img left clearfix mx-2">
+                        <img :src="'/upload/agent_images/'+msg.user.photo" class="userImg" alt="userImg"/>
+                    </span>
+
+                    <!-- chat-body2 name and time -->
+                    <div class="chat-body2 clearfix">
+                        <div class="header clearfix">
+                            <!-- user name -->
+                            <strong class="primary-font">{{ msg.user.name }}</strong>
+                            <!-- time -->
+                            <small class="right text-muted">{{ msg.created_at }}</small>
+                        </div>
+
+                        <!-- mensaje -->
+                        <p>{{ msg.msg }}</p>
+                    </div>
+
+                </li>
+
+                <!-- user chat -->
+                <li class="buyer clearfix" v-else>
+
+                    <!-- agent chat-img -->
+                    <span class="chat-img right clearfix mx-2">
+                        <img :src="'/upload/user_images/'+msg.user.photo" class="userImg" alt="userImg"/>
+                    </span>
+
+                    <div class="chat-body clearfix">
+
+                        <div class="header clearfix">
+
+                            <small class="left text-muted">{{ msg.created_at }}</small>
+                            <strong class="right primary-font">{{ msg.user.name }}</strong>
+
+                        </div>
+                        <p>{{ msg.msg }}</p>
+                    </div>
+
+                </li>
+
+                <li class="sender clearfix">
+                    <span class="chat-img left clearfix mx-2"> </span>
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- card-footer -->
+        <div class="card-footer">
+            <div class="input-group">
+                <input
+                    id="btn-input"
+                    type="text"
+                    class="form-control input-sm"
+                    placeholder="Entre su mensaje aquí..."
+                />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary"><i class="fas fa-paper-plane"></i>&nbsp;Enviar</button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+```
+Listo!
 ## 245. Live Chat Application In User Page Part 7
+
 ## 246. Update Date Format With Moment
 ## 247. Live Chat Application for Agent Part 1
 ## 248. Live Chat Application for Agent Part 2

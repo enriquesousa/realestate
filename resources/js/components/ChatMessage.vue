@@ -26,77 +26,71 @@
         </div>
 
         <!-- side derecho -->
-        <div class="col-md-10">
+        <div class="col-md-10" v-if="allMessages.user">
             <div class="card">
+
+                <!-- card-header text-center -->
                 <div class="card-header text-center myrow">
-                    <strong> Usuarios Seleccionados </strong>
+                    <!-- Usuario seleccionado -->
+                    <strong> {{ allMessages.user.name }} </strong>
                 </div>
+
+                <!-- card-body chat-msg -->
                 <div class="card-body chat-msg">
-                    <ul class="chat">
-                        <li class="sender clearfix">
+                    <ul class="chat" v-for="(msg,index) in allMessages.messages" :key="index">
+
+                        <!-- agent chat -->
+                        <li class="sender clearfix" v-if="allMessages.user.id === msg.sender_id">
+
+                            <!-- agent chat-img -->
                             <span class="chat-img left clearfix mx-2">
-                                <img
-                                    src="/frontend/avatar-2.png"
-                                    class="userImg"
-                                    alt="userImg"
-                                />
+                                <img :src="'/upload/agent_images/'+msg.user.photo" class="userImg" alt="userImg"/>
                             </span>
+
+                            <!-- chat-body2 name and time -->
                             <div class="chat-body2 clearfix">
                                 <div class="header clearfix">
-                                    <strong class="primary-font"
-                                        >Username1</strong
-                                    >
-                                    <small class="right text-muted">
-                                        11:30am
-                                    </small>
-                                    <!-- //if send with product id  -->
-                                    <div class="text-center">
-                                        product name
-                                        <img
-                                            src="/frontend/avatar-3.png"
-                                            alt="productImg"
-                                            width="60px;"
-                                        />
-                                    </div>
+                                    <!-- user name -->
+                                    <strong class="primary-font">{{ msg.user.name }}</strong>
+                                    <!-- time -->
+                                    <small class="right text-muted">{{ msg.created_at }}</small>
                                 </div>
 
-                                <p>Hi..</p>
+                                <!-- mensaje -->
+                                <p>{{ msg.msg }}</p>
                             </div>
+
                         </li>
 
-                        <!-- my part  -->
-                        <li class="buyer clearfix">
+                        <!-- user chat -->
+                        <li class="buyer clearfix" v-else>
+
+                            <!-- agent chat-img -->
                             <span class="chat-img right clearfix mx-2">
-                                <img
-                                    src="/frontend/avatar-4.png"
-                                    class="userImg"
-                                    alt="userImg"
-                                />
+                                <img :src="'/upload/user_images/'+msg.user.photo" class="userImg" alt="userImg"/>
                             </span>
+
                             <div class="chat-body clearfix">
+
                                 <div class="header clearfix">
-                                    <small class="left text-muted"
-                                        >12:10pm</small
-                                    >
-                                    <!-- <strong class="right primary-font">Myusername </strong> //my name   -->
-                                    <div class="text-center">
-                                        Product name
-                                        <img
-                                            src="/frontend/avatar-5.png"
-                                            alt="prouductImage"
-                                            width="60px;"
-                                        />
-                                    </div>
+
+                                    <small class="left text-muted">{{ msg.created_at }}</small>
+                                    <strong class="right primary-font">{{ msg.user.name }}</strong>
+
                                 </div>
-                                <p>Hello...</p>
+                                <p>{{ msg.msg }}</p>
                             </div>
+
                         </li>
 
                         <li class="sender clearfix">
                             <span class="chat-img left clearfix mx-2"> </span>
                         </li>
+
                     </ul>
                 </div>
+
+                <!-- card-footer -->
                 <div class="card-footer">
                     <div class="input-group">
                         <input
@@ -110,6 +104,7 @@
                         </span>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -141,7 +136,7 @@
                     this.users = res.data;
                 }).catch((err) => {
 
-                })
+                });
             },
 
             userMessage(userId){
@@ -151,7 +146,7 @@
                     this.selectedUsers = userId;
                 }).catch((err) => {
 
-                })
+                });
             },
 
         },
