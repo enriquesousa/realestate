@@ -10211,6 +10211,44 @@ Listo!
 ## 245. Live Chat Application In User Page Part 7
 Listo!
 ## 246. Update Date Format With Moment
+Para format la fecha en JS, visitar:
+https://momentjs.com/
 
+Para instalar momentjs
+```php
+npm install moment --save
+```
+
+Ahi podemos ver Format Dates
+```php
+moment().format('MMMM Do YYYY, h:mm:ss a'); // July 25th 2023, 7:35:09 pm
+moment().format('dddd');                    // Tuesday
+moment().format("MMM Do YY");               // Jul 25th 23
+moment().format('YYYY [escaped] YYYY');     // 2023 escaped 2023
+moment().format();                          // 2023-07-25T19:35:09-07:00
+```
+
+En resources/js/components/ChatMessage.vue
+```php
+...
+<small class="right text-muted">{{ DateTime(msg.created_at) }}</small>
+...
+<small class="left text-muted">{{ DateTime(msg.created_at) }}</small>
+...
+<script>
+
+    import moment from 'moment';
+    export default {
+    ...
+
+        DateTime(value){
+            return moment().format("D MMM YY, h:mm a");
+        },
+
+    };
+</script>
+```
+Listo!
 ## 247. Live Chat Application for Agent Part 1
+
 ## 248. Live Chat Application for Agent Part 2

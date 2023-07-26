@@ -53,7 +53,7 @@
                                     <!-- user name -->
                                     <strong class="primary-font">{{ msg.user.name }}</strong>
                                     <!-- time -->
-                                    <small class="right text-muted">{{ msg.created_at }}</small>
+                                    <small class="right text-muted">{{ DateTime(msg.created_at) }}</small>
                                 </div>
 
                                 <!-- mensaje -->
@@ -74,7 +74,7 @@
 
                                 <div class="header clearfix">
 
-                                    <small class="left text-muted">{{ msg.created_at }}</small>
+                                    <small class="left text-muted">{{ DateTime(msg.created_at) }}</small>
                                     <strong class="right primary-font">{{ msg.user.name }}</strong>
 
                                 </div>
@@ -108,6 +108,9 @@
 </template>
 
 <script>
+
+    import moment from 'moment';
+
     export default {
 
         data(){
@@ -116,6 +119,7 @@
                 allMessages: {},
                 selectedUser: '',
 			    msg:'',
+                moment: moment,
             }
         },
 
@@ -154,6 +158,10 @@
                 }).catch((err) => {
                     this.errors = err.response.data.errors;
                 })
+            },
+
+            DateTime(value){
+                return moment().format("D MMM YY, h:mm a");
             },
 
         },
