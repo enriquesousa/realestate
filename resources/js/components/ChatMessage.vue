@@ -42,18 +42,26 @@
                         <!-- agent chat -->
                         <li class="sender clearfix" v-if="allMessages.user.id === msg.sender_id">
 
+
                             <!-- agent chat-img -->
-                            <span class="chat-img left clearfix mx-2">
+                            <!-- <span class="chat-img left clearfix mx-2">
                                 <img :src="'/upload/agent_images/'+msg.user.photo" class="userImg" alt="userImg"/>
+                            </span> -->
+
+                            <!-- generic user photo -->
+                            <span class="chat-img left clearfix mx-2">
+                                <img :src="'/upload/'+'user-chat.png'" class="userImg" alt="userImg"/>
                             </span>
+
 
                             <!-- chat-body2 name and time -->
                             <div class="chat-body2 clearfix">
                                 <div class="header clearfix">
-                                    <!-- user name -->
-                                    <strong class="primary-font">{{ msg.user.name }}</strong>
                                     <!-- time -->
                                     <small class="right text-muted">{{ DateTime(msg.created_at) }}</small>
+                                    <br>
+                                    <!-- user name -->
+                                    <strong class="primary-font">{{ msg.user.name }}</strong>
                                 </div>
 
                                 <!-- mensaje -->
@@ -67,7 +75,13 @@
 
                             <!-- agent chat-img -->
                             <span class="chat-img right clearfix mx-2">
-                                <img :src="'/upload/user_images/'+msg.user.photo" class="userImg" alt="userImg"/>
+
+                                <!-- user photo -->
+                                <!-- <img :src="'/upload/user_images/'+msg.user.photo" class="userImg" alt="userImg"/> -->
+
+                                <!-- generic user photo -->
+                                <img :src="'/upload/'+'user-chat.png'" class="userImg" alt="userImg"/>
+
                             </span>
 
                             <div class="chat-body clearfix">

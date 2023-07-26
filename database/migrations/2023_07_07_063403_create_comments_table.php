@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('subject');
             $table->text('message');
             $table->boolean('aprobado');
-            $table->boolean('leido');
+            $table->boolean('leido')->default(false);
 
             $table->timestamps();
         });
