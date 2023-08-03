@@ -16,4 +16,6 @@ npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
-/.vscode
+
+# comentar vscode para poder guardar a github los bookmarks
+# /.vscode

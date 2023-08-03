@@ -1,0 +1,34 @@
+{
+	"files": [
+		{
+			"path": "app/Providers/AppServiceProvider.php",
+			"bookmarks": [
+				{
+					"line": 46,
+					"column": 41,
+					"label": "Para Convertir a formato Money"
+				}
+			]
+		},
+		{
+			"path": "resources/views/agent/property/add_property.blade.php",
+			"bookmarks": [
+				{
+					"line": 407,
+					"column": 31,
+					"label": "Validation  JS para money o precio en add property"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/AgentController.php",
+			"bookmarks": [
+				{
+					"line": 76,
+					"column": 33,
+					"label": "Validation Rule Ignore This ID"
+				}
+			]
+		}
+	]
+}
