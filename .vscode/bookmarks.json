@@ -1,12 +1,42 @@
 {
 	"files": [
 		{
+			"path": "resources/js/components/ChatMessage.vue",
+			"bookmarks": [
+				{
+					"line": 50,
+					"column": 51,
+					"label": "generic user photo para Live Chat"
+				}
+			]
+		},
+		{
+			"path": "resources/views/backend/users/add_user.blade.php",
+			"bookmarks": [
+				{
+					"line": 62,
+					"column": 37,
+					"label": "phone input mask solo para eset tema"
+				},
+				{
+					"line": 144,
+					"column": 26,
+					"label": "Format phone number "
+				}
+			]
+		},
+		{
 			"path": "app/Providers/AppServiceProvider.php",
 			"bookmarks": [
 				{
 					"line": 46,
 					"column": 41,
 					"label": "Para Convertir a formato Money"
+				},
+				{
+					"line": 47,
+					"column": 45,
+					"label": "Para fomat money dinero en blde"
 				}
 			]
 		},
@@ -27,6 +57,46 @@
 					"line": 76,
 					"column": 33,
 					"label": "Validation Rule Ignore This ID"
+				}
+			]
+		},
+		{
+			"path": "resources/views/frontend/frontend_dashboard.blade.php",
+			"bookmarks": [
+				{
+					"line": 9,
+					"column": 34,
+					"label": "Titulo de la pesatna, asi podemos cambiar el titulo de cada pesatana"
+				}
+			]
+		},
+		{
+			"path": "resources/views/frontend/index.blade.php",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 59,
+					"label": "Titulo: Inmobiliaria Fácil - Frontend Pagina Principal"
+				}
+			]
+		},
+		{
+			"path": "resources/views/frontend/dashboard/compare.blade.php",
+			"bookmarks": [
+				{
+					"line": 69,
+					"column": 23,
+					"label": "Pendiente: Agregar Delete de mis comparativos en tabla"
+				}
+			]
+		},
+		{
+			"path": "resources/views/agent/property/details_property.blade.php",
+			"bookmarks": [
+				{
+					"line": 33,
+					"column": 73,
+					"label": "covert to money dinero format"
 				}
 			]
 		}

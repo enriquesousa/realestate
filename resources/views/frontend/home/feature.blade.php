@@ -13,8 +13,8 @@
 <section class="feature-section sec-pad bg-color-1">
     <div class="auto-container">
 
+        {{-- Titulo: Propiedades Populares --}}
         <div class="sec-title centred">
-            {{-- <h5>Features</h5> --}}
             <h5>Populares</h5>
             <h2>Propiedades Populares</h2>
             <p>A continuación listamos las propiedades mas populares, debido a su buena ubicación e insuperables precios, esperemos que sean de su agrado.<br/>Nuestras propiedades siempre están respaldadas por nuestra garantía de entera satisfacción de nuestros clientes.</p>

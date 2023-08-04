@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Amenities;
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -40,8 +41,10 @@ class CompareController extends Controller
     // UserCompare - compara propiedades
     public function UserCompare(){
 
-        return view('frontend.dashboard.compare');
+        $compare = Compare::where('user_id', Auth::id())->limit(3)->get();
+        $comodidades = Amenities::all();
 
+        return view('frontend.dashboard.compare', compact('compare', 'comodidades'));
     }
 
     // GetCompareProperty
