@@ -1,6 +1,10 @@
 @extends('frontend.frontend_dashboard')
 @section('main')
 
+{{-- Para no cargar el preload --}}
+@php
+    Config::set('custom.display_preload', false)
+@endphp
 
 <!--Page Title-->
 <section class="page-title-two bg-color-1 centred">
@@ -40,7 +44,26 @@
 </section> --}}
 <!-- properties-section end -->
 
+@if ($compare->isEmpty())
 
+<section class="page-title-two bg-color-1 centred">
+    <div class="pattern-layer">
+        <div class="pattern-1" style="background-image: url({{ asset('frontend/assets/images/shape/shape-9.png') }});">
+        </div>
+        <div class="pattern-2" style="background-image: url({{ asset('frontend/assets/images/shape/shape-10.png') }});">
+        </div>
+    </div>
+    <div class="auto-container">
+        <div class="content-box clearfix">
+            <h3 class="" style="color: red; font-weight: semi-bold;">No hay propiedades para comparar</h3>
+            <ul class="bread-crumb clearfix">
+                <li><a href="{{ route('dashboard') }}">Regresar al panel de control</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+@else
 
 <!-- properties-section sin JS! -->
 <section class="properties-section centred">
@@ -52,6 +75,8 @@
 
                     <tr>
                         <th>Información Propiedad</th>
+
+
 
                         @foreach ($compare as $item)
 
@@ -438,6 +463,9 @@
     </div>
 </section>
 <!-- properties-section end -->
+
+@endif
+
 
 
 

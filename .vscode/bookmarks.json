@@ -67,6 +67,16 @@
 					"line": 9,
 					"column": 34,
 					"label": "Titulo de la pesatna, asi podemos cambiar el titulo de cada pesatana"
+				},
+				{
+					"line": 116,
+					"column": 15,
+					"label": "config del toaster message en frontend dashboard"
+				},
+				{
+					"line": 343,
+					"column": 29,
+					"label": "addToCompare JS en frontend dashboard"
 				}
 			]
 		},
@@ -84,7 +94,12 @@
 			"path": "resources/views/frontend/dashboard/compare.blade.php",
 			"bookmarks": [
 				{
-					"line": 74,
+					"line": 3,
+					"column": 30,
+					"label": "Para no cargar el preload en compare.blade"
+				},
+				{
+					"line": 99,
 					"column": 23,
 					"label": "Pendiente: Agregar Delete de mis comparativos en tabla"
 				}
@@ -127,6 +142,16 @@
 					"line": 139,
 					"column": 73,
 					"label": "para delete de sweet alert 2"
+				}
+			]
+		},
+		{
+			"path": "resources/views/frontend/home/feature.blade.php",
+			"bookmarks": [
+				{
+					"line": 76,
+					"column": 67,
+					"label": "boton compare en frontend"
 				}
 			]
 		}

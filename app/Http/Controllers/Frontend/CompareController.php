@@ -20,13 +20,26 @@ class CompareController extends Controller
         if (Auth::check()) {
             $exists = Compare::where('user_id', Auth::id())->where('property_id', $property_id)->first();
 
+
             if (!$exists) {
-                Compare::insert([
-                    'user_id' => Auth::id(),
-                    'property_id' => $property_id,
-                    'created_at' => Carbon::now(),
-                ]);
-                return response()->json(['success' => 'Se añadió con éxito a tu lista de comparativos!']);
+
+                $count = Compare::where('user_id', Auth::id())->count();
+
+                if ($count < 3) {
+
+                    Compare::insert([
+                        'user_id' => Auth::id(),
+                        'property_id' => $property_id,
+                        'created_at' => Carbon::now(),
+                    ]);
+                    return response()->json(['success' => 'Se añadió con éxito a tu lista de comparativos!']);
+
+                } else {
+                    return response()->json(['error' => 'No puedes comparar mas de 3 propiedades!']);
+                }
+
+
+
             }
             else{
                 return response()->json(['error' => 'Esta propiedad ya esta en tu lista de comparativos!']);
@@ -69,7 +82,7 @@ class CompareController extends Controller
 
         $notification = array(
             'message' => 'Propiedad Eliminada de la Comparación',
-            'alert-type' => 'success'
+            'alert-type' => 'warning',
         );
         return redirect(route('user.compare'))->with($notification);
     }
