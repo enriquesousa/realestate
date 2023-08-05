@@ -23,7 +23,10 @@
         @endif
 
 
-        <li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Configuración</a></li>
+        <li><a href="{{ route('user.profile') }}"><i class="fa fa-cog" aria-hidden="true"></i> Editar Perfil</a></li>
+
+        <li><a href="{{ route('user.change.password') }}"><i class="fa fa-key" aria-hidden="true"></i> Cambiar Contraseña</a></li>
+
 
         {{-- <li><a href="{{ route('user.schedule.request') }}"><i class="fas fa-calendar-day" aria-hidden="true"></i> Citas<span class="badge badge-info"> ({{ $citas_user->count() }}) </span></a></li> --}}
 
@@ -35,7 +38,6 @@
 
         <li><a href="{{ route('live.chat') }}"><i class="fas fa-comments"></i>&nbsp;&nbsp; Chat en Vivo</a></li>
 
-        <li><a href="{{ route('user.change.password') }}"><i class="fa fa-key" aria-hidden="true"></i> Cambiar Contraseña</a></li>
 
         <li><a href="{{ route('user.logout') }}"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i> Cerrar Sesión</a></li>
 

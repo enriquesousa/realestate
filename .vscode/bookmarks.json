@@ -84,7 +84,7 @@
 			"path": "resources/views/frontend/dashboard/compare.blade.php",
 			"bookmarks": [
 				{
-					"line": 69,
+					"line": 74,
 					"column": 23,
 					"label": "Pendiente: Agregar Delete de mis comparativos en tabla"
 				}
@@ -97,6 +97,36 @@
 					"line": 33,
 					"column": 73,
 					"label": "covert to money dinero format"
+				}
+			]
+		},
+		{
+			"path": "realstate.md",
+			"bookmarks": [
+				{
+					"line": 2030,
+					"column": 70,
+					"label": "para el delete de sweet alert 2"
+				}
+			]
+		},
+		{
+			"path": "public/backend/assets/js/code/code.js",
+			"bookmarks": [
+				{
+					"line": 1,
+					"column": 41,
+					"label": "delete para sweet alert 2 se pone como id en el a tag del delete"
+				}
+			]
+		},
+		{
+			"path": "resources/views/admin/admin_dashboard.blade.php",
+			"bookmarks": [
+				{
+					"line": 139,
+					"column": 73,
+					"label": "para delete de sweet alert 2"
 				}
 			]
 		}

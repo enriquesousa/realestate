@@ -51,6 +51,7 @@ Route::post('/add-to-wishList/{property_id}', [WishlistController::class, 'AddTo
 
 // Para Compare
 Route::post('/add-to-compare/{property_id}', [CompareController::class, 'AddToCompare']);
+Route::get('/compare/delete/{id}', [CompareController::class, 'DeleteCompare'])->name('compare.delete');
 
 // Para formulario de enviar mensaje en resources/views/frontend/property/property_details.blade.php
 Route::post('/property/message', [IndexController::class, 'PropertyMessage'])->name('property.message');

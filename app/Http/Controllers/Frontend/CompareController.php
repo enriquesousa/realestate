@@ -62,4 +62,16 @@ class CompareController extends Controller
         return response()->json(['success' => 'Propiedad removida con éxito!']);
     }
 
+    // DeleteCompare, lo mano llamar de resources/views/frontend/dashboard/compare.blade.php
+    public function DeleteCompare($id){
+
+        Compare::where('user_id', Auth::id())->where('id', $id)->delete();
+
+        $notification = array(
+            'message' => 'Propiedad Eliminada de la Comparación',
+            'alert-type' => 'success'
+        );
+        return redirect(route('user.compare'))->with($notification);
+    }
+
 }

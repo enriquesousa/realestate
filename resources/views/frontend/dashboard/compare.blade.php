@@ -56,9 +56,14 @@
                         @foreach ($compare as $item)
 
                             <th>
-                                <figure class="image-box"><img src="{{ asset($item->property->property_thambnail) }}" alt=""></figure>
+                                <figure class="image-box">
+                                    <img src="{{ asset($item->property->property_thambnail) }}" alt="">
+                                </figure>
+
                                 <div class="title">{{ $item->property->property_name }}</div>
                                 <div class="price">$ @convert($item->property->lowest_price)</div>
+
+                                <a href="{{ route('compare.delete', $item->id) }}" class="batch" style="color: red;" title="Eliminar de la Comparación"><i class="fas fa-trash-alt"></i></a>
                             </th>
 
                         @endforeach
