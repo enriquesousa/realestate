@@ -99,6 +99,11 @@
 					"label": "Para no cargar el preload en compare.blade"
 				},
 				{
+					"line": 57,
+					"column": 106,
+					"label": "color de texto en h3 en forntend"
+				},
+				{
 					"line": 99,
 					"column": 23,
 					"label": "Pendiente: Agregar Delete de mis comparativos en tabla"
@@ -142,6 +147,16 @@
 					"line": 139,
 					"column": 73,
 					"label": "para delete de sweet alert 2"
+				}
+			]
+		},
+		{
+			"path": "app/Http/Controllers/Frontend/CompareController.php",
+			"bookmarks": [
+				{
+					"line": 82,
+					"column": 14,
+					"label": "notificacion mensaje toaster frontend"
 				}
 			]
 		},

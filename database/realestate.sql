@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2023 at 05:51 PM
+-- Generation Time: Aug 07, 2023 at 01:47 PM
 -- Server version: 8.0.33-0ubuntu0.20.04.2
 -- PHP Version: 8.2.8
 
@@ -41,7 +41,7 @@ CREATE TABLE `amenities` (
 INSERT INTO `amenities` (`id`, `amenities_name`, `created_at`, `updated_at`) VALUES
 (1, 'Aire Acondicionado', NULL, NULL),
 (2, 'Servicio de Limpieza', NULL, NULL),
-(3, 'SLavadora y Secadora', NULL, NULL),
+(3, 'Lavadora', NULL, NULL),
 (4, 'Pisos de Madera', NULL, NULL),
 (5, 'Alberca', NULL, NULL),
 (6, 'Regadera externa', NULL, NULL),
@@ -51,7 +51,8 @@ INSERT INTO `amenities` (`id`, `amenities_name`, `created_at`, `updated_at`) VAL
 (10, 'Admite Mascotas', NULL, NULL),
 (11, 'Cancha de Basket Ball', NULL, NULL),
 (12, 'Cancha de Tenis', NULL, NULL),
-(13, 'Gimnasio', NULL, NULL);
+(13, 'Gimnasio', NULL, NULL),
+(14, 'Secadora', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -106,6 +107,38 @@ INSERT INTO `blog_posts` (`id`, `blogcat_id`, `user_id`, `post_title`, `post_slu
 (1, 5, 1, 'Aguascalientes', 'aguascalientes', 'upload/post/post1.jpg', 'Aguascalientes, oficialmente Estado Libre y Soberano de Aguascalientes, es uno de los treinta y un estados que, junto con la Ciudad de México, conforman México; se ubica en la región centro norte de México y parte del Bajío mexicano.​ Su capital y ciudad más poblada es Aguascalientes. Se divide en once municipios.', '<p><strong>Aguascalientes</strong>, oficialmente <strong>Estado Libre y Soberano de Aguascalientes</strong>, es uno de los <a title=\"Organizaci&oacute;n territorial de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Organizaci%C3%B3n_territorial_de_M%C3%A9xico\">treinta y un estados</a> que, junto con la <a title=\"Ciudad de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Ciudad_de_M%C3%A9xico\">Ciudad de M&eacute;xico</a>, conforman <a title=\"M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/M%C3%A9xico\">M&eacute;xico</a>; se ubica en la regi&oacute;n <a title=\"Centronorte de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Centronorte_de_M%C3%A9xico\">centronorte de M&eacute;xico</a> y parte del <a class=\"mw-redirect\" title=\"El Baj&iacute;o (M&eacute;xico)\" href=\"https://es.wikipedia.org/wiki/El_Baj%C3%ADo_(M%C3%A9xico)\">Baj&iacute;o</a> mexicano.<sup id=\"cite_ref-12\" class=\"reference separada\"></sup>​ Su capital y ciudad m&aacute;s poblada es <a class=\"mw-redirect\" title=\"Aguascalientes (M&eacute;xico)\" href=\"https://es.wikipedia.org/wiki/Aguascalientes_(M%C3%A9xico)\">Aguascalientes</a>. Se divide en <a title=\"Anexo:Municipios de Aguascalientes\" href=\"https://es.wikipedia.org/wiki/Anexo:Municipios_de_Aguascalientes\">once municipios</a>.</p>\n                    <p>Previo a la <a title=\"Conquista de Am&eacute;rica\" href=\"https://es.wikipedia.org/wiki/Conquista_de_Am%C3%A9rica\">conquista de Am&eacute;rica</a>, el territorio fue punto de encuentro de distintos aguerridos se&ntilde;or&iacute;os <a class=\"mw-redirect\" title=\"Chichimecas\" href=\"https://es.wikipedia.org/wiki/Chichimecas\">chichimecas</a>. Los espa&ntilde;oles establecieron peque&ntilde;as poblaciones coloniales desde mediados del siglo&nbsp;<span style=\"font-variant: small-caps; text-transform: lowercase;\">XVI</span>, incluida la actual capital, y el territorio perteneci&oacute; a la <a title=\"Nueva Galicia\" href=\"https://es.wikipedia.org/wiki/Nueva_Galicia\">Nueva Galicia</a> (Jalisco) durante casi toda la colonia; donde desempe&ntilde;aba un rol agropecuario y de punto de descanso en la <a title=\"Ruta de la Plata (M&eacute;xico)\" href=\"https://es.wikipedia.org/wiki/Ruta_de_la_Plata_(M%C3%A9xico)\">Ruta de la Plata</a>. Pas&oacute; a ser parte de <a title=\"Zacatecas\" href=\"https://es.wikipedia.org/wiki/Zacatecas\">Zacatecas</a> brevemente, pues fue declarado territorio independiente en 1835 mientras el estado vecino <a title=\"Rebeli&oacute;n en Zacatecas de 1835\" href=\"https://es.wikipedia.org/wiki/Rebeli%C3%B3n_en_Zacatecas_de_1835\">se sublevaba</a>, aunque no fue sino hasta la <a title=\"Constituci&oacute;n Federal de los Estados Unidos Mexicanos (1857)\" href=\"https://es.wikipedia.org/wiki/Constituci%C3%B3n_Federal_de_los_Estados_Unidos_Mexicanos_(1857)\">Constituci&oacute;n de 1857</a> que fue reconocido como estado. La <a title=\"Porfiriato\" href=\"https://es.wikipedia.org/wiki/Porfiriato\">&eacute;poca porfiriana</a> benefici&oacute; enormemente a Aguascalientes con la industria del <a title=\"Ferrocarril Central Mexicano\" href=\"https://es.wikipedia.org/wiki/Ferrocarril_Central_Mexicano\">Ferrocarril Central Mexicano</a>, provocando una explosi&oacute;n poblacional y art&iacute;stica.<sup id=\"cite_ref-14\" class=\"reference separada\"></sup>​ Hosped&oacute; la <a title=\"Convenci&oacute;n de Aguascalientes\" href=\"https://es.wikipedia.org/wiki/Convenci%C3%B3n_de_Aguascalientes\">Convenci&oacute;n Revolucionaria de 1914</a>, y luego fue escenario de la <a title=\"Guerra Cristera\" href=\"https://es.wikipedia.org/wiki/Guerra_Cristera\">Guerra Cristera</a>. Desde la d&eacute;cada de 1980 ha vuelto a entrar en una explosi&oacute;n demogr&aacute;fica, a manos de la industria textil, automotriz y electr&oacute;nica; sin dejar de lado las actividades agropecuarias. Es reconocido como uno de los estados m&aacute;s seguros y de mayor crecimiento econ&oacute;mico de M&eacute;xico</p>', 'Bien Inmobiliario,estados,Mexico', '2023-07-06 14:57:39', NULL),
 (2, 5, 1, 'Colima', 'colima', 'upload/post/post2.jpg', 'Colima, oficialmente Estado Libre y Soberano de Colima, es uno de los treinta y un estados que, junto con la Ciudad de México, forman México.5​6​ Su capital es la ciudad homónima y la ciudad más poblada es Manzanillo. Está dividido territorialmente en diez municipios.', '<p>Fundada en <a title=\"1527\" href=\"https://es.wikipedia.org/wiki/1527\">1527</a> originalmente como Villa de San Sebasti&aacute;n, el nombre de Colima viene del n&aacute;huatl Acolman, que significa \"lugar donde tuerce el agua\" o \"lugar donde hace recodo el r&iacute;o\". El territorio de Colima, del que casi tres cuartas partes de superficie est&aacute;n cubiertas por monta&ntilde;as y colinas, queda comprendido dentro de una derivaci&oacute;n de la <a title=\"Sierra Madre del Sur\" href=\"https://es.wikipedia.org/wiki/Sierra_Madre_del_Sur\">Sierra Madre del Sur</a>, que se compone de cuatro sistemas monta&ntilde;osos.</p>\n                    <p>A pesar de ser una peque&ntilde;a entidad, Colima posee monumentos hist&oacute;ricos como su catedral bas&iacute;lica menor, construcci&oacute;n que se empez&oacute; en 1525 de estilo predominantemente neocl&aacute;sico aunque tambi&eacute;n muestra algunos rasgos arquitect&oacute;nicos de estilos barroco y g&oacute;tico; el Palacio de Gobierno, con los magn&iacute;ficos murales del pintor colimense <a class=\"new\" title=\"Jorge Ch&aacute;vez Carrillo (a&uacute;n no redactado)\" href=\"https://es.wikipedia.org/w/index.php?title=Jorge_Ch%C3%A1vez_Carrillo&amp;action=edit&amp;redlink=1\">Jorge Ch&aacute;vez Carrillo</a>, que ilustran temas hist&oacute;ricos relativos a la Conquista, la Colonizaci&oacute;n y la Guerra de Independencia. Otros lugares culturales y arquitect&oacute;nicos que destacan son: El Teatro Hidalgo, que data del siglo&nbsp;<span style=\"font-variant: small-caps; text-transform: lowercase;\">XIX</span>; el Templo de <a class=\"new\" title=\"San Francisco del Pil&oacute;n (a&uacute;n no redactado)\" href=\"https://es.wikipedia.org/w/index.php?title=San_Francisco_del_Pil%C3%B3n&amp;action=edit&amp;redlink=1\">San Francisco del Pil&oacute;n</a>, fundado en 1554; la Casa de la Cultura, con una incre&iacute;ble biblioteca, sala de exposiciones, auditorio y talleres de diversas actividades art&iacute;sticas.</p>', 'Bien Inmobiliario,estados,Mexico', '2023-07-06 14:56:20', NULL),
 (3, 5, 1, 'Baja California Norte', 'baja-california-norte', 'upload/post/post3.jpg', 'Baja California, oficialmente Estado Libre y Soberano de Baja California, el número 29, de los treinta y un estados que, junto con la Ciudad de México, conforman México.​ Su capital es Mexicali y su ciudad más poblada es Tijuana, cabecera del municipio homónimo, el más poblado del país.9​ Se encuentra dividido en siete municipios.', '<p>Se ubica en la parte norte de la <a title=\"Pen&iacute;nsula de Baja California\" href=\"https://es.wikipedia.org/wiki/Pen%C3%ADnsula_de_Baja_California\">pen&iacute;nsula de Baja California</a> en la <a title=\"Regiones de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Regiones_de_M%C3%A9xico\">regi&oacute;n</a> <a title=\"Noroeste de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Noroeste_de_M%C3%A9xico\">noroeste del pa&iacute;s</a>. Limita al norte con el estado de <a title=\"California\" href=\"https://es.wikipedia.org/wiki/California\">California</a>, al este con los estados de <a title=\"Arizona\" href=\"https://es.wikipedia.org/wiki/Arizona\">Arizona</a> y <a title=\"Sonora\" href=\"https://es.wikipedia.org/wiki/Sonora\">Sonora</a> y con el <a class=\"mw-redirect\" title=\"Mar de Cort&eacute;s\" href=\"https://es.wikipedia.org/wiki/Mar_de_Cort%C3%A9s\">golfo de California</a>, al sur con el estado de <a title=\"Baja California Sur\" href=\"https://es.wikipedia.org/wiki/Baja_California_Sur\">Baja California Sur</a> y al oeste con el <a title=\"Oc&eacute;ano Pac&iacute;fico\" href=\"https://es.wikipedia.org/wiki/Oc%C3%A9ano_Pac%C3%ADfico\">oc&eacute;ano Pac&iacute;fico</a>. Con 71 450&nbsp;km&sup2; representa el 3.6&nbsp;% del territorio nacional, siendo la duod&eacute;cima <a title=\"Anexo:Entidades federativas de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Anexo:Entidades_federativas_de_M%C3%A9xico\">entidad federativa</a> <a title=\"Anexo:Entidades federativas de M&eacute;xico por superficie, poblaci&oacute;n y densidad\" href=\"https://es.wikipedia.org/wiki/Anexo:Entidades_federativas_de_M%C3%A9xico_por_superficie,_poblaci%C3%B3n_y_densidad\">m&aacute;s grande del pa&iacute;s</a>.</p>\n                    <p>Su poblaci&oacute;n seg&uacute;n el Censo de 2020 es de 3 769 020 habitantes que presenta el 3&nbsp;% de la poblaci&oacute;n mexicana, siendo la decimocuarta entidad m&aacute;s poblada del pa&iacute;s, cercana al puesto medio de puesto diecisiete. Tambi&eacute;n es la d&eacute;cima cuarta entidad menos densamente poblada, tambi&eacute;n cercana al puesto medio.</p>\n                    <p>Su <a title=\"&Iacute;ndice de desarrollo humano\" href=\"https://es.wikipedia.org/wiki/%C3%8Dndice_de_desarrollo_humano\">&Iacute;ndice de Desarrollo Humano</a> (IDH) es uno de los m&aacute;s altos de M&eacute;xico, el cuarto a nivel nacional, calificado como muy alto.​ Adem&aacute;s es la duod&eacute;cima entidad por <a title=\"Producto interno bruto\" href=\"https://es.wikipedia.org/wiki/Producto_interno_bruto\">producto interno bruto</a> (PIB)<sup id=\"cite_ref-11\" class=\"reference separada\"></sup>​ y decimotercera en competitividad seg&uacute;n datos del IMCO.​ Debido a su posici&oacute;n geogr&aacute;fica &mdash;colindante con <a title=\"Estados Unidos\" href=\"https://es.wikipedia.org/wiki/Estados_Unidos\">Estados Unidos</a>&mdash; permite un &aacute;rea de conexi&oacute;n comercial y cultural. Tambi&eacute;n es uno de los estados m&aacute;s visitados del pa&iacute;s. El <a title=\"Valle de Guadalupe (Baja California)\" href=\"https://es.wikipedia.org/wiki/Valle_de_Guadalupe_(Baja_California)\">valle de Guadalupe</a> (<a title=\"Municipio de Ensenada\" href=\"https://es.wikipedia.org/wiki/Municipio_de_Ensenada\">Ensenada</a>) es el mayor productor de vinos en M&eacute;xico, reconocido a nivel internacional.<sup>[<em><a title=\"Wikipedia:Verificabilidad\" href=\"https://es.wikipedia.org/wiki/Wikipedia:Verificabilidad\">cita&nbsp;requerida</a></em>]</sup></p>\n                    <p>En 1931 el <a title=\"Territorio de Baja California\" href=\"https://es.wikipedia.org/wiki/Territorio_de_Baja_California\">Territorio de Baja California</a> &mdash;que hab&iacute;a sido constituido desde 1824&mdash; se dividi&oacute; y se form&oacute; el <a title=\"Territorio Norte de Baja California\" href=\"https://es.wikipedia.org/wiki/Territorio_Norte_de_Baja_California\">Territorio Norte de Baja California</a>. Dicho <a title=\"Territorios federales de M&eacute;xico\" href=\"https://es.wikipedia.org/wiki/Territorios_federales_de_M%C3%A9xico\">territorio federal</a> fue elevado de rango a estado libre y soberano el 16 de enero de 1952.</p>', 'Bien Inmobiliario,estados,Mexico', '2023-07-06 18:16:35', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_messages`
+--
+
+CREATE TABLE `chat_messages` (
+  `id` bigint UNSIGNED NOT NULL,
+  `sender_id` bigint UNSIGNED DEFAULT NULL COMMENT 'user_id',
+  `receiver_id` bigint UNSIGNED DEFAULT NULL COMMENT 'agent_id',
+  `msg` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chat_messages`
+--
+
+INSERT INTO `chat_messages` (`id`, `sender_id`, `receiver_id`, `msg`, `created_at`, `updated_at`) VALUES
+(1, 10, 6, 'Primer Mensaje de Prueba Live Chat', '2023-07-25 03:58:52', '2023-07-25 03:58:52'),
+(2, 10, 6, 'Segundo mensaje de chat live', '2023-07-25 04:03:57', '2023-07-25 04:03:57'),
+(3, 10, 6, 'Tercer mensaje de Alex a Anna R Stone', '2023-07-25 17:25:03', '2023-07-25 17:25:03'),
+(4, 10, 6, 'Cuarto Mensaje de Prueba!', '2023-07-26 02:18:49', '2023-07-26 02:18:49'),
+(5, 10, 6, 'Quinto Mensaje de Prueba', '2023-07-26 02:23:37', '2023-07-26 02:23:37'),
+(6, 10, 6, 'Sexto Mensaje de Prueba!', '2023-07-26 02:29:34', '2023-07-26 02:29:34'),
+(7, 6, 10, 'Hola soy Anna estoy aqui para ayudarte mensaje 1', '2023-07-26 03:36:18', '2023-07-26 03:36:18'),
+(8, 6, 10, 'Test2', '2023-07-26 03:39:32', '2023-07-26 03:39:32'),
+(9, 6, 10, 'Test3', '2023-07-26 03:47:50', '2023-07-26 03:47:50'),
+(10, 10, 6, 'Hola Agente Anna Test 1', '2023-07-26 03:48:27', '2023-07-26 03:48:27'),
+(11, 6, 10, 'Hola Test 4', '2023-07-26 03:48:51', '2023-07-26 03:48:51');
 
 -- --------------------------------------------------------
 
@@ -243,7 +276,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2023_07_10_170007_create_schedules_table', 2),
 (21, '2023_07_11_210708_create_smtp_settings_table', 3),
 (22, '2023_07_12_114613_create_site_settings_table', 4),
-(23, '2023_07_13_182932_create_permission_tables', 5);
+(23, '2023_07_13_182932_create_permission_tables', 5),
+(24, '2023_07_24_172229_create_chat_messages_table', 6);
 
 -- --------------------------------------------------------
 
@@ -510,7 +544,7 @@ CREATE TABLE `properties` (
 
 INSERT INTO `properties` (`id`, `ptype_id`, `amenities_id`, `property_name`, `property_slug`, `property_code`, `property_status`, `lowest_price`, `max_price`, `property_thambnail`, `short_descp`, `long_descp`, `bedrooms`, `bathrooms`, `garage`, `garage_size`, `property_size`, `property_video`, `address`, `city`, `state`, `postal_code`, `neighborhood`, `latitude`, `longitude`, `google_map`, `featured`, `hot`, `agent_id`, `status`, `created_at`, `updated_at`) VALUES
 (1, '1', 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball', 'Imi', 'imi', 'PC001', 'compra', '4300000', '4500000', 'upload/property/thambnail/p1t.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Ornare arcu odio ut sem nulla pharetra. Suspendisse interdum consectetur libero id. Sit amet commodo nulla facilisi nullam. Integer vitae justo eget magna fermentum iaculis eu non diam. Nibh ipsum consequat nisl vel pretium lectus. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Pretium vulputate sapien nec sagittis aliquam malesuada. Tortor condimentum lacinia quis vel eros. Nulla facilisi nullam vehicula ipsum. Facilisis magna etiam tempor orci eu lobortis elementum. Sed vulputate odio ut enim blandit. Auctor urna nunc id cursus metus aliquam eleifend mi. Ut sem viverra aliquet eget sit amet tellus. Elit sed vulputate mi sit amet mauris commodo.</p>', '4', '3', '1', '155', '650', NULL, 'Imi, Campeche, Campeche, Colonia Imi, C.P. 24560', 'Campeche', '4', '24560', 'Quinta Don Nacho', '19.871107', '-90.474048', NULL, '1', '1', 4, '1', '2023-07-01 19:53:34', NULL),
-(2, '1', 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball', 'Nogales', 'nogales', 'PC002', 'renta', '6250300', '6555000', 'upload/property/thambnail/p2t.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Ornare arcu odio ut sem nulla pharetra. Suspendisse interdum consectetur libero id. Sit amet commodo nulla facilisi nullam. Integer vitae justo eget magna fermentum iaculis eu non diam. Nibh ipsum consequat nisl vel pretium lectus. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Pretium vulputate sapien nec sagittis aliquam malesuada. Tortor condimentum lacinia quis vel eros. Nulla facilisi nullam vehicula ipsum. Facilisis magna etiam tempor orci eu lobortis elementum. Sed vulputate odio ut enim blandit. Auctor urna nunc id cursus metus aliquam eleifend mi. Ut sem viverra aliquet eget sit amet tellus. Elit sed vulputate mi sit amet mauris commodo.</p>', '4', '3', '1', '155', '650', NULL, 'nogales, Colonia Hipódromo Dos, C.P. 22195', 'Tijuna', '2', '22195', 'La presa', '32.494760', '-116.984320', NULL, '1', '1', 5, '1', '2023-07-02 19:53:34', '2023-07-10 23:46:19'),
+(2, '1', 'Aire Acondicionado,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball', 'Nogales', 'nogales', 'PC002', 'renta', '6250300', '6555000', 'upload/property/thambnail/p2t.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Ornare arcu odio ut sem nulla pharetra. Suspendisse interdum consectetur libero id. Sit amet commodo nulla facilisi nullam. Integer vitae justo eget magna fermentum iaculis eu non diam. Nibh ipsum consequat nisl vel pretium lectus. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Pretium vulputate sapien nec sagittis aliquam malesuada. Tortor condimentum lacinia quis vel eros. Nulla facilisi nullam vehicula ipsum. Facilisis magna etiam tempor orci eu lobortis elementum. Sed vulputate odio ut enim blandit. Auctor urna nunc id cursus metus aliquam eleifend mi. Ut sem viverra aliquet eget sit amet tellus. Elit sed vulputate mi sit amet mauris commodo.</p>', '4', '3', '1', '155', '650', NULL, 'nogales, Colonia Hipódromo Dos, C.P. 22195', 'Tijuna', '2', '22195', 'La presa', '32.494760', '-116.984320', NULL, '1', '1', 5, '1', '2023-07-02 19:53:34', '2023-08-04 22:06:56'),
 (3, '1', 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball', 'Tiburón Los Cangrejos', 'tiburon-los-cangrejos', 'PC003', 'compra', '2310000', '2490000', 'upload/property/thambnail/p3t.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Ornare arcu odio ut sem nulla pharetra. Suspendisse interdum consectetur libero id. Sit amet commodo nulla facilisi nullam. Integer vitae justo eget magna fermentum iaculis eu non diam. Nibh ipsum consequat nisl vel pretium lectus. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Pretium vulputate sapien nec sagittis aliquam malesuada. Tortor condimentum lacinia quis vel eros. Nulla facilisi nullam vehicula ipsum. Facilisis magna etiam tempor orci eu lobortis elementum. Sed vulputate odio ut enim blandit. Auctor urna nunc id cursus metus aliquam eleifend mi. Ut sem viverra aliquet eget sit amet tellus. Elit sed vulputate mi sit amet mauris commodo.</p>', '4', '2', '1', '155', '650', NULL, 'cabo San Lucas, Colonia Los Cangrejos', 'Cabo San Lucas', '3', '23473', 'Brisas del Pacifico', '22.906510', '-109.962970', NULL, '1', '1', 6, '1', '2023-07-02 19:53:34', NULL),
 (4, '1', 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball', 'Campestre Residencial', 'campestre-residencial', 'PC004', 'compra', '4200000', '4800000', 'upload/property/thambnail/p4t.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Odio pellentesque diam volutpat commodo sed egestas. Ut morbi tincidunt augue interdum velit euismod in pellentesque. Ornare arcu odio ut sem nulla pharetra. Suspendisse interdum consectetur libero id. Sit amet commodo nulla facilisi nullam. Integer vitae justo eget magna fermentum iaculis eu non diam. Nibh ipsum consequat nisl vel pretium lectus. Risus in hendrerit gravida rutrum quisque non tellus orci ac. Dictum varius duis at consectetur lorem donec massa sapien faucibus. Pretium vulputate sapien nec sagittis aliquam malesuada. Tortor condimentum lacinia quis vel eros. Nulla facilisi nullam vehicula ipsum. Facilisis magna etiam tempor orci eu lobortis elementum. Sed vulputate odio ut enim blandit. Auctor urna nunc id cursus metus aliquam eleifend mi. Ut sem viverra aliquet eget sit amet tellus. Elit sed vulputate mi sit amet mauris commodo.</p>', '4', '2', '1', '155', '650', NULL, 'eugenio garza sada #121221, Colonia Condominio Q Campestre Residencial', 'Aguacalientes', '1', '20997', 'Palo Alto', '21.910080', '-102.328910', NULL, '1', '1', 7, '1', '2023-07-03 19:53:34', NULL),
 (5, '1', 'Servicio de Limpieza,Pisos de Madera,Microondas,Estufa,Cancha de Basket Ball', 'Golf', 'golf', 'PC005', 'compra', '18250000', '18500000', 'upload/property/thambnail/p5t.png', 'Casa en venta chapultepec, tijuana, baja california 5 recámaras 5 baños 478 m tipo de vivienda: casa tipo de operación: venta superficie total: 408 m $ 18,000,000 mxn descripción casa en venta en una de las zonas más exclusivas y con ubicación privilegiada dentro del corazón de la ciudad de tijuana. esta propiedad ofrece un diseño con un concepto de unidad, espacios abiertos y luminosos que permiten la facilidad de convivencia e integración familiar, así como la funcionalidad de movilidad para personas que tengan dicha necesidad o adultos mayores.', '<p>Casa en venta chapultepec, tijuana, baja california 5 recámaras 5 baños 478 m tipo de vivienda: casa tipo de operación: venta superficie total: 408 m $ 18,000,000 mxn descripción casa en venta en una de las zonas más exclusivas y con ubicación privilegiada dentro del corazón de la ciudad de tijuana. esta propiedad ofrece un diseño con un concepto de unidad, espacios abiertos y luminosos que permiten la facilidad de convivencia e integración familiar, así como la funcionalidad de movilidad para personas que tengan dicha necesidad o adultos mayores. la casa consta de dos plantas, elevador para trasladarse al segundo piso, cuarto de visitas independiente con un baño completo, área de lavado y cuarto de servicio, espacios para almacenamiento en el interior y exterior. esta casa cuenta con espacios muy cómodos y excelentes acabados. planta baja. recibidor, sala, comedor con chimenea. cocina integral equipada. estudio. 1 recamara amplia con baño completo. planta alta 3 recámaras, dos baños completos así como un vestidor en la recámara principal. cuenta con un patio de tamaño mediano. instalaciones especiales como son: aire acondicionado paneles solares cisterna con una capacidad de 12 m3. sistema de purificación y tratamiento de agua. la casa cuenta con: terreno 408 m2 construcción 478 m2 se muestra previa cita. la casa se vende equipada y con el mobiliario mostrado en las fotografías. califica para venta de contado y crédito bancario. informes whatsapp</p>', '4', '3', '1', '155', '650', NULL, 'Avenida Buenaventura 394 #394, Colonia Campo de Golf, C.P. 22020 ', 'Tijuana', '2', '22020', 'Avenida Buenaventura', '32.506417', '-117.006866', NULL, '1', '1', 2, '1', '2023-07-01 19:53:34', NULL),
@@ -541,7 +575,8 @@ CREATE TABLE `property_messages` (
 --
 
 INSERT INTO `property_messages` (`id`, `user_id`, `agent_id`, `property_id`, `msg_name`, `msg_email`, `msg_phone`, `message`, `created_at`, `updated_at`) VALUES
-(1, 3, '6', 3, 'User', 'user@gmail.com', '(542) 836-2745', 'Mensaje para Anna R Stone de User mi correo es user@gmail.com', '2023-07-23 22:51:48', NULL);
+(1, 3, '6', 3, 'User', 'user@gmail.com', '(542) 836-2745', 'Mensaje para Anna R Stone de User mi correo es user@gmail.com', '2023-07-23 22:51:48', NULL),
+(2, 10, '6', 3, 'Alex T Schmidt', 'alex23@yahoo.com', '(936) 378-9918', NULL, '2023-07-25 03:54:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -891,9 +926,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `photo`, `phone`, `address`, `description`, `role`, `status`, `credit`, `max_credit`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$Aayb3DoZpGyllZ5kRzMxS.90KA5aDbN7.X3orHzyQaA0B2CXILdWK', 'admin.jpg', '(562) 456-6723', 'SALAMANCA ESQ AV CANAL SN NO. S/N, CIUDAD INDUSTRIAL, 36541', NULL, 'admin', 'active', '0', '0', 'vva7Eu8RPWBkTN0PVlsMfHFe3xaOuC9hYtxMlMX95jirvwN9wSAkFXMcz9z8', NULL, NULL),
+(1, 'Admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$Aayb3DoZpGyllZ5kRzMxS.90KA5aDbN7.X3orHzyQaA0B2CXILdWK', 'admin.jpg', '(562) 456-6723', 'SALAMANCA ESQ AV CANAL SN NO. S/N, CIUDAD INDUSTRIAL, 36541', NULL, 'admin', 'active', '0', '0', 'cNaeCGwjzmQAkpj7u0QNUPxQW2FuPHmdCHsveNysmtM69krYx787frEokdSQ', NULL, NULL),
 (2, 'Agent', 'agent', 'agent@gmail.com', NULL, '$2y$10$KSgdoL5ckM6gjb7VmLZ/E.2SM6v8M6yhUvnKktOfOz95wJLIwRDSe', 'agent.jpg', '(555) 156-6734', 'CARR. TAMPICO MANTE KM 11.5 SN, NIÑOS HEROES, 89359', 'Descripción para Agente \'Agent\'', 'agent', 'active', '2', '4', NULL, NULL, '2023-07-15 16:42:25'),
-(3, 'User', 'user', 'user@gmail.com', NULL, '$2y$10$0Nz.oBrfeUNy/DlSWSlkDe7Lf//yXWiNR8xB7dYxt5hzKOhxlVlaa', 'user.jpg', '(542) 836-2745', 'AV TEHUACAN SUR NO. 124, LA PAZ, 72160', NULL, 'user', 'active', '0', '0', NULL, NULL, '2023-07-18 18:06:14'),
+(3, 'User', 'user', 'user@gmail.com', NULL, '$2y$10$0Nz.oBrfeUNy/DlSWSlkDe7Lf//yXWiNR8xB7dYxt5hzKOhxlVlaa', 'user.jpg', '(664) 188-7898', 'AV TEHUACAN SUR NO. 124, LA PAZ, 72160', NULL, 'user', 'active', '0', '0', NULL, NULL, '2023-08-04 18:01:08'),
 (4, 'Shaniya Conroy', 'conroy', 'medhurst.elvis@example.com', NULL, '$2y$10$3CVYcaj1Z4qo/eQuBHB4XukC154.TesVKF2mV9fKZf.UAy3GrHkaG', 'agent4.jpg', '(341) 537-3097', '20183 Gibson Fork Suite 809Beierfurt, AZ 99581-6291', NULL, 'agent', 'active', '1', '1', NULL, NULL, NULL),
 (5, 'Julia Sandoval', 'julia', 'luis94@guardado.org', NULL, '$2y$10$gIav2ey6eOxJWS7bk6a/Yeve2wF6ST0v0Y1i/c9g.Q6B1zl66cOQO', 'agent5.jpg', '(660) 81-1313', 'Carrer Gallardo, 08, 2º E', NULL, 'agent', 'active', '1', '1', NULL, NULL, NULL),
 (6, 'Anna R Stone', 'anna', 'kenton1973@yahoo.com', NULL, '$2y$10$oImc9N4u0KQBiJjakRdQzep34vGbhbcG5ReRsJybS2AmApDKjF5Ri', 'agent6.jpg', '(951) 903-7916', 'HERIBERTO FRIAS NO. 1404, CENTRO, 82000', NULL, 'agent', 'active', '1', '1', NULL, NULL, NULL),
@@ -924,6 +959,14 @@ CREATE TABLE `wishlists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `wishlists`
+--
+
+INSERT INTO `wishlists` (`id`, `user_id`, `property_id`, `created_at`, `updated_at`) VALUES
+(1, 3, 2, '2023-08-04 18:01:41', NULL),
+(2, 3, 3, '2023-08-04 22:29:13', NULL);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -943,6 +986,12 @@ ALTER TABLE `blog_categories`
 -- Indexes for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chat_messages`
+--
+ALTER TABLE `chat_messages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1112,7 +1161,7 @@ ALTER TABLE `wishlists`
 -- AUTO_INCREMENT for table `amenities`
 --
 ALTER TABLE `amenities`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
@@ -1127,6 +1176,12 @@ ALTER TABLE `blog_posts`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `chat_messages`
+--
+ALTER TABLE `chat_messages`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
@@ -1136,7 +1191,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `compares`
 --
 ALTER TABLE `compares`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `facilities`
@@ -1154,7 +1209,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `multi_images`
@@ -1190,7 +1245,7 @@ ALTER TABLE `properties`
 -- AUTO_INCREMENT for table `property_messages`
 --
 ALTER TABLE `property_messages`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `property_types`
@@ -1250,7 +1305,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
