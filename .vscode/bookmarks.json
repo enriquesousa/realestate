@@ -169,6 +169,16 @@
 					"label": "boton compare en frontend"
 				}
 			]
+		},
+		{
+			"path": "app/Http/Controllers/Backend/PropertyController.php",
+			"bookmarks": [
+				{
+					"line": 443,
+					"column": 39,
+					"label": "pdf invoice"
+				}
+			]
 		}
 	]
 }
